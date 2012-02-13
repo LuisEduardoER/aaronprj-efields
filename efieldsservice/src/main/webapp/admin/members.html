@@ -1,0 +1,55 @@
+<table width="100%" border="0" style="background:url(images/odbg_19.png) repeat; color:#FFF">
+  <tr>
+    <td style="background:url(images/bbc_08.jpg)">Member Management
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <table width="100%" border="0">
+        <tr>
+          <td width="314"></td>
+          <td width="123">&nbsp;</td>
+          <td width="78">&nbsp;</td>
+          <td width="57">&nbsp;</td>
+          <td width="57">
+          </a>
+          </td>
+        </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr style="background-color:#CCC">
+        <td width="30" align="center">ID</td>
+        <td>Name</td>
+        <td width="120">First Name</td>
+        <td width="120">Phone</td>
+        <td width="180">E-Mail</td>
+        <td width="150">Role</td>
+      </tr>
+       {#foreach $T as user}
+       <tr id="userrow-{$T.id}">
+          <td align="center">{$T.user.id}</td>
+          <td><a href="#" name="mguser-{$T.user.id}" value="{$T.user.id}">{$T.user.userName}</a></td>
+          <td>{$T.user.firstName}</td>
+          <td>{$T.user.phoneNumber}</td>
+          <td">{$T.user.email}</td>
+          <td>{$T.user.role}</td>
+        </tr>
+    	{#/for}
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0">
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>

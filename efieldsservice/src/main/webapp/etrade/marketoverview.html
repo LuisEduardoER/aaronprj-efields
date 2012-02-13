@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="modern W3C mac mozilla firefox v9"><head><title>E*TRADE FINANCIAL - Quotes &amp; Research</title>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type">
+<script language="JavaScript" type="text/javascript">var isProspect=0;var AkamaiURL="https://cdn.etrade.net/1/1d";var etradeRootUrl="https://us.etrade.com";</script>
+<script language="JavaScript" type="text/javascript" src="marketoverview_files/jquery.js"></script>
+<script language="JavaScript" type="text/javascript" src="marketoverview_files/zp.js"></script>
+<script language="JavaScript" type="text/javascript" src="marketoverview_files/common.js"></script>
+<script language="JavaScript" type="text/javascript" src="marketoverview_files/lib.js"></script>
+<script language="JavaScript" type="text/javascript" src="marketoverview_files/modulenav.js"></script>	
+<link rel="shortcut icon" href="https://www.etrade.wallst.com/v1/images/favicon.ico?40589">
+<link rel="stylesheet" type="text/css" href="marketoverview_files/ui.css"><link rel="stylesheet" type="text/css" href="marketoverview_files/common.css" media="all"><link rel="stylesheet" type="text/css" href="marketoverview_files/redesign.css" media="all">
+	<!--[if IE 8]>
+		<link rel="stylesheet" type="text/css" href="../../common/styles/ie8.css?v=40589" media="all" />
+    <![endif]-->
+    <style type="text/css">
+    		/* overrides: new styles for wider site*/
+    		/*body{background:#dfdfdf url(../../images/fullSiteBackground.png) top center repeat-y;}-->*/
+    		body{margin:0;} 
+    		/*#etradeNavShadow {height:18px;width:100%;background:transparent url(../../images/subNav_gradient.png) top left repeat-x;}*/
+    		#etHeader {width:100%;}
+    		table#quoteBarTop { width:760px;}
+    		table#quoteBarTable { width:760px;}
+    		/*some disclaimers*/
+    		div.full_col {margin-left:auto;margin-right:auto;}
+    		/*classic pages*/
+    		#dtTime2,
+    		#etHeader div.b18 {margin-left:auto;margin-right:auto;width:920px;}
+			
+			#etNewWidthContainer {width:920px;margin:0px auto 20px auto;text-align:left;}
+			#etNewWidthQuoteBar {width:920px;margin:0px auto 20px auto;text-align:left;}
+			#etContainer {width:760px;margin:0px 0px 20px 0px;text-align:left;}
+			#etFooter {margin: 0 0 20px; text-align: left; width: 760px;}
+			#etTabs {margin: 0px 0px !important; width: 760px;}
+			.tier2-main-content {
+    			overflow: visible;
+    			width: 730px;
+			}
+			
+    	</style>
+		
+		<style type="text/css">a,a:link,a:visited,a:active,a:hover{color:#039;text-decoration:none;}a:hover{text-decoration:underline;}.pL15{padding-left:15px;}</style>
+<style type="text/css" media="all">
+	#overviewFloat { _float: left; }
+	.briefing { float:left; }
+	/*briefing*/
+	div.briefing { width:760px; margin-top:10px; }div.briefingTop { height:6px; margin:0; padding:0; }div.briefingMid { border-left:1px solid #b8b7b8; border-right:1px solid #b8b7b8; background:transparent url(https://images.etrade.wallst.com/v1/images/markets/briefingBg-mid.png) bottom center repeat-x; }div.briefingText { margin-bottom: 5px; padding:6px 11px 0 11px; }div.briefingCharts { margin:0 0 0 10px; }div.briefingCharts div.chart { width:233px; border:0px solid red;height:140px;_height:134px;~height:138px;float:left; padding: 5px 16px 0 0; margin:0; }div.briefingCharts div.chart.middle { padding: 5px 19px 0 3px; }div.briefingCharts div.chart.last { padding: 5px 0 0 0; }div.chart table { width:233px; }div.chart table.innerModuleButton { border: 1px solid #ccc; border-bottom: none; }div.chart table.innerModuleButton h2 { background: none; padding-left:0px; font-size:15px; }div.chart tr.rankingHdr td { padding-left:2px; }div.briefingBot { clear:both; height:10px; margin:0; }	
+	/*overrides for this page*/
+	.left_col { width:454px; }#USAPanel,#USQPanel,#USNPanel,#DOWPanel { width:430px; }.hatchbar h2 { font-size:16px; }	
+	/*calendar*/
+	.thisWeek { /*position:absolute;*/ bottom:0; width:100%; height:32px; border-top:1px solid #e5e5e5; background:url(https://images.etrade.wallst.com/v1/images/calendar/thisweek_shim.gif) repeat-x top; }
+	/*news*/
+	.newstime { margin:-3px 0 0 0; padding:0; color:#666; font-size:11px; line-height:normal; }
+	/*rankings*/
+	.belowRankingControl { border-top:1px solid #ccc;height:1px:width:430px;padding:0;margin-top:6px;margin-bottom:6px; }.noMovers {padding-left:10px !important;font-weight:normal;border-bottom:1px solid #fff;}.borderTopWhite { border-top: 1px solid white; }h2.lh25 { line-height:25px;}#snpIndexPanel,#dowIndexPanel,#nasdaqIndexPanel { position:relative;overflow:hidden;}#rankingsContainer{height:400px;}
+	/*misc*/
+	#marketHistoryTradingIdea {margin:0px 10px 0px 10px;}.xB4{margin-bottom:4px;}#headline_hover {z-index:1000;}div#treasuryYields {text-align:center;margin:0 auto;height:26px;width:100%;}div#treasuryYields table {margin:0 auto;}#select-briefing {width:200px;}.negZIndex{~z-index:-1;}.subTitle{padding-left:0px;text-transform:none;_font-size:11px;}#briefingCommentaryContainer{background-color:#f7f7f7;}
+</style>
+<script type="text/javascript" language="javascript">
+    news = function() {}
+	news.prototype.showMinyanvillePopup = function(forwardUrl) {
+        window.open('../../news/commentaryblogs/minyanville_speedBump.asp?forwardUrl='+escape(forwardUrl), 'minyanville_popup', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=750,height=500');
+    }
+    loadBuffer.add("news = new news();");
+</script>
+</head>
+<body>
+<div id="etHeader"><iframe id="etradeNav" name="etradeNav" src="marketoverview_files/navheader.html" style="width: 100%; height: 119px;" frameborder="0" scrolling="no"></iframe>
+<script type="text/javascript">DomReady.ready(function(){ symbolentry=new symbolentry_js(); });function cS(){try{symbolentry.changeSym()}catch(e){}}function bS(){try{symbolentry.blurSym()}catch(e){}}function onS(){try{symbolentry.singleClickSelect()}catch(e){}}function rTU(){try{symbolentry.redirectToURL()}catch(e){}}function showRQ(){try{common.showRecentQuotes()}catch(e){}}</script>
+<div id="etNewWidthQuoteBar">
+
+<table id="quoteBarTop" cellspacing="0">
+	<tbody><tr>
+		<td width="50%">
+		</td>
+		<td class="right" width="50%">February 05, 2012 11:21 AM ET</td>
+	</tr>
+</tbody></table>
+<table id="quoteBarTable" cellpadding="4" cellspacing="0">
+<form name="secondaryNav" id="secondaryNav" method="get" action="javascript:void(0);" onsubmit="rTU(); return false;"></form>
+<tbody><tr>
+<td class="pL6" width="100"><input onclick="onS();" onchange="cS();" onblur="bS();" name="symbol" id="symbol" value="Enter Symbol(s)" style="width: 100px; color: rgb(68, 68, 68);" maxlength="90" type="text"></td>
+<td width="160">
+<select name="section" id="section" onchange="rTU();" style="width:160px;">
+<option selected="selected" value="../stocks/snapshot/snapshot.asp">Snapshot</option><option value="../stocks/charts/charts.asp">Charts</option><option value="../stocks/news/search_results.asp">News</option><option value="../stocks/options/options.asp">Option Chains</option><option value="../stocks/snapshot/historical.asp">Historical Quote</option><option value="../stocks/research/research.asp">Analyst Research</option><option value="../stocks/fundamentals/fundamentals.asp">Fundamentals</option><option value="../stocks/earnings/earnings.asp">Earnings</option><option value="../stocks/ownership/insiders.asp">Insider Trading</option><option value="../stocks/ownership/institutional.asp">Institutional Ownership</option><option value="#" style="color: black;" disabled="disabled">&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-</option><option value="../stocks/multisnapshot/multisnapshot.asp">Quote Comparison</option><option value="../stocks/multisnapshot/charts.asp">Chart Comparison</option><option value="../stocks/multisnapshot/news.asp">News Comparison</option>
+</select>
+</td>
+<td width="30"><input name="submit" id="submit" src="marketoverview_files/b_go_eng.gif" onclick="rTU(); return false;" type="image"></td>
+<td width="119"><img src="marketoverview_files/search_mag.gif"> <a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/symbol_lookup.asp_1";return this.s_oc?this.s_oc(e):true' class="bold" style="color: rgb(0, 51, 153);" target="_parent" href="https://www.etrade.wallst.com/v1/stocks/snapshot/symbol_lookup.asp">Symbol Lookup</a></td>
+<td style="width: 2px; padding: 0pt;" id="rqSep" width="2"><img src="marketoverview_files/separator.gif"></td>
+<td class="right" id="rqImg" width="20"><a class="hand" onclick="showRQ();" onmouseover=""><img id="rQMenuClick" src="marketoverview_files/recentsymbols.gif" style="z-index: 9999999;" border="0"></a></td>
+<td style="line-height: 12px;" class="bold" id="rcCon" width="145">
+	<span style="color:#039;font-size:12px;">Recent Quotes</span><br>
+	<span class="txt10 bold" id="span-recentSymbolLinks"><a onclick='s_objectID="https://us.etrade.com/e/t/invest/optionsnapshot?content=3&amp;ochain=1&amp;prod=BAC---120421C00008000:CIN_1";return this.s_oc?this.s_oc(e):true' style="color: rgb(0, 51, 153);" href="https://us.etrade.com/e/t/invest/optionsnapshot?content=3&amp;ochain=1&amp;prod=BAC---120421C00008000:CINC:OPTN" onmouseover="showInfo(this,'BAC---120421C00008000',0,'redesign');" onmouseout="closeInfo('BAC---120421C00008000');">BAC APR 21 '12 $8</a>...</span><span id="span-recentSymbolCount" style="display:none;font-weight:normal;color:#999">&nbsp;</span>
+</td>
+<td id="rqSep2" style="width: 2px; padding: 0pt;" width="2"><img src="marketoverview_files/separator.gif" width="2"></td>
+
+
+
+<td style="background-color: rgb(239, 239, 239);" align="right" width="55"><iframe src="marketoverview_files/minialertbox.html" style="border: 0px none;" frameborder="0" height="20" scrolling="no" width="55"></iframe></td><td style="width: 2px; padding: 0pt;" id="rightEdge" width="2"><img src="marketoverview_files/separator.gif"></td><td class="pR10" align="right" width="60"><a href="javascript:void(0);" onclick='s_objectID="SClink_1";return this.s_oc?this.s_oc(e):true' class="refresh">Refresh</a></td></tr></tbody></table><div id="recentSymbolsFlyDown" class=""><table cellspacing="0"><tbody><tr onmouseover="this.className='over';common.cancelRQTimeout();" onmouseout="this.className='';common.setRQTimeout();"><td class="s txt12 first pL10"><a onclick='s_objectID="https://us.etrade.com/e/t/invest/optionsnapshot?content=3&amp;ochain=1&amp;prod=BAC---120421C00008000:CIN_2";return this.s_oc?this.s_oc(e):true' class="bold" href="https://us.etrade.com/e/t/invest/optionsnapshot?content=3&amp;ochain=1&amp;prod=BAC---120421C00008000:CINC:OPTN">BAC</a></td><td class="c txt12"><a onclick='s_objectID="https://us.etrade.com/e/t/invest/optionsnapshot?content=3&amp;ochain=1&amp;prod=BAC---120421C00008000:CIN_3";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/invest/optionsnapshot?content=3&amp;ochain=1&amp;prod=BAC---120421C00008000:CINC:OPTN">APR 21 '12 $8 CALL</a></td></tr><tr onmouseover="this.className='over';common.cancelRQTimeout();" onmouseout="this.className='';common.setRQTimeout();"><td class="s txt12 first pL10"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BAC_1";return this.s_oc?this.s_oc(e):true' class="bold" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BAC">BAC</a></td><td class="c txt12"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BAC_2";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BAC">BANK OF AMERICA COR...</a></td></tr><tr onmouseover="this.className='over';common.cancelRQTimeout();" onmouseout="this.className='';common.setRQTimeout();"><td class="s txt12 first pL10"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=MSFT_1";return this.s_oc?this.s_oc(e):true' class="bold" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=MSFT">MSFT</a></td><td class="c txt12"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=MSFT_2";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=MSFT">MICROSOFT CORP COM</a></td></tr><tr onmouseover="this.className='over';common.cancelRQTimeout();" onmouseout="this.className='';common.setRQTimeout();"><td class="s txt12 first pL10"><a onclick='s_objectID="https://us.etrade.com/e/t/invest/optionsnapshot?content=3&amp;ochain=1&amp;prod=AAPL--110416P00270000:CIN_1";return this.s_oc?this.s_oc(e):true' class="bold" href="https://us.etrade.com/e/t/invest/optionsnapshot?content=3&amp;ochain=1&amp;prod=AAPL--110416P00270000:CINC:OPTN">AAPL</a></td><td class="c txt12"><a onclick='s_objectID="https://us.etrade.com/e/t/invest/optionsnapshot?content=3&amp;ochain=1&amp;prod=AAPL--110416P00270000:CIN_2";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/invest/optionsnapshot?content=3&amp;ochain=1&amp;prod=AAPL--110416P00270000:CINC:OPTN">APR 16 '11 $270 PUT</a></td></tr><tr onmouseover="this.className='over';common.cancelRQTimeout();" onmouseout="this.className='';common.setRQTimeout();"><td class="s txt12 first pL10"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=AAPL_1";return this.s_oc?this.s_oc(e):true' class="bold" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=AAPL">AAPL</a></td><td class="c txt12"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=AAPL_2";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=AAPL">APPLE INC COM</a></td></tr><tr onmouseover="this.className='over';common.cancelRQTimeout();" onmouseout="this.className='';common.setRQTimeout();"><td class="s txt12 first pL10"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=E_1";return this.s_oc?this.s_oc(e):true' class="bold" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=E">E</a></td><td class="c txt12"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=E_2";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=E">ENI S P A SPONSORED...</a></td></tr><tr onmouseover="this.className='over';common.cancelRQTimeout();" onmouseout="this.className='';common.setRQTimeout();"><td class="s txt12 first pL10"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=SU_1";return this.s_oc?this.s_oc(e):true' class="bold" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=SU">SU</a></td><td class="c txt12"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=SU_2";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=SU">SUNCOR ENERGY INC N...</a></td></tr><tr onmouseover="this.className='over';common.cancelRQTimeout();" onmouseout="this.className='';common.setRQTimeout();"><td class="s txt12 first pL10"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=MRO_1";return this.s_oc?this.s_oc(e):true' class="bold" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=MRO">MRO</a></td><td class="c txt12"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=MRO_2";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=MRO">MARATHON OIL CORP C...</a></td></tr><tr onmouseover="this.className='over';common.cancelRQTimeout();" onmouseout="this.className='';common.setRQTimeout();"><td class="s txt12 first pL10"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=URG_1";return this.s_oc?this.s_oc(e):true' class="bold" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=URG">URG</a></td><td class="c txt12"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=URG_2";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=URG">UR ENERGY INC COM</a></td></tr><tr onmouseover="this.className='over';common.cancelRQTimeout();" onmouseout="this.className='';common.setRQTimeout();"><td class="s txt12 first pL10"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BQI_1";return this.s_oc?this.s_oc(e):true' class="bold" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BQI">BQI</a></td><td class="c txt12"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BQI_2";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BQI">OILSANDS QUEST INC ...</a></td></tr></tbody></table></div></div></div><div id="etNewWidthContainer">
+<div id="etTabs"><div id="minitabs"><ul><li id="current"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/markets/overview/overview.asp_1";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/markets/overview/overview.asp"><span>Overview</span></a></li><li><a onclick='s_objectID="https://www.etrade.wallst.com/v1/markets/movers/movers.asp_1";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/markets/movers/movers.asp"><span>Market Movers</span></a></li><li><a onclick='s_objectID="https://www.etrade.wallst.com/v1/markets/statistics/statistics.asp_1";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/markets/statistics/statistics.asp"><span>Market Statistics</span></a></li><li><a onclick='s_objectID="https://www.etrade.wallst.com/v1/markets/economy/calendar.asp?eventType=All_1";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/markets/economy/calendar.asp?eventType=All"><span>Market Calendar</span></a></li><li><a onclick='s_objectID="https://us.etrade.com/e/t/invest/commentaryandinsights_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/invest/commentaryandinsights"><span>Market Commentary</span></a></li><li><a onclick='s_objectID="https://www.etrade.wallst.com/v1/markets/sectors_industry/sectors_landing.asp_1";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/markets/sectors_industry/sectors_landing.asp"><span>Sectors &amp; Industries</span></a></li></ul></div><div class="clearAll"></div></div>
+<div id="etContainer" class="overviewFloat">
+	<div id="etBody">
+		<!-- top module -->
+		<div class="briefing">
+			<div class="briefingTop"><img src="marketoverview_files/briefingBg-top.png" width="760"></div>
+			<div class="briefingMid">
+				<div class="briefingText">
+	<div class="fLeft txt16 bold" style="width:575px;"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/news/briefing/briefing.asp?docKey=309-ST20120203173723_live-5VBJ_1";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/news/briefing/briefing.asp?docKey=309-ST20120203173723_live-5VBJCK135CG09Q54KUK9T8PA6E&amp;DMSourceID=BRIEFING&amp;Source=StockMarketUpdate&amp;docDate=Fri%20Feb%203%2017:37:00%20EST%202012&amp;headline=Weekly%20Wrap&amp;newsType=StockMarketUpdate" class="link">Weekly Wrap</a></div>
+	<div class="fRight grey6 txt12">
+		<span class="bold">U.S. Markets are closed.</span>
+	</div>
+	<div class="clear txt13 t4">A couple of pleasing economic reports 
+brought about a barrage of broad-based buying today. That drove both the
+ Dow and S&amp;P 500 to multi-month highs, while the Nasdaq notched its 
+best level in more than a decade. 
+
+Market participants turned bullish with the release of the official 
+payrolls report for January. The unemployment rate surprised many by 
+falling to 8.3% from 8.5%, which is where most economists had expected 
+it to remain. Behind the headline number, nonfarm payrolls 
+jumped...&nbsp;<a onclick='s_objectID="https://www.etrade.wallst.com/v1/news/briefing/briefing.asp?docKey=309-ST20120203173723_live-5VBJ_2";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/news/briefing/briefing.asp?docKey=309-ST20120203173723_live-5VBJCK135CG09Q54KUK9T8PA6E&amp;DMSourceID=BRIEFING&amp;Source=StockMarketUpdate&amp;docDate=Fri%20Feb%203%2017:37:00%20EST%202012&amp;headline=Weekly%20Wrap&amp;newsType=StockMarketUpdate" class="link bold nowrap" title="Read: Weekly Wrap">More »</a><div class="t4 txt11 grey4 b4">5:37 PM ET&nbsp;&nbsp;|&nbsp;&nbsp;2/3/2012&nbsp;&nbsp;|&nbsp;&nbsp;Provided by Briefing.com</div></div>
+	</div>
+				<div class="briefingCharts"><div class="chart">
+	<table class="innerModuleButton" cellpadding="0" cellspacing="0">
+		<tbody><tr class="rankingHdr sm on" id="dowIndex">
+			<td nowrap="nowrap" width="100%"><h2 class="lh25"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=DJIND_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=DJIND">DOW</a></h2></td>
+			<td style="padding: 0pt;"><img src="marketoverview_files/upLg.gif"></td>
+			<td class="bold txt12 pL2 right">&nbsp;12,862.23</td>
+			<td class="bold txt12 right pR2 nowrap">&nbsp;<span class="pos">+156.82</span>&nbsp;<span class="pos">(+1.23%)</span></td>
+		</tr>
+	</tbody></table>
+	<div id="dowIndexPanel"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/charts/charts.asp?symbol=DJIND&amp;duration=1&amp;frequency=3minu_1";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/charts/charts.asp?symbol=DJIND&amp;duration=1&amp;frequency=3minute"><img src="marketoverview_files/file_003.png" galleryimg="no" height="101" width="233"></a><div class="grey4 txt10 t2">2/3/12</div></div>
+</div>
+<div class="chart middle">
+	<table class="innerModuleButton" cellpadding="0" cellspacing="0">
+		<tbody><tr class="rankingHdr sm on" id="nasdaqIndex">
+			<td nowrap="nowrap" width="100%"><h2 class="lh25"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=COMP.IDX_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=COMP.IDX">NASDAQ</a></h2></td>
+			<td style="padding: 0pt;"><img src="marketoverview_files/upLg.gif"></td>
+			<td class="bold txt12 pL2 right">2,905.66</td>
+			<td class="bold txt12 right pR2 nowrap"><span class="pos">+45.98</span>&nbsp;<span class="pos">(+1.61%)</span></td>
+		</tr>
+	</tbody></table>
+	
+	<div id="nasdaqIndexPanel"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/charts/charts.asp?symbol=COMP.IDX&amp;duration=1&amp;frequency=3m_1";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/charts/charts.asp?symbol=COMP.IDX&amp;duration=1&amp;frequency=3minute"><img src="marketoverview_files/file_002.png" galleryimg="no" height="101" width="233"></a><div class="t2 grey4 txt10">2/3/12</div></div>
+</div>
+<div class="chart last">
+	<table class="innerModuleButton" cellpadding="0" cellspacing="0">
+		<tbody><tr id="snpIndex" class="rankingHdr sm on">
+			<td nowrap="nowrap" width="100%"><h2 class="lh25"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=SPX_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=SPX">S&amp;P 500</a></h2></td>
+			<td style="padding: 0pt;"><img src="marketoverview_files/upLg.gif"></td>
+			<td class="bold txt12 pL2 right">&nbsp;1,344.90</td>
+			<td class="bold txt12 right pR2 nowrap">&nbsp;<span class="pos">+19.36</span>&nbsp;<span class="pos">(+1.46%)</span></td>
+		</tr>
+	</tbody></table>
+	<div id="snpIndexPanel"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/charts/charts.asp?symbol=SPX&amp;duration=1&amp;frequency=3minute_1";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/charts/charts.asp?symbol=SPX&amp;duration=1&amp;frequency=3minute"><img src="marketoverview_files/file.png" galleryimg="no" height="101" width="233"></a><div class="grey4 txt10 t2">2/3/12</div></div>
+</div></div>
+				<div class="clear"></div>
+			</div>
+			<div class="briefingBot"><img src="marketoverview_files/briefingBg-bottom.png" width="760"></div>
+		</div>
+		<div class="clear"></div>
+		<div class="module full_col xT10">
+			<div class="moduleTLC"></div>
+			<div class="moduleTRC"></div>
+			<div class="moduleTitle">Treasury Yields</div>
+			<div class="moduleLink pR10 t10"><a onclick='s_objectID="https://us.etrade.com/e/t/invest/bondbridge?bdest=WELCOME_1";return this.s_oc?this.s_oc(e):true' class="href-lite" href="https://us.etrade.com/e/t/invest/bondbridge?bdest=WELCOME">Bond Resource Center »</a></div>
+			<div class="clear"></div>
+			<div class="moduleBody t6 txt12">
+				
+<div id="treasuryYields">
+	<table cellspacing="0">
+		<tbody><tr>
+			<td>
+				<table cellspacing="0">
+					<tbody><tr>
+						<td class="txt12"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=IRX_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=IRX" onmouseover="showInfo(this,'IRX','TB3MY','redesign');" onmouseout="closeInfo('IRX');">3 Mo T-Bill</a></td>
+						<td class="txt12 pL10 bold">0.08%</td>
+						<td class="txt12 pL10 bold"><span class="neg">-0.0002</span></td>
+					</tr>
+				</tbody></table>
+			</td>
+			<td class="txt12 pR2 pL2">|</td>
+			<td>
+				<table cellspacing="0">
+					<tbody><tr>
+						<td class="txt12"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=TNX_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=TNX" onmouseover="showInfo(this,'TNX','US10YY','redesign');" onmouseout="closeInfo('TNX');">10 Yr T-Note</a></td>
+						<td class="txt12 pL10 bold">1.92%</td>
+						<td class="txt12 pL10 bold"><span class="pos">0.0001</span></td>
+					</tr>
+				</tbody></table>
+			</td>
+			<td class="txt12 pR2 pL2">|</td>
+			<td>
+				<table cellspacing="0">
+					<tbody><tr>
+						<td class="txt12"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=TYX_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=TYX" onmouseover="showInfo(this,'TYX','US30YY','redesign');" onmouseout="closeInfo('TYX');">30 Yr T-Bond</a></td>
+						<td class="txt12 pL10 bold">3.12%</td>
+						<td class="txt12 pL10 bold"><span class="pos">+0.0002</span></td>
+					</tr>
+				</tbody></table>
+			</td>
+			<td class="txt12 pR2 pL2">|</td>
+			<td>
+				<div class="grey4 txt11 nowrap">Quotes delayed by at least 15 minutes</div>
+			</td>
+	</tr></tbody></table>
+</div>
+
+			</div>
+			<div class="moduleFooter">
+				<div class="moduleBLC"></div>
+				<div class="moduleBRC"></div>
+			</div>
+		</div>
+		
+		<!-- Left Column -->
+		<div class="fLeft xT10">
+
+	        <div class="module left_col xT10">
+	            <div class="moduleTLC"></div>
+	            <div class="moduleTRC"></div>
+	            <div class="moduleTitle" id="market_news">
+	                Latest Headlines
+	            </div>
+	            <div class="moduleLink pR10 t10"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?newsType=headlines_1";return this.s_oc?this.s_oc(e):true' id="more_news_link" href="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?newsType=headlines">More Latest Headlines »</a>
+	            </div>
+	            <div class="clear"></div>
+				<div class="moduleBody b10 t6" id="marketnews">
+	
+	<table class="xB4" cellspacing="0" width="100%">
+		<tbody><tr class="solidMed">
+			<td class="pL6 bold txt12 b6">
+				<a class="noDec" href="javascript:void(0);" onclick='s_objectID="SClink_2";return this.s_oc?this.s_oc(e):true'>Latest Headlines</a>
+				&nbsp;|&nbsp;
+				<a class="link bold underline" href="javascript:void(0);" onclick='s_objectID="SClink_3";return this.s_oc?this.s_oc(e):true'>Top Stories</a>
+				&nbsp;|&nbsp;
+				<a class="link bold underline" href="javascript:void(0);" onclick='s_objectID="SClink_4";return this.s_oc?this.s_oc(e):true'>Commentary &amp; Blogs</a>
+				
+			</td>
+		</tr>
+	</tbody></table>
+	
+	<!--headline hover-->
+	<div id="headline_hover" class="headlineHover"><div class="headlineHoverTLC"></div><div class="headlineHoverTRC"></div><div id="headline_hover_title" class="headlineHoverTop grey4 txt14 pR10 t4 b4 bold pL10"></div><div id="headline_hover_body" class="headlineHoverBody pL10 grey4 t10 b10 pR10 txt12 lh18"></div><div class="headlineHoverBLC"></div><div class="headlineHoverBRC"></div></div>
+	<!--/headline hover-->
+	
+	<table cellspacing="0" width="100%">
+	<tbody><tr class="lh20">
+					<td class="bold pL6 txt12 pR4 vTop nowrap" nowrap="nowrap">--&nbsp;</td>
+					<td class="nowrap" nowrap="nowrap" width="100%"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036u1747-1&amp;DMSourceID=_1";return this.s_oc?this.s_oc(e):true' class="bold txt12 hand link" href="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036u1747-1&amp;DMSourceID=COMTEX&amp;Source=Marketwire&amp;docDate=2012-02-05%2016:15:12&amp;headline=Ardmore%20Animal%20Hospital%20Offers%20Laser%20Surgery%20to%20Reduce%20Pain%20and%0ARecovery%20Time&amp;refSymbols=" onmouseover="try{showNHH(this,'%20Ardmore%20Animal%20Hospital%20has%20had%20great%20success%20with%20laser%20surgery%20procedures%20for%20pets%20from%20The%20Main%20Line.%20The%20hospital%20has%20been%20providing%20care%20to%20local%20pets%20since%201937%2C%20and%20was%20one%20of%20the%20first%20hospitals%20in%20the%20U.S.%20to%20perform%20laser%20surgery%20on%20pets.%20Because%20of%20the%20ability%20to%20perform%20surgery%20without%20anesthesia%2C%20reduce%20pain%20and%20improve%20re%20...','Ardmore%20Animal%20Hospital%20Offers%20Laser%20Surgery%20to%20Reduce%20Pain%20and%0ARecovery%20Time');}catch(e){}" onmouseout="try{hideNHH();}catch(e){}">Ardmore Animal Hospital Offers Laser Surgery to Reduce Pain...</a><div class="newstime">11:15 AM ET&nbsp;|&nbsp;Marketwire</div></td>
+				</tr><tr class="lh20">
+					<td class="bold pL6 txt12 pR4 vTop nowrap" nowrap="nowrap">--&nbsp;</td>
+					<td class="nowrap" nowrap="nowrap" width="100%"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036u1742-1&amp;DMSourceID=_1";return this.s_oc?this.s_oc(e):true' class="bold txt12 hand link" href="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036u1742-1&amp;DMSourceID=COMTEX&amp;Source=Marketwire&amp;docDate=2012-02-05%2015:00:17&amp;headline=North%20Miami%20Beach%20Veterinarian%20Debuts%20New%20Website&amp;refSymbols=" onmouseover="try{showNHH(this,'%20North%20Miami%20Beach%20veterinarian%20Arch%20Creek%20Animal%20Clinic%20has%20announced%20the%20debut%20of%20their%20new%20website%3A%20http%3A//archcreekanimalclinic.com.%20The%20clinic%20offers%20a%20full%20spectrum%20of%20animal%20care%20including%20puppy%20and%20kitten%20care%2C%20care%20for%20cats%20and%20dogs%2C%20pet%20spay%20and%20neuter%2C%20pet%20vaccinations%2C%20and%20pet%20senior%20care.%20The%20new%20website%20has%20been%20conceived%20%20...','North%20Miami%20Beach%20Veterinarian%20Debuts%20New%20Website');}catch(e){}" onmouseout="try{hideNHH();}catch(e){}">North Miami Beach Veterinarian Debuts New Website</a><div class="newstime">10:00 AM ET&nbsp;|&nbsp;Marketwire</div></td>
+				</tr><tr class="lh20">
+					<td class="bold pL6 txt12 pR4 vTop nowrap" nowrap="nowrap">--&nbsp;</td>
+					<td class="nowrap" nowrap="nowrap" width="100%"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=4018-03F091A04F5C11E1803F0_1";return this.s_oc?this.s_oc(e):true' class="bold txt12 hand link" href="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=4018-03F091A04F5C11E1803F002128040CF6-137EC69FAR8I7RFF4A4MSFA4O6&amp;DMSourceID=CBSMW&amp;Source=MarketWatch%20Databased%20News&amp;docDate=2012-02-05%2014:47:52&amp;headline=Romney%20handily%20wins%20Nevada%20Republican%20caucus&amp;refSymbols=" onmouseover="try{showNHH(this,'Republican%20frontrunner%20easily%20defeats%20Newt%20Gingrich%20in%20the%20Nevada%20Republican%20caucus%2C%20building%20his%20lead%20in%20his%20bid%20for%20the%20party%27s%20nomination%20to%20challenge%20President%20Barack%20Obama%20in%20November.','Romney%20handily%20wins%20Nevada%20Republican%20caucus');}catch(e){}" onmouseout="try{hideNHH();}catch(e){}">Romney handily wins Nevada Republican caucus</a><div class="newstime">9:47 AM ET&nbsp;|&nbsp;Marketwatch</div></td>
+				</tr><tr class="lh20">
+					<td class="bold pL6 txt12 pR4 vTop nowrap" nowrap="nowrap">--&nbsp;</td>
+					<td class="nowrap" nowrap="nowrap" width="100%"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036p7124-1&amp;DMSourceID=_1";return this.s_oc?this.s_oc(e):true' class="bold txt12 hand link" href="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036p7124-1&amp;DMSourceID=COMTEX&amp;Source=PR%20Newswire&amp;docDate=2012-02-05%2014:26:00&amp;headline=Organ%20Donation%20Association%20Supports%20Living%20Organ%20Donation&amp;refSymbols=" onmouseover="try{showNHH(this,'%20Currently%2C%20there%20are%20more%20than%20112%2C000%20patients%20on%20the%20national%20organ%20transplant%20waiting%20list.%20These%20candidates%20often%20endure%20difficult%20yet%20necessary%20life-sustaining%20treatments%20while%20waiting%20for%20potential%20organ%20matches.%20Nineteen%20people%20die%20every%20day%20while%20waiting%2C%20and%20those%20that%20are%20eventually%20transplanted%20can%20endure%20wait%20times%20that%20can%20...','Organ%20Donation%20Association%20Supports%20Living%20Organ%20Donation');}catch(e){}" onmouseout="try{hideNHH();}catch(e){}">Organ Donation Association Supports Living Organ Donation</a><div class="newstime">9:26 AM ET&nbsp;|&nbsp;PR Newswire</div></td>
+				</tr><tr class="lh20">
+					<td class="bold pL6 txt12 pR4 vTop nowrap" nowrap="nowrap">--&nbsp;</td>
+					<td class="nowrap" nowrap="nowrap" width="100%"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=4018-6C7C63484E9E11E1803F0_1";return this.s_oc?this.s_oc(e):true' class="bold txt12 hand link" href="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=4018-6C7C63484E9E11E1803F002128040CF6-1G3L7F7RHTQM2IHCD3BUV7K51C&amp;DMSourceID=CBSMW&amp;Source=MarketWatch%20Databased%20News&amp;docDate=2012-02-05%2014:00:08&amp;headline=Is%20plan%20to%20double%20U.S.%20exports%20in%205%20years%20working%3F&amp;refSymbols=" onmouseover="try{showNHH(this,'This%20week%27s%20data%20will%20shine%20light%20on%20whether%20the%20U.S.%20is%20on%20track%20to%20meet%20President%20Obama%27s%20goal%20of%20doubling%20exports%20in%20five%20years.','Is%20plan%20to%20double%20U.S.%20exports%20in%205%20years%20working%3F');}catch(e){}" onmouseout="try{hideNHH();}catch(e){}">Is plan to double U.S. exports in 5 years working?</a><div class="newstime">9:00 AM ET&nbsp;|&nbsp;Marketwatch</div></td>
+				</tr><tr class="lh20">
+					<td class="bold pL6 txt12 pR4 vTop nowrap" nowrap="nowrap">--&nbsp;</td>
+					<td class="nowrap" nowrap="nowrap" width="100%"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=4018-42FDF2AA11D34D809ADA1_1";return this.s_oc?this.s_oc(e):true' class="bold txt12 hand link" href="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=4018-42FDF2AA11D34D809ADA1F69737B8833-5JHIC2G28B43VCISLTS4BVQJVH&amp;DMSourceID=CBSMW&amp;Source=MarketWatch%20Databased%20News&amp;docDate=2012-02-05%2014:00:07&amp;headline=U.S.%20stocks%20follow%20win%20streak%20with%20focus%20on%20Europe&amp;refSymbols=" onmouseover="try{showNHH(this,'Cisco%2C%20Coca-Cola%2C%20Disney%20and%20Visa%20are%20among%20bellwethers%20set%20to%20report%20results%20amid%20expectations%20for%20market%20gains%20to%20continue%3B%20resolution%20of%20Europe%27s%20debt%20crisis%20is%20expected%20to%20drag%20on.','U.S.%20stocks%20follow%20win%20streak%20with%20focus%20on%20Europe');}catch(e){}" onmouseout="try{hideNHH();}catch(e){}">U.S. stocks follow win streak with focus on Europe</a><div class="newstime">9:00 AM ET&nbsp;|&nbsp;Marketwatch</div></td>
+				</tr><tr class="lh20">
+					<td class="bold pL6 txt12 pR4 vTop nowrap" nowrap="nowrap">UBSBF&nbsp;</td>
+					<td class="nowrap" nowrap="nowrap" width="100%"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036u1730-1&amp;DMSourceID=_1";return this.s_oc?this.s_oc(e):true' class="bold txt12 hand link" href="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036u1730-1&amp;DMSourceID=COMTEX&amp;Source=Marketwire&amp;docDate=2012-02-05%2013:26:42&amp;headline=Statement%20from%20Unique%20Broadband%20Systems%27%20Largest%20Shareholder&amp;refSymbols=%7CUS;UBSBF%7CUS;UBSBF%7CCA;UBS%7CUS;UBSBF" onmouseover="try{showNHH(this,'%202064818%20Ontario%20Inc.%20%28the%20%22Offeror%22%29%2C%20a%20company%20owned%20by%20a%20trust%20of%20the%20family%20of%20Mr.%20Alex%20Dolgonos%2C%20which%20on%20February%201%2C%202012%20launched%20a%20takeover%20offer%20%28the%20%22Offer%27%29%20for%2010%2C000%2C000%20common%20shares%20of%20Unique%20Broadband%20Systems%2C%20Inc.%20%28%22UBS%22%20or%20the%20%22Company%22%29%20%28TSX%20VENTURE%3A%20UBS%29%2C%20responded%20to%20a%20press%20release%20later%20that%20day%20wherein%20the%20Compan%20...','Statement%20from%20Unique%20Broadband%20Systems%27%20Largest%20Shareholder');}catch(e){}" onmouseout="try{hideNHH();}catch(e){}">Statement from Unique Broadband Systems' Largest Shareholder</a><div class="newstime">8:26 AM ET&nbsp;|&nbsp;Marketwire</div></td>
+				</tr><tr class="lh20">
+					<td class="bold pL6 txt12 pR4 vTop nowrap" nowrap="nowrap">--&nbsp;</td>
+					<td class="nowrap" nowrap="nowrap" width="100%"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036u1728-1&amp;DMSourceID=_1";return this.s_oc?this.s_oc(e):true' class="bold txt12 hand link" href="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036u1728-1&amp;DMSourceID=COMTEX&amp;Source=Marketwire&amp;docDate=2012-02-05%2013:06:12&amp;headline=Black%20Star%20Beer%20Barter%20Heats%20Up%20Whitefish%2C%20Montana&amp;refSymbols=" onmouseover="try{showNHH(this,'%20The%20second%20annual%20Black%20Star%20Beer%20Barter%20held%20outside%20the%20Great%20Northern%20Brewery%20was%20an%20event%20that%20the%20town%20of%20Whitefish%2C%20Montana%20may%20never%20forget.%20Contestants%20traveled%20in%20from%20as%20far%20as%20the%20South%20Pacific%20and%20Portland%2C%20Oregon%20to%20compete%20for%20their%20chance%20at%20a%20year%27s%20supply%20of%20Black%20Star%20beer.%20It%20was%20clear%20from%20the%20start%20that%20this%20year%27s%20...','Black%20Star%20Beer%20Barter%20Heats%20Up%20Whitefish%2C%20Montana');}catch(e){}" onmouseout="try{hideNHH();}catch(e){}">Black Star Beer Barter Heats Up Whitefish, Montana</a><div class="newstime">8:06 AM ET&nbsp;|&nbsp;Marketwire</div></td>
+				</tr><tr class="lh20">
+					<td class="bold pL6 txt12 pR4 vTop nowrap" nowrap="nowrap">BMO&nbsp;</td>
+					<td class="nowrap" nowrap="nowrap" width="100%"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036u1726-1&amp;DMSourceID=_1";return this.s_oc?this.s_oc(e):true' class="bold txt12 hand link" href="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036u1726-1&amp;DMSourceID=COMTEX&amp;Source=Marketwire&amp;docDate=2012-02-05%2013:01:12&amp;headline=BMO%20Retirement%20Tips%20of%20the%20Day%3A%20Know%20How%20Much%20Risk%20You%20Can%20Tolerate%0Aand%20Don%27t%20Play%20it%20Too%20Safe&amp;refSymbols=%7CUS;BMO%7CUS;BMO" onmouseover="try{showNHH(this,'%20As%20the%20February%2029th%20deadline%20approaches%20to%20make%20a%20contribution%20to%20a%20Registered%20Retirement%20Savings%20Plan%20%28RRSP%29%20and%20as%20part%20of%20its%20ongoing%20commitment%20to%20improving%20financial%20literacy%2C%20BMO%20Financial%20Group%20will%20be%20providing%20daily%20retirement%20tips%20during%20the%20month%20of%20February%20from%20BMO%20Retirement%20Institute%20Head%20Tina%20Di%20Vito%27s%20new%20book%2052%20Ways%20...','BMO%20Retirement%20Tips%20of%20the%20Day%3A%20Know%20How%20Much%20Risk%20You%20Can%20Tolerate%0Aand%20Don%27t%20Play%20it%20Too%20Safe');}catch(e){}" onmouseout="try{hideNHH();}catch(e){}">BMO Retirement Tips of the Day: Know How Much Risk You Can...</a><div class="newstime">8:01 AM ET&nbsp;|&nbsp;Marketwire</div></td>
+				</tr><tr class="lh20">
+					<td class="bold pL6 txt12 pR4 vTop nowrap" nowrap="nowrap">IBM&nbsp;</td>
+					<td class="nowrap" nowrap="nowrap" width="100%"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036p7122-1&amp;DMSourceID=_1";return this.s_oc?this.s_oc(e):true' class="bold txt12 hand link" href="https://www.etrade.wallst.com/v1/news/marketnews/marketnews.asp?docKey=100-036p7122-1&amp;DMSourceID=COMTEX&amp;Source=PR%20Newswire&amp;docDate=2012-02-05%2012:00:00&amp;headline=Experian%20Automotive%20Launches%20Business%20Intelligence%20Tool%20That%20Delivers%20Unique%20Insights%20Into%20Automotive%20Market&amp;refSymbols=%7CUS;IBM%7CUS;IBM" onmouseover="try{showNHH(this,'%20Experian%20Automotive%20today%20launched%20Velocity%28SM%29%20at%20the%20National%20Automobile%20Dealers%20Association%20%28NADA%29%20convention.%20Velocity%20is%20an%20online%20business%20intelligence%20tool%20that%20combines%20extensive%20automotive%20data%20with%20advanced%20analytics%2C%20enabling%20automotive%20professionals%20to%20better%20understand%20the%20market%2C%20the%20vehicles%20that%20are%20selling%20and%20the%20peop%20...','Experian%20Automotive%20Launches%20Business%20Intelligence%20Tool%20That%20Delivers%20Unique%20Insights%20Into%20Automotive%20Market');}catch(e){}" onmouseout="try{hideNHH();}catch(e){}">Experian Automotive Launches Business Intelligence Tool That...</a><div class="newstime">7:00 AM ET&nbsp;|&nbsp;PR Newswire</div></td>
+				</tr>
+	</tbody></table>
+	</div>
+				<div class="moduleFooter">
+	                <div class="moduleBLC"></div>
+				    <div class="moduleBRC"></div>
+	            </div>
+	        </div>
+	        
+	        <div class="module left_col xT10 negZIndex" id="rankingsContainer">
+	           	<div class="moduleTLC"></div>
+	            <div class="moduleTRC"></div>
+	            <div class="moduleTitle"><span id="mostType_hdr">Most Actives</span></div>
+	            <div class="moduleLink pR10 t10"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/markets/movers/movers.asp_2";return this.s_oc?this.s_oc(e):true' class="href-lite" href="https://www.etrade.wallst.com/v1/markets/movers/movers.asp">More <span id="mostType_moreLink">Most Actives</span> »</a></div>
+				<div class="b10 clear">
+					<div id="rankings-controls">
+<ul>
+	<li><a id="mostActive" onclick="markets.updateRankings('mostActive');" class="on">Actives</a></li><li><a id="pctGainers" onclick="markets.updateRankings('pctGainers');" class="link bold underline">% Gainers</a></li><li><a id="pctLosers" onclick="markets.updateRankings('pctLosers');" class="link bold underline">% Losers</a></li><li><a id="netGainers" onclick="markets.updateRankings('netGainers');" class="link bold underline">$ Gainers</a></li><li><a id="netLosers" onclick="markets.updateRankings('netLosers');" class="link bold underline" style="border-right: medium none;">$ Losers</a></li>
+</ul>
+<div class="belowRankingControl"></div>
+</div>
+					<div id="rankings">
+<div id="DOWRankingHdr" class="clear hatchbar on large" onmouseover="revealPanel('DOW','mostActive');return false;" onmouseout="closePanel('DOW');return false;"><h2>DOW Actives</h2></div>
+	<div class="fLeft t6" style="display:block;overflow:hidden;" id="DOWPanel">
+		
+<table cellpadding="0" cellspacing="0">
+	<tbody><tr class="grey4 solidMed first txt12">
+		<td class="first" style="padding-left: 10px ! important;">Company</td>
+		<td>&nbsp;&nbsp;Last</td>
+		<td colspan="2" class="noWrap">Today&#8217;s Change&nbsp;&nbsp;</td>
+		<td class="right last">Volume</td>
+	</tr>
+	<tr class="rowSm lh28"><td class="bBotLgt first txt12" style="padding-left: 10px ! important;"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BAC_3";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BAC" onmouseover="showInfo(this,'US;BAC',0,'redesign');" onmouseout="closeInfo('US;BAC');">Bank Of America Corporat..</a></td><td class="bBotLgt right txt12" style="color: rgb(0, 0, 0); padding-right: 12px;">7.84&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="bBotLgt txt12 right"><span class="pos">+0.39</span></td><td class="bBotLgt txt12 right"><span class="pos">(+5.23%)</span></td><td class="right bBotLgt txt12 last" style="color: rgb(0, 0, 0);">357.8 M</td></tr><tr class="rowSm lh28"><td class="bBotLgt first txt12" style="padding-left: 10px ! important;"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=CSCO_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=CSCO" onmouseover="showInfo(this,'US;CSCO',0,'redesign');" onmouseout="closeInfo('US;CSCO');">Cisco Sys Inc Com</a></td><td class="bBotLgt right txt12" style="color: rgb(0, 0, 0); padding-right: 12px;">20.09&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="bBotLgt txt12 right"><span class="pos">+0.29</span></td><td class="bBotLgt txt12 right"><span class="pos">(+1.46%)</span></td><td class="right bBotLgt txt12 last" style="color: rgb(0, 0, 0);">53.7 M</td></tr><tr class="rowSm lh28"><td class="bBotLgt first txt12" style="padding-left: 10px ! important;"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=GE_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=GE" onmouseover="showInfo(this,'US;GE',0,'redesign');" onmouseout="closeInfo('US;GE');">General Electric Co Com</a></td><td class="bBotLgt right txt12" style="color: rgb(0, 0, 0); padding-right: 12px;">19.02&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="bBotLgt txt12 right"><span class="pos">+0.27</span></td><td class="bBotLgt txt12 right"><span class="pos">(+1.44%)</span></td><td class="right bBotLgt txt12 last" style="color: rgb(0, 0, 0);">43.8 M</td></tr><tr class="rowSm lh28"><td class="bBotLgt first txt12" style="padding-left: 10px ! important;"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=INTC_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=INTC" onmouseover="showInfo(this,'US;INTC',0,'redesign');" onmouseout="closeInfo('US;INTC');">Intel Corp Com</a></td><td class="bBotLgt right txt12" style="color: rgb(0, 0, 0); padding-right: 12px;">26.74&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="bBotLgt txt12 right"><span class="pos">+0.46</span></td><td class="bBotLgt txt12 right"><span class="pos">(+1.75%)</span></td><td class="right bBotLgt txt12 last" style="color: rgb(0, 0, 0);">41.6 M</td></tr><tr class="rowSm lh28"><td class="bBotLgt first txt12" style="padding-left: 10px ! important;"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=PFE_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=PFE" onmouseover="showInfo(this,'US;PFE',0,'redesign');" onmouseout="closeInfo('US;PFE');">Pfizer Inc Com</a></td><td class="bBotLgt right txt12" style="color: rgb(0, 0, 0); padding-right: 12px;">21.20&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="bBotLgt txt12 right"><span class="pos">+0.09</span></td><td class="bBotLgt txt12 right"><span class="pos">(+0.43%)</span></td><td class="right bBotLgt txt12 last" style="color: rgb(0, 0, 0);">40.9 M</td></tr>
+</tbody></table>
+
+	</div>
+
+<div id="USNRankingHdr" class="clear hatchbar large" onmouseover="revealPanel('USN','mostActive');return false;" onmouseout="closePanel('USN');return false;"><h2>NYSE Actives</h2></div>
+	<div class="fLeft t6" style="display:none;overflow:hidden;" id="USNPanel">
+		
+<table cellpadding="0" cellspacing="0">
+	<tbody><tr class="grey4 solidMed first txt12">
+		<td class="first" style="padding-left: 10px ! important;">Company</td>
+		<td>&nbsp;&nbsp;Last</td>
+		<td colspan="2" class="noWrap">Today&#8217;s Change&nbsp;&nbsp;</td>
+		<td class="right last">Volume</td>
+	</tr>
+	<tr><td colspan="5" align="center"><img class="t12" src="marketoverview_files/loading-blue.gif" id="USN_loading"></td></tr>
+</tbody></table>
+
+	</div>
+
+<div id="USQRankingHdr" class="clear hatchbar large" onmouseover="revealPanel('USQ','mostActive');return false;" onmouseout="closePanel('USQ');return false;"><h2>NASDAQ Actives</h2></div>
+	<div class="fLeft t6" style="display:none;overflow:hidden;" id="USQPanel">
+		
+<table cellpadding="0" cellspacing="0">
+	<tbody><tr class="grey4 solidMed first txt12">
+		<td class="first" style="padding-left: 10px ! important;">Company</td>
+		<td>&nbsp;&nbsp;Last</td>
+		<td colspan="2" class="noWrap">Today&#8217;s Change&nbsp;&nbsp;</td>
+		<td class="right last">Volume</td>
+	</tr>
+	<tr><td colspan="5" align="center"><img class="t12" src="marketoverview_files/loading-blue.gif" id="USQ_loading"></td></tr>
+</tbody></table>
+
+	</div>
+
+<div id="USARankingHdr" class="clear hatchbar large" onmouseover="revealPanel('USA','mostActive');return false;" onmouseout="closePanel('USA');return false;"><h2>AMEX Actives</h2></div>
+	<div class="fLeft t6" style="display:none;overflow:hidden;" id="USAPanel">
+		
+<table cellpadding="0" cellspacing="0">
+	<tbody><tr class="grey4 solidMed first txt12">
+		<td class="first" style="padding-left: 10px ! important;">Company</td>
+		<td>&nbsp;&nbsp;Last</td>
+		<td colspan="2" class="noWrap">Today&#8217;s Change&nbsp;&nbsp;</td>
+		<td class="right last">Volume</td>
+	</tr>
+	<tr><td colspan="5" align="center"><img class="t12" src="marketoverview_files/loading-blue.gif" id="USA_loading"></td></tr>
+</tbody></table>
+
+	</div>
+<div class="clear"></div>
+</div>
+					<div class="clear grey4 txt11 rankingsFooter">All quotes are delayed by at least 15 minutes</div>
+				</div>
+	            <div class="moduleBLC"></div>
+				<div class="moduleBRC"></div>
+	        </div>
+	        
+	        <div id="marketCal" class="module left_col xT10">
+	            <div class="moduleTLC"></div>
+	            <div class="moduleTRC"></div>
+	            <div class="moduleTitle">Market Calendar</div>
+	            <div class="moduleLink pR10 t10"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/markets/economy/calendar.asp_1";return this.s_oc?this.s_oc(e):true' class="href-lite" href="https://www.etrade.wallst.com/v1/markets/economy/calendar.asp">More Events »</a></div>
+				 <div class="clear"></div>
+				<div class="moduleBody t6"><div id="events" style="display:block;">
+    <div class="t2 b4 black txt12 bold pL6"><a class="link underline" href="javascript:void(0);" onclick='s_objectID="SClink_5";return this.s_oc?this.s_oc(e):true'>Market Events</a>&nbsp;&nbsp;|&nbsp;&nbsp;Earnings Announcements</div>
+	
+	<table style="width: 100%;" cellpadding="0" cellspacing="0">
+		    <tbody><tr class="grey4 lh26">
+			    <td class="bBotLgt bTopLgt pL10 txt12" valign="bottom">Announcing</td>
+			    <td class="bBotLgt bTopLgt txt12" style="width: 100px;" valign="bottom">Company</td>
+			    <td class="bBotLgt bTopLgt txt12 right" valign="bottom">Estimate</td>
+			    <td class="bBotLgt bTopLgt txt12 right pR10" valign="bottom">Actual</td>
+			</tr>
+		<tr><td class="t10 pL10 pR10 txt12 grey4" colspan="4">No Earning Events on this date.<br>Please click on &#8220;More Events&#8221; link to view &#8220;Earning&#8221;, &#8220;Splits&#8221; and &#8220;Tech Earning&#8221; events.</td></tr></tbody></table>
+	<table class="thisWeek" cellpadding="0" cellspacing="0">
+	    <tbody><tr>
+		    <td class="bold pL10 txt12 lh32" style="width: 90px; border-right: 1px solid rgb(229, 229, 229);">This Week:</td>
+			    <td class="txt12 pR3 link" style="border-left: 1px solid white; border-right: 1px solid rgb(229, 229, 229); background: url(&quot;../../images/calendar/thisweek_hshim.gif&quot;) repeat-x scroll center top transparent;" align="center" valign="center" width="48"><a class="hand" onclick="try{markets.updateEvents(0,'40944','0','EarningsCalendar');}catch(e){}">5th</a></td><td class="txt12 pR3 link" style="border-left: 1px solid white; border-right: 1px solid rgb(229, 229, 229);" align="center" valign="center" width="48"><a class="hand" onclick="try{markets.updateEvents(0,'40945','1','EarningsCalendar');}catch(e){}">6th</a></td><td class="txt12 pR3 link" style="border-left: 1px solid white; border-right: 1px solid rgb(229, 229, 229);" align="center" valign="center" width="48"><a class="hand" onclick="try{markets.updateEvents(0,'40946','2','EarningsCalendar');}catch(e){}">7th</a></td><td class="txt12 pR3 link" style="border-left: 1px solid white; border-right: 1px solid rgb(229, 229, 229);" align="center" valign="center" width="48"><a class="hand" onclick="try{markets.updateEvents(0,'40947','3','EarningsCalendar');}catch(e){}">8th</a></td><td class="txt12 pR3 link" style="border-left: 1px solid white; border-right: 1px solid rgb(229, 229, 229);" align="center" valign="center" width="48"><a class="hand" onclick="try{markets.updateEvents(0,'40948','4','EarningsCalendar');}catch(e){}">9th</a></td>
+			    <td class="pL10" style="border-left: 1px solid white;" valign="middle">
+			    <img src="marketoverview_files/x.gif" height="12" width="12">&nbsp;<span class="hand" onclick="try{markets.updateEvents(1,'','','EarningsCalendar');}catch(e){}"><img class="pL10" src="marketoverview_files/thisweek_arrow_r.gif"></span>
+			    </td>
+	    </tr>
+	</tbody></table>
+</div></div>
+	            <div class="moduleFooter">
+	                <div class="moduleBLC"></div>
+				    <div class="moduleBRC"></div>
+	            </div>
+				 <div class="clear"></div>
+	        </div>
+	        <div class="clear"></div>
+		</div><!-- end left column -->
+		
+		<!--- Right Column --->
+		<div class="fRight xT10">
+
+	        <div class="module right_col xT10 negZIndex">
+	            <div class="moduleTLC"></div>
+	            <div class="moduleTRC"></div>
+	            <div class="moduleTitle">Recent Quotes</div>
+	            <div class="clear"></div>
+				<div class="moduleBody b10 t6" id="recentQuotes">
+<table cellspacing="0" width="100%">
+	<tbody><tr class="solidMed">
+		<td colspan="4" class="pL10 pR6 bold txt12 b6"><a class="link bold underline" href="javascript:void(0);" onclick='s_objectID="SClink_6";return this.s_oc?this.s_oc(e):true'>My Recent Quotes</a>&nbsp;|&nbsp;<a class="noDec" href="javascript:void(0);" onclick='s_objectID="SClink_7";return this.s_oc?this.s_oc(e):true'>E*TRADE&#8217;s Most Popular</a>&nbsp;<a class="bold" onmouseover="showInfo(this,'recentquote','E*TRADEs Most Popular tracks the most frequently requested symbols by E*TRADE users each day.','redesign');" onmouseout="closeInfo('recentquote');"><img src="marketoverview_files/white-help-icon.gif" alt="" align="absmiddle"></a></td>
+	</tr>
+	<tr class="solidMed lh22 txt12">
+		<td class="pL10 grey4 lCol" nowrap="nowrap">Company</td>
+		<td class="pR10 grey4 right mCol" nowrap="nowrap">Last</td>
+		<td colspan="2" class="pR10 grey4 right rCol" nowrap="nowrap">Today&#8217;s Chg</td>
+	</tr>
+	
+		<tr class="solidMed txt12 lh28">
+			<td class="pL10 normal lCol" nowrap="nowrap"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=MSFT_3";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=MSFT" onmouseover="showInfo(this,'MSFT',0,'redesign');" onmouseout="closeInfo('MSFT');">Microsoft Corp ...</a></td>
+			<td class="pR10 bold right mCol" nowrap="nowrap">30.24</td>
+			<td class="pR5 bold right rCol" nowrap="nowrap"><span class="pos">+0.29</span></td>
+			<td class="pR10 bold right rCol" nowrap="nowrap"><span class="pos">0.97%</span></td>
+		</tr>
+			
+		<tr class="solidMed txt12 lh28">
+			<td class="pL10 normal lCol" nowrap="nowrap"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=IBM_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=IBM" onmouseover="showInfo(this,'IBM',0,'redesign');" onmouseout="closeInfo('IBM');">International B...</a></td>
+			<td class="pR10 bold right mCol" nowrap="nowrap">193.64</td>
+			<td class="pR5 bold right rCol" nowrap="nowrap"><span class="pos">+2.11</span></td>
+			<td class="pR10 bold right rCol" nowrap="nowrap"><span class="pos">1.10%</span></td>
+		</tr>
+			
+		<tr class="solidMed txt12 lh28">
+			<td class="pL10 normal lCol" nowrap="nowrap"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=GE_2";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=GE" onmouseover="showInfo(this,'GE',0,'redesign');" onmouseout="closeInfo('GE');">General Electri...</a></td>
+			<td class="pR10 bold right mCol" nowrap="nowrap">19.02</td>
+			<td class="pR5 bold right rCol" nowrap="nowrap"><span class="pos">+0.27</span></td>
+			<td class="pR10 bold right rCol" nowrap="nowrap"><span class="pos">1.44%</span></td>
+		</tr>
+			
+		<tr class="solidMed txt12 lh28">
+			<td class="pL10 normal lCol" nowrap="nowrap"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=VRSN_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=VRSN" onmouseover="showInfo(this,'VRSN',0,'redesign');" onmouseout="closeInfo('VRSN');">Verisign Inc Co...</a></td>
+			<td class="pR10 bold right mCol" nowrap="nowrap">37.04</td>
+			<td class="pR5 bold right rCol" nowrap="nowrap"><span class="pos">+0.21</span></td>
+			<td class="pR10 bold right rCol" nowrap="nowrap"><span class="pos">0.57%</span></td>
+		</tr>
+			
+		<tr class="solidMed txt12 lh28">
+			<td class="pL10 normal lCol" nowrap="nowrap"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=AAPL_3";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=AAPL" onmouseover="showInfo(this,'AAPL',0,'redesign');" onmouseout="closeInfo('AAPL');">Apple Inc Com</a></td>
+			<td class="pR10 bold right mCol" nowrap="nowrap">459.68</td>
+			<td class="pR5 bold right rCol" nowrap="nowrap"><span class="pos">+4.56</span></td>
+			<td class="pR10 bold right rCol" nowrap="nowrap"><span class="pos">1.00%</span></td>
+		</tr>
+			
+		<tr class="solidMed txt12 lh28">
+			<td class="pL10 normal lCol" nowrap="nowrap"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=S_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=S" onmouseover="showInfo(this,'S',0,'redesign');" onmouseout="closeInfo('S');">Sprint Nextel C...</a></td>
+			<td class="pR10 bold right mCol" nowrap="nowrap">2.32</td>
+			<td class="pR5 bold right rCol" nowrap="nowrap"><span class="pos">+0.11</span></td>
+			<td class="pR10 bold right rCol" nowrap="nowrap"><span class="pos">4.98%</span></td>
+		</tr>
+			
+		<tr class="solidMed txt12 lh28">
+			<td class="pL10 normal lCol" nowrap="nowrap"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=VPRT_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=VPRT" onmouseover="showInfo(this,'VPRT',0,'redesign');" onmouseout="closeInfo('VPRT');">Vistaprint N V ...</a></td>
+			<td class="pR10 bold right mCol" nowrap="nowrap">39.83</td>
+			<td class="pR5 bold right rCol" nowrap="nowrap"><span class="pos">+1.00</span></td>
+			<td class="pR10 bold right rCol" nowrap="nowrap"><span class="pos">2.58%</span></td>
+		</tr>
+			
+		<tr class="solidMed txt12 lh28">
+			<td class="pL10 normal lCol" nowrap="nowrap"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BAC_4";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BAC" onmouseover="showInfo(this,'BAC',0,'redesign');" onmouseout="closeInfo('BAC');">Bank Of America...</a></td>
+			<td class="pR10 bold right mCol" nowrap="nowrap">7.84</td>
+			<td class="pR5 bold right rCol" nowrap="nowrap"><span class="pos">+0.39</span></td>
+			<td class="pR10 bold right rCol" nowrap="nowrap"><span class="pos">5.23%</span></td>
+		</tr>
+			
+		<tr class="solidMed txt12 lh28">
+			<td class="pL10 normal lCol" nowrap="nowrap"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=ETFC_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=ETFC" onmouseover="showInfo(this,'ETFC',0,'redesign');" onmouseout="closeInfo('ETFC');">E Trade Financi...</a></td>
+			<td class="pR10 bold right mCol" nowrap="nowrap">9.19</td>
+			<td class="pR5 bold right rCol" nowrap="nowrap"><span class="pos">+0.34</span></td>
+			<td class="pR10 bold right rCol" nowrap="nowrap"><span class="pos">3.90%</span></td>
+		</tr>
+			
+		<tr class="solidMed txt12 lh28">
+			<td class="pL10 normal lCol" nowrap="nowrap"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=RSP_1";return this.s_oc?this.s_oc(e):true' class="link" href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=RSP" onmouseover="showInfo(this,'RSP',0,'redesign');" onmouseout="closeInfo('RSP');">Rydex S&amp;p Equal...</a></td>
+			<td class="pR10 bold right mCol" nowrap="nowrap">50.44</td>
+			<td class="pR5 bold right rCol" nowrap="nowrap"><span class="pos">+0.82</span></td>
+			<td class="pR10 bold right rCol" nowrap="nowrap"><span class="pos">1.65%</span></td>
+		</tr>
+			
+	<tr>
+		<td class="pL6 t6 grey4 txt11 left" colspan="4">All quotes are delayed by at least 15 minutes</td>
+	</tr>
+</tbody></table>
+</div>
+	            <div class="moduleFooter">
+	                <div class="moduleBLC"></div>
+				    <div class="moduleBRC"></div>
+	            </div>
+	        </div>
+			
+			
+	        
+	        <div class="module right_col xT10 negZIndex" id="briefingCommentaryContainer">
+	            <div class="moduleTLC"></div>
+	            <div class="moduleTRC"></div>
+	            <div class="moduleTitle">Briefing.com Commentary</div>
+	            <div class="clear"></div>
+				<div class="moduleBody b10 t6"><div class="pL6">
+<table cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td class="t6"><select name="select-briefing" id="select-briefing"><option selected="selected" value="../../news/briefing/briefing.asp?newsType=InPlay">InPlay®</option><option value="../../news/briefing/briefing.asp?newsType=ShortStories">Short Stories</option><option value="../../news/briefing/briefing.asp?newsType=StockMarketUpdate">Stock Market Update</option><option value="../../news/briefing/briefing.asp?newsType=StoryStocks">Story Stocks</option><option value="../../news/briefing/briefing.asp?newsType=TechStocks">Tech Stocks</option><option value="../../news/briefing/briefing.asp?newsType=StockBrief">Stock Brief</option><option value="../../news/briefing/briefing.asp?newsType=DailySectorWrap">Daily Sector Wrap</option><option value="../../news/briefing/briefing.asp?newsType=WeeklyWrap">Weekly Wrap</option><option value="../../news/briefing/briefing.asp?newsType=BondMarketUpdate">Bond Market Update</option><option value="../../news/briefing/briefing.asp?newsType=FedBrief">Fed Brief</option><option value="../../news/briefing/briefing.asp?newsType=RateBrief">Rate Brief</option><option value="../../news/briefing/briefing.asp?newsType=TheBondColumn">The Bond Column</option></select></td>
+		<td class="t6 left"><span class="pL6 hand" onclick="try{markets.goToBriefing();}catch(e){}"><img src="marketoverview_files/b_go_eng.gif"></span></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="grey4 t8 txt11">Choose a feature to view its most recent headlines</td>
+	</tr>
+</tbody></table>
+</div></div>
+	            <div class="moduleFooter">
+	                <div class="moduleBLC"></div>
+				    <div class="moduleBRC"></div>
+	            </div>
+	        </div>
+	        
+	        <!--Ideas From Market History Module-->	
+			<div class="module right_col xT10">
+				<div class="moduleTLC"></div>
+				<div class="moduleTRC"></div>
+				<div class="moduleTitle">
+					IDEAS FROM MARKET HISTORY
+				</div>
+				<!-- -->
+					
+	<div class="moduleLink pR10 t10 hand"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stockresearch/ideas/markethistory.asp?dockey=698-17457-40I6ML9RR_1";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stockresearch/ideas/markethistory.asp?dockey=698-17457-40I6ML9RRVSMTA6EHTL0KU8B27" class="href txt11"> More »</a></div>
+	<div class="clear"></div>
+	<div class="moduleBody">
+		<div class="t2 xL10">	
+			<div class="t8 b8"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stockresearch/ideas/markethistory.asp?dockey=698-17457-40I6ML9RR_2";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stockresearch/ideas/markethistory.asp?dockey=698-17457-40I6ML9RRVSMTA6EHTL0KU8B27" class="href txt14 bold" title="PHLX Gold &amp; Silver Index (XAU) - Heads Up Bulls">PHLX Gold &amp; Silver Index (XAU) - Heads Up Bulls</a></div>
+			<div class="txt12 pR8 b4">The Philly Gold &amp; Silver Index (XAU) 
+continues to show relative weakness against other equity indexes as well
+ as both the Silver and Gold futures contracts. The XAU index faded 
+again on Thursday for the third time in four sessions, down 1.7... </div>
+			<div class="b20">
+				1/20/12&nbsp;|&nbsp;
+				<a href="javascript:void(0);" onclick='s_objectID="SClink_8";return this.s_oc?this.s_oc(e):true'>MarketHistory.com</a>
+				<a href="javascript:void(0);" onclick='s_objectID="SClink_9";return this.s_oc?this.s_oc(e):true'>
+					<img src="marketoverview_files/white-help-icon_002.gif" alt="" style="margin-left: 2px; margin-bottom: 2px;" align="absmiddle">
+				</a>
+			</div>
+		</div>
+	</div>	
+	
+				<div class="moduleFooter">
+					<div class="moduleBLC"></div>
+					<div class="moduleBRC"></div>
+				</div>
+			</div>
+	        
+
+		</div><!-- end right column -->
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+<script type="text/javascript">markets=function(){this.rankings=Element.get("rankings");this.rankingsData=[];this.rankingsType=[];this.numRankings=5;this.events=Element.get("events");this.eventsType=[];this.numEvents=5;this.recentQuotes=Element.get("recentQuotes");this.marketnews=Element.get("marketnews");this.marketTimeouts=[];this.universeLoaded=[];this.typeLoaded=[];this.currNum=0;this.rankingsType[0]='mostActive';this.rankingsType[1]='pctGainers';this.rankingsType[2]='pctLosers';this.rankingsType[3]='netGainers';this.rankingsType[4]='netLosers';this.currENum=0;this.eventsType[0]='40944';this.eventsType[1]='40945';this.eventsType[2]='40946';this.eventsType[3]='40947';this.eventsType[4]='40948';};markets.prototype.updateEvents=function(dir,dateOf,currENum,eventType){common.showLoading('events',0,0);if(dir==-1){if(this.currENum<=0){this.currENum=this.numEvents;this.currENum--}else{this.currENum--}dateOf=this.eventsType[this.currENum]}else if(dir==1){if(this.currENum>=this.numEvents-1){this.currENum=0}else{this.currENum++}dateOf=this.eventsType[this.currENum]}else if(dir==0){this.currENum=currENum}common.cb.load({url:"update_events.asp",data:{eventType:eventType,dateSelectedMS:dateOf},method:"get",contentType:"text/html",onload:function(cp){results=cp.getResult();if(results){Element.get("events").innerHTML=results}common.hideLoading('events')},onerror:function(){common.hideLoading('events')}});common.resetSessionExpiration()};markets.prototype.updateRecentQuotes=function(recentQuoteView){common.showLoading('recentQuotes',1);common.cb.load({url:"update_recentquotes.asp",data:{recentQuoteView:recentQuoteView},method:"get",contentType:"text/html",onload:function(cp){results=cp.getResult();if(results){Element.get("recentQuotes").innerHTML=results}common.hideLoading('recentQuotes')},onerror:function(){common.hideLoading('recentQuotes')}});common.resetSessionExpiration()};markets.prototype.updateNews=function(newsType){var moreNewsLink=Element.get("more_news_link");var newsHeader=Element.get("market_news");if(newsType=='top'){moreNewsLink.href='../../news/marketnews/marketnews.asp?newsType=top';moreNewsLink.innerHTML='More Top Stories &raquo;';newsHeader.innerHTML='Top Stories'}else if(newsType=='headlines'){moreNewsLink.href='../../news/marketnews/marketnews.asp?newsType=headlines';moreNewsLink.innerHTML='More Latest Headlines &raquo;';newsHeader.innerHTML='Latest Headlines'}else{moreNewsLink.href='../../news/commentaryblogs/commentaryblogs.asp?newsType=trefis';moreNewsLink.innerHTML='More Commentary & Blogs &raquo;';newsHeader.innerHTML='Commentary & Blogs'}common.showLoading('marketnews',1);common.cb.load({url:"update_marketnews.asp",data:{newsType:newsType},method:"get",contentType:"text/html",onload:function(cp){results=cp.getResult();if(results){Element.get("marketnews").innerHTML=results}common.hideLoading('marketnews')},onerror:function(){common.hideLoading('marketnews')}});common.resetSessionExpiration()};markets.prototype.goToBriefing=function(){this.briefingSel=Element.get("select-briefing");if(this.briefingSel.value){window.location.href=this.briefingSel.value}};markets.prototype.updateRankings=function(rankingType,dir){this.universeLoaded=[];this.typeLoaded=[];common.showLoading('rankings',0,0);if(dir==-1){if(this.currNum<=0){this.currNum=this.numRankings;this.currNum--}else{this.currNum--}rankingType=this.rankingsType[this.currNum]}else if(dir==1){if(this.currNum>=this.numRankings-1){this.currNum=0}else{this.currNum++}rankingType=this.rankingsType[this.currNum]}for(var t=0;t<this.rankingsType.length;t++){Element.get(this.rankingsType[t]).className="link bold underline";if(this.rankingsType[t]==rankingType){this.currNum=t}}var newTypeLabel;if(rankingType=='mostActive'){newTypeLabel='Most Actives'}else if(rankingType=='pctGainers'){newTypeLabel='% Gainers'}else if(rankingType=='pctLosers'){newTypeLabel='% Losers'}else if(rankingType=='netGainers'){newTypeLabel='$ Gainers'}else if(rankingType=='netLosers'){newTypeLabel='$ Losers'}else{newTypeLabel='Most Actives'}try{if(this.rankingsData[rankingType]){this.rankings.innerHTML=this.rankingsData[rankingType];Element.get(rankingType).className="on";Element.get('mostType_hdr').innerHTML=newTypeLabel;Element.get('mostType_moreLink').innerHTML=newTypeLabel}else{common.cb.load({url:"update_rankings.asp",data:{rankingType:rankingType,rankingUniverse:this.rankingUniverse},method:"get",contentType:"text/html",onload:function(cp){results=cp.getResult();if(results){Element.get("rankings").innerHTML=results}Element.get(rankingType).className="on";Element.get('mostType_hdr').innerHTML=newTypeLabel;Element.get('mostType_moreLink').innerHTML=newTypeLabel;common.hideLoading('rankings')},onerror:function(){common.hideLoading('rankings')}})}}catch(e){}common.resetSessionExpiration()};markets.prototype.revealPanel=function(market,rankingType){if(market=='USN'){this.usn=window.setTimeout("markets.revealPanel_action('"+market+"','"+rankingType+"');",500)}else if(market=='USQ'){this.usq=window.setTimeout("markets.revealPanel_action('"+market+"','"+rankingType+"');",500)}else if(market=='DOW'){this.dow=window.setTimeout("markets.revealPanel_action('"+market+"','"+rankingType+"');",500)}else{this.usa=window.setTimeout("markets.revealPanel_action('"+market+"','"+rankingType+"');",500)}};markets.prototype.revealPanel_action=function(market,rankingType){try{this.rankingUniverse=market;this.header=Element.get(market+"RankingHdr");this.panel=Element.get(market+"Panel");if(this.market!=market&&this.panel.style.display!="block"){this.market=market;var r=[];r['DOW']=1;r['USN']=1;r['USQ']=1;r['USA']=1;for(var s in r){Element.removeClass(Element.get(s+"RankingHdr"),"on");Element.get(s+"Panel").style.display="none"}this.itr=0;Element.addClass(this.header,"on");this.panel.style.display="block";this.panel.style.height="0px";if(this.universeLoaded[market]==market&&this.typeLoaded[rankingType]==rankingType){markets.setRankingUniverseToSession(market)}else{markets.loadRankingsBuffer(market,rankingType)}for(i=0;i<=22;i++){setTimeout("markets.scroller();",i*22)}this.universeLoaded[market]=market;this.typeLoaded[rankingType]=rankingType}}catch(e){}common.resetSessionExpiration()};markets.prototype.closePanel=function(market){if(market=='USN'){window.clearTimeout(markets.usn)}else if(market=='USQ'){window.clearTimeout(markets.usq)}else if(market=='DOW'){window.clearTimeout(markets.dow)}else{window.clearTimeout(markets.usa)}};markets.prototype.scroller=function(){this.itr++;var addTo=parseInt(this.itr)*7;if(addTo<164){this.panel.style.height=addTo+"px"}};markets.prototype.loadRankingsBuffer=function(market,rankingType){var container=Element.get(market+'Panel');this.loader=Element.get(market+'_loading');common.cb.load({url:"load_rankings.asp",data:{rankingUniverse:market},method:"get",contentType:"text/html",onload:function(cp){results=cp.getResult();if(results){Element.get(container).innerHTML=results}markets.hideRankingsLoader(market,rankingType)}})};markets.prototype.hideRankingsLoader=function(market,rankingType){if(markets.universeLoaded[market]!=market&&markets.typeLoaded[rankingType]!=rankingType){markets.loader.style.display="none"}};markets.prototype.setRankingUniverseToSession=function(market){common.cb.load({url:"update_universe.asp",data:{rankingUniverse:market},method:"get",contentType:"text/html",onload:function(cp){results=cp.getResult();if(results){}}})};markets.prototype.showSeekingAlphaPopup=function(forwardUrl){window.open('../../news/commentaryblogs/seeking_alpha.asp?forwardUrl='+escape(forwardUrl),'seeking_alpha_popup','toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=750,height=500')};function revealPanel(market,rankingType){try{markets.revealPanel(market,rankingType)}catch(e){}};function closePanel(market){try{markets.closePanel(market)}catch(e){}};function brkFrm(){var s=self.location.href;if(window.top!=window.self){window.top.location.href=s}};DomReady.ready(function(){markets=new markets();brkFrm()});</script>
+<div id="etFooter"><hr class="hrFull" size="1"><div class="disclaimer">Quotes and other information supplied by independent providers identified on the E*TRADE <a onclick='s_objectID="SClink_10";return this.s_oc?this.s_oc(e):true' href="javascript:etWin('../../common/disclaimers/vendor.asp','vendor_disclaimer',490,600,'off','off','','off','on',screen.width-490,0);">vendor disclosures</a> page</div><br>
+		
+		<b>PLEASE READ THE IMPORTANT DISCLOSURES BELOW</b><br><br>
+	    
+		<div class="disclaimer">Securities products and services are offered by E*TRADE Securities LLC, Member <a onclick='s_objectID="SClink_11";return this.s_oc?this.s_oc(e):true' href="javascript:etWin('http://www.finra.org','pdf',604,400,'yes','yes','yes','yes','yes',5,5,'');">FINRA</a>/<a onclick='s_objectID="SClink_12";return this.s_oc?this.s_oc(e):true' href="javascript:etWin('http://www.SIPC.org','pdf',604,400,'yes','yes','yes','yes','yes',5,5,'');">SIPC</a>.</div>
+		<br><b>System response and account access times may vary due to a variety of factors, including trading volumes,<br>market conditions, system performance, and other factors.</b><br><br>
+		<div class="disclaimer"><a onclick='s_objectID="https://us.etrade.com/e/t/home/accountfeatures?gxml=financialcondition.html_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/home/accountfeatures?gxml=financialcondition.html">Statement of Financial Condition</a>
+		&nbsp;&nbsp; | &nbsp;&nbsp;<a onclick='s_objectID="https://us.etrade.com/e/t/home/accountfeatures?gxml=brk_insurance.html_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/home/accountfeatures?gxml=brk_insurance.html">About Brokerage Insurance</a>
+		&nbsp;&nbsp; | &nbsp;&nbsp;<a onclick='s_objectID="https://us.etrade.com/e/t/estation/help?id=1209031000&amp;traxui=F_FN_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/estation/help?id=1209031000&amp;traxui=F_FN">Customer/User Agreement</a>
+		&nbsp;&nbsp; | &nbsp;&nbsp;<a onclick='s_objectID="https://us.etrade.com/e/t/estation/help?id=1209010000_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/estation/help?id=1209010000">Privacy Statement</a>
+		&nbsp;&nbsp; | &nbsp;&nbsp;<a onclick='s_objectID="https://us.etrade.com/e/t/estation/help?id=1209028000_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/estation/help?id=1209028000">Business Continuity Plan</a><br>
+		<a onclick='s_objectID="https://us.etrade.com/e/t/estation/help?id=1220000000_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/estation/help?id=1220000000">Online Security</a>
+		&nbsp;&nbsp; | &nbsp;&nbsp;<a onclick='s_objectID="https://us.etrade.com/e/t/home/accessus_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/home/accessus">Contact Us</a>
+		&nbsp;&nbsp; | &nbsp;&nbsp;<a onclick='s_objectID="https://us.etrade.com/e/t/home/aboutus_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/home/aboutus">About Us</a><br><br>
+		© 2012 E*TRADE Financial Corporation All rights reserved.   Version 1.0. ATLp</div>
+		</div><div id="commonContainer" style="display:none;"></div><iframe src="marketoverview_files/blank.html" style="display: block; visibility: hidden;" id="commonGen" name="commonGen" border="0" height="1" width="1"></iframe>
+<!-- start e*trade omniture (provided by e*trade) -->
+<script language="JavaScript" type="text/javascript">
+	var s_account="etrglobal,etrwsod";
+</script>
+<script language="JavaScript" src="marketoverview_files/s_code.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+	s.pageName="";
+	var s_code=s.t();if(s_code)document.write(s_code);
+</script><script language="javascript" src="marketoverview_files/omtr_tc_logging.js"></script>
+<!-- end e*trade omniture -->	
+
+<!-- start e*trade taskbar -->
+<script type="text/javascript" src="marketoverview_files/ui.js"></script>
+<script type="text/javascript">
+    if('undefined' !== typeof EtradeTaskbar){
+        new EtradeTaskbar({
+            serviceHost: 'https://us.etrade.com'
+            ,assetHost: AkamaiURL
+        });
+    }
+</script>
+<!-- end e*trade taskbar -->
+<table cellpadding="0" cellspacing="0" width="965"><tbody><tr><td></td></tr></tbody></table></div>
+<br>
+<br></body></html>

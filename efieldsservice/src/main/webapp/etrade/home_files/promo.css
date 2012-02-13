@@ -1,0 +1,975 @@
+#promo-stock-options-trades.promo .pricing-details:hover {
+    background-position: right -132px;
+    text-decoration: underline;
+}
+
+.middle-content .right-side .whats-your-next-move .open-an-account {
+    padding: 10px 0 0;
+    text-align: center;
+}
+
+/*** right side promo generic css  ***/
+
+.promo-right-side .open-an-account .twenty-five {
+    padding: 4px 28px;
+      display: block;
+    height: 19px;
+    margin-bottom: 1px;
+}
+
+.promo-right-side .promo {
+      background: url("../../images/account-management/promo-gradients.png") repeat-x scroll 0 0 #302266;
+    color: #FFFFFF;
+    padding: 20px 20px 20px 15px;
+    width: 180px;
+      height:265px;
+}
+
+.promo-right-side .promo h4 {
+    color: #FFFFFF;
+    font-family: Helvetica;
+    font-size: 16px;
+    margin: 10px 0 10px;
+    padding-top:3px;
+      width: 179px;
+}
+
+.promo-right-side .promo h5 {
+    color: #FFFFFF;
+    font-family: Helvetica;
+    font-size: 15px;
+    margin: 10px 0 10px;
+    padding-top:3px;
+      width: 185px;
+}
+
+.promo-right-side .promo .open-an-account {
+    margin-bottom: 9px;
+    padding: 20px 2px 0;
+    text-align: center;
+      width:132px;
+}
+
+.promo-right-side .promo h3 {
+    color: #FFFFFF;
+    font-family: Helvetica;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+      width:194px;
+}
+
+#promo-full-width.promo div#trade-free h3 sup{
+      font-size: 20px;
+}
+
+.promo-right-side .purple-link {
+      color: #AEA1D8;
+      line-height:20px;
+      background: url("../../images/arrows.png") no-repeat scroll right -88px transparent;
+      clear: both;
+      display: inline-block;
+    height: 20px;
+      padding-right: 20px;
+}
+
+/* End right side promo generic css */
+
+#promo-side .open-an-account .twenty-five {
+    padding: 6px 28px;
+      display: block;
+    height: 14px;
+    margin-bottom: 1px;
+}
+
+#promo-side.promo,  #futures-rightside-promo {
+    background: url("../../images/account-management/promo-gradients.png") repeat-x scroll 0 0 #302266;
+    color: #FFFFFF;
+    padding: 20px 20px 20px;
+    width: 180px;
+      height:159px;
+}
+
+#promo-stock-options-trades.promo {
+    background: url("../../images/account-management/promo-gradients.png") repeat-x scroll center top #302266;
+    margin: 1px 0 4px;
+    padding: 10px 20px 20px;
+    width: 180px;
+      height:97px;
+}
+
+#promo-stock-options-trades.promo h5,
+#promo-side-long.promo h5,#futures-rightside-bottom-promo h5 {
+    color: #EBEFF0;
+    font-family: Helvetica;
+    font-size: 14px;
+      margin-top:0px;
+      margin-bottom:0px;
+}
+
+#promo-stock-options-trades.promo .price,
+#promo-side-long.promo .price,#futures-rightside-bottom-promo  .price {
+    color: #EBEFF0;
+}
+
+#promo-stock-options-trades.promo .price strong,
+#promo-side-long.promo .price strong  {
+    float: left;
+    font-family: Helvetica;
+    font-size: 54px;
+    font-weight: normal;
+    letter-spacing: -3px;
+    margin: 0 10px 0 0;
+}
+
+#promo-stock-options-trades.promo .price strong em,
+#promo-side-long.promo .price strong em
+{
+    float: left;
+    font-size: 30px;
+    font-style: normal;
+    margin: 8px 3px 0 0;
+}
+
+#promo-stock-options-trades.promo .price span,
+#promo-side-long.promo .price span
+{
+    float: left;
+    font-family: Helvetica;
+    font-size: 18px;
+    margin: 8px 0 4px;
+    text-transform: uppercase;
+    width: 20px;
+}
+
+#promo-stock-options-trades.promo .pricing-details,
+#promo-side-long.promo .pricing-details
+{
+    background: url("../../images/arrows.png") no-repeat scroll right -88px transparent;
+    clear: both;
+    color: #AEA1D8;
+    display: inline-block;
+    height: 20px;
+    line-height: 16px;
+    padding-right: 20px;
+}
+
+#promo-side.promo h4 {
+    color: #FFFFFF;
+    font-family: Helvetica;
+    font-size: 15px;
+    margin: 0 0 10px;
+    padding-top:3px;
+      width: 185px;
+}
+
+/*Old
+.promo .read-more {
+    background: url("../../images/global-icons.png") no-repeat scroll top left transparent;
+    color: #AEA1D8;
+    padding-left: 20px;
+    margin-left:10px;
+    height:16px;
+}*/
+
+.promo .read-more {
+	background: url("../../images/global-icons.png") no-repeat scroll left 1px transparent !important;
+	color: #AEA1D8 !important;
+	height: 15px !important;
+	padding: 0 0 0 17px !important;
+	margin: 0px !important;
+	line-height: 100% !important;
+	cursor: pointer !important;
+	display: inline-block !important;
+}
+
+#promo-side.promo .open-an-account, #futures-rightside-promo .open-an-account {
+    margin-bottom: 9px;
+    padding: 20px 2px 0;
+    text-align: center;
+    width:173px;
+}
+
+#futures-rightside-promo .open-an-account a { line-height: 25px; }
+
+#promo-side.promo h3, #promo-side-long.promo h3,#futures-rightside-promo h3   {
+    color: #FFFFFF;
+    font-family: Helvetica;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    line-height:22px;
+}
+
+#promo-side.promo-portfolio h3 {
+      font-size:21px;
+}
+
+#promo-side.promo-portfolio{
+      height:181px;
+      line-height:21px;
+}
+
+#promo-side.promo-portfolio .open-an-account {
+      padding: 15px 2px 0;
+}
+
+/*overlay */
+
+#h-risk.help-tip {
+    bottom: 56px;
+    left: 59px;
+}
+
+#promo-full-width #h-risk.help-tip {
+      bottom: 37px;
+}
+
+.help-tip {
+    background-color: #FFFFFF;
+    border: 1px solid #ABABAB;
+    box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 0.3);
+    display: none;
+    padding: 17px;
+    position: absolute;
+    width: 188px;
+    z-index: 2;
+}
+
+.help-tip p.help-title, .inv-cho-module-fourth .help-tip p.help-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.help-tip p, .inv-cho-module-fourth .help-tip p {
+    color: #000000;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    text-align: left;
+    text-transform: none;
+}
+
+.help-tip span, .inv-cho-module-fourth .help-tip span {
+    background: url("../../images/global-sprite.png") no-repeat scroll -229px -96px transparent;
+    bottom: -22px;
+    height: 22px;
+    left: -8px;
+    position: absolute;
+    width: 28px;
+}
+
+
+/*
+ * Promo
+ */
+#promo-full-width.promo {
+    background: url("../../images/account-management/promo-gradients.png") repeat-x scroll left top transparent;
+    color: #FFFFFF;
+    height: 145px;
+    width: 940px;
+    margin:auto;
+}
+
+.promo {
+    position: relative;
+      top:30px;
+}
+
+#promo-full-width.promo div#white-logos {
+    left: 26px;
+    top: 26px;
+}
+
+#promo-full-width.promo div {
+    position: absolute;
+}
+
+#promo-full-width.promo div#white-logos span#smartmoney {
+    background-position: -326px 0;
+}
+
+#promo-full-width.promo div#white-logos span {
+    background-image: url("../../images/account-management/global-logos.png");
+    height: 45px;
+    width: 75px;
+}
+
+.ir {
+    background-repeat: no-repeat;
+    direction: ltr;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    text-indent: -9999em;
+}
+
+#promo-full-width.promo div#white-logos span#kiplinger {
+    background-position: -326px -55px;
+    margin-top: 10px;
+}
+
+#promo-full-width.promo div#white-logos span {
+    background-image: url("../../images/account-management/global-logos.png");
+    height: 45px;
+    width: 75px;
+}
+
+#promo-full-width.promo div#trade-free {
+    left: 134px;
+    top: -12px;
+}
+
+#promo-full-width.promo div#trade-free {
+    top: 28px;
+    width: 345px;
+}
+
+#promo-full-width.promo div#trade-free h3 {
+    font-family: Helvetica;
+    font-size: 32px;
+    letter-spacing: -1px;
+    line-height: 32px;
+    width: 355px;
+      margin:0px;
+      padding-bottom:5px;
+}
+
+#promo-full-width.promo div#trade-free a {
+    color: #937FD0;
+    display: block;
+    font-size: 12px;
+    margin: 10px 0 0 7px;
+    padding-left: 20px;
+}
+
+#promo-full-width.promo div#stock-options {
+    color: #EBEFF0;
+    right: 251px;
+    top: 28px;
+    width: 165px;
+}
+
+
+#promo-full-width.promo div#stock-options p {
+    font-family: Helvetica;
+    font-size: 14px;
+    line-height: 15.54px;
+}
+
+#promo-full-width.promo div#stock-options h4 {
+    display: inline;
+    float: left;
+    font-family: Helvetica;
+    font-size: 46px;
+    letter-spacing: -1px;
+    line-height: 63px;
+      margin:0px;
+}
+
+#promo-full-width.promo div#stock-options > a {
+    clear: both;
+    color: #937FD0;
+    display: block;
+    font-size: 12px;
+}
+#promo-full-width.promo div#open-an-account {
+    right: 25px;
+    top: 48px;
+}
+
+#promo-full-width.promo div#trade-free h3 {
+    font-family: Helvetica;
+    font-size: 32px;
+    letter-spacing: -1px;
+    line-height: 32px;
+    width: 355px;
+      color:#ffffff;
+}
+
+#promo-full-width.promo {
+    color: #FFFFFF;
+}
+
+#promo-full-width.promo div#stock-options span {
+    float: right;
+    font-size: 18.9px;
+    letter-spacing: -1px;
+    line-height: 18.9px;
+    padding-top: 15px;
+    text-transform: uppercase;
+    width: 50px;
+}
+
+.inv-bottom-module {
+      height:150px;
+}
+
+/* already a customer*/
+#promo-already-a-customer {
+    background: url("../../images/account-management/promo-gradients.png") repeat-x scroll center top #302266;
+    top:10px;
+    overflow: hidden;
+    padding: 15px;
+    width: 238px;
+    clear:both;
+}
+
+#promo-already-a-customer h5 {
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 12px;
+    margin:0px;
+}
+
+#promo-already-a-customer p {
+    color: #FFFFFF;
+    font-size: 12px;
+      margin-bottom: 10px;
+}
+
+#promo-already-a-customer a.get-your-phone {
+      background: url("../../images/arrows.png") no-repeat scroll right -89px transparent;
+    color: #AEA1D8;
+    display: block;
+    float: left;
+    height: 16px;
+    line-height: 16px;
+    padding-right: 20px;
+}
+
+#promo-already-a-customer a.get-your-phone:hover {
+      background-position: right -133px;
+}
+
+#promo-already-a-customer a.read-more-smaller {
+    float: right;
+      background: url("../../images/global-icons.png") no-repeat scroll 0 2px transparent;
+    color: #AEA1D8;
+    padding-left: 18px;
+}
+
+#promo-side-long.promo {
+    background: url("../../images/account-management/promo-gradients.png") repeat-x scroll 0 0 #302266;
+    color: #FFFFFF;
+    padding: 20px 20px 20px;
+    width: 180px;
+}
+
+#promo-side-long.promo h5 {
+      margin-top:10px;
+}
+#promo-side-long.promo .green-btn {
+      width:163px;
+}
+#promo-side-long.promo div.open-an-account {
+      margin-top:10px;
+}
+#promo-side-long.promo span.text {
+      display:block;
+      margin-top:7px;
+}
+sup {
+    bottom: 1ex;
+    font-size: 0.8em;
+    height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+/* Futures */
+#promo-side.futures-side h4, #promo-side.banking-side h4 {
+    color: #FFFFFF;
+    font-family: Helvetica;
+    font-size: 16px;
+    margin: 0 0 12px;
+    padding-top:3px;
+      width: 185px;
+}
+
+#promo-side.banking-side h4 {
+      padding-top:0;
+}
+
+#promo-side.banking-side h3 {
+      color: #FFFFFF;
+    font-size: 22px;
+      padding-bottom: 20px;
+}
+
+#promo-side.futures-side {
+      height: 170px;
+}
+
+#promo-side.banking-side {
+      height: 220px;
+}
+
+#promo-side.futures-side h5, #promo-side.banking-side h5 {
+    color: #FFFFFF;
+    font-family: Helvetica;
+    font-size: 14px;
+      margin-top:0px;
+      margin-bottom:0px;
+}
+
+#promo-side.banking-side h5 {
+      margin-bottom:2px;
+      margin-top: 14px;
+}
+
+#promo-full-width.promo div#futures-contracts {
+    left: 134px;
+    top: -12px;
+}
+
+#promo-full-width.promo div#futures-contracts {
+    top: 28px;
+    width: 345px;
+}
+
+#promo-full-width.promo div#futures-contracts h3 {
+    font-family: Helvetica;
+    font-size: 28px;
+    letter-spacing: -1px;
+    /*line-height: 32px;*/
+    width: 490px;
+      margin:5px 0 0;
+}
+
+#promo-full-width.promo div#futures-contracts h5 {
+      color:#ffffff;
+    font-family: Helvetica;
+    font-size: 14px;
+      margin:0px;
+}
+
+#promo-full-width.promo-futures {
+      width:700px;
+}
+
+.promo-right-side .open-account-community .twenty-five {
+    padding: 4px 11px;
+}
+
+#promo-side.banking-side {
+    height: 220px;
+}
+/**********Make you cash work harder promo style***********/
+#promo-side.cash-work-harder {
+      height: 120px;
+}
+#promo-side.cash-work-harder h3 {
+      line-height: 25px;
+      font-size: 22px;
+}
+
+/**************next-move************************/
+#promo-side.next-move .open-an-account a{
+      margin-bottom: 10px;
+}
+#promo-side.next-move {
+      height: 206px;
+      margin-bottom:4px;
+}
+#promo-side.next-move h4{
+      font-size:18px;
+}
+
+/**************Retirement Full width promo*************/
+#promo-full-width.promo div#white-logos.retirement-img span.retirement-img{
+    background-image: url("../../images/retirement/retirement-plan-promo-man.png");
+    height: 180px;
+    width: 165px;
+}
+#promo-full-width.promo div#white-logos.retirement-img {
+      left:0px;
+      top:0px;
+}
+#promo-full-width.promo div#white-logos.retirement-img span#smartmoney{
+      background-position:0px 0px;
+}
+#promo-full-width.promo div#trade-free.retirement-img{
+      left: 178px;
+      background-image: url("../../images/retirement/promo-shadow.jpg");
+      background-position:right 0;
+      height:145px;
+      top:0;
+      width:296px;
+}
+#promo-full-width.promo div#trade-free.retirement-img h3,#promo-full-width.promo div#stock-options.retirement-img h3{
+      width:300px;
+      font-size:24px;
+      line-height:25px;
+      padding-top:20px;
+      font-family: Helvetica;
+      margin:0px;
+}
+#promo-full-width.promo div#stock-options.retirement-img h3{
+      font-size:28px;
+}
+#promo-full-width.promo div#trade-free.retirement-img h5,#promo-full-width.promo div#stock-options.retirement-img h5{
+      margin: 5px 0 10px;
+      font-size: 12px;
+      width:250px;
+}
+#promo-full-width.promo div#trade-free.retirement-img a{
+      margin:0px;
+      padding:0px;
+}
+#promo-full-width.promo div#stock-options.retirement-img{
+    right: 270px;
+    top: 15px;
+}
+#promo-full-width.promo div#stock-options.retirement-img p{
+      font-size: 18px;
+    line-height: 30px;
+    width:250px;
+}
+#promo-full-width.promo div#open-an-account.retirement-img a{
+      width:130px;
+}
+#promo-full-width.promo div#open-an-account.retirement-img.btn1{
+    top: 25px;
+}
+#promo-full-width.promo div#open-an-account.retirement-img.btn2{
+    right: 25px;
+    top: 65px;
+}
+
+.header-promo{
+	height:150px;
+	width:380px !important;
+}
+
+#promo-full-width.promo{
+	top:0px;
+}
+
+#promo-full-width.header-promo h3{
+	margin-left:20px;
+	margin-bottom:30px;
+	text-align:left;
+	font-size:18px;
+	margin-top:0px;
+	padding-top:20px;
+}
+#rollover-ira .promo .green-btn{
+	float:right;
+	margin:50px 32px 0px 0px;
+	width:74px;
+}
+#rollover-ira #promo-full-width.promo.header-promo div {
+	padding: 16px 0px 0px 18px;
+}
+#rollover-ira #promo-full-width.header-promo h3{
+	margin: 0px 0px 1px 0px;
+	padding: 0px 0px 0px 0px;
+	line-height: 24px;
+}
+#rollover-ira #promo-full-width.header-promo a.overlay-link{
+	background: url("../../images/global-icons.png") no-repeat scroll 2px 2px transparent;
+    color: #AEA1D8;
+    padding-left: 20px;
+    font-size: 12px;
+}
+
+a.overlay-link{
+	background: url("../../images/global-icons.png") no-repeat scroll 2px 2px transparent;
+    color: #AEA1D8;
+    padding-left: 20px;
+    font-size: 12px;
+}
+
+#retirement-head a.overlay-link{
+	float:left;
+	margin:0px 0px 0px 20px;
+}
+
+#ira-account{
+	top:50px;
+	left:255px;
+}
+
+#promo-full-width.header-promo .read-more.overlay{
+	float:left;
+	margin-left:20px;
+}
+
+#ira-account .green-btn{
+	background-repeat: repeat-x;
+    color: #FFFFFF;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    line-height:25px;
+}
+
+#retirement-app{
+	position:absolute;
+	top:45px;
+	left:235px;
+}
+
+#retirement-app .green-btn{
+	background-repeat: repeat-x;
+    color: #FFFFFF;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    font-size:11px;
+    line-height:13px;
+    width:90px;
+    height:33px;
+    padding-top:7px;
+}
+
+#simple-ira .green-btn{
+	float:right;
+	margin: 42px 22px 0px 0px;
+	padding: 0;
+	width: 104px;
+	font-size:11px;
+	line-height:14px;
+}
+#simple-ira .green-btn .text{
+	position:relative;
+	top:7px;
+}
+#simple-ira .title-header {
+   	height: 166px;
+}
+#simple-ira .title-header div.banner {
+	float: none;
+	background: transparent;
+	margin: 0px 0px 0px 0px;
+}
+#simple-ira .section-head h4 {
+	font-weight: bold;
+}
+#simple-ira #promo-full-width.header-promo h3 {
+	font-size: 20px;
+}
+/************Retirement promo******************/
+
+#promo-stock-options-trades.retirement-promo .price strong{
+    font-size: 36px;
+    margin: 0;
+}
+
+#promo-stock-options-trades.retirement-promo .price strong em{
+    font-size: 17px;
+    margin: 5px 3px 0 0;
+}
+#promo-stock-options-trades.retirement-promo .price p{
+  margin-bottom: 10px;
+  clear:both;
+}
+
+/** How to get Started promo ***/
+#promo-side-how{
+	background: url("../../images/account-management/promo-gradients.png") repeat-x scroll 0 0 #302266;
+    color: #FFFFFF;
+    width: 180px;
+	padding: 19px 20px 20px !important;
+	*padding: 19px 20px 19px !important; /* IE7 Hack */
+	margin-bottom: 4px;
+	top:0;
+
+}
+#promo-side-how h3 {
+    color: #FFFFFF;
+    font-family: Helvetica;
+    font-size: 22px;
+	line-height:22px;
+    margin: 0;
+    padding: 0;
+}
+#promo-side-how  .green {
+	color:#96C83B;
+	margin-top:20px;
+}
+#promo-side-how p{
+	font-family:Arial;
+	font-size:12px;
+	color:#FFF;
+}
+#promo-side-how .call-hours{
+	border-bottom:1px solid #816FB4;
+	padding-bottom:10px;
+	margin-bottom:10px;
+}
+.call-now {
+    background: url("../../images/global-icons.png") no-repeat scroll 2px 2px transparent;
+    color: #AEA1D8;
+    padding-left: 18px;
+	display:block;
+	margin-top:10px;
+}
+#promo-side-how .call-desc {
+	margin-top:25px;
+}
+#promo-side-how a:hover, div.navigation a:hover, div.feeSchedule a:hover, div.relatedLinks a:hover, div.requestForm a:hover {
+	text-decoration:underline;
+}
+
+/* Styles for futures right side promo */
+
+#futures-rightside-bottom-promo {
+    background: url("../../images/account-management/promo-gradients.png") repeat-x scroll center top #302266;
+    margin: 1px 0 4px;
+    padding: 10px 20px 20px;
+    width: 180px;
+    height:107px;
+}
+
+#futures-rightside-promo h3{
+	font-size:17px;
+	margin-bottom:15px;
+}
+
+.futures-subtext{
+	font-weight:bold;
+	font-size:15px;
+
+}
+#futures-rightside-bottom-promo .price strong{
+	float: left;
+    font-family: Helvetica;
+    font-size:36px;
+    font-weight: normal;
+    letter-spacing: -3px;
+
+}
+#futures-rightside-bottom-promo .price em{
+	 font-size: 17px;
+    margin: 5px 3px 0 0;
+	float: left;
+    font-style: normal;
+}
+
+#futures-rightside-bottom-promo p{
+	color:#EBEFF0;
+}
+.futures-bottom-promo-desc{
+	margin-bottom:10px;
+}
+
+.retfullpromo-subtext{
+	font-family: Helvetica;
+    font-size: 14px;
+    line-height: 15.54px;
+	color:#EBEFF0;
+}
+
+.ret-fullpromo-desc{
+	top:-10px !important;
+}
+
+/*nextmove-gray*/
+#promo-side-gray.promo-gray
+{ 
+	float:right;
+	width:252px;
+	height:270px;
+    background:#e9e9e9;
+    padding: 20px 20px 30px 20px;
+    margin-top:20px;
+    display:block;
+    
+
+}
+#promo-side-gray.promo-gray .title
+{
+	color: #000000;
+    font-family:Helvetica;
+    font-size: 20px;
+    font-weight:bold;
+    margin-bottom:10px;
+    
+}
+#promo-side-gray.promo-gray .tradeFree
+{
+	color: #000000;
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight:bold;
+    margin:0px;
+}
+
+#promo-side-gray.promo-gray .open-an-account a
+{
+	 line-height:25px;
+}
+#promo-side-gray.promo-gray .splitLine
+{
+	margin-top:15px;
+	margin-bottom:15px;
+	height:1px;
+	background:#c9c9c9
+}
+#promo-side-gray.promo-gray .read-more
+{
+	background: url("../../images/global-icons.png") no-repeat scroll left 1px transparent !important;
+	color: #003399 !important;
+	height: 15px !important;
+	padding: 0 0 0 17px !important;
+	margin-top: 10px !important;
+	line-height: 100% !important;
+	cursor: pointer !important;
+	display: inline-block !important;
+	font-family: Arial;
+	font-weight:bold;
+    font-size: 12px;
+}
+#promo-side-gray.promo-gray .stockOptions
+{
+	color: #000000;
+    font-family: Helvetica;
+    font-size: 13px;
+    margin:0px;
+}
+#promo-side-gray.promo-gray .price strong
+{
+	float: left;
+    font-family: Helvetica;
+    font-weight:bold;
+    font-size: 43px;
+    letter-spacing: -3px;
+    margin: 0 10px 0 0;
+    color:#000000;
+   
+}
+#promo-side-gray.promo-gray .price strong em
+{
+    float: left;
+    font-size: 25px;
+    font-style: normal;
+    margin: 8px 3px 0 0;
+}
+
+#promo-side-gray.promo-gray .price span
+{
+    float: left;
+    font-family:Helvetica;
+    font-size: 17px;
+    margin: 4px 0 4px;
+    text-transform: uppercase;
+    width: 20px;
+    color:#000000;
+    
+}
+#promo-side-gray.promo-gray .pricing-details
+{
+   
+    background: url("../../images/arrows.png") no-repeat scroll right -88px transparent;
+    color: #003399;
+    height: 20px;
+    line-height: 16px;
+    padding-right: 20px;
+}
+#promo-side-gray.promo-gray .pricing-details:hover {
+    background-position: right -132px;
+    text-decoration: underline;
+}
