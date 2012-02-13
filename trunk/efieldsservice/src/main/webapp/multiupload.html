@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<style rel="stylesheet" type="text/css" media="screen">
+	#f1_upload_process{
+		z-index:100;
+		position:absolute;
+		visibility:hidden;
+		text-align:center;
+		width:400px;
+		margin:0px;
+		padding:0px;
+		background-color:#fff;
+		border:1px solid #ccc;
+	}
+	form{
+		text-align:center;
+		width:390px;
+		margin:0px;
+		padding:5px;
+		background-color:#fff;
+		border:1px solid #ccc;
+	}
+</style>
+<script>
+
+var fCount = 3;
+function addFileElement() {
+	fCount++;
+	var fObject = document.getElementById('fileSection');
+	var text = 'File:';   
+	var tag='<input type="file" name="fileup'+fCount+'" />';   
+	var brk='<br>'
+	var o1 = document.createTextNode(text);
+	var o2 = document.createElement(tag);
+	var o3 = document.createElement(brk);
+	fObject.appendChild(o3);
+	fObject.appendChild(o1);
+	fObject.appendChild(o2);
+	fObject.appendChild(o3); 
+}
+function startUpload(){
+	//document.getElementById('f1_upload_process').style.visibility = 'visible';
+	return true;
+}
+function stopUpload(success){
+	var result = '';
+	alert("success:"+success);
+	if (success == "ok"){
+		document.getElementById('result').innerHTML = '<span class="msg">The file was uploaded successfully!<\/span><br/><br/>';
+	} else {
+		document.getElementById('result').innerHTML = '<span class="emsg">There was an error during file upload!<\/span><br/><br/>';
+	}
+	document.getElementById('f1_upload_process').style.visibility = 'hidden';
+	return true;
+}
+	  
+</script>
+<title>Multiple file upload using JAX-RS</title>
+</head>
+<body>
+<p id="f1_upload_process">Loading...<br/></p>
+<p id="result"></p>
+<form  action="http://localhost:8080/mbooks/resource/fileupload" method="POST" enctype="multipart/form-data" 
+	target="upload_target" onsubmit="startUpload();" >
+<div id="fileSection" >
+File:<input type="file" name="fileup0" /><br>
+File:<input type="file" name="fileup1" /><br>
+</div>
+<hr>
+<input type="submit" value="Upload All files" />
+<input type="button" onclick="addFileElement()" value="Add File"/>
+</form>
+<iframe id="upload_target" name="upload_target" src="#" style="width:200;height:30;border:0px solid #fff;"></iframe>
+
+</body>
+</html>

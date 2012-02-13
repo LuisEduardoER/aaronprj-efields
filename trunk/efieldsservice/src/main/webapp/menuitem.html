@@ -1,0 +1,11 @@
+<ul>
+{#foreach $T.itemCategory as catetory}
+    <li>{$T.catetory.displayName}</li>
+    <ul>
+    {#foreach $T.catetory.courses as course}
+        <li><a href="#" name="course-{$T.course.value}" course="{$T.course.value}">{$T.course.displayName}</a></li>
+    {#/for}
+    </ul>
+{#/for}
+</ul>
+	

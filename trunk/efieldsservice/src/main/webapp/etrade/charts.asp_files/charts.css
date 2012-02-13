@@ -1,0 +1,201 @@
+.asterisk { vertical-align:top;font-size:17px;padding-left:3px; }
+
+/* menu system */
+#menuitems{padding:0;margin:0;color:#039;line-height:20px;font-weight:bold;cursor:pointer;cursor:hand;}
+.menuitem{width:152px;height:30px;background-image:url(../../images/charts/menubutton.gif);}
+.menuitemHL{width:152px;height:30px;background-image:url(../../images/charts/menubuttonHL.gif);}
+.item{padding-left:22px;height:28px;line-height:28px;}
+
+.options{background:#fff;width:148px;border:1px solid #D6D6D6;border-top:0px solid #fff;margin-left:2px;}
+
+/* tools */
+.tool{padding:5px;border-bottom:1px solid #999;}
+
+/* duration menu */
+ul#chart-nav { list-style: none; padding:0;	margin:0;}
+ul#chart-nav li { margin:0; padding:0; font-size:10px; display:inline; border-top:1px solid #a0a0a0; float:left;}
+ul#chart-nav li a { display:block; margin:0; padding:0 1px; width:33px; text-align:center; line-height:20px; font-weight:bold; border-left:1px solid #a0a0a0; background:transparent url(../../images/chart-nav-bg.png) center left repeat-x; color:#039;}
+ul#chart-nav li.last a { border-right:1px solid #a0a0a0; width:106px;}
+ul#chart-nav li a:hover { text-decoration:none; background:transparent url(../../images/chart-nav-bg-hover.png) center left repeat-x; }
+ul#chart-nav li a.on { color:#fff; background:transparent url(../../images/chart-nav-bg-on.png) center left repeat-x; text-decoration:none;}
+
+/* side menu */
+#submenu,#submenu2{position:absolute;background:#fff;width:160px;z-index:10;border:1px solid #fff;border-right:1px solid #333;border-bottom:1px solid #333;}
+
+/* menu lists */
+ul#freqlist { list-style: none; padding:0;	margin:0; }
+ul#freqlist li { margin-bottom:5px; padding:2; font-size:11px; color:#000;}
+
+ul#displist { list-style: none; padding:0;	margin:0; }
+ul#displist li { margin-top:5px; padding:2; font-size:11px; color:#000;}
+
+ul#scalelist { list-style: none; padding:0;	margin:0; }
+ul#scalelist li { margin-top:5px; padding:2; font-size:11px; color:#000;}
+
+/* highlight rollovers */
+.subitem{width:136px;_width:140px;line-height:16px;height:20px;text-align:left;color:#000;padding:3px;padding-left:10px;cursor:pointer;cursor:hand;border-bottom:1px solid #EFEFEF;}
+.subitemHL{color:#000;background:#DBE9FF;}
+
+.subitem2{width:138px;line-height:25px;height:25px;text-align:left;color:#000;padding-left:10px;cursor:pointer;cursor:hand;background:transparent url(../../images/charts/submenuBG.gif) no-repeat;}  
+.subitem2HL{width:138px;line-height:25px;height:25px;text-align:left;color:#000;padding-left:10px;cursor:pointer;cursor:hand;background:transparent url(../../images/charts/submenuBGHL.gif) no-repeat;}
+
+.subitem3{width:80px;line-height:25px;height:25px;text-align:left;color:#000;padding-left:10px;cursor:pointer;cursor:hand;}  
+.subitem3HL{width:80px;line-height:25px;height:25px;text-align:left;color:#000;padding-left:10px;cursor:pointer;cursor:hand;background:#DBE9FF;}
+
+.subitem4,
+.subitem5 {width:156px;_width:160px;line-height:16px;height:20px;text-align:left;color:#000;padding:3px;padding-left:10px;cursor:pointer;cursor:hand;border-bottom:1px solid #EFEFEF;}
+.subitem4HL{ color:#000;background:#DBE9FF; }
+
+.subitemHasMore { background:transparent url(../../images/charts/menuArrow.gif) center right no-repeat; }
+.subitemHasMore.subitem4HL { color:#000;background:#DBE9FF url(../../images/charts/menuArrowHL.gif) center right no-repeat; }
+.subitem5.subitem5HL,
+#submenu .subitem4HL { color:#000;background:#DBE9FF none !important; }
+
+/* upper options menu */
+.uOptionsMenu{margin-left:12px;_margin-left:6px;line-height:10px;background:#fff;}
+.collapse{line-height:0px;height:0px;background:#fff;}
+
+/* ubutton_left.png */
+.upperOption{padding:1px 3px 1px 3px;cursor:pointer;cursor:hand;white-space: nowrap;}
+.upperOptionLeft{float:left;width:4px;background:transparent url(../../images/charts/ubutton_left.png);white-space: nowrap;height:18px;line-height:18px;margin:0px;padding:0px;}
+.upperOptionMiddle{float:left;background:transparent url(../../images/charts/ubutton_middle.png) center left repeat-x;white-space: nowrap;font-size:10px;height:18px;line-height:18px;margin:0px;padding:0px;}
+.upperOptionClose{float:left;z-index:20;width:12px;background:transparent url(../../images/charts/smallclose.gif) center left no-repeat;white-space: nowrap;height:18px;line-height:18px;margin:0px;padding:0px;}
+.upperOptionRight{float:left;width:4px;background:transparent url(../../images/charts/ubutton_right.png);white-space: nowrap;height:18px;line-height:18px;margin:0px;padding:0px;}
+
+#subuppermenu{position:absolute;width:214px;z-index:299;text-align:left;}
+
+.subuppermenuTop {background:url(https://images.etrade.wallst.com/v1/images/sectorsindustries/hover_top2.gif) no-repeat top;width:214px;height:7px;font-size:0px;}
+.subuppermenuTitle {font-size:12px;font-weight: bold;color: #444;padding:2px 0 4px 6px;background-color:#f6f6f6;border:1px solid #CCC;border-width:0 1px;width:204px;}
+.subuppermenuBody {background:transparent url(https://images.etrade.wallst.com/v1/images/sectorsindustries/hover_bodyTall2.gif) no-repeat bottom;width:215px;height:80px;}
+
+.subuppermenuBody form { margin:0; padding:0; }
+
+.paramsTable{text-align:left;font-size:11px;}
+.paramsInput{width:35px;}
+
+/* lower options */
+#sublowermenu{position:absolute;width:214px;z-index:99;}
+
+.lowerOption{position:absolute;width:26px;text-align:left;font-size:11px;padding:1px;cursor:pointer;cursor:hand;text-decoration:underline;color:#039;font-size:11px;z-index:99;}
+
+/* events */
+.icon {position:absolute;z-index:9;}
+.eWin{width:200px;z-index:10;padding:5px;border:1px solid;border-color:#000; background:#fff;font-size:11px;}
+.iWinAlpha{}
+
+/* zoom css */
+#divZoom{position:absolute;display:block;visibility:hidden;overflow:hidden;}
+#divZoomH{position:absolute;display:block;visibility:hidden;overflow:hidden;background:#999;height:1px;line-height:1px;}
+
+#ball{position:absolute;top:0px;left:0px;z-index:1;display:block;visibility:hidden;overflow:hidden;background:url(trackball.gif) no-repeat top;height:18px;width:18px;}
+#ball0{position:absolute;top:0px;left:0px;z-index:2;display:block;visibility:hidden;overflow:hidden;background:url(trackball.gif) no-repeat top;height:18px;width:18px;}
+#ball1{position:absolute;top:0px;left:0px;z-index:3;display:block;visibility:hidden;overflow:hidden;background:url(trackball.gif) no-repeat top;height:18px;width:18px;}
+#ball2{position:absolute;top:0px;left:0px;z-index:4;display:block;visibility:hidden;overflow:hidden;background:url(trackball.gif) no-repeat top;height:18px;width:18px;}
+#ball3{position:absolute;top:0px;left:0px;z-index:5;display:block;visibility:hidden;overflow:hidden;background:url(trackball.gif) no-repeat top;height:18px;width:18px;}
+
+/* legend w/ updating values */
+#infoDiv {
+	float:left;
+	display:block;
+	background:#fff;
+	color:#000;	
+	height:30px;
+	line-height:11px;
+	font-size:10px;
+	z-index:3;
+}
+/* legend elements */
+.inDa {
+	float:left;
+	text-align:left;
+	width:68px;
+	padding-right:5px;
+	padding-left:2px;
+}
+
+.inLab {float:left;text-align:right;width:25px;padding-right:3px;}
+.inData {float:left;text-align:left;width:43px;font-weight:bold;font-size:11px;}
+
+/* Draggable regions */
+.dragTable{
+	width:100%;
+	height:0px;
+	padding:0px;
+	margin:0px;
+	border-left:1px solid #999;
+	border-right:1px solid #999;
+}
+.dragRegion{
+	width:100%;
+	height:0px;
+	background:#ccc;
+	filter:alpha(opacity=50);
+	-moz-opacity:0.5;
+	-khtml-opacity:0.5;
+	opacity:0.5;
+	z-index:90;
+	display:inline;
+}
+
+/* trendline css */
+.t {position:absolute;overflow:hidden;}
+.myCanvas{position:absolute;left:0px;top:0px;height:1px;width:1px;}
+
+.divTrendLabel{
+	position:absolute;
+	visibility:hidden;
+	left:0px;
+	top:0px;
+	width:auto;
+	fontFamily:arial;
+	fontSize:9px;
+	background:#fff;
+	border:1px solid #777777;
+	border-left:2px solid #777777;
+	cursor:pointer;cursor:hand;
+}
+.divTrendHandle {position:absolute;visibility:hidden;left:0px;top:0px;cursor:pointer;cursor:hand;z-index:99;}
+
+
+/* custom time range */
+#ctLeft{position:absolute;top:0px;z-index:2;background:#eee;height:54px;filter:alpha(opacity=85);-moz-opacity:0.85;-khtml-opacity:0.85;opacity:0.85;}
+#ctRight{position:absolute;top:0px;z-index:2;background:#eee;height:54px;filter:alpha(opacity=85);-moz-opacity:0.85;-khtml-opacity:0.85;opacity:0.85;}
+
+#ctHandleL{width:10px;height:54px;z-index:99;background-image:url(../../images/charts/ctArrowLeft.gif);}
+#ctHandleR{width:10px;height:54px;z-index:99;background-image:url(../../images/charts/ctArrowRight.gif);}
+
+/* checkbox bordering */
+span.checkBorder { width:12px; height:12px; _width:8px; ~width:12px; _height:8px; ~height:12px; margin:0; _margin:1px 0 0 0; ~margin:0; padding:2px; _padding:0; ~padding:0; border:1px solid #fff; } 
+span.checkBorder input { margin:0; padding:0; border:0 none; font-family:inherit;font-size:inherit;font-weight:inherit; *font-size:100%; }
+div#eventsMenu div,
+div#compareMenu div { padding-left:3px; }
+div#compare.subitem2 { padding-left:10px; /*reset this back to 10px*/ }
+
+/* CALENDAR Popup */
+#CalTo,
+#CalFrom { position:absolute;z-index:9999;top:391px; }
+#CalToImg,
+#CalFromImg { padding-left:0px; }
+
+.calendar { font-size:12px; border:1px solid #E5E5E5; background:#FDFDFC none; padding:4px; margin:4px; }
+.calendar div.close { cursor:pointer; background:transparent url(../../images/charts/closechart.png) top right no-repeat scroll; font-size:10px; color:#444; text-align:right; padding-right:13px; }
+.calendar h3 { font-size:15px; /*margin-top:-10px;*/ border-bottom:1px solid #E5E5E5; margin-top:0; margin-bottom:5px; }
+.calendarPreviousMonth { font-size:11px; float:left; background:transparent url(../../images/modules/accordian_left.gif) center left no-repeat scroll; padding-left:12px; }
+.calendarNextMonth { font-size:11px; float:right;background:transparent url(https://images.etrade.wallst.com/v1/images/modules/accordian_off.gif) center right no-repeat scroll; padding-right:12px; }
+.calendar,
+.calendar table { margin-top:5px; width:140px; clear:both; }
+.calendar table tr th,
+.calendar table tr td { font-weight:bold; font-size: 12px; text-align:center; padding:3px; }
+.calendar table tr td { cursor:pointer; }
+
+.calendar td.date.today { background:#3d5a88; color:#fff; }
+.calendar td.date { color:#039; }
+.calendar table tr td.date:hover { text-decoration:underline; }
+.calendar td.date.weekend { color:#444; }
+.calendar td.date.outOfMonth { color:#666; font-weight:normal; }
+.calendar .disabled { color:#999 !important; cursor:default !important; text-decoration:none !Important; font-weight:normal !important; }
+
+
+/*Saved Settings Menu*/
+#savedSettingsMenu{background-color: white; border-top: 1px solid #A0A0A0;	border-right: 1px solid #A0A0A0;}
+

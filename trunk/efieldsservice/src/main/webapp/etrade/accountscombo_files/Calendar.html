@@ -1,0 +1,724 @@
+function doWin(url){
+    temp=window.open(url,"WireWindow","toolbar=1,location=0,status=0,menubar=0,scrollbars=1,resizable=1,width=640,height=480,menubar=1,toolbar=1,location=1");
+} 	
+	
+// Check browser version
+var isNav4 = false, isNav5 = false, isIE4 = false;
+
+
+if(navigator.appName == "Netscape") {
+  if (navigator.appVersion < "5") {
+    isNav4 = true;
+    isNav5 = false;
+  }
+  else if (navigator.appVersion > "4") {
+    isNav4 = false;
+    isNav5 = true;
+  }
+}
+else {
+  isIE4 = true;
+}
+
+
+var textField;
+var FormName;
+
+var _hHead = null;
+
+function aHoliday(name, holiday) {	
+    this.name = name;
+    this.holiday = holiday;
+    this.next = _hHead;
+    _hHead = this;
+}
+
+
+  // Federal Reserve Board Holidays (EastPoint)
+new aHoliday("FrbH", new Array(0,101,1111,1225,20040119,20040216,20040531,20040705,20040906,20041011,20041125,20050117,20050221,20050530,20050905,20051010,20051124,20051226,20060102,20060116,20060220,20060529,20060904,20061009,20061123,20070115,20070219,20070528,20070903,20071008,20071112,20071122,20080121,20080218,20080526,20080901,20081013,20081127,20090119,20090216,20090525,20090907,20091012,20091126,20100118,20100215,20100531,20100705,20100906,20101011,20101125,20110117,20110221,20110530,20110704,20110905,20111010,20111124,20111226,20120102,20120116,20120220,20120528,20120704,20120903,20121008,20121112,20121122));
+
+ // NYSE Holidays (Beta)
+new aHoliday("NyseH", new Array(0,61,71,101,704,1225,20031127,20040119,20040216,20040409,20040531,20040705,20040906,20041011,20041125,20041224,20050117,20050221,20050325,20050530,20050905,20051010,20051124,20051226,20060102,20060116,20060220,20060414,20060529,20060904,20061008,20061009,20061112,20061123,20070115,20070219,20070406,20070528,20070903,20071122,20080121,20080218,20080321,20080526,20080901,20081127,20090119,20090216,20090410,20090525,20090703,20090907,20091126,20100118,20100215,20100402,20100531,20100705,20100906,20101125,20101224,20110117,20110221,20110422,20110530,20110704,20110905,20111124,20111226,20120102,20120116,20120220,20120406,20120528,20120903,20121122));
+
+ // PNC Holidays
+new aHoliday("PncH", new Array(0,101,1111,1225,20031127,20040119,20040216,20040531,20040705,20040906,20041011,20041125,20050117,20050221,20050530,20050905,20051010,20051124,20051226,20060102,20060116,20060220,20060529,20060904,20061009,20061123,20070115,20070219,20070528,20070903,20071008,20071112,20071122,20080121,20080218,20080526,20080901,20081013,20081127,20090119,20090216,20090525,20090907,20091012,20091126,20100118,20100215,20100531,20100705,20100906,20101011,20101125,20110117,20110221,20110530,20110704,20110905,20111010,20111124,20111226));
+
+ // PNC-Beta Xfers
+new aHoliday("PncBetaH", new Array(0,101,301,311,703,1111,1224,1225,1231,20031126,20031127,20040116,20040119,20040213,20040216,20040408,20040528,20040531,20040702,20040705,20040903,20040906,20041008,20041011,20041124,20041125,20041223,20050114,20050117,20050218,20050221,20050324,20050527,20050530,20050902,20050905,20051007,20051010,20051123,20051124,20051223,20051226,20051230,20060102,20060113,20060116,20060217,20060220,20060413,20060526,20060529,20060901,20060904,20061006,20061009,20061122,20061123,20070112,20070115,20070216,20070219,20070405,20070525,20070528,20070831,20070903,20071008,20071112,20071121,20071122,20080118,20080121,20080215,20080218,20080320,20080523,20080526,20080829,20080901,20081013,20081126,20081127,20090116,20090119,20090213,20090216,20090409,20090522,20090525,20090702,20090904,20090907,20091012,20091125,20091126,20100115,20100118,20100212,20100215,20100401,20100528,20100531,20100702,20100705,20100903,20100906,20101011,20101124,20101125,20101223,20110114,20110117,20110218,20110221,20110421,20110527,20110530,20110701,20110704,20110902,20110905,20111010,20111123,20111124,20111223,20111226,20111230,20120113,20120127,20120217,20120405,20120525,20120831,20121121,20150206,20160701,20170127,20171222,20171229));
+
+ // PNC-Bank Xfers
+new aHoliday("PncBankH", new Array(0,101,1110,1111,1224,1225,1231,20031127,20040116,20040119,20040213,20040216,20040528,20040531,20040702,20040705,20040903,20040906,20041008,20041011,20041124,20041125,20050114,20050117,20050218,20050221,20050527,20050530,20050902,20050905,20051007,20051010,20051123,20051124,20051223,20051226,20051230,20060102,20060113,20060116,20060217,20060220,20060526,20060529,20060901,20060904,20061006,20061009,20061122,20061123,20070112,20070115,20070216,20070219,20070525,20070528,20070831,20070903,20071005,20071008,20071109,20071112,20071121,20071122,20080118,20080121,20080215,20080218,20080523,20080526,20080829,20080901,20081010,20081013,20081126,20081127,20090116,20090119,20090213,20090216,20090522,20090525,20090904,20090907,20091009,20091012,20091125,20091126,20100115,20100118,20100212,20100215,20100528,20100531,20100702,20100705,20100903,20100906,20101008,20101011,20101124,20101125,20110114,20110117,20110218,20110221,20110527,20110530,20110701,20110704,20110902,20110905,20111007,20111010,20111123,20111124,20111223,20111226,20111230,20120113,20120217,20120525,20120703,20120831,20121005,20121109,20121121,20131108,20171222,20171229,20191108)); 
+
+ // Bank/Checking/Ext-Credit Card Xfers
+new aHoliday("CreditCardH", new Array(0,71,20050501,20060101,20061001,20070401,20070701,20080601,20090201,20091101,20100801,20110501,20120101,20120401,20120701)); 
+
+ // Bank to Bkrg and Bkrg to Bank transfers
+new aHoliday("B2BCalendar", new Array(0,60,70,101,704,1111,1225,20031127,20040119,20040216,20040409,20040531,20040705,20040906,20041011,20041125,20041224,20050117,20050221,20050325,20050530,20050905,20051010,20051124,20051226,20060102,20060116,20060220,20060414,20060529,20060904,20061008,20061009,20061112,20061123,20070115,20070219,20070406,20070528,20070903,20071008,20071112,20071122,20080121,20080218,20080321,20080526,20080901,20081013,20081127,20090119,20090216,20090410,20090525,20090703,20090907,20091012,20091126,20100118,20100215,20100402,20100531,20100705,20100906,20101011,20101125,20101224,20110117,20110221,20110422,20110530,20110704,20110905,20111010,20111124,20111226,20120102,20120116,20120220,20120406,20120528,20120704,20120903,20121008,20121112,20121122)); 
+
+// No Holidays
+var noH = new Array(1);
+noH[0] = 1;
+new aHoliday("NoH", noH);
+
+
+function firstDay(theYear){
+    var firstDate = new Date(theYear,this.offset,1);
+    return 1 + firstDate.getDay();
+}
+function aMonth(Mname,Mlength,Moffset) {
+    this.name = Mname ;
+    this.length = Mlength ;
+    this.offset = Moffset;
+    this.firstDay = firstDay;
+}
+
+the_Month = new Array(13);
+the_Month[0] = null;
+the_Month[1] = new aMonth("January",31,0);
+the_Month[2] = new aMonth("February",28,1);
+the_Month[3] = new aMonth("March",31,2);
+the_Month[4] = new aMonth("April",30,3);
+the_Month[5] = new aMonth("May",31,4);
+the_Month[6] = new aMonth("June",30,5);
+the_Month[7] = new aMonth("July",31,6);
+the_Month[8] = new aMonth("August",31,7);
+the_Month[9] = new aMonth("September",30,8);
+the_Month[10] = new aMonth("October",31,9);
+the_Month[11] = new aMonth("November",30,10);
+the_Month[12] = new aMonth("December",31,11);
+
+
+function getUpdatedYear(currYear) {
+    currYear += (currYear < 1900) ? 1900 : 0;
+    return currYear;
+}
+
+function LeapYear(intYear) {
+    if ((intYear % 100 == 0) && (intYear % 400 != 0))
+	return false;
+
+    else if ((intYear % 4) == 0)
+	return true;
+
+    return false;
+}
+
+function theDaysInMonth(theMonth, theYear) 
+{
+    if (theMonth != 2)
+	return the_Month[theMonth].length;
+
+    return (LeapYear(theYear) == true) ? 29 : 28;
+}
+
+
+function monthContent(theDay, theMonth, theYear)
+{
+  var firstDay = the_Month[theMonth].firstDay(theYear);
+  var howMany = theDaysInMonth(theMonth, theYear) + firstDay;
+  var monthName = the_Month[theMonth].name; // month full name
+  var harray = Holidays.holiday;
+
+  // WS format: W: weekday where Mon=1, Sun=7, S: status, 1:workday, 0:offday
+  // the array below depicts: array[1]==Sunday, array[7]==Saturday, array[0]->NOT-USED
+
+  var weekDays = new Array(70, 11, 21, 31, 41, 51, 60, 70);
+ 
+
+  if (holName == "NoH") {
+	weekDays[0] = 71;
+	weekDays[6] = 61;
+  }
+  else
+  {
+     for (var hh=1; hh < harray.length; ++hh) 
+     {
+	if (harray[hh] > 99)
+	   break; 
+
+	var value = harray[hh];
+	var index = Math.floor(value / 10);
+	weekDays[index] = value;
+    }
+    // Now Sunday is the first value, as in Sun, Mon, .. Sat..
+    weekDays[0] = weekDays[7];
+  }
+
+  var mctx = "<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100%>\n";
+  mctx += "<TR><TD COLSPAN=9 HEIGHT=7><IMG HEIGHT=7 SRC=https://cdn.etrade.net/1/20120203.0/images/spacer.gif WIDTH=1 ></TD></TR>";
+  mctx += "<TR><TH COLSPAN=9 HEIGHT=24 VALIGN=MIDDLE><FONT SIZE=2 FACE=ARIAL,VERDANA><B>" + monthName + " " + theYear + "</B></FONT></TH></TR>\n";
+  mctx += "<TR><TD ROWSPAN=9 BGCOLOR=#000000 WIDTH=1><IMG SRC=https://cdn.etrade.net/1/20120203.0/images/spacer.gif ></TD><TD COLSPAN=7 bgcolor=#000000><IMG SRC=https://cdn.etrade.net/1/20120203.0/images/spacer.gif ></TD><TD ROWSPAN=9 BGCOLOR=#000000 WIDTH=1><IMG HEIGHT=1 SRC=https://cdn.etrade.net/1/20120203.0/images/spacer.gif WIDTH=1 ></TD></TR>\n";
+  mctx += "<TR><TH><FONT SIZE=1 FACE=Arial, Helvetica>Sun</FONT></TH><TH><FONT SIZE=1 FACE=Arial, Helvetica>Mon</FONT></TH><TH><FONT SIZE=1 FACE=Arial, Helvetica>Tue</FONT></TH>\n";
+  mctx += "<TH><FONT SIZE=1 FACE=Arial, Helvetica>Wed</FONT></TH>\n";
+  mctx += "<TH><FONT SIZE=1 FACE=Arial, Helvetica>Thu</FONT></TH><TH><FONT SIZE=1 FACE=Arial, Helvetica>Fri</FONT></TH><TH><FONT SIZE=1 FACE=Arial, Helvetica>Sat</FONT></TH></TR>\n";
+  mctx += "<TR>";
+
+
+
+
+  for (var ii = 1, hh = 0, ss=0, calDay = 2-firstDay, calDate=(theYear*10000)+(theMonth*100)+calDay, monthDate=(theMonth*100)+calDay; 
+							ii < howMany; 
+							++ii, ++calDay, ++calDate, ++monthDate) 
+  {
+     // skip over past holiday dates...
+     while (hh < harray.length && harray[hh] < calDate)
+	++hh;
+
+     // skip over past holiday dates of 'MMDD' format..
+     while (ss < harray.length && harray[ss] < monthDate)
+       ++ss;
+
+
+// alert("theDay: " + theDay+ ", calDay: " + calDay);
+
+	// if doesn't belong to the month...
+      if (ii < firstDay)
+	mctx += "<TD HEIGHT=15><FONT FACE=ARIAL,VERDANA SIZE=1>&nbsp;</FONT></TD>\n";
+  
+      else if (theDay > calDay)
+	mctx += "<TD ALIGN=CENTER HEIGHT=15><FONT FACE=ARIAL,VERDANA SIZE=1 COLOR=#676767>" + calDay + "</FONT></TD>\n";
+
+      else if (theDay == calDay) 
+      {
+	    if (calDate == harray[hh] || monthDate == harray[ss] || weekDays[((ii-1) % 7)] % 10 == 0)
+		mctx += "<TD ALIGN=CENTER HEIGHT=15><FONT FACE=ARIAL,VERDANA SIZE=1 COLOR=#ff3300>" + calDay + "</FONT></TD>\n";
+  
+	    else
+		mctx += "<TD ALIGN=CENTER HEIGHT=15><FONT FACE=VERDANA,ARIAL SIZE=1 COLOR=#FF3300><B><A HREF=javascript:opener.SetDate("+ theMonth +  "," + calDay + "," + theYear +") CLASS=THELINK>" + calDay + "</A></B></FONT></TD>\n";
+      }
+	   
+	// if YYYYMMDD is matched, or, if MMDD is matched, or, if WS (weekday+status) is W0
+      else if (calDate == harray[hh] || monthDate == harray[ss] || weekDays[((ii-1) % 7)] % 10 == 0)
+		{
+			if ((ii % 7) == 0 || (ii % 7) == 1){
+			mctx += "<TD ALIGN=CENTER HEIGHT=15><FONT FACE=ARIAL,VERDANA SIZE=1  COLOR=#CCCCCC>" + calDay + "</FONT></TD>\n"; 
+			}
+			else mctx += "<TD ALIGN=CENTER HEIGHT=15><FONT FACE=ARIAL,VERDANA SIZE=1 COLOR=#99CC66>" + calDay + "</FONT></TD>\n";
+		}
+		 
+  
+      else
+		mctx += "<TD ALIGN=CENTER HEIGHT=15><FONT FACE=ARIAL,VERDANA SIZE=1><A HREF=javascript:opener.SetDate("+ theMonth +  "," + calDay + "," + theYear +")>" + calDay + "</A></FONT></TD>\n";
+
+      if (ii % 7 == 0 && ii != (howMany-1))
+	mctx += "</TR>\n<TR>";
+  }
+  mctx += "</TR><TR><TD COLSPAN=7 BGCOLOR=#000000><IMG HEIGHT=1 SRC=https://cdn.etrade.net/1/20120203.0/images/spacer.gif WIDTH=180 ></TD></TR></TABLE>";
+  return mctx;
+}
+
+
+function theContent (theDay, theMonth, theYear)
+{
+  var content = "<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100%><TR><TD align=right><font size=1 face=arial,verdana>" +
+      PrevNext(theMonth, theYear) + "</font></TD></TR>\n<TR><TD>" + monthContent(theDay, theMonth, theYear);
+
+  if (theMonth >= 12) 
+    content += monthContent(0, 1, theYear+1);
+  else
+    content += monthContent(0, theMonth+1, theYear);
+
+  content += "\n</TD></TR></TABLE>";
+  return content;
+}
+
+function SetDate(theMonth,theDate,theYear)
+{	
+    theDate = (theDate < 10) ? ("0" + theDate) : theDate;
+    theMonth = (theMonth < 10) ? ("0" + theMonth) : theMonth;
+    var textDateVal = theMonth + "/" + theDate + "/" + ("" + theYear).substring(2,4);
+    document.forms[FormName][textField].value = textDateVal;
+    document.forms[FormName][textField].focus();
+    cal_popup.close();
+}
+
+function PrevNext(theMonth, theYear)
+{
+  var prevNext = null;
+  if (theMonth <= currMonth && theYear <= currYear)
+    prevNext = "<A HREF=\"javascript:nextCalendar(2," + theMonth + ',' + theYear + ")\">Next</A>";
+  else
+    prevNext = "<A HREF=\"javascript:nextCalendar(-2," + theMonth + ',' + theYear + ")\">Prev</A>&nbsp;&nbsp;<A HREF=\"javascript:nextCalendar(2," + theMonth + ',' + theYear + ")\">Next</A>";
+  return prevNext;
+}
+
+function selectCalendar(calName)
+{	
+    if (holName == calName)
+	return true;
+
+    var holiday = _hHead;
+    while (holiday != null && holiday.name != calName)
+	holiday = holiday.next;
+
+    if (holiday != null) {
+      holName = calName;
+      Holidays = holiday;
+    }		//alert("holName = "+holName+"\t... calName= "+calName+"\n _hHead= "+_hHead+"\t,,,, holiday.name= "+holiday.name);
+}
+
+function refreshCalendar (theMonth, theYear)
+{
+    selectCalendar(opener.holName);
+
+    var beginDay = 0;
+    if (theMonth == currMonth && theYear == currYear)
+    beginDay = startDay;
+
+    eval(document.getElementById('calendarContent').innerHTML = theContent(beginDay, theMonth, theYear));
+    return true;
+
+}
+
+function nextCalendar (advance, theMonth, theYear)
+{
+    theMonth += advance;
+    if (advance > 0)
+        while (theMonth > 12) {
+	  theMonth -= 12;
+	  ++theYear;
+       }
+    else if (advance < 0)
+      while (theMonth < 1) {
+	theMonth += 12;
+	--theYear;
+    }
+    return refreshCalendar(theMonth, theYear);
+}
+
+function Spawn_New(param, fName) 
+{
+    FormName = fName;
+    textField = param;
+	
+    var leftPos = screen.width/2 - 95;
+    var TopPos = screen.height/2 - 140;
+    cal_popup = window.open("", "calendar","width=220,height=330,status=no,scrollbars=no,left="+leftPos+",top="+TopPos);
+    var CalDoc = cal_popup.document;
+
+    var StartHTML = '<html><head><title>Transfers Calendar</title></head>'+
+	'<style type="text/css">'+
+	'</style>'+
+	'<body bgcolor="#ffffff" text="#000000" topmargin=4>'+ 
+	'<script language = "Javascript" SRC="/e/t/util/Calendar?skinname=none" TYPE=\'text/javascript\'></script>' +
+	'<table border="0" cellspacing="0" cellpadding="0">'+
+	'<tr><td colspan="6" bgcolor="#cccccc"><img SRC="https://cdn.etrade.net/1/20120203.0/images/spacer.gif" ></td></tr>'+
+	'<tr><td bgcolor="#cccccc" rowspan="3"><img SRC="https://cdn.etrade.net/1/20120203.0/images/spacer.gif" ></td><td width="8" bgcolor="#eeeeee">&nbsp;</td>'+
+	'<td height="24" valign="middle" bgcolor="#eeeeee" colspan="2"><font face="arial,verdana" size="2"><b>Calendar</b></font></td>'+
+	'<td width="8" bgcolor="#eeeeee">&nbsp;</td><td bgcolor="#cccccc" rowspan="3"><img SRC="https://cdn.etrade.net/1/20120203.0/images/spacer.gif" ></td></tr>'+
+	'<tr><td width="8" rowspan="2">&nbsp;</td><td colspan="2">';
+					
+    var prevNext = PrevNext(currMonth, currYear);
+
+    var EndHTML =   '</td><td width="8" rowspan="2">&nbsp;</td></tr>'+
+      '<tr><td height="30" colspan="2" valign="middle"><font size=1 face=arial,verdana>&nbsp;<img HSPACE="2" SRC="https://cdn.etrade.net/1/20120203.0/images/cal_holidays.gif" >- Holidays<br>&nbsp;<img HSPACE="2" SRC="https://cdn.etrade.net/1/20120203.0/images/cal_weekends.gif" >- Weekends</span></font></td></tr>'+
+	'<tr><td colspan="6" bgcolor="#cccccc"><img SRC="https://cdn.etrade.net/1/20120203.0/images/spacer.gif" ></td></tr></table>'+
+	'</body></html>';
+
+
+    var content = theContent(startDay, currMonth, currYear);
+
+    CalDoc.open("text/html");
+    CalDoc.write(StartHTML + "<span id=\"calendarContent\">" + content + "</span>" + EndHTML);
+    CalDoc.close();
+}
+
+// globals..
+var currDay = new Date();
+var currYear = getUpdatedYear(currDay.getYear());
+var currMonth = currDay.getMonth() + 1;
+var startDay = currDay.getDate();
+var cal_popup = null;
+var Holidays = null;
+var holName = null;
+
+selectCalendar("FrbH");
+
+function XferCal_Spawn_New(form, param, fName,pagename) 
+{	
+    XferCal_Select(form,fName);
+    
+	if (fName == 'per_edit') {	//Use old calendar for IRA Distribution (genie), periodic dist ???
+		Spawn_New(param, fName);	
+	} else {	// use jquery datepicker
+		XferCal.createCalendar();		
+	}
+	
+	
+}
+
+function XferCal_Select(form,fName)
+{	
+	//if (pagename != 'editiradist') {
+	 if (fName != 'per_edit') {
+	    //var fromAccount = form.from_acctnum_list.options[form.from_acctnum_list.selectedIndex].value;
+		var fromAccount = form.from_acctnum_list.value;
+    	var fromSource = getSource(fromAccount);
+	    //var toAccount = form.to_acctnum_list.options[form.to_acctnum_list.selectedIndex].value;
+		var toAccount = form.to_acctnum_list.value;
+    	var toSource = getSource(toAccount);
+	
+		if(fromSource == "ETF" && toSource == "ETB" ||
+		   fromSource == "ETB" && toSource == "ETF")
+		{
+			selectCalendar("B2BCalendar");
+		}
+		else if (toSource == "HELOC" || toSource == "HEIL" || toSource == "AUTO") 
+		{
+		if (fromSource == "ETB")
+			selectCalendar("PncBankH");
+		else
+			selectCalendar("PncBetaH");
+    	}
+	    else if (fromSource == "HELOC" || fromSource == "HEIL" || fromSource == "AUTO") {
+		if (toSource == "ETB")
+			selectCalendar("PncBankH");
+		else
+			selectCalendar("PncBetaH");
+	    }
+		else if ((fromSource == "EXTERNAL" && toSource == "ETB") ||
+		(fromSource == "ETB"      && toSource == "EXTERNAL"))
+			selectCalendar("FrbH");
+		else if ((fromSource == "EXTERNAL" && toSource == "ETF")|| (fromSource == "ETF" && toSource == "EXTERNAL"))
+			selectCalendar("B2BCalendar");	//changed to btb as nyse is not working
+			//selectCalendar("NyseH"); 
+		else if ((fromSource == "EXTERNAL" || fromSource == "ETB" || fromSource == "ETF") && toSource == "CREDITCARD") 
+			selectCalendar("CreditCardH");
+	    else
+		selectCalendar("NoH");
+	}
+	else {
+		// selectCalendar("NyseH"); / /mark holidays for edit periodic dist pages
+		selectCalendar("B2BCalendar");	//changed to btb as nyse is not working	
+	}
+}
+
+function XferCal_Refresh(form, param, fName)
+{
+	XferCal_Spawn_New(form, param, fName);	//Move here to fix holiday list not updated in new calendar
+    if (cal_popup == null || cal_popup.closed)
+	return;
+
+    	
+}
+
+function CCCal_Spawn_New(form, param, fName) 
+{
+    selectCalendar("CreditCardH");
+    Spawn_New(param, fName);	//TBD	
+}
+
+
+
+/********************************************************************************
+*
+* The following functions are used to:
+* - create calendar using jQuery datepicker,
+* - set up holidays for the current year and disable the past dates
+* - (detail about how to read calendar code for holiday from data:
+*    https://wiki.corp.etradegrp.com/index.php/Quick_Transfer_UI_Functionality#How_to_read_calendar_data)
+*
+********************************************************************************/
+ 	  	 
+var _8DigitsCodeHolidays = null;     // to store the holidays of the current year
+var _fixedHolidays = null;       // to store 3,4 digits number codes of fixed holidays of every year
+var bDisableSat = true;
+var bDisableSun = true;
+
+function XferCalendar(jObjInput, jObjLink) {
+	this.jObjInput = jObjInput;
+	this.jObjLink = jObjLink;	
+	this.createCalendar = function() {	
+		getCurrYearHolidays();							
+		setUpCalendar(jObjInput);
+		if (this.jObjLink) {	
+			bindCalendarLink(this.jObjLink, this.jObjInput);
+		}
+	};
+	
+}
+
+function getCurrYearHolidays() {
+	var holidaysStr = (Holidays.holiday).toString();
+	//console.log("## getCurrYearHolidays()-- holidaysStr="+holidaysStr+"\t....Holiday Name==="+Holidays.name);	
+	
+	var holArray = '';
+	_8DigitsCodeHolidays = new Array();
+	_fixedHolidays	= new Array();
+
+	if (holidaysStr.length > 0) {
+		holArray = holidaysStr.split(",");
+	}		
+
+	for (var i=0; i<holArray.length; i++) {
+		 
+		//Set weekend flag
+		if (holArray[i].length == 2) {
+			//
+			if (holArray[i] == '61') {
+				bDisableSat = false;
+			}
+			else {
+				bDisableSat = true;
+			}
+			if (holArray[i] == '71') {
+				bDisableSun = false;
+			}
+			else {
+				bDisableSun = true;
+			}			
+			
+		}
+		//Set holidays for all years if there are 3-digits or 4-digits holiday codes
+		if (holArray[i].length == 3 || holArray[i].length == 4) {
+			_fixedHolidays.push(holArray[i]); 
+		}
+
+		if (holArray[i].length == 8) {
+			var date = new Date();
+			date.setFullYear(holArray[i].substring(0, 4));
+			
+			var mStr = holArray[i].substring(4, 6), dStr = holArray[i].substring(6);
+			if (mStr.charAt(0) == '0') {
+				mStr = mStr.slice(1);
+			}
+			if (dStr.charAt(0) == '0') {
+				dStr = dStr.slice(1);
+			}
+			
+			
+			var m = parseInt(mStr) -1;				
+			var d = parseInt(dStr);		
+						
+
+			date.setMonth(m,d);			
+			_8DigitsCodeHolidays.push(date);	
+			
+		}
+	}		
+}
+
+function nationalDays(date){
+	var today = new Date();
+	
+	
+	if ( (date.getYear() > today.getYear()) || 
+		 ((date.getYear() == today.getYear()) && (date.getMonth() > today.getMonth())) ||
+		 ((date.getYear() == today.getYear()) && (date.getMonth() == today.getMonth()) && (date.getDate() >= today.getDate())) ) {
+		/* 	
+		//Enable all dates if calendar is NoH (no holiday): Not using this calendar for now. Waiting for decision from tech & Buz
+		if (Holidays.name == "NoH") {
+			return [true, '']; 
+		}*/
+		
+		//Disable Saturday & Sunday if flag is true
+		if ((bDisableSat == true && date.getDay() == 6) || (bDisableSun == true && date.getDay() == 0)) {
+			return [false, ''];
+		}
+	}		
+	
+	//Disable fixed holidays for any year ( 3 & 4 digit holiday codes)
+	if (_fixedHolidays.length > 0) {
+		for (var n = 0; n < _fixedHolidays.length; n++) {
+			var m = (_fixedHolidays[n].length == 3)? _fixedHolidays[n].substring(0,1) : _fixedHolidays[n].substring(0,2);
+			var d = (_fixedHolidays[n].length == 3)? _fixedHolidays[n].substring(1) : _fixedHolidays[n].substring(2);
+			
+			if ((date.getMonth() == (parseInt(m) -1)) && (date.getDate() == parseInt(d))) {				
+				return [false, 'holiday', 'Holiday'];	
+			}
+		}
+	}	
+
+	
+	
+	
+		
+	if (date.getYear() == today.getYear()) {
+		//Set holidays for current year
+		for (var i = 0; i < _8DigitsCodeHolidays.length; i++) {
+			
+			if (today.getFullYear() == _8DigitsCodeHolidays[i].getFullYear()) {
+				if ((_8DigitsCodeHolidays[i].getMonth() == date.getMonth()) && (_8DigitsCodeHolidays[i].getDate() == date.getDate())) {
+					
+					return [false, 'holiday', 'Holiday'];																
+				}
+			}
+		}
+		
+		if ( (date.getMonth() == today.getMonth()) || (date.getMonth() > today.getMonth()) ) {
+			//Only current date or future dates are selectable
+			if ( ((date.getDate() == today.getDate()) || (date.getDate() > today.getDate())) || (date.getMonth() > today.getMonth()) )
+				return [true, ''];
+			else
+				return [false, ''];
+		}
+		else	//Disable the past date
+			return [false, ''];
+		
+	}
+	else if (date.getYear() > today.getYear()) { 	//Set holidays for future years
+		var bHol = false;
+		
+		//
+		for (var j = 0; j < _8DigitsCodeHolidays.length; j++) {
+							
+				
+			if ((_8DigitsCodeHolidays[j].getFullYear() == date.getFullYear()) && 
+				(_8DigitsCodeHolidays[j].getMonth() == date.getMonth()) && 
+				(_8DigitsCodeHolidays[j].getDate() == date.getDate())) {				
+			 		
+			 		bHol = true;
+			 		return [false, 'holiday', 'Holiday'];				 					 
+				
+				
+			}
+		}
+		
+		if (bHol == false) {
+			return [true, ''];
+		}
+		
+			
+	}
+	else {
+		return [false, ''];
+	}		
+	
+}
+
+function noWeekendsOrHolidays(date) {
+	//return nationalDays(date);	Uncomment this and remove below code when they decide to use NoH calendar for Bank to Bank transfer (enable weekend)
+	if (Holidays.name != "NoH") {
+		return nationalDays(date); 
+	}
+	else {	
+		var noWeekend = $.datepicker.noWeekends(date);
+		
+	   	if (noWeekend[0]) {   		   			
+	    	return nationalDays(date);
+	    } 
+		else {	
+	    	return noWeekend;
+	    }
+   }
+}
+
+function setUpCalendar(oInput) {					
+	oInput.datepicker({ beforeShowDay: noWeekendsOrHolidays, dateFormat: 'mm/dd/y' });
+	if (document.getElementById("ui-datepicker-div"))	
+			document.getElementById("ui-datepicker-div").style.zIndex="10";							
+}	
+
+function bindCalendarLink(oLink,oInput) {	
+	oLink.bind('click', function() {			
+		oInput.focus();				
+	});
+}
+
+
+/*******************************************************************
+ * Automatic Investment Enrollment Calendar: 
+ * - Disable the first 5 business days start from the current date
+ * - Use default calendar name 'FrbH' (FedReserve holidays) to get 
+ *   holidays
+ *******************************************************************/
+
+var countDisabledBusDays = 0;
+var _disabledBusDates = new Array();
+
+function showCalendar(objInput) {	
+	
+	objInput.datepicker({ beforeShowDay: disableRequiredDates, maxDate:'2Y' });	
+	if ($("#contentdiv").length > 0){ // For eboss
+		$("#contentdiv").scroll(function() { objInput.datepicker('hide'); });
+	}
+	$(window).scroll(function() { objInput.datepicker('hide'); });
+
+}
+
+function setupDateStatus(date){
+	var today = new Date();	
+	
+	//Disable required dates	
+	for (var n = 0; n < _disabledBusDates.length; n++) {
+		var d = _disabledBusDates[n].day;
+		var m = _disabledBusDates[n].mon;
+		var y = _disabledBusDates[n].year;
+		if ((date.getYear() == y) && (date.getMonth() == m) && (date.getDate() == d)) {
+			return[false, ''];
+		}
+	}
+		
+	var dateStatus = checkHoliday(date);
+	
+	if (dateStatus != null) {		
+		return dateStatus;
+	}
+	
+	
+	//Disable the past days	
+	if ( (date.getYear() < today.getYear()) 
+			|| ((date.getYear() == today.getYear()) && (date.getMonth() < today.getMonth())) 
+			|| ((date.getYear() == today.getYear()) && (date.getMonth() == today.getMonth()) && (date.getDate() <= today.getDate())) ) {
+		return [false, ''];	
+	}
+	else {		
+			
+		//Disable next 5 days
+		if (countDisabledBusDays < 5) {
+			countDisabledBusDays++;
+			
+			var dt = new Object();
+			dt.day = date.getDate();
+			dt.mon = date.getMonth();
+			dt.year = date.getYear();
+			_disabledBusDates.push(dt);
+			
+			return [false, ''];
+		}
+		else {
+		 	return [true, ''];
+		 }		 
+	}
+
+}
+
+function disableRequiredDates(date) {
+		
+    var noWeekend = $.datepicker.noWeekends(date);
+	
+	if (noWeekend[0]) {   		   			
+    	return setupDateStatus(date);
+    } 
+	else {	
+    	return noWeekend;
+    }
+}
+
+function checkHoliday(date) {
+	
+	//Disable fixed holidays for any year (3 & 4 digit holiday codes)
+	if (_fixedHolidays.length > 0) {
+		for (var n = 0; n < _fixedHolidays.length; n++) {
+			
+			var m = (_fixedHolidays[n].length == 3)? _fixedHolidays[n].substring(0,1) : _fixedHolidays[n].substring(0,2);
+			var d = (_fixedHolidays[n].length == 3)? _fixedHolidays[n].substring(1) : _fixedHolidays[n].substring(2);
+			
+			if ((date.getMonth() == (parseInt(m) -1)) && (date.getDate() == parseInt(d))) {				
+				return [false, 'holiday', 'Holiday'];	
+			}
+		}
+	}	
+	
+	//Set holiday - 8 diget holiday code		
+	for (var i = 0; i < _8DigitsCodeHolidays.length; i++) {
+		
+		if ((_8DigitsCodeHolidays[i].getFullYear() == date.getFullYear()) &&
+			(_8DigitsCodeHolidays[i].getMonth() == date.getMonth()) && 
+			(_8DigitsCodeHolidays[i].getDate() == date.getDate()) ) {
+			
+			return [false, 'holiday', 'Holiday'];		
+		}
+	}
+	
+}

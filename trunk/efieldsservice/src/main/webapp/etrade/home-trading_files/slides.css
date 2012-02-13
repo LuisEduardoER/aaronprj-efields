@@ -1,0 +1,82 @@
+#ImgCarousel div{
+    float: left;
+}
+
+	#ImgCarousel #ImgCarouselOuterDiv{
+		overflow:hidden;
+
+	}
+	#ImgCarousel #ImgCarouselmainDiv{
+		width:2240px;
+	}
+
+#ImgCarousel a { color: #000; }
+
+#ImgCarousel a:hover { text-decoration: none; }
+
+  #ImgCarouselLeftArrow, #ImgCarouselRightArrow {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 56px;
+    border: 20px solid transparent;
+    cursor: pointer;
+	}
+
+  #ImgCarouselLeftArrow { margin-left: 0; }
+
+	#ImgCarousel{
+		clear:both;
+		position:absolute;
+
+	}
+	#ImgCarousel #LeftArrowImg {
+    background-image: url("../../images/slides/carousel_arrow_left.png");
+    background-position: right top;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 40px;
+    left:0px;
+
+    height: 165px;
+}
+	#ImgCarousel #RightArrowImg {
+	    background-image: url("../../images/slides/carousel_arrow_right.png");
+	    background-position: left top;
+	    background-repeat: no-repeat;
+	    height: 165px;
+	    position: absolute;
+	    right: 0;
+
+	    width: 50px;
+}
+
+  #carousel_wrapper { height: 170px;}
+
+	.myImgClass{
+		background-repeat:no-repeat;
+		margin-right:10px;
+	}
+
+	.myImgClass p {
+    color: #000000;
+    font-size: 16px;
+    font-weight: normal;
+    width: 214px;
+    height: 165px;
+}
+
+	#carousel_ul {
+/*		position:relative;*/
+/*		left:-224px; important (this should be negative number of list items width(including margin) */
+
+
+		list-style-type: none; /* removing the default styling for unordered list items */
+		margin: 0px 0px 0px -224px;
+		padding: 0px;
+		width:9999px; /* important */
+	}
+
+	#carousel_ul li{
+		float: left; /* important for inline positioning of the list items */  /* fixed width, important */
+		margin-right:14px;
+	}

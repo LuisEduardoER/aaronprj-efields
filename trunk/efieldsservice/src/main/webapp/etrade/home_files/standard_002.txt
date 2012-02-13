@@ -1,0 +1,1 @@
+mboxFactories.get('default').get('MARKET_TRAY_CTA',0).setOffer(new mboxOfferDefault()).loaded();
