@@ -1,0 +1,155 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.aaronprj.efields</groupId>
+  <artifactId>efieldsservice</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>efieldsservice Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.10</version>
+    </dependency>
+    <dependency>
+	    <groupId>com.sun.jersey</groupId>
+	    <artifactId>jersey-server</artifactId>
+	    <version>1.11</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.sun.jersey</groupId>
+	    <artifactId>jersey-json</artifactId>
+	    <version>1.11</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.sun.jersey</groupId>
+	    <artifactId>jersey-servlet</artifactId>
+	    <version>1.11</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.sun.jersey.contribs</groupId>
+	    <artifactId>jersey-spring</artifactId>
+	    <version>1.11</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.sun.jersey.jersey-test-framework</groupId>
+	    <artifactId>jersey-test-framework-grizzly2</artifactId>
+	    <version>1.11</version>
+	    <scope>test</scope>
+	</dependency>
+	<!-- for external testing -->
+	<dependency>
+	    <groupId>com.sun.jersey.jersey-test-framework</groupId>
+	    <artifactId>jersey-test-framework-external</artifactId>
+	    <version>1.11</version>
+	    <scope>test</scope>
+	</dependency>
+	
+    <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjrt</artifactId>
+        <version>1.5.4</version>
+        <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+        <version>1.5.4</version>
+        <scope>runtime</scope>
+    </dependency>
+    <dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib</artifactId>
+        <version>2.2</version>
+        <scope>runtime</scope>
+   </dependency>
+   
+    <dependency>
+      <groupId>com.db4o</groupId>
+      <artifactId>db4o-full-java5</artifactId>
+      <version>8.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+    	<groupId>commons-lang</groupId>
+    	<artifactId>commons-lang</artifactId>
+    	<version>2.6</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-api</artifactId>
+    	<version>1.6.4</version>
+    </dependency>
+    <dependency>
+    	<groupId>javax.xml.bind</groupId>
+    	<artifactId>jaxb-api</artifactId>
+    	<version>2.2.6</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>efieldsservice</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <inherited>true</inherited>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.24</version>
+				<configuration>
+					<webApp>${basedir}/target/sgmenu.war</webApp>
+					<contextPath>mbooks</contextPath>
+				</configuration>
+			</plugin>
+        </plugins>
+    </build>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Repository for Maven</name>
+            <url>http://download.java.net/maven/2/</url>
+            <layout>default</layout>
+        </pluginRepository>
+        <pluginRepository>
+            <id>maven2-glassfish-repository.dev.java.net</id>
+            <name>Java.net Repository for Maven</name>
+            <url>http://download.java.net/maven/glassfish/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <repositories>
+	    <repository>
+		    <id>snapshot-repository.java.net</id>
+		    <name>Java.net Snapshot Repository for Maven</name>
+		    <url>https://maven.java.net/content/repositories/snapshots/</url>
+		    <layout>default</layout>
+		</repository>
+		
+	    <repository>
+	      <id>source.db4o</id>
+	      <url>http://source.db4o.com/maven</url>
+	    </repository>
+        <repository>
+            <id>jboss</id>
+            <url>http://repository.jboss.org/maven2</url>
+        </repository>
+        <repository>
+            <id>glassfish-repository</id>
+            <name>Java.net Repository for Glassfish</name>
+            <url>http://download.java.net/maven/glassfish</url>
+        </repository>
+        <repository>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Repository for Maven</name>
+            <url>http://download.java.net/maven/2/</url>
+            <layout>default</layout>
+        </repository>
+     </repositories>
+</project>

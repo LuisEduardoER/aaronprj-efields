@@ -1,0 +1,53 @@
+/*
+ * Template:	How it Works Flyout User Interface
+ * Developer:	Jon Concepcion
+ * Company:		E*TRADE Financial
+ *
+ */
+
+/* Flyout user interface */
+.how-it-works-content, .hiw-flyout, .hiw-flyoutAndroid, .hiw-flyoutBlackberry, .hiw-flyoutWhatYoullNeed { display: none; }
+.hiw-flyout, .hiw-flyoutAndroid, .hiw-flyoutBlackberry, .hiw-flyoutWhatYoullNeed { 
+	z-index: 9999; 
+	position: absolute; 
+	text-align: left; 
+	color: #000000; 
+	padding: 0 17px; 
+	background: url("../../images/flyout/body.png"); 
+}
+.hiw-content { border-top: 9px solid #96c83b; background-color: #ffffff; width: 260px; min-height: 160px; padding: 20px; margin-top: -7px; margin-bottom: -10px; z-index: 9; position: relative; }
+
+.hiw-flyout .top-shadow, .hiw-flyout .bot-shadow,
+.hiw-flyoutAndroid .top-shadow, .hiw-flyoutAndroid .bot-shadow,
+.hiw-flyoutBlackberry .top-shadow, .hiw-flyoutBlackberry .bot-shadow,
+.hiw-flyoutWhatYoullNeed .top-shadow, .hiw-flyoutWhatYoullNeed .bot-shadow { width: 334px; position: absolute; display: block; left: 0; z-index: 0; }
+.hiw-flyout .top-shadow,
+.hiw-flyoutAndroid .top-shadow,
+.hiw-flyoutBlackberry .top-shadow,
+.hiw-flyoutWhatYoullNeed .top-shadow { background: url("../../images/flyout/top.png") 0 top; top: -24px; height: 24px; }
+.hiw-flyout .bot-shadow,
+.hiw-flyoutAndroid .bot-shadow,
+.hiw-flyoutBlackberry .bot-shadow,
+.hiw-flyoutWhatYoullNeed .bot-shadow { background: url("../../images/flyout/bottom.png") 0 bottom; bottom: -27px; height: 27px; }
+
+/* Arrow pointed to bottom, left and right */
+.hiw-flyout .ear, .hiw-flyoutAndroid .ear, .hiw-flyoutBlackberry .ear, .hiw-flyoutWhatYoullNeed .ear { display: block; border-style: solid; border-width: 10px; width: 0; height: 0; position: absolute;  }
+.hiw-flyout-right .ear, .hiw-flyout-right-android .ear, .hiw-flyout-right-blackberry .ear, .hiw-flyout-right-WhatYoullNeed { border-color: transparent transparent transparent #fff; top: 90px; right: -3px; }
+.hiw-flyout-left .ear, .hiw-flyout-left-WhatYoullNeed { border-color: transparent #fff transparent transparent; top: 220px; left: -3px; }
+.hiw-flyout-bottom .ear, .hiw-flyout-bottom-WhatYoullNeed { border-color: #fff transparent transparent transparent; bottom: -30px; left: 90px; }
+
+/* Begin style for flyout content */
+.hiw-content h2 { font-size: 19px; font-weight: normal; text-transform: uppercase; margin: 0; }
+.hiw-content ol, .hiw-content ol li, .hiw-content p { list-style: none; margin: 0; padding: 0; font-size: 12px !important; color: #000 !important; position: relative; }
+.hiw-content h2, .hiw-content ol { margin-bottom: 15px; }
+.hiw-content ol li { margin-bottom: 7px; padding-bottom: 7px; padding-left: 45px; border-bottom: 1px solid #ddd; height:100%; }
+.hiw-content ol li span { background: url("../../images/checks.png") no-repeat scroll -6px -295px transparent; display: block; height: 28px; left: 0; position: absolute; top: 0; width: 33px; }
+.hiw-content ol li.last { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.hiw-content a { font-size: 12px !important; font-weight: bold; color: #003399; }
+.hiw-content a:hover { text-decoration: underline; }
+.hiw-content td { height: 30px; vertical-align: middle; font-size: 12px !important; }
+.hiw-content .get-details { padding-left: 45px; }
+.hiw-content .info { margin: 10px 0; }
+
+.flyOutButton { position: relative !important; cursor: pointer; display: inline-block !important; }
+.flyOutButton:hover { text-decoration: underline; }
