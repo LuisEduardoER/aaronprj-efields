@@ -55,6 +55,7 @@
 //$.noConflict();
 
 var userAccount = null;
+var refreshId = null;
 
 var userSession = getCookie("cookie_aaron_prj_efields_session");
 // get cookie  
@@ -86,6 +87,13 @@ $(document).ready(function(){
 		
 			checklogin(userSession);
 			
+		}
+		
+    },500);
+	
+	setTimeout(function(){
+		if(null != userAccount){
+			
 			$('#secondary-highlight-wrapper').hide();
 			$('#body-column').hide();
 			//header-wrappe
@@ -98,8 +106,10 @@ $(document).ready(function(){
 				var amenu = $('.menuitem')[0];
 				loadWatchList(amenu) ;
 			},1000);
+		}else{
+			setCookie('cookie_aaron_prj_efields_session', null,null)
 		}
-    },500);
+    },2000);
 		   
 });
 	

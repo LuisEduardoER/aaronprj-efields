@@ -39,13 +39,13 @@ public class UserResource extends ResourceServices{
             return this.writeValueAsString(generateResult(null));
     	}
     	List<Account> acts = new ArrayList<Account>();
-    	for(User u:users){
-
-			Account account = new Account();
-			account.setUser(u);
-			final Account qaccount = (Account) CommonEntityManager.getEntityByExample(account);
-			acts.add(qaccount);
-    	}
+//    	for(User u:users){
+//
+//			Account account = new Account();
+//			account.setUser(u);
+//			final Account qaccount = (Account) CommonEntityManager.getEntityByExample(account);
+//			acts.add(qaccount);
+//    	}
 
     	return this.writeValueAsString(generateResult(acts));
     }
@@ -82,7 +82,8 @@ public class UserResource extends ResourceServices{
 					String sessionid = this.getSessionId().toString();
 					user.setSessionId(sessionid);
 					CommonEntityManager.save(user);
-					qaccount.getUser().setSessionId(sessionid);
+					qaccount.setUser(user);
+					CommonEntityManager.save(qaccount);
 					DataFactory.addOnlineMember(sessionid, qaccount);
 					
 					be.setEntity(qaccount);
@@ -110,12 +111,9 @@ public class UserResource extends ResourceServices{
 	@Produces(MediaType.APPLICATION_JSON)
     public String loginCheck(@PathParam("sessionid") String sessionid){
     	
-    	BaseEntity<Account> be = generateResult(true, "Login success", "", "");
-    	
     	Account account = DataFactory.getAccount(sessionid);
-    	be.setEntity(account);
     	
-    	return this.writeValueAsString(be);
+    	return this.writeValueAsString(generateResult(account));
     }
     
 }

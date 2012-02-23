@@ -29,7 +29,7 @@ public class UserResourceTest extends ResourceTestBase {
 	@Test
     public void testGetUserAccounts() throws Exception {
 
-    	
+
     	User u = new User();
     	u.setAddress("");
     	u.setFirstName("firstName");
@@ -81,6 +81,7 @@ public class UserResourceTest extends ResourceTestBase {
 
     	act.setWatchList(wls);
     	CommonEntityManager.save(act);
+    	
     	
         String responseMsg = webResource.path("user/acts").get(String.class);
 

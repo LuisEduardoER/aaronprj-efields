@@ -2,13 +2,9 @@
 
 function menuSwitch(amenu){
 	
+	clearInterval(refreshId);
 	$(".menuitem").removeClass("active");
 	$(amenu).addClass("active");
-}
-
-function initAccountView(){
-	
-	
 }
 
 function loginsystem(){
@@ -52,7 +48,8 @@ function loginsystem(){
 }
 
 function logoutsystem(){
-	setCookie('cookie_aaron_prj_efields_session', null,null)
+	setCookie('cookie_aaron_prj_efields_session', null,null);
+	document.location = "index.html";
 }
 
 function checklogin(userSession){
@@ -93,8 +90,19 @@ function loadWatchList(amenu) {
 	
 	$('#content').load('account/watchlist.html', function() {
 	
-	
-		
+		userSession = getCookie("cookie_aaron_prj_efields_session");
+		$.getJSON('resource/market/watchlist/'+userSession, function(data) {
+			
+			var tickers = data.entities;
+			
+		//alert("watchlist 2");
+			// An array renders once for each item (concatenated)
+			var html = $("#watchlistTmpl").render( tickers );
+			
+			// Insert as HTML
+			$("#watchlist").html( html );
+		});	
+				
 	});
 }
 
@@ -119,6 +127,22 @@ function loadDefaultMarkets(amenu) {
 		});	
 		
 	});
+}
+
+function loadMarkets(markettype) {
+	
+	//retrieve setting data
+	$.getJSON('resource/market/tickers/'+markettype, function(data) {
+		//alert("isadminstate:"+isadminstate);
+		//entities
+		var tickers = data.entities;
+		
+		// An array renders once for each item (concatenated)
+		var html = $( "#markettickerTmpl" ).render( tickers );
+		
+		// Insert as HTML
+		$( "#markettickers" ).html( html );
+	});	
 }
 
 function loadDefaultTrade(amenu) {

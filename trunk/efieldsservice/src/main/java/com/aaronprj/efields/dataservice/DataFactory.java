@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import com.aaronprj.common.enums.TickerClassType;
 import com.aaronprj.common.utils.CommonEntityManager;
 import com.aaronprj.entities.efields.Account;
+import com.aaronprj.entities.efields.QuoteFeed;
 import com.aaronprj.entities.efields.Ticker;
 import com.aaronprj.entities.efields.User;
 
@@ -19,9 +20,19 @@ public class DataFactory {
 	private static ConcurrentHashMap<String,Ticker> maptickers = new ConcurrentHashMap<String,Ticker>();
 	
 	private static ConcurrentHashMap<TickerClassType,List<Ticker>> topMarkets = new ConcurrentHashMap<TickerClassType,List<Ticker>>();
+
+	private static ConcurrentHashMap<String,QuoteFeed> quoteFeeds = new ConcurrentHashMap<String,QuoteFeed>();
 	
 	private static DecimalFormat decimalFormat = new DecimalFormat("#.0000");
 
+	
+	public static boolean addQuoteFeed(QuoteFeed qf){
+		
+		quoteFeeds.put(qf.getT(), qf);
+		
+		return false;
+	}
+	
 	public static void addOnlineMember(String sessionId,Account account){
 
 		String osessionId = onlineMemberKeys.get(account.getAccountCode());

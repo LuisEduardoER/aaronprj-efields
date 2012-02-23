@@ -8,7 +8,7 @@
         <table>
           <tr>
             <td width="160p">
-                <select style="width:120px;" name="rankingUniverse" onchange="this.form.submit()">
+                <select style="width:120px;" name="rankingUniverse" onchange="">
                     <option value="DOW" selected="selected">DOW</option>
                     <option value="USN">NYSE</option><option value="USQ">NASDAQ</option>
                     <option value="USA">AMEX</option>
@@ -16,11 +16,11 @@
             </td>
             <td>
             <div class="fLeft bold pL10 t4 link">
-                <span class="bold txt12">Actives</span> &nbsp;|&nbsp; 
-                <a onclick='#' class="txt12 toggleLinks" href="#">% Gainers</a> &nbsp;|&nbsp; 
-                <a onclick='#' class="txt12 toggleLinks" href="#">% Losers</a> &nbsp;|&nbsp; 
-                <a onclick='#' class="txt12 toggleLinks" href="#">$ Gainers</a> &nbsp;|&nbsp; 
-                <a onclick='#' class="txt12 toggleLinks" href="#">$ Losers</a>
+                <a class="txt12 toggleLinks" onclick='loadMarkets("actives");'>Actives</a> &nbsp;|&nbsp; 
+                <a class="txt12 toggleLinks" onclick='loadMarkets("gainers");'>% Gainers</a> &nbsp;|&nbsp; 
+                <a class="txt12 toggleLinks" onclick='loadMarkets("losers");'>% Losers</a> &nbsp;|&nbsp; 
+                <a class="txt12 toggleLinks" onclick='loadMarkets("gainermoney");'>$ Gainers</a> &nbsp;|&nbsp; 
+                <a class="txt12 toggleLinks" onclick='loadMarkets("losermoney");'>$ Losers</a>
             </div>
             </td>
           </tr>

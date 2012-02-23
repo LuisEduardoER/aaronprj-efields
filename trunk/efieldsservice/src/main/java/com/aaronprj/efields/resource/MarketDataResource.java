@@ -12,6 +12,7 @@ import com.aaronprj.common.enums.TickerClassType;
 import com.aaronprj.common.web.resource.ResourceServices;
 import com.aaronprj.efields.dataservice.DataFactory;
 import com.aaronprj.entities.efields.Account;
+import com.aaronprj.entities.efields.QuoteFeed;
 import com.aaronprj.entities.efields.Ticker;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
@@ -34,14 +35,16 @@ public class MarketDataResource extends ResourceServices{
     	return this.writeValueAsString(generateResult(tickers));
     }
 	
+	@SuppressWarnings("unchecked")
 	@Path("/watchlist/{sessionid}")
     @GET 
 	@Produces(MediaType.APPLICATION_JSON)
     public String getWatchList(@PathParam("sessionid") String sessionid) {
+
     	Account account = DataFactory.getAccount(sessionid);
-    	String responseMsg = "{\"id\":1105,\"success\":false,\"msgCode\":null,\"msgDiscription\":null,\"entity\": null,\"entities\":"; //}";
+    	String responseMsg = "";
     	if(null != account){
-	    	String qstr = "[]";
+	    	String qstr = "";
 	    	for(String q:account.getWatchList()){
 	    		if("".equals(qstr)){
 	        		qstr = q;
@@ -53,10 +56,12 @@ public class MarketDataResource extends ResourceServices{
 			Client client = Client.create();
 			WebResource webRes = client.resource("http://www.google.com/finance/info?infotype=infoquoteall&q="+qstr);
 			
-	        responseMsg += webRes.get(String.class).replaceFirst("//", "")+"}";
-    	}else{
-    		responseMsg +="null}";
+	        responseMsg = webRes.get(String.class).replaceAll("/", "").replaceAll("\\\\","");
+
+	        List<QuoteFeed> quotes = toObject(responseMsg, List.class);
+	        
+	    	return this.writeValueAsString(generateResult(quotes));
     	}
-    	return responseMsg;
+        return this.writeValueAsString(generateResult(null));
     }
 }
