@@ -7,6 +7,7 @@ public class Account {
 	private User user;
 	private String accountCode;
 	private AccountPreferences accountPreferences;
+	private List<String> watchList;
 	private List<Message> messages;
 	private List<TradingOrder> protfolios;
 	private List<TradingOrder> tradingOrders;
@@ -34,6 +35,12 @@ public class Account {
 	}
 	public void setAccountPreferences(AccountPreferences accountPreferences) {
 		this.accountPreferences = accountPreferences;
+	}
+	public List<String> getWatchList() {
+		return watchList;
+	}
+	public void setWatchList(List<String> watchList) {
+		this.watchList = watchList;
 	}
 	public List<Message> getMessages() {
 		return messages;

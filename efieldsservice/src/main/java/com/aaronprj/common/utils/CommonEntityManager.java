@@ -138,6 +138,14 @@ public class CommonEntityManager{
 		return objs.get(0);
 	} 
 	
+	public static Object getEntityByExample(final Object queryObject){
+		ObjectSet<Object> objs = objdb.queryByExample(queryObject);
+		if(null == objs || objs.isEmpty()){
+			return null;
+		}
+		return objs.get(0);
+	} 
+	
 	@SuppressWarnings("serial")
 	public static ObjectSet<Object> getEntities(final QueryObject queryObject){
 
