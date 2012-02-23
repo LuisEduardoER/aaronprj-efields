@@ -139,6 +139,8 @@ public class CommonEntityManager{
 	} 
 	
 	public static Object getEntityByExample(final Object queryObject){
+		verifyEntityManager();
+		
 		ObjectSet<Object> objs = objdb.queryByExample(queryObject);
 		if(null == objs || objs.isEmpty()){
 			return null;
