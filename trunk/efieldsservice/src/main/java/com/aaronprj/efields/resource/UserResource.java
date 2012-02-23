@@ -1,5 +1,6 @@
 package com.aaronprj.efields.resource;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -15,6 +16,8 @@ import com.aaronprj.common.utils.QueryObject;
 import com.aaronprj.common.utils.QueryParamter;
 import com.aaronprj.common.web.resource.ResourceServices;
 import com.aaronprj.common.web.uivo.BaseEntity;
+import com.aaronprj.efields.dataservice.DataFactory;
+import com.aaronprj.entities.efields.Account;
 import com.aaronprj.entities.efields.User;
 import com.db4o.nativequery.expr.cmp.ComparisonOperator;
 
@@ -24,7 +27,7 @@ import com.db4o.nativequery.expr.cmp.ComparisonOperator;
 public class UserResource extends ResourceServices{
 
 	@SuppressWarnings("unchecked")
-	@Path("/users")
+	@Path("/acts")
     @GET 
 	@Produces(MediaType.APPLICATION_JSON)
     public String getUsers() {
@@ -35,11 +38,19 @@ public class UserResource extends ResourceServices{
     	if(null == users || users.isEmpty()){
             return this.writeValueAsString(generateResult(null));
     	}
+    	List<Account> acts = new ArrayList<Account>();
+    	for(User u:users){
 
-    	return this.writeValueAsString(generateResult(users));
+			Account account = new Account();
+			account.setUser(u);
+			final Account qaccount = (Account) CommonEntityManager.getEntityByExample(account);
+			acts.add(qaccount);
+    	}
+
+    	return this.writeValueAsString(generateResult(acts));
     }
     
-    @Path("/login/{username}/{password}")
+	@Path("/login/{username}/{password}")
     @POST 
 	@Produces(MediaType.APPLICATION_JSON)
     public String login(@PathParam("username") String username, @PathParam("password") String password){
@@ -49,7 +60,7 @@ public class UserResource extends ResourceServices{
     	queryObject.addQueryParamter(new QueryParamter("userName",username, ComparisonOperator.VALUE_EQUALITY));
     	queryObject.addQueryParamter(new QueryParamter("password",password, ComparisonOperator.VALUE_EQUALITY));
     	
-    	BaseEntity<User> be = generateResult(true, "Login success", "", "");
+    	BaseEntity<Account> be = generateResult(true, "Login success", "", "");
     	try {
 			User user =  (User) CommonEntityManager.getEntity(queryObject);
 			
@@ -63,7 +74,24 @@ public class UserResource extends ResourceServices{
 				be.setMsgDiscription("Please input your correct password!");
 				be.setSuccess(false);
 			}else{
-				be.setEntity(user);
+				
+				Account account = new Account();
+				account.setUser(user);
+				final Account qaccount = (Account) CommonEntityManager.getEntityByExample(account);
+				if(null != qaccount){
+					String sessionid = this.getSessionId().toString();
+					user.setSessionId(sessionid);
+					CommonEntityManager.save(user);
+					qaccount.getUser().setSessionId(sessionid);
+					DataFactory.addOnlineMember(sessionid, qaccount);
+					
+					be.setEntity(qaccount);
+					be.setSessionId(sessionid);
+				}else{
+					be.setMsgCode("Unable to locate account information!");
+					be.setMsgDiscription(" ");
+					be.setSuccess(false);
+				}
 			}
 		} catch (Exception e) {
 			be.setMsgCode("Login unsuccessfull!");
@@ -72,6 +100,20 @@ public class UserResource extends ResourceServices{
 			
 			e.printStackTrace();
 		}
+    	
+    	return this.writeValueAsString(be);
+    }
+	
+
+	@Path("/logincheck/{sessionid}")
+    @POST 
+	@Produces(MediaType.APPLICATION_JSON)
+    public String loginCheck(@PathParam("sessionid") String sessionid){
+    	
+    	BaseEntity<Account> be = generateResult(true, "Login success", "", "");
+    	
+    	Account account = DataFactory.getAccount(sessionid);
+    	be.setEntity(account);
     	
     	return this.writeValueAsString(be);
     }

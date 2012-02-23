@@ -7,16 +7,52 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import com.aaronprj.common.enums.TickerClassType;
 import com.aaronprj.common.utils.CommonEntityManager;
+import com.aaronprj.entities.efields.Account;
 import com.aaronprj.entities.efields.Ticker;
+import com.aaronprj.entities.efields.User;
 
 public class DataFactory {
 
+	private static ConcurrentHashMap<String,String> onlineMemberKeys = new ConcurrentHashMap<String,String>();
+	private static ConcurrentHashMap<String,Account> onlineMembers = new ConcurrentHashMap<String,Account>();
+	
 	private static ConcurrentHashMap<String,Ticker> maptickers = new ConcurrentHashMap<String,Ticker>();
 	
 	private static ConcurrentHashMap<TickerClassType,List<Ticker>> topMarkets = new ConcurrentHashMap<TickerClassType,List<Ticker>>();
 	
 	private static DecimalFormat decimalFormat = new DecimalFormat("#.0000");
 
+	public static void addOnlineMember(String sessionId,Account account){
+
+		String osessionId = onlineMemberKeys.get(account.getAccountCode());
+		if(null != osessionId){
+			onlineMemberKeys.remove(account.getAccountCode());
+			onlineMembers.remove(osessionId);
+		}
+		//update sessionid and account
+		onlineMemberKeys.put(account.getAccountCode(),sessionId);
+		onlineMembers.put(sessionId, account);
+	}
+	public static Account getAccount(String sessionId){
+		Account account = onlineMembers.get(sessionId);
+		if(null == account){
+			User u = new User();
+			u.setSessionId(sessionId);
+			u = (User)CommonEntityManager.getEntityByExample(u);
+			if(null == u){
+				return null;
+			}
+			account = new Account();
+			account.setUser(u);
+			final Account qaccount = (Account) CommonEntityManager.getEntityByExample(account);
+			if(null == qaccount){
+				return null;
+			}
+			onlineMembers.put(sessionId, qaccount);
+
+		}
+		return account;
+	}
 	
 	@SuppressWarnings("unchecked")
 	public static void initDataFactory(){
