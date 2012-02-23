@@ -6,6 +6,98 @@ function menuSwitch(amenu){
 	$(amenu).addClass("active");
 }
 
+function initAccountView(){
+	
+	
+}
+
+function loginsystem(){
+	
+	var userid = $("#modlgn_username")[0].value;
+	var password = $("#modlgn_passwd")[0].value;
+	
+
+	$.ajax({
+		type: 'POST',
+		url:"resource/user/login/"+userid+"/"+password,
+		dataType: 'json',
+		success: function(result) {
+			if(result.success == true){
+				userAccount = result.entity;
+				
+				$('#form-login').slideUp('slow');
+				setCookie('cookie_aaron_prj_efields_session', result.sessionId,100);
+				
+				$('#header-wrapper').load('header-menu.html');
+				$('#secondary-highlight-wrapper').hide();
+				$('#body-column').hide();
+			
+				setTimeout(function(){
+					$('#userinforbar')[0].textContent = "Account: " + userAccount.accountCode;
+				
+					var amenu = $('.menuitem')[0];
+					loadWatchList(amenu) ;
+				},1000);
+			
+			}else{
+				alert(result.msgCode+"\n"+result.msgDiscription);
+			}
+
+		},
+		error: function (request, status, error) {
+			alert('Login system unsuccessful.');
+		}
+	});	
+	
+}
+
+function logoutsystem(){
+	setCookie('cookie_aaron_prj_efields_session', null,null)
+}
+
+function checklogin(userSession){
+	
+	$.post("resource/user/logincheck/"+userSession, function(result) {
+		if(result.success == true){
+			userAccount = result.entity;
+		}else{
+			alert(result.msgCode+"\n"+result.msgDiscription);
+		}
+	});	
+	
+}
+
+function showMyMessage(){
+		
+	var item = $('#orderdetail');					
+	item.empty();	
+	item.setTemplateURL('parts/orderdetail.html');	
+	item.processTemplate(bookorder);	
+	
+	$('a[name^="course"]').click(function() {
+		var courseId=$(this).attr('value');
+		//loadItems(courseId);
+		
+		
+		//loadOrderInfor();
+		return false;
+	});
+	 
+	$('#orderdetail').show();
+}
+
+
+function loadWatchList(amenu) {
+	
+	menuSwitch(amenu.parentElement);
+	
+	$('#content').load('account/watchlist.html', function() {
+	
+	
+		
+	});
+}
+
 function loadDefaultMarkets(amenu) {
 	
 	menuSwitch(amenu.parentElement);
@@ -357,86 +449,6 @@ function refreshTotal(uobj){
 	}
 }
 
-function loginfun(){
-	//visibility
-	userpanel.style.display = "none";
-	loginpanel.style.display = "block";
-}
-
-function loginsystem(){
-	
-	var userid = username.value;
-	var password = userpass.value;
-	
-
-	$.ajax({
-		type: 'POST',
-		url:"resource/user/login/"+userid+"/"+password,
-		dataType: 'json',
-		success: function(result) {
-			userobj = result;
-			if(userobj.success == true){
-				userwelcomeinfor.textContent = userobj.userName;
-				
-				bookorder.sessionId = userobj.sessionId;
-				bookorder.customerId = userobj.id;
-				
-				loginpanel.style.display = "none";
-				userpanel.style.display = "block";
-				if("Administrator" == userobj.roleName){
-					usermenu.style.display = "none";
-					adminmenu.style.display = "block";
-				}else{
-					usermenu.style.display = "block";
-					adminmenu.style.display = "none";
-				}
-				$('#mymessage')[0].textContent = userobj.unreadCount;
-				
-			}else{
-				alert(userobj.msgCode+"\n"+userobj.msgDiscription);
-			}
-
-		},
-		error: function (request, status, error) {
-			alert('Login system unsuccessful.');
-		}
-	});	
-	
-}
-
-function showMyMessage(){
-		
-	var item = $('#orderdetail');					
-	item.empty();	
-	item.setTemplateURL('parts/orderdetail.html');	
-	item.processTemplate(bookorder);	
-	
-	$('a[name^="course"]').click(function() {
-		var courseId=$(this).attr('value');
-		//loadItems(courseId);
-		
-		
-		//loadOrderInfor();
-		return false;
-	});
-	 
-	$('#orderdetail').show();
-}
-
-
-function logoutsystem(){
-	
-	isadminstate = false;
-	
-	userobj = null;
-
-	userwelcomeinfor.textContent = "Guest";
-	
-	bookorder.sessionId = "";
-	bookorder.customerId = 0;
-	
-	homeView();
-}
 
 function loadCommentList(itmId){
 	
@@ -478,4 +490,45 @@ function showMessage(vname){
 	alert("vname::"+vname);
 	
 	
+}
+
+
+function getCookie(c_name)
+{
+	var i,x,y,ARRcookies=document.cookie.split(";");
+	for (i=0;i<ARRcookies.length;i++)
+	{
+		x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+		y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+		x=x.replace(/^\s+|\s+$/g,"");
+		if (x==c_name)
+		{
+			return unescape(y);
+		}
+	}
+}
+
+function setCookie(c_name,value,exdays)
+{
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate() + exdays);
+	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+	document.cookie=c_name + "=" + c_value;
+}
+
+function checkCookie()
+{
+	var username=getCookie("username");
+	if (username!=null && username!="")
+	  {
+	  alert("Welcome again " + username);
+	  }
+	else
+	  {
+	  username=prompt("Please enter your name:","");
+	  if (username!=null && username!="")
+		{
+		setCookie("username",username,365);
+		}
+	  }
 }
