@@ -15,7 +15,7 @@ public class TickerImportTest {
 
 	
 
-	//Test
+	@Test
 	public void testTickerImport(){
 		try {
 			System.out.println("Started:"+(new Date()).toString());
