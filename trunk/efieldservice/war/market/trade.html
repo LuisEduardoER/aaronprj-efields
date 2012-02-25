@@ -1,0 +1,198 @@
+<!--MAIN CONTENT AREA-->
+<div class="content-box-style">
+<div id="etContent">
+    <div id="companyname">
+        <div class="eq"><h1><span>Enter Order: </span> Stocks</h1></div>
+    </div>
+    <div id="account-simple-information" class="osi-infstn-menu">
+        <table class="osi-infstn-menu-table" cellpadding="0" cellspacing="0" width="100%">
+            <tbody>
+                <tr>
+                <td id="osi-infstn-account-cont" width="300">
+                <div class="osi-infstn-accounts">
+                        <div class="osi-infstn-accounts-selected">Account: 
+                            <a onclick='s_objectID="SClink_2";return this.s_oc?this.s_oc(e):true' href="javascript:void(0);" id="" class="infstn-menu-link singular">
+                                <span style="display:none">6783-3775</span> aaron.xiong</a>
+                        </div>
+                </div>
+                </td>
+                <td class="no-border-right"> Net Account Value: <b>$171.01</b></td>
+                <td align="right">&nbsp;</td>
+                </tr>
+            </tbody>
+         </table>
+  </div>
+</div>
+
+<form id="trade-order-form">
+<div id="tradorderinfor"></div>
+<table border="0" cellpadding="4" cellspacing="0" width="100%">
+    <tbody><tr>
+            <td align="left"></td>
+            <td align="right">
+                <input title="" src="images/preview_order_entry_green.gif" tabindex="9" value="preview" alt="Preview Order" class="osi-preview-btn" name="preview" border="0" height="21" type="image" width="115">
+            </td>
+        </tr>
+    </tbody>
+ </table>
+
+</form>
+
+<div style="margin-top:20px; font-family:Verdana; text-align:left; border:1px solid #CCC;background-color:#EEE;" id="etNoticeBox">
+    <div class="to-center-cust-only">
+        <table>
+            <tbody><tr>
+                    <td><img src="images/icon_info_big.gif" align="absmiddle" border="0" height="25" width="25"></td><td style="padding-left: 5px;" valign="middle">
+                    <b>NEW! Trading Enhancement </b>
+                        <br>
+                        Customers can now place orders Listed stocks at 
+                        prices under $1.00/share with up to 4 decimal places. 
+                        <a onclick='#' href="#">Learn More.</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div>
+<!--END MAIN CONTENT AREA-->
+
+<!--====== Template ======-->
+<script id="tradorderinforTmpl" type="text/x-jquery-tmpl">
+
+<div class="stock-order" id="stock_order">
+    <table cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr valign="top">
+                <td class="so-form" valign="top" width="100%">
+                    <table cellpadding="0" cellspacing="0">
+                        <tbody><tr align="left" valign="top">
+                                <td><b>Order Type</b>
+                                    <br>
+                                    <select style="width:122px" name="transaction" tabindex="1">
+                                        <option value="">- -</option>
+                                        <option selected="selected" value="1">Buy</option>
+                                        <option value="2">Sell</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <b>Quantity</b>
+                                    <br>
+                                    <input tabindex="2" value="100" class="osi-text-input" name="quantity" type="text"></td>
+                                <td><b>Symbol</b>&nbsp;
+                                    <a onclick='s_objectID="SClink_8";return this.s_oc?this.s_oc(e):true' title="Find Symbol" href="javascript:openFindSymbol();" class="fs-link">
+                                        <img src="images/find_symbol.gif"></a>
+                                    <br>
+                                    <input tabindex="3" value="BCA" class="osi-text-input" name="symbol" type="text">
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    <br class="smbr">
+                    <table cellpadding="0" cellspacing="0">
+                        <tbody><tr>
+                                <td valign="top"><b>Price Type</b>
+                                    <br>
+                                    <select style="width:122px" name="priceType" tabindex="4">
+                                        <option value="0">- -</option>
+                                        <option selected="selected" value="1">Market</option>
+                                        <option value="2">Limit</option>
+                                    </select>
+                                </td>
+                                <td style="display: none;" class="osi-price-entry" valign="top"><b class="osi-price-label"></b>
+                                    <div>
+                                        <input tabindex="5" class="osi-text-input" name="tempPrice" type="text">
+                                    </div>
+                                </td><td style="display: none;" class="osi-price2-entry" valign="top"><b class="osi-price2-label"></b>
+                                    <div>
+                                        <input tabindex="6" class="osi-text-input" name="" type="text">
+                                    </div>
+                                </td><td valign="top">
+                                    <div style="" class="so-term-cont1">
+                                        <div class="so-term-group"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    <br class="smbr">
+                </td>
+                <td valign="top">
+                    <div id="sqw001">
+                        <div class="quote-widget">
+                            <div class="qw-cont">
+                                <div class="qw-header">
+                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                        <tbody><tr>
+                                                <td width="100%">
+                                                    <div class="qw-title-cont">
+                                                        <div style="display: block;" title="CORPBANCA SPONSORED ADR" class="qw-title">CORPBANCA SPONSORED ADR</div>
+                                                    </div>
+                                                </td><td><a style="visibility: visible;" onclick='s_objectID="https://us.etrade.com/e/t/invest/socreateentry#_13";return this.s_oc?this.s_oc(e):true' href="#" class="qw-refresh">
+                                                        <img src="images/qw-refresh.gif"></a></td>
+                                            </tr>
+                                        </tbody></table>
+                                </div>
+                                <div style="display: block;" class="qw-inner-cont">
+                                    <div class="qw-price-cont change-up">
+                                        <div class="qw-price">23.08&nbsp;&nbsp;<span class="qw-change-up">+0.37&nbsp;&nbsp;(+1.63%)</span></div>
+                                    </div>
+                                    <div style="display: none;" class="qw-error">
+                                        <table cellpadding="0" cellspacing="0" width="100%">
+                                            <tbody><tr>
+                                                    <td><img src="images/i_alert2_big.gif"></td><td class="qw-error-copy">You have entered an invalid symbol. Would you like to do a <a href="javascript:openFindSymbol(0);">symbol search</a>?</td>
+                                                </tr>
+                                            </tbody></table>
+                                    </div>
+                                    <table style="display: table;" class="qw-table" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tbody><tr>
+                                                <th class="qw-bid-th"><b>Bid (Size)</b>
+                                        <div class="qw-bid">21.61 (0)</div>
+                                        </th><td><b>Ask (Size)</b>
+                                            <div class="qw-ask">24.00 (0)</div>
+                                        </td><th><b>Volume</b>
+                                        <div class="qw-vol">88,759</div>
+                                        </th><td><b>Prev. Close</b>
+                                            <div class="qw-prv">22.71</div>
+                                        </td>
+                                        </tr>
+                                        </tbody></table>
+                                </div>
+                                <div class="qw-footer">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tbody><tr>
+                                                <td class="qw-freq">Closing Price</td><td class="qw-time" align="right">2/3/12 4:00:00 PM ET</td>
+                                            </tr>
+                                        </tbody></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="height: 42px;" class="osi-summary-cont">
+    <div class="osi-summary">Buy 100 share(s) <span class="summary-symbol">BCA</span> at  Market</div>
+    <img src="images/summary-arrow.gif" class="osi-summary-arrow">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

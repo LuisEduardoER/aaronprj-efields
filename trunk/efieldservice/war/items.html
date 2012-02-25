@@ -1,0 +1,18 @@
+<table width="500" border="0" cellspacing="0" cellpadding="5">
+{#foreach $T.value as book}
+   <tr>
+  	  <td width="150px"><img src="{$T.book.imgpath}" width="128" height="172"/>
+      </td>
+  	  <td valign="top" width="60%"><a href="#" name="book-{$T.book.id}" value="{$T.book.id}">{$T.book.name}</a><br>
+           <span>Author: {$T.book.author}</span><br>
+           <span>Publisher: {$T.book.publisher}</span><br>
+           <span>Stock: {$T.book.stock}</span><br>
+           <span>Price: {$T.book.price.toFixed(2)}</span><br>
+           <span style="color:#F90;">Member Price: {$T.book.actualPrice.toFixed(2)}</span>
+      </td>
+  	  <td valign="top" width="60px"><a href="#" name="addbook-{$T.book.id}" value="{$T.book.id}" itemName="{$T.book.name}" price="{$T.book.price}">
+      <img src="imagesold/btnAdd.png"/></a>
+      </td>
+    </tr>
+{#/for}
+</table>

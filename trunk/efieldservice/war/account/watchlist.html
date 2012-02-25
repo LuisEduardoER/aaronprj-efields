@@ -1,0 +1,104 @@
+
+<div class="content-box-style">
+    <div id="companyname">
+        <div class="eq"><h1><span>ACCOUNT: </span> WATCH LIST</h1></div>
+    </div>
+    <div>
+<table >
+  <tr>
+    <td class="box-style-1">
+        <div style="width:90%;height:36px;background-color:#fdfcfc;border-bottom:1px solid #eeeeee;padding-left:6px;padding-top:6px;">
+        <table>
+          <tr>
+            <td width="160p"><input type="text" value="quote..."  onfocus="if(this.value == 'quote...') this.value = '';" onblur="if(this.value=='') this.value='quote...';"/>
+            </td>
+            <td>
+            <input type="button"  name="addquote" class="button subbutton" value="Add Quote"/>
+            </td>
+            <td>
+            <div class="fLeft bold pL10 t4 link">
+                <span class="bold txt12">Actives</span> &nbsp;|&nbsp; 
+                <a onclick='#' class="txt12 toggleLinks" href="#">% Gainers</a> &nbsp;|&nbsp; 
+                <a onclick='#' class="txt12 toggleLinks" href="#">% Losers</a> &nbsp;|&nbsp; 
+                <a onclick='#' class="txt12 toggleLinks" href="#">$ Gainers</a> &nbsp;|&nbsp; 
+                <a onclick='#' class="txt12 toggleLinks" href="#">$ Losers</a>
+            </div>
+            </td>
+          </tr>
+        </table>
+         </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <table border="1">
+        <tbody class="header">
+            <tr>	
+            <th width="60" style="text-align:left" class="bBotDblLgt pL10">Ticker</th>
+            <th width="100" style="text-align:right" class="bBotDblLgt pL10">Price$</th>
+            <th width="150" style="text-align:right" class="bBotDblLgt pL10">Trade</th>
+            <th width="100" style="text-align:right" class="bBotDblLgt pL10">Change%</th>
+            <th width="100" style="text-align:right" class="bBotDblLgt pL10">Change$</th>
+            <th width="100" style="text-align:right" class="bBotDblLgt pL10">Hi 52w</th>
+            <th width="100" style="text-align:right" class="bBotDblLgt pL10">Low 52w</th>
+            <th width="100" style="text-align:right" class="bBotDblLgt pL10">Open$</th>
+            <th width="150" style="text-align:right" class="bBotDblLgt pL10">Makret Cap</th>
+            <th width="150" style="text-align:right" class="bBotDblLgt pL10">Volume</th>
+            </tr>
+        </tbody>
+        <tbody id="watchlist"></tbody>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+</div>
+<!--====== Template ======-->
+<script id="watchlistTmpl" type="text/x-jquery-tmpl">
+	<tr>
+		<td class="txt12 bBotLgt left pL10 link borderTopWhite"><a href="javascript:loadSnapshot('{{=t}}');">{{=t}}</a></td>
+		<td class="txt12 bBotLgt borderTopWhite" style="text-align:right;">{{=l}}</td>
+		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">
+			<a href="javascript:loadDefaultTrade('{{=t}}',0);"><img src="images/buyGreen.png"></a>&nbsp;
+			<a href="javascript:loadDefaultTrade('{{=t}}',1);"><img src="images/sellGreen.png"></a></td>
+		</td>
+		
+		{{#if c > 0 }}
+			<td class="txt12 bBotLgt borderTopWhite" style="text-align:right; color: #090">{{=cp}}</td>
+			<td class="txt12 bBotLgt borderTopWhite" style="text-align:right; color: #090">{{=c}}</td>
+		{{else}}
+			<td class="txt12 bBotLgt borderTopWhite" style="text-align:right; color: #F00">{{=cp}}</td>
+			<td class="txt12 bBotLgt borderTopWhite" style="text-align:right; color: #F00">{{=c}}</td>
+		{{/if}}
+		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">{{=hi52}}</td>
+		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">{{=lo52}}</td>
+		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">{{=op}}</td>
+		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">{{=mc}}</td>
+		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">{{=vo}}</td>
+	</tr>
+</script>
+<script type="text/javascript" charset="utf-8">
+
+	setTimeout(function(){
+	
+		userSession = getCookie("cookie_aaron_prj_efields_session");
+		refreshId = setInterval(function(){
+			$.getJSON('resource/market/watchlist/'+userSession, function(data) {
+				
+				var tickers = data.entities;
+				// An array renders once for each item (concatenated)
+				var html = $("#watchlistTmpl").render( tickers );
+				// Insert as HTML
+				$("#watchlist").html( html );
+			});	
+			
+		}, 8000);
+		
+	},10000);
+
+			
+	
+</script>

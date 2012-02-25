@@ -1,0 +1,176 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Mbooks</title>
+<link href="stylebak.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><!-- Global JS -->
+<script type="text/javascript" src="js/jquery-jtemplates_uncompressed.js"></script>
+<script type="text/javascript" src="js/date.format.js"></script>
+<script type="text/javascript" src="js/app_functions.js"></script>
+<script type="text/javascript" src="js/admin_functions.js"></script>
+<script type="text/javascript" language="javascript" >
+
+var vsetting;
+var vlistedbooks;
+var bookorder;
+var userobj;
+var isadminstate = false;
+
+$(document).ready(function() {
+	
+	
+	initialOrderInfor();
+
+	homeView();
+	
+});
+
+
+
+</script>
+</head>
+<body>
+<!--#include virtual="Scripts/RenderTemplates.js" -->
+<table width="1000" border="0">
+  <tr>
+    <td>
+    <!-- start header -->
+    <div id="header">
+        <table width="1020" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><a onClick="homeView();" ><img src="imagesold/logo.png" width="109" height="67"></a></td>
+            <td width="300" valign="bottom">Your 1 stop solution for books</td>
+            <td width="500" valign="bottom" >
+            	<table width="100%" border="0" class="member">
+                  <tr>
+                    <td align="right">
+                    <table border="0" class="member" id="loginpanel" align="right">
+                      <tr>
+                        <td><input type="text" value="login name" id="username"></td>
+                        <td><input type="password" value="password" id="userpass"></td>
+                        <td align="right"><a href="#" onClick="loginsystem();">Login</a></td>
+                        <td align="right"><a href="#" onClick="registerMember();">Register</a></td>
+                        <td><a href="faq.html" target="_new">Faq</a></td>
+                      </tr>
+                    </table>
+                    <table border="0" class="member" id="userpanel" align="right">
+                      <tr>
+                        <td align="right">Welcome <span id="userwelcomeinfor">Guest</span></td>
+                        <td align="right" width="280">
+                        <a href="#" onClick="viewProfile();">Profile</a> | 
+                        <a href="#" onClick="showMyMessage();">Message(<span id="mymessage">0</span>)</a> | 
+                        <a href="#" onClick="logoutsystem();">Logout</a> | 
+                        <a href="faq.html" target="_new">Faq</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </tr>
+                </table>
+            </td>
+          </tr>
+        </table>
+    
+        <table id="searchbar" border="0" cellspacing="0" cellpadding="1">
+          <tr>
+            <td width="110">search here </td>
+            <td width="300"><input id="keywords" type="text" style="width:300px;"/></td>
+            <td><a href="#" onClick="searchItems();"><img src="imagesold/quick-search-button.png"/></a>&nbsp;
+            <td width="120"><a href="#" onClick="searchoption();" style="font-size:13px;">Advanced Search</a></td>
+            <td>
+		  		<div id="usermenu" class="underlinemenu">
+                    <ul>
+                        <li><a href="#" onClick="homeView();">Home</a></li>
+                        <li><a href="#" onClick="loadOrderDetail();">My Cart</a></li>
+                        <li><a href="#" onClick="viewOrders(false);">My Orders</a></li>
+                    </ul>
+                </div>
+		  		<div id="adminmenu" class="underlinemenu" style="display:none">
+                    <ul>
+                        <li><a href="#" onClick="homeView();">Home</a></li>
+                        <li><a href="#" onClick="viewOrders(true);">Orders</a></li>
+                        <li><a href="#" onClick="viewBooks();">Books</a></li>
+                        <li><a href="#" onClick="viewMembers();">Members</a></li>
+                    </ul>
+                </div>
+            </td>
+          </tr>
+        </table>
+        <div id="searchoption">
+          <table width="450" border="0" style="border-top-style:dotted;font-size:13px; color:#FFF;">
+            <tr>
+              <td width="106" align="right">Author:</td>
+              <td>
+              <input type="text" name="authorname" id="authorname">
+              </td>
+            </tr>
+            <tr>
+              <td align="right">Category:
+              </td>
+              <td>
+              <select name="category" size="1" id="searchcategory" onChange="changeCourseList();">
+                <option value="0" selected>ALL
+                <option value="1">Text Book
+                <option value="2">Others                
+              </select>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">&nbsp;</td>
+              <td id="courselist">&nbsp;</td>
+            </tr>
+          </table>
+        </div>
+    </div>
+    <!-- end header -->
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <table id="homestate" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td id="sidebar" valign="top" width="280px">
+            <!-- start sidebar -->
+            <div id="menuitem"></div>
+            <!-- end sidebar -->
+        </td>
+        <td id="content" valign="top">
+            <!-- start content -->
+            <div id="itemlist"></div>
+            <div id="itemdetail"></div>
+            <div id="orderdetail"></div>
+            <!-- end content -->
+        </td>
+        <td id="shopcart" valign="top" width="240px">
+            <div id="orderinfo"></div>
+            <div id="highlights"></div>
+        </td>
+      </tr>
+    </table>
+
+    <table id="adminstate" width="100%" border="0" cellpadding="0" cellspacing="0" style="display:none">
+      <tr>
+        <td id="contentview" valign="top">
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        </div>
+            <div style="clear:both">&nbsp;</div>
+        </div>
+        <!-- end page -->
+        <div id="footer">
+            <p>&copy;&nbsp;2012 All Rights Reserved &nbsp;&bull;&nbsp; Design by &nbsp;&nbsp; Aaron Projects Team
+            &nbsp;&nbsp;
+            <a href="#">About Us</a>
+            &nbsp;|&nbsp;
+            <a href="#">Contact Us</a>
+            </p>
+        </div>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

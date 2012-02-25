@@ -1,0 +1,131 @@
+
+<div class="content-box-style">
+    <div id="etBody">
+        <div id="companyname">
+            <div class="fLeft eq"><h1><span>BANK OF AMERICA CORPORATION COM</span> BAC: NYSE </h1></div>
+        </div>
+    	<!--
+        <div id="etTabs" class="b12">
+            <div id="minitabs">
+                <ul>
+                    <li id="current">
+                        <a onclick='' href=""><span>Snapshot</span></a>
+                    </li>
+                    <li><a onclick='' href=""><span>Charts</span></a></li>
+                    <li><a onclick='' href=""><span>News</span></a></li>
+                </ul>
+            </div>
+            <div class="clearAll"></div>
+        
+        </div>
+        -->
+        <div id="snapshot"></div>
+ 
+    </div>
+
+</div>
+
+<!--====== Template ======-->
+<script id="snapshotTmpl" type="text/x-jquery-tmpl">
+       
+    <table class="qb" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+            <tr class="quoteBar">
+                <td class="quoteLeft"><img src="images/quotebarLeft.png"></td>
+                <td style="width: 120px;">Last Price</td>
+                <td style="width: 200px;">Today&#8217;s Change</td>
+                <td style="width: 200px;">Day&#8217;s Range</td>
+                <td style="width: 170px;">Volume</td>
+                <td style="width: 170px; border-right: 0px none;">Trade</td>
+                <td class="quoteRight"><img src="images/quotebarRight.png"></td>
+            </tr>
+            <tr class="quoteBarBottom">
+                <td class="quoteLeft negquoteLeft">&nbsp;</td>
+                <td class="negquote" id="57009_last"><span id="57009_0">{{=l}}</span></td>
+				
+				{{#if c > 0 }}
+					<td class="negquote">
+					<span class="neg">{{=c}}</span>&nbsp;
+					<span class="neg">({{=cp}}%)</span>
+					</td>
+				{{else}}
+					<td class="negquote">
+					<span class="neg">{{=c}}</span>&nbsp;
+					<span class="neg">({{=cp}}%)</span>
+					</td>
+				{{/if}}
+                <td><span id="">{{=lo}}&nbsp;- {{=hi}}</span></td>
+                <td><span id="57009_11">{{=vo}}</span></td>
+                <td style="border-right: 0px none;">
+                <a href="javascript:loadDefaultTrade(this);"><img src="images/buyGreen.png"></a>&nbsp;
+                <a href="javascript:loadDefaultTrade(this);"><img src="images/sellGreen.png"></a></td>
+                <td class="quoteRight"><img src="images/quotebarbottomright.png"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="lasttrade t4 txt11 grey6 clearfix">
+        <div class="fLeft">{{=e}} Real Time Quote&nbsp;&nbsp;Last Trade as of&nbsp;<span id="57009_25">{{=lt}}</span>&nbsp;&nbsp;</div>
+        <div class="fRight"><span class="black">Quote</span>
+        </div>
+    </div>
+    <div class="t10">
+        <div class="quotedetail fLeft col_2 colRPad"><div class="fLeft colRPad">
+            <table class="quoteB col_1 txt12" cellpadding="0" cellspacing="0">
+                <tbody>
+					<tr class="top"><td>Open</td><td class="right bold">{{=l}}</td></tr>
+                    <tr><td>Previous Close</td><td class="right bold">{{=l_cur}}</td></tr>
+                    <tr><td valign="top">52 - Week Range</td>
+						<td class="right bold">{{=lo52}} - {{=lo52}}</td>
+					</tr>
+                    <tr><td colspan="2">
+						<div class="fLeft">Avg Volume<span class="txt11"> (10 days)</span></div>
+						<div class="fRight bold">{{=avvo}}</div></td>
+					</tr>
+                    <tr><td colspan="2">
+						<div class="fLeft">P/E<span class="txt11"> (Trailing 12 mo.)</span></div>
+						<div class="fRight bold">{{=pe}}x</div></td>
+					</tr>
+                    <tr><td colspan="2">
+						<div class="fLeft">EPS<span class="txt11"> (Trailing 12 mo.)</span></div>
+						<div class="fRight bold nowrap">{{=eps}}</div></td>
+					</tr>
+                    <tr><td colspan="2">
+						<div class="fLeft">Next Earnings Date</div><div class="fRight bold nowrap">-</div></td>
+					</tr>
+                </tbody>
+                </table>
+        </div>
+        <div class="fLeft">
+            <table class="quoteB col_1 txt12" cellpadding="0" cellspacing="0">
+                <tbody>
+					<tr class="top"><td>Market Cap</td><td class="right bold">{{=mc}}</td></tr>
+                    <tr><td>Last Perc</td><td class="right bold">{{=cl}}</td></tr>
+                    <tr><td>Open Price</td><td class="right bold">{{=op}}</td></tr>
+                    <tr><td>Beta</td><td class="right bold">{{=beta}}</td></tr>
+                    <tr><td>Forward PE ratio</td><td class="right bold">{{=fwpe}}</td></tr>
+                    <tr><td> </td><td class="right bold"> </td></tr>
+                    <tr><td valign="top"> </td><td class="right bold"> </td></tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="quotedetail fLeft" style="width:250px;height:270px;background:transparent url(images/snapchartBG.gif) top left no-repeat scroll;">
+        <div class="module xT16 fLeft" style="width:246px;">
+        <div class="moduleTLC"></div>
+        <div class="moduleTRC"></div>
+        <div class="moduleTitle">Quick Links</div>
+        <div class="clear"></div>
+        <div class="moduleBody">
+            <ul class="quicklinks snapshot">
+                <li><a href="javascript:void(0);" onclick=''><span class="s watchlist">Add to Watchlist</span></a></li>
+                <li><a onclick='' href=""><span class="s balances">View My Balances</span></a></li>
+                <li><a onclick='' href=""><span class="s positions">View My Portfolios</span></a></li>
+                <li><a onclick='' href=""><span class="s orders">View My Orders</span></a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </div>
+</script>
