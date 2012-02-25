@@ -14,13 +14,12 @@ a.link:active {color:#039 !important;text-decoration:none; }
 a.href-darker { color:#039 !important;text-decoration:none; }
 a.href-lite { color:#039 !important;text-decoration:none; }
 a.underline { text-decoration: underline !important; } /* Some links need underlines */
-a.refresh { padding:8px 0 8px 18px; text-decoration: none !important; background: transparent url(../../images/icons/refreshgrey.png) left center no-repeat scroll; }
+a.refresh { padding:8px 0 8px 18px; text-decoration: none !important; background: transparent url(../images/icons/refreshgrey.png) left center no-repeat scroll; }
 a.refresh:hover {text-decoration: underline !important;}
-a.refresh.white { background-image: url(https://images.etrade.wallst.com/v1/images/small_refresh.gif); }
-a.back { padding:8px 0 8px 20px; text-decoration: underline !important; background: transparent url(../../images/icons/back_16.gif) left center no-repeat scroll; }
-a.back-disabled { background-image:url(../../images/icons/back_grey_16.gif); color:#444; cursor:default; text-decoration:none !important; }
-a.close { padding:8px 0 8px 20px; text-decoration: underline !important; background: transparent url(../../images/icons/close_16.gif) left center no-repeat scroll; }
-span.dotted { background: transparent url(../../images/charts/shimtools.gif) center center no-repeat scroll; padding:4px 10px; width:20px; }
+a.back { padding:8px 0 8px 20px; text-decoration: underline !important; background: transparent url(../images/icons/back_16.gif) left center no-repeat scroll; }
+a.back-disabled { background-image:url(../images/back_grey_16.gif); color:#444; cursor:default; text-decoration:none !important; }
+a.close { padding:8px 0 8px 20px; text-decoration: underline !important; background: transparent url(../images/icons/close_16.gif) left center no-repeat scroll; }
+span.dotted { background: transparent url(../images/shimtools.gif) center center no-repeat scroll; padding:4px 10px; width:20px; }
 .inBlock {display:inline-block;}
 .vertTxt span {
 	background:url("../images/vertTxt.png") no-repeat scroll  transparent;
@@ -50,7 +49,7 @@ a.link:hover { text-decoration: underline; }
 p.smallHeader{margin:5px 0px;}
 
 /* magnifying glass for symbol lookup */
-a.magGlass { padding: 3px 0 3px 17px; background: transparent url(https://images.etrade.wallst.com/v1/images/stocks/search_mag.gif) center left no-repeat scroll; }
+a.magGlass { padding: 3px 0 3px 17px;  }
 /* new negative color */
 .neg { color: #c00 !important; }
 .txtNew { color: #f00; }
@@ -119,7 +118,7 @@ table#quoteBarTable { margin-top:0px; margin-bottom:10px;_margin-bottom:14px;hei
 div#recentSymbolsFlyDown { display:none;padding:0;margin:0;position:absolute;z-index:9999;border:1px solid #ccc;border-top:none;background:#EFEFEF none; }
 
 div#recentSymbolsFlyDown table { width: 100%; }
-div#recentSymbolsFlyDown table tr { height: 26px; line-height: 26px; background: transparent url(https://images.etrade.wallst.com/v1/images/recentQuotesDivider.png) bottom left repeat-x; }
+div#recentSymbolsFlyDown table tr { height: 26px; line-height: 26px; background: transparent; }
 div#recentSymbolsFlyDown table tr.over { background-color: #d1d1d1; }
 div#recentSymbolsFlyDown table tr.over td a { text-decoration: none; }
 
@@ -136,16 +135,16 @@ div#recentSymbolsFlyDown table tr.over td a { text-decoration: none; }
 /* needed for Classic View link in tab bar */
 a.classicview { background:none !important; }
 a.classicview:hover { text-decoration:underline !important; }  
-span.leverageTitleHeader{padding-left:20px; background-color:transparent; background-image:url(../../images/alert-bar/warning_sm4.gif);background-repeat:no-repeat;}
+span.leverageTitleHeader{padding-left:20px; background-color:transparent; background-image:url(../images/alert-bar/warning_sm4.gif);background-repeat:no-repeat;}
 
 /* Modules w/rounded corners */
-.module {border:1px solid #b8b7b8;border-width:0 1px 1px 1px;background:url(https://images.etrade.wallst.com/v1/images/modules/center2.gif) repeat-x top;position:relative;}
+.module {border:1px solid #b8b7b8;border-width:0 1px 1px 1px;position:relative;}
 
 /* NEW--FASTER! */
 .moduleTLC,
 .moduleTRC,
 .moduleBLC,
-.moduleBRC { background-color:transparent; background-image:url(../../images/modules/moduleCornerSprite.gif);background-repeat:no-repeat; }
+.moduleBRC { background-color:transparent; background-image:url(../images/moduleCornerSprite.gif);background-repeat:no-repeat; }
 .moduleTLC{ height:32px;width:11px;position:absolute;left:-1px;background-position:top left; }
 .moduleTRC{ height:32px;width:11px;position:absolute;right:-1px;background-position:top right; _position: relative; _float: right;}
 .moduleBLC{ height:5px;width:7px;position:absolute;left:-1px;bottom:-1px;_bottom:-1px;background-position:bottom left; }
@@ -159,16 +158,16 @@ span.leverageTitleHeader{padding-left:20px; background-color:transparent; backgr
 .innerModule .moduleTLC,
 .innerModule .moduleTRC,
 .innerModule .moduleBLC,
-.innerModule .moduleBRC { background-image:url(../../images/modules/techFundStrategiesCornersSprite.gif); }
+.innerModule .moduleBRC { background-image:url(../images/techFundStrategiesCornersSprite.gif); }
 
 /* red "new" indicator */
-div.isNew { width:25px;height:9px;background:transparent url(https://images.etrade.wallst.com/v1/images/new-red.png) no-repeat top left scroll; }
+div.isNew { width:25px;height:9px; }
 div.moduleTitle div.isNew { margin:0;padding:0;position:absolute;top:-4px;left:10px; }
 span.isNewWord{ font-weight:bold; color:red; }
 
 /* inner Module display */
 .innerModule {border:1px solid #e5e5e5;border-width:0 1px 1px 1px;}
-.innerModuleHeader {background:url(https://images.etrade.wallst.com/v1/images/calendar/calendar_header.gif) repeat-x top;height:40px;vertical-align:top;}
+.innerModuleHeader {height:40px;vertical-align:top;}
 .innerModuleHeader td {font-size:14px;padding-left:10px;font-weight:bold;color:Black;padding-top:10px;}
 .innerModuleShadow {background:url() repeat-x bottom;padding:0 3px 6px 3px;}
 
@@ -178,23 +177,22 @@ td.stretch300 { width: 300px; }
 td.stretch270 { width: 270px; }
 
 .innerModuleCell td a {font-size:12px;color:#039;}
-.innerModuleButton {background:url(https://images.etrade.wallst.com/v1/images/gradients/innermodule_button.gif) repeat-x top;height:25px;}
+.innerModuleButton {height:25px;}
 
 table.innerModuleButton tr.rankingHdr td { padding-left: 6px; }
-table.innerModuleButton tr.rankingHdr.on { background-image: url(https://images.etrade.wallst.com/v1/images/gradients/innermodule_button_SMon.gif); }
 
 .sectorHover {width:214px;}
-.sectorHoverTop {background:url(https://images.etrade.wallst.com/v1/images/sectorsindustries/hover_top2.gif) no-repeat top;width:214px;height:7px;font-size:0px;}
+.sectorHoverTop {width:214px;height:7px;font-size:0px;}
 .sectorHoverTitle { font-size:14px;font-weight: bold;color: #444;padding:2px 0 4px 10px;background-color:#f6f6f6;border:1px solid #CCC;border-width:0 1px;width:200px;_width:212px;}
-.sectorHoverBody {background: url(https://images.etrade.wallst.com/v1/images/sectorsindustries/hover_body2.gif) no-repeat top;width:215px;height:60px;}
+.sectorHoverBody {width:215px;height:60px;}
 /*stats page */
-.sectorHoverBody.stats {background:transparent url(https://images.etrade.wallst.com/v1/images/sectorsindustries/hover_bodyTall2.gif) no-repeat bottom;width:215px;height:80px;}
-.sectorHoverBody.snap {background:transparent url(../../images/gradients/hover_body.gif) no-repeat bottom;width:215px;height:150px;}
+.sectorHoverBody.stats {width:215px;height:80px;}
+.sectorHoverBody.snap {background:transparent url(../images/gradients/hover_body.gif) no-repeat bottom;width:215px;height:150px;}
 
 .winHover{z-index:11;font-size:11px;width:258px;background:#fff;}
-.winHoverTop {width:258px;height:40px;background:url(https://images.etrade.wallst.com/v1/images/gradients/symtop.gif) no-repeat;}
-.winHoverBody {width:256px;background:url(https://images.etrade.wallst.com/v1/images/gradients/newHover_gradientBg.gif) repeat-x bottom left;border:1px solid #B8B7B8;border-bottom:none;}
-.winHoverFooter { margin:0; _margin-top:-11px; padding:0; width:258px; height:3px; background:transparent url(https://images.etrade.wallst.com/v1/images/gradients/newHover_roundedFooter.gif) no-repeat bottom center; }
+.winHoverTop {width:258px;height:40px;}
+.winHoverBody {width:256px;border:1px solid #B8B7B8;border-bottom:none;}
+.winHoverFooter { margin:0; _margin-top:-11px; padding:0; width:258px; height:3px; background:transparent; }
 
 /* Most Actives module on Markets Overview page; controls */
 div#rankings-controls,
@@ -216,19 +214,14 @@ div#rankings { width: 430px; margin: 10px; border: 1px solid #e5e5e5;}
 div#rankingsOverview { width: 575px; margin: 10px; border: 1px solid #e5e5e5;}
 div.rankbar {  }
 
-/* control bars for rankings */
-.innerModuleButton.rankingHdr { background-image:url(https://images.etrade.wallst.com/v1/images/gradients/innermodule_button.gif); height:25px; }
-.innerModuleButton.rankingHdr.on { background-image:url(https://images.etrade.wallst.com/v1/images/gradients/innermodule_buttonOn.gif); }
-.innerModuleButton.rankingHdr.large { background-image:url(https://images.etrade.wallst.com/v1/images/gradients/innermodule_button34.gif);height:34px; }
-.innerModuleButton.rankingHdr.large.on { background-image:url(https://images.etrade.wallst.com/v1/images/gradients/innermodule_button34On.gif); }
 
 /*this cannot be removed!*/
 div#rankings-controls ul li a.on,
 .pipeNav ul li a.on	{ background: none; }
 
 .rankingHdr { padding-left: 6px; clear: both; }
-.rankingHdr h2 { padding-left: 16px; text-transform: uppercase; color: #039; font-size: 16px; font-weight: bold; line-height: 25px; height: 25px; background: transparent url(https://images.etrade.wallst.com/v1/images/modules/accordian_off.gif) left center no-repeat scroll; cursor: pointer; }
-.rankingHdr.on h2 { padding-left: 16px; color: #000 !important; background-image: url(https://images.etrade.wallst.com/v1/images/modules/accordian_on.gif); }
+.rankingHdr h2 { padding-left: 16px; text-transform: uppercase; color: #039; font-size: 16px; font-weight: bold; line-height: 25px; height: 25px; cursor: pointer; }
+.rankingHdr.on h2 { padding-left: 16px; color: #000 !important; }
 
 .rankingHdr.large h2, 
 .rankingHdr.large.on h2 { display:block; font-size: 16px; height: 34px; line-height: 34px; }
@@ -252,8 +245,8 @@ div#rankings table tr td { padding: 0px 6px 0px 0; font-weight:bold; white-space
 div#rankings table tr td.first { padding-left: 5px; width: 195px; font-weight: normal !important; }
 div#rankings table tr td a { font-weight: normal; }
 div#rankings table tr td.last { padding-right: 5px; }
-div.rankingsFooter { background: transparent url(https://images.etrade.wallst.com/v1/images/gradients/innermodule_bottomShadow.gif) top left repeat-x; padding: 6px 0 0 6px; margin:0px 10px !important; position: absolute; width: 426px; top: 375px; }
-div.indexRankingsFooter { background: transparent url(https://images.etrade.wallst.com/v1/images/gradients/innermodule_bottomShadow2.gif) top left repeat-x; padding: 2px 0 0 6px; _padding-top: 1px; position: absolute; width: 279px; top: 187px; }
+div.rankingsFooter { background: transparent; padding: 6px 0 0 6px; margin:0px 10px !important; position: absolute; width: 426px; top: 375px; }
+div.indexRankingsFooter { background: transparent; padding: 2px 0 0 6px; _padding-top: 1px; position: absolute; width: 279px; top: 187px; }
 table#mostPopular th.mostPopularTh { height:32px;}
 
 /* rankings tables below controls */
@@ -264,17 +257,10 @@ div#rankingsOverview table tr td.first { padding-left: 5px; width: 195px; font-w
 div#rankingsOverview table tr td a { font-weight: normal; }
 div#rankingsOverview table tr td.last { padding-right: 5px; }
 
-/* New styles for hatched header bars (similar to innermoduleheader, but different) ****/
-.hatchbar { background-image:url(https://images.etrade.wallst.com/v1/images/gradients/innermodule_button34.gif);height:34px;padding-left:6px; }
-.hatchbar.on { background-image:url(https://images.etrade.wallst.com/v1/images/gradients/innermodule_button34On.gif); }
-.hatchbar h2 { font-size:14px; padding-left:16px;text-transform: uppercase;color:#039;font-weight: bold;line-height: 34px;background: transparent url(https://images.etrade.wallst.com/v1/images/modules/accordian_off.gif) left center no-repeat scroll; cursor: pointer; }
-.hatchbar.on h2 { color:#000; background-image:url(https://images.etrade.wallst.com/v1/images/modules/accordian_on.gif); }
-.hatchbar h2:hover,
-.hatchbar h2 a:hover { color:#000; }
 
 /* New style for News layout */
-.newsModule {width:100%;background:url(https://images.etrade.wallst.com/v1/images/news/news_module_white.gif) repeat-y left;}
-.newsHeadLines{width:308px;background:url(https://images.etrade.wallst.com/v1/images/news/news_module.gif) repeat-y left;border-bottom:1px solid #e5e5e5;}
+.newsModule {width:100%;}
+.newsHeadLines{width:308px;border-bottom:1px solid #e5e5e5;}
 .newsStory{overflow:hidden; padding:10px 5px 10px 15px;width:426px; } /*hide any overflow */ 
 .newsRow {padding:0;margin:0;}
 .newsRow td a {color:#039 !important;}
@@ -286,19 +272,12 @@ div#rankingsOverview table tr td.last { padding-right: 5px; }
 div.preContent { overflow:auto; border:1px solid #e1e1e1; padding:10px; width:406px; }
 
 .highlightNews{background:#c9e478;padding:2px;}
-.newsBar {background:url(https://images.etrade.wallst.com/v1/images/news/news_bar_gradient.gif) no-repeat left;background-color:#4885d2;height:17px;border:1px solid #979797;color:White;}
+.newsBar {background-color:#4885d2;height:17px;border:1px solid #979797;color:White;}
 
-.headlineHover{position:absolute;top:0;left:0;display:none;width:390px;_width:370px;z-index:1;}
-.headlineHoverTop {background-color:#f6f6f6;border:1px solid #b8b7b8;padding:4px 10px;width:370px;}
-.headlineHoverBody {background:#fff url(https://images.etrade.wallst.com/v1/images/news/hover_gradient.gif) repeat-x bottom;border:1px solid #b8b7b8;border-width:0 1px 1px 1px;width:370px; overflow:hidden; }
-.headlineHoverTLC{height:4px;width:4px;background:url(https://images.etrade.wallst.com/v1/images/news/hoverTLC.gif) no-repeat top;position:absolute;top:0;left:0px; }
-.headlineHoverTRC{height:4px;width:4px;background:url(https://images.etrade.wallst.com/v1/images/news/hoverTRC.gif) no-repeat top;position:absolute;top:0;right:-2px;_right:0; }
-.headlineHoverBLC{height:4px;width:4px;background:url(https://images.etrade.wallst.com/v1/images/news/hoverBLC.gif) no-repeat bottom;position:absolute;bottom:0px;_bottom:-1px;left:0px; }
-.headlineHoverBRC{height:4px;width:4px;background:url(https://images.etrade.wallst.com/v1/images/news/hoverBRC.gif) no-repeat bottom;position:absolute;bottom:0px;_bottom:-1px;right:-2px;_right:0;}
 
 /* Stocks2 **************/
-/*div#companyname h1 { color:#000; margin-top:0px !important; }
-div#companyname h1 span { color:#666;font-weight:bold;padding-left:10px;font-size:15px; }*/
+div#companyname { text-transform:uppercase;}
+/*div#companyname h1 span { color:#666;font-weight:bold;padding-left:10px;font-size:15px; }*/
 
 div#companyname h1 { color:#666;font-weight:bold; font-size:15px; margin-top:0px !important; }
 div#companyname h1 span { color:#000;font-weight:bold;padding-right:10px;font-size:18px; }
@@ -315,7 +294,7 @@ div.alertBar {
 	border: solid 1px #b6bab6;
 	position: relative;
 	background-color: #fbf7ac;
-	background: #fbf7ac url(../../images/alert-bar/alertBarBg.gif) repeat-x 0 0;
+	background: #fbf7ac url(../images/alert-bar/alertBarBg.gif) repeat-x 0 0;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	}
@@ -340,7 +319,7 @@ div.alertBar.news { margin:10px 0 0; }
 			height: 5px;
 			width: 5px;
 			position: absolute;
-			background: #fff url(../../images/alert-bar/SPRITE_alertBarCorners.png) no-repeat 0 0;
+			background: #fff url(../images/alert-bar/SPRITE_alertBarCorners.png) no-repeat 0 0;
 			font-size: 0;
 			}
 			
@@ -372,7 +351,7 @@ div.alert.news { margin:10px 0 0; }
 	
 	div#alert-left,
 	div.alert-left { 
-		background: transparent url(https://images.etrade.wallst.com/v1/images/alert-bar/alert_leftEdge.gif) center left no-repeat scroll; 
+		background: transparent; 
 		}
 		
 	div#alert-content,
@@ -380,7 +359,7 @@ div.alert.news { margin:10px 0 0; }
 		float: left; 
 		width: 738px; 
 		height: 28px; 
-		background: transparent url(https://images.etrade.wallst.com/v1/images/alert-bar/alert_bg.gif) center left repeat-x scroll; 
+		background: transparent; 
 		font-size: 12px; 
 		color: #000; 
 		line-height: 28px; 
@@ -392,18 +371,18 @@ div.alert.news { margin:10px 0 0; }
 	
 	div#alert-right,
 	div.alert-right {  
-		background: transparent url(https://images.etrade.wallst.com/v1/images/alert-bar/alert_rightEdge.gif) center right no-repeat scroll; 
+		background: transparent; 
 		}
 
 /* grey "info" alert */
 div.alertInfo { clear: both; margin: 0 0 10px 0; height: 28px; width: 758px; }
-div.alertInfo-left { float:left; width:5px; height: 28px; display:block; background: transparent url(../../images/alert-bar/alert_grey_leftEdge.gif) center left no-repeat scroll; }
-div.alertInfo-content { float:left; width: 738px; height: 28px; background: transparent url(../../images/alert-bar/alert_grey_bg.gif) center left repeat-x scroll; font-size: 12px; color:#000; line-height: 28px; padding-left: 10px; }
+div.alertInfo-left { float:left; width:5px; height: 28px; display:block; background: transparent;}
+div.alertInfo-content { float:left; width: 738px; height: 28px; background: transparent; font-size: 12px; color:#000; line-height: 28px; padding-left: 10px; }
 div.alertInfo-content div { _padding-top:5px; }
-div.alertInfo-right { float: left; width:5px; height: 28px; display:block; background: transparent url(../../images/alert-bar/alert_grey_rightEdge.gif) center right no-repeat scroll; }
+div.alertInfo-right { float: left; width:5px; height: 28px; display:block; background: transparent; }
 
 /*Multi Quote Comparison */
-#symbolLookup { background: transparent url(../../images/gradients/button_shim.gif) repeat-x scroll left bottom; }
+#symbolLookup { background: transparent url(../images/gradients/button_shim.gif) repeat-x scroll left bottom; }
 
 /* fundresearch */
 .mostPopularHeight {height:236px;}
@@ -413,9 +392,9 @@ div.alertInfo-right { float: left; width:5px; height: 28px; display:block; backg
 
 /* for ALL chart duration buttons */
 ul.chart-nav li a:hover,
-ul#chart-nav li a:hover { text-decoration:none; background:transparent url(../../images/chart-nav-bg-hover.png) center left repeat-x; }
+ul#chart-nav li a:hover { text-decoration:none; background:transparent url(../images/chart-nav-bg-hover.png) center left repeat-x; }
 ul.chart-nav li a.on:hover,
-ul#chart-nav li a.on:hover { text-decoration:none; background:transparent url(../../images/chart-nav-bg-on.png) center left repeat-x; }
+ul#chart-nav li a.on:hover { text-decoration:none; background:transparent url(../images/chart-nav-bg-on.png) center left repeat-x; }
 
 /* Beneath Quote Bar Links */
 ul.subQuoteBarLinks { list-style:none; margin:6px 0 5px 0;padding:0; /*text-align:right;*/ }
@@ -435,33 +414,10 @@ ul.subQuoteBarLinks div.detailed {
 ul.quicklinks { margin:0;padding:0;background:#f3f3f3;list-style:none; }
 ul.quicklinks li { height:26px;line-height:26px; }
 ul.quicklinks li.twoLine { height:40px;line-height:normal;vertical-align:top; }
-ul.quicklinks li a { text-decoration:none; padding: 0 0 0 7px; display:block;font-size:12px;font-weight: bold;background:transparent url(../../images/modules/quicklinksRowBg.png) top left repeat-x scroll;color:#039 !important;_width:236px;}
+ul.quicklinks li a { text-decoration:none; padding: 0 0 0 7px; display:block;font-size:12px;font-weight: bold;background:transparent url(../images/quicklinksRowBg.png) top left repeat-x scroll;color:#039 !important;_width:236px;}
 ul.quicklinks li.twoLine a { padding-top:6px;padding-bottom:2px; }
 ul.quicklinks li a:hover { text-decoration:none; }
-	/* icons */
-	ul.quicklinks a span.s { padding:1px 0 1px 20px; background-color:transparent; background-repeat:no-repeat; background-position:center left; }
-	ul.quicklinks a span.marketflag_CA { background-image:url(https://images.etrade.wallst.com/v1/images/globalmarkets/flags/ca.gif); }
-	ul.quicklinks a span.marketflag_FR { background-image:url(https://images.etrade.wallst.com/v1/images/globalmarkets/flags/fr.gif); }
-	ul.quicklinks a span.marketflag_DE { background-image:url(https://images.etrade.wallst.com/v1/images/globalmarkets/flags/de.gif); }
-	ul.quicklinks a span.marketflag_HK { background-image:url(https://images.etrade.wallst.com/v1/images/globalmarkets/flags/hk.gif); }
-	ul.quicklinks a span.marketflag_JP { background-image:url(https://images.etrade.wallst.com/v1/images/globalmarkets/flags/jp.gif); }
-	ul.quicklinks a span.marketflag_GB { background-image:url(https://images.etrade.wallst.com/v1/images/globalmarkets/flags/gb.gif); }
-	ul.quicklinks a span.marketflag_US { background-image:url(https://images.etrade.wallst.com/v1/images/globalmarkets/flags/us.gif); }
-	ul.quicklinks a span.screener 		{ background-image:url(https://images.etrade.wallst.com/v1/images/icons/screener.gif); }
-	ul.quicklinks a span.monitor 		{ background-image:url(../../images/icons/monitor.png); }
-	ul.quicklinks a span.blogs 			{ background-image:url(https://images.etrade.wallst.com/v1/images/icons/commentaryblogs.gif); }
-	ul.quicklinks a span.watchlist 		{ background-image:url(https://images.etrade.wallst.com/v1/images/modules/icon_watchlist.png); }
-	ul.quicklinks a span.historicalquote,
-	a .historicalquote { background-image:url(https://images.etrade.wallst.com/v1/images/modules/icon_date.png); }
-	ul.quicklinks a span.peers 			{ background-image:url(https://images.etrade.wallst.com/v1/images/modules/icon_viewpeers.gif); }
-	ul.quicklinks a span.balances 		{ background-image:url(https://images.etrade.wallst.com/v1/images/modules/icon_balances.gif); }
-	ul.quicklinks a span.positions 		{ background-image:url(https://images.etrade.wallst.com/v1/images/modules/icon_positions.gif); }
-	ul.quicklinks a span.orders 		{ background-image:url(https://images.etrade.wallst.com/v1/images/modules/icon_orders.gif); }
-	ul.quicklinks a span.pdf 			{ background-image:url(https://images.etrade.wallst.com/v1/images/icons/quickPdf.gif); }
-	ul.quicklinks a span.earnings		{ background-image:url(https://images.etrade.wallst.com/v1/images/icons/earnings.gif); }
-	ul.quicklinks a span.techanal		{ background-image:url(https://images.etrade.wallst.com/v1/images/icons/techanal.gif); }
-	a .chart 							{ background-image:url(https://images.etrade.wallst.com/v1/images/multiquote/chart.gif); }
-	ul.quicklinks span.dt { font-size:11px; color:#666; padding:0 0 0 29px; background:transparent none; }
+
 
 div#disclosures table { text-align: left; margin-left: 0 !important; }
 div#disclosures table tr td div { padding: 0 0 8px 0 !important; }
@@ -469,7 +425,7 @@ div#disclosures table tr td div { padding: 0 0 8px 0 !important; }
 .fundamentals_hdr { margin: 10px 15px 0 10px; padding: 0 0 8px 0; border-bottom: 4px solid #dfdfdf; height:18px; }
 .fundamentals_hdr img { vertical-align: middle; }
 
-.gradientBox { border:1px solid #e5e5e5;background:url(https://images.etrade.wallst.com/v1/images/sectorsindustries/scatterchart_gradient.gif) bottom left repeat-x; }
+.gradientBox { border:1px solid #e5e5e5;}
 
 /* Grey/Blue vertically-stacked boxes */
 ul.boxratings { margin:10px 0 0 0;padding:0;list-style:none;width:115px;border:1px solid #999;background:#e5eaf0 none; }
@@ -575,30 +531,30 @@ table.quoteB td,tr.quoteB td{border-bottom:1px solid #dfdfdf;padding:5px 0px 5px
 tr.top td{border-top:1px solid #dfdfdf;}
 
 /* border styles for the new stock Quote Bar */
-tr.quoteBar td { text-align:center;font-weight:normal;height:21px;line-height:21px;_height:20px;background:#e5e5ed url(../../images/modules/quoteBarBG.png) repeat-x top; }
+tr.quoteBar td { text-align:center;font-weight:normal;height:21px;line-height:21px;_height:20px;background:#e5e5ed url(../images/quoteBarBG.png) repeat-x top; }
 tr.quoteBar td.quoteLeft { width:5px;border:none; }
 tr.quoteBar td.quoteRight { width:5px;text-align:right;border:none; }
 tr.quoteBarBottom td { font-size:14px;text-align:center;font-weight:bold;height:34px;_height:33px;~height:33px;border-right:1px solid #BAB6BA;border-bottom:1px solid #BAB6BA; }
 tr.quoteBarMini { font-size:15px;text-align:left;font-weight:bold;height:34px;_height:33px;~height:33px; }
 /* default to no change */
-tr.quoteBarBottom td.quoteLeft { width:5px;border:none;background: transparent url(../../images/modules/quotebarbottomWhite.png) top left no-repeat scroll; }
+tr.quoteBarBottom td.quoteLeft { width:5px;border:none;background: transparent url(../images/quotebarbottomWhite.png) top left no-repeat scroll; }
 /*positive*/
-tr.quoteBarBottom td.posquoteLeft { background: transparent url(../../images/modules/quotebarbottomgreen.png) top left no-repeat scroll; }
-tr.quoteBarBottom td.posquote { background:transparent url(../../images/modules/quotebargreenbg.png) repeat-x top left scroll; }
+tr.quoteBarBottom td.posquoteLeft { background: transparent url(../images/quotebarbottomgreen.png) top left no-repeat scroll; }
+tr.quoteBarBottom td.posquote { background:transparent url(../images/quotebargreenbg.png) repeat-x top left scroll; }
 /* negative*/
-tr.quoteBarBottom td.negquoteLeft { background: transparent url(../../images/modules/quotebarbottomred.png) top left no-repeat scroll; }
-tr.quoteBarBottom td.negquote { background:transparent url(../../images/modules/quotebarredbg.png) repeat-x top left scroll; }	
+tr.quoteBarBottom td.negquoteLeft { background: transparent url(../images/quotebarbottomred.png) top left no-repeat scroll; }
+tr.quoteBarBottom td.negquote { background:transparent url(../images/quotebarredbg.png) repeat-x top left scroll; }	
 tr.quoteBarBottom td.quoteRight { width:5px;text-align:right;border:none; }
 
 /** MINI QUOTE BAR **/
 table.qbMini { width:620px; }
 table.qbMini tr.quoteBarBottom td { white-space:nowrap;_white-space:normal;font-size:12px;font-weight:normal;height:22px;_height:21px;~height:21px; }
 /* default to no change */
-table.qbMini tr.quoteBarBottom td.quoteLeft { background-image: url(../../images/modules/quotebarbottomWhite-mini.png); }
+table.qbMini tr.quoteBarBottom td.quoteLeft { background-image: url(../images/quotebarbottomWhite-mini.png); }
 /*positive*/
-table.qbMini tr.quoteBarBottom td.posquoteLeft { background-image: url(../../images/modules/quotebarbottomgreen-mini-gr.png); }
+table.qbMini tr.quoteBarBottom td.posquoteLeft { background-image: url(../images/quotebarbottomgreen-mini-gr.png); }
 /* negative*/
-table.qbMini tr.quoteBarBottom td.negquoteLeft { background-image: url(../../images/modules/quotebarbottomred-mini-gr.png); }
+table.qbMini tr.quoteBarBottom td.negquoteLeft { background-image: url(../images/quotebarbottomred-mini-gr.png); }
 div.qbMiniBuySell { float:left; margin:12px 0 0 8px;  }
 
 
@@ -620,20 +576,20 @@ table.dataBackground tr.sort th a { font-size:12px; color:#444; font-weight: nor
 table.dataBackground tr.sort.prepad th a { padding-right: 13px; }
 table.dataBackground tr.sort th a:hover { color: #039; }
 table.dataBackground tr.sort th a.dd { _display: block;~display:block; } /* so IE6&7 can handle stacked tbl headers */
-table.dataBackground tr.sort th a.sortColDown { padding-right: 13px; background: transparent url(../../images/stocks/arrowDn2.gif) center right no-repeat scroll !important; }
-table.dataBackground tr.sort th a.sortColUp { padding-right: 13px; background: transparent url(../../images/stocks/arrowUp2.gif) center right no-repeat scroll !important; }
+table.dataBackground tr.sort th a.sortColDown { padding-right: 13px; background: transparent url(../images/stocks/arrowDn2.gif) center right no-repeat scroll !important; }
+table.dataBackground tr.sort th a.sortColUp { padding-right: 13px; background: transparent url(../images/stocks/arrowUp2.gif) center right no-repeat scroll !important; }
 table.dataBackground tr.sort th span { font-size: 10px; }
 
 /* overlay container */
-a.openInNewWindow { background:transparent url(../../images/icon_openInNewWindow.gif) center right no-repeat scroll; padding-right:13px; }
+a.openInNewWindow { background:transparent url(../images/icon_openInNewWindow.gif) center right no-repeat scroll; padding-right:13px; }
 div#modalOverlay { } /*white fuzzy layer */
 div#modalModule { position:absolute; }
 div#modalModuleContent { background:#fff; overflow-y:auto; height:500px; text-align:left; }
 div#modalModuleContent pre { padding:10px; }
 
 div#overlay {  }
-div#overlay div#in { width:724px; height:424px; margin-left:-362px; position:absolute; top:-212px; left:50%; visibility:visible; background:transparent; /*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='../../images/overlaybg.png',sizingMethod='scale');*/ }
-/*html>body */div#overlay div#in { background: transparent url(../../images/overlaybg.png) center center no-repeat; } /* MOS only */
+div#overlay div#in { width:724px; height:424px; margin-left:-362px; position:absolute; top:-212px; left:50%; visibility:visible; background:transparent; /*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='images/overlaybg.png',sizingMethod='scale');*/ }
+/*html>body */div#overlay div#in { background: transparent url(../images/overlaybg.png) center center no-repeat; } /* MOS only */
 div#overlay div#in div#inn { clear:both; padding:0px; margin:50px 20px 20px; text-align:left; width:660px; height:335px; overflow:auto;  }
 
 /*text bubbles*/
@@ -641,7 +597,7 @@ div#textBubble { position:absolute; width:170px; border:1px solid #BAB6BA; -moz-
 div#textBubble div { text-align:left; padding:3px; font-size:11px; }
 div#textBubble div.body div.title { float: left;text-align:left; padding-bottom:10px;font-size:12px; font-weight:bold}
 div#textBubble div.body div.subTitle { float: right; text-align:right; padding:3px 3px 10px 2px; font-size:12px; font-weight:normal;}
-div#textBubble div.body div.pointer { background:transparent url(../../images/research/trackRecordArrow.gif) center right no-repeat scroll; position: absolute; padding:8px; top:-13px; left:50%; }
+div#textBubble div.body div.pointer { background:transparent url(../images/trackRecordArrow.gif) center right no-repeat scroll; position: absolute; padding:8px; top:-13px; left:50%; }
 .msie.v7 div#textBubble div.body div.pointer {top:-20px;}
 
 /*input and textarea styles for market news symbol input */
@@ -660,7 +616,7 @@ div#priceEstimateMod{
 	border: solid 1px #b6bab6;
 	position: relative;
 	background-color: #fbf7ac;
-	background: #fbf7ac url(../../images/alert-bar/alertBarBg.gif) repeat-x 0 0;
+	background: #fbf7ac url(../images/alert-bar/alertBarBg.gif) repeat-x 0 0;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	font-weight:bold;
@@ -692,7 +648,7 @@ table.latestUpdates tr td{padding:0px;}
 
 table.trefisReport { width:100%;padding:0;margin:0; }
 	table.trefisReport tr.solidMed td { padding:7px 5px 7px 5px; height:40px; }
-	table.trefisReport.additional { background: #fff url(../../images/ratings2/addl-analysis-bg.png) repeat-x top left scroll; }
+	table.trefisReport.additional { background: #fff url(../images/ratings2/addl-analysis-bg.png) repeat-x top left scroll; }
 	table.trefisReport.additional tr td { padding:7px 5px 7px 5px; height:50px; }
 div#trefisStockQuote{
 	border:1px solid #BAB6BA; 
@@ -743,13 +699,13 @@ div#trefisChartModule div.trefisHidden{
 	display:none;
 }
 div#trefisChartModule div.trefisChartModuleHeader{
-	background:url(../../images/modules/trefisChartModMids.png) left bottom repeat-x;
+	background:url(../images/trefisChartModMids.png) left bottom repeat-x;
 	color:#fff;
 	text-align:center;
 	font-size:11px;
 }
 div#trefisChartModule div.trefisChartModuleHeader div.trefisHeaderMid{
-	background:url(../../images/modules/trefisChartModMids.png) left bottom repeat-x;
+	background:url(../images/trefisChartModMids.png) left bottom repeat-x;
 	color:#fff;
 	text-align:center;
 	float:left;
@@ -759,33 +715,33 @@ div#trefisChartModule div.trefisChartModuleHeader div.trefisHeaderMid{
 }
 div#trefisChartModule div.trefisChartModuleHeader div.trefisHeaderLeftEnd{
 	float:left;
-	background:url(../../images/modules/trefisChartModEnds.png) left top no-repeat;
+	background:url(../images/trefisChartModEnds.png) left top no-repeat;
 	padding-left:5px;
 	height: 19px;
 }	
 
 div#trefisChartModule div.trefisChartModuleHeader div.trefisHeaderRightEnd{
 	float:left;
-	background:url(../../images/modules/trefisChartModEnds.png) right top no-repeat;
+	background:url(../images/trefisChartModEnds.png) right top no-repeat;
 	padding-left:5px;
 	height: 19px;
 }
 
 div#trefisChartModule div.trefisChartModuleBottom div.trefisChartModuleLeftEnd{
 	float:left;
-	background:url(../../images/modules/trefisChartModEnds.png) left bottom no-repeat;
+	background:url(../images/trefisChartModEnds.png) left bottom no-repeat;
 	padding-left:4px;
 	height: 19px;
 }
 div#trefisChartModule div.trefisChartModuleBottom div.trefisChartModuleRightEnd{
 	float:left;
-	background:url(../../images/modules/trefisChartModEnds.png) right bottom no-repeat;
+	background:url(../images/trefisChartModEnds.png) right bottom no-repeat;
 	padding-left:4px;
 	height: 19px;
 }
 
 div#trefisChartModule div.trefisChartModuleBottom div.trefisChartModuleMid{
-	background:url(../../images/modules/trefisChartModMids.png) left top repeat-x;
+	background:url(../images/trefisChartModMids.png) left top repeat-x;
 	color:#fff;
 	text-align:center;
 	width:181px;
@@ -868,11 +824,11 @@ div.overlayPop-module div.overlayPop-top {
 }
 div.overlayPop-module div.overlayPop-top div.overlayPop-left {
 	height: 37px;
-	background: url(../../images/modules/overlayModuleCorners.png) top left;
+	background: url(../images/overlayModuleCorners.png) top left;
 }
 div.overlayPop-module div.overlayPop-top div.overlayPop-right {
 	height: 37px;
-	background: url(../../images/modules/overlayModuleCorners.png) top right;
+	background: url(../images/overlayModuleCorners.png) top right;
 }
 div.overlayPop-module div.overlayPop-middle {
 	background-color: #FFF;
@@ -895,11 +851,11 @@ div.overlayPop-module div.overlayPop-bottom {
 }
 div.overlayPop-module div.overlayPop-bottom div.overlayPop-left {
 	height: 22px;
-	background: url(../../images/modules/overlayModuleCorners.png) bottom left;
+	background: url(../images/overlayModuleCorners.png) bottom left;
 }
 div.overlayPop-module div.overlayPop-bottom div.overlayPop-right {
 	height: 22px;
-	background: url(../../images/modules/overlayModuleCorners.png) bottom right;
+	background: url(../images/overlayModuleCorners.png) bottom right;
 }
 div.overlayPop-module div.overlayPop-title {
 	height: 26px;
@@ -907,19 +863,19 @@ div.overlayPop-module div.overlayPop-title {
     font-weight: bold;
     padding: 11px 0 0 14px;
 	margin: 0 7px;
-	background: url(../../images/modules/overlayModuleTopBottom.png) repeat-x top left;
+	background: url(../images/overlayModuleTopBottom.png) repeat-x top left;
 }
 div.overlayPop-module div.overlayPop-footer {
 	height: 22px;
 	margin: 0 7px;
-	background: url(../../images/modules/overlayModuleTopBottom.png) repeat-x bottom left;
+	background: url(../images/overlayModuleTopBottom.png) repeat-x bottom left;
 }
 div.overlayPop-module div.overlayPop-close {
 	width: 34px;
 	position: absolute;
 	right: 0;
 	height: 37px;
-	background: url(../../images/modules/overlayModuleClose.png) top right;
+	background: url(../images/overlayModuleClose.png) top right;
 }
 
 
@@ -931,7 +887,7 @@ div.speedBumpPopupHeader{
 	font-size:15px;
 	border:1px solid #9ABB52;
 	padding: 20px 20px 20px 48px;
-	background: #ffffCC url("../../images/icons/i_entering.gif") 15px center no-repeat scroll;
+	background: #ffffCC url("images/icons/i_entering.gif") 15px center no-repeat scroll;
 	
 }
 div.speedBumpPopupHeaderPlain{
@@ -950,14 +906,14 @@ div.plainModule    {
 div.plainModuleTop { height: 0px; margin: 0; padding: 0; }
 div.plainModuleMid { 
 	padding: 9px 7px 3px; 
-	background: transparent url(../../images/modules/Bg-BlankMid.png) bottom center repeat-x; 
+	background: transparent url(../images/Bg-BlankMid.png) bottom center repeat-x; 
 	}
 div.plainModuleBot {height: 0px; margin:0; }
 /* ------------------------------ */
 /*  Module Navigation Bar Styles  */        
 /* ------------------------------ */
 div.moduleNav{						
-	background: transparent url("../../images/gradients/moduleNavShim.gif") repeat-x bottom left;
+	background: transparent url("images/gradients/moduleNavShim.gif") repeat-x bottom left;
 }
 
 div.moduleNav table{
@@ -1005,7 +961,7 @@ div.moduleNav td.moduleNavLabel{
 }       
 
 div.moduleNav td.active {
-	background: transparent url("../../images/gradients/moduleNavHShim.gif") repeat-x top left;                
+	background: transparent url("images/moduleNavHShim.gif") repeat-x top left;                
 }
 
 div.moduleNav td.moduleNavControls {			

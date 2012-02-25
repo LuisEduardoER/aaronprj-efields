@@ -1,125 +1,131 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html class="modern W3C mac mozilla firefox v9"><head><title>E*TRADE FINANCIAL - Quotes &amp; Research</title>
-<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type">
-<link rel="stylesheet" type="text/css" href="../css/ui.css">
-<link rel="stylesheet" type="text/css" href="../css/common.css" media="all">
-<link rel="stylesheet" type="text/css" href="../css/redesign.css" media="all">
 
-
-
-</head>
-<body>
-
-<div id="etNewWidthContainer">
-
-<div id="etContainer">
+<div class="content-box-style">
     <div id="etBody">
         <div id="companyname">
             <div class="fLeft eq"><h1><span>BANK OF AMERICA CORPORATION COM</span> BAC: NYSE </h1></div>
         </div>
-    
+    	<!--
         <div id="etTabs" class="b12">
             <div id="minitabs">
                 <ul>
                     <li id="current">
-                        <a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BAC_4";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/snapshot/snapshot.asp?symbol=BAC"><span>Snapshot</span></a>
+                        <a onclick='' href=""><span>Snapshot</span></a>
                     </li>
-                    <li><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/charts/charts.asp?symbol=BAC_1";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/charts/charts.asp?symbol=BAC"><span>Charts</span></a></li>
-                    <li><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks/news/search_results.asp?symbol=BAC_1";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks/news/search_results.asp?symbol=BAC"><span>News</span></a></li>
-                    <li style="padding:5px 0 0 4px;float:right;" id="classicviewlink_mf"><a onclick='s_objectID="https://www.etrade.wallst.com/v1/stocks2/snapshot/snapshot.asp_1";return this.s_oc?this.s_oc(e):true' href="https://www.etrade.wallst.com/v1/stocks2/snapshot/snapshot.asp" target="_blank" class="classicview link">Snapshot Classic View »</a>
-                    </li>
+                    <li><a onclick='' href=""><span>Charts</span></a></li>
+                    <li><a onclick='' href=""><span>News</span></a></li>
                 </ul>
             </div>
             <div class="clearAll"></div>
         
         </div>
-    
-    
-        <table class="qb" cellpadding="0" cellspacing="0" width="100%">
-            <tbody><tr class="quoteBar">
-                    <td class="quoteLeft"><img src="../images/quotebarLeft.png"></td>
-                    <td style="width: 90px;">Last Price</td>
-                    <td style="width: 160px;">Today&#8217;s Change</td>
-                    <td style="width: 110px;" nowrap="nowrap">Bid (Size)</td>
-                    <td style="width: 110px;" nowrap="nowrap">Ask (Size)</td>
-                    <td style="width: 150px;">Day&#8217;s Range</td>
-                    <td style="width: 120px;">Volume</td>
-                    <td style="width: 120px; border-right: 0px none;">Trade</td>
-                    <td class="quoteRight"><img src="../images/quotebarRight.png"></td>
-                </tr>
-                <tr class="quoteBarBottom">
-                    <td class="quoteLeft negquoteLeft">&nbsp;</td>
-                    <td class="negquote" id="57009_last"><span id="57009_0">8.07</span></td>
-                    <td class="negquote"><span id="57009_7"><span class="neg">-0.110</span></span>&nbsp;<span id="57009_8"><span class="neg">(-1.34%)</span></span></td>
-                    <td id="57009_bid"><span id="57009_1">0.000</span> <span id="57009_9" class="normal txt11">x0</span></td>
-                    <td id="57009_ask"><span id="57009_2">0.000</span> <span id="57009_10" class="normal txt11">x0</span></td>
-                    <td><span id="">7.98&nbsp;- 8.12</span></td>
-                    <td><span id="57009_11">254,420,725</span></td>
-                    <td style="border-right: 0px none;"><a onclick='s_objectID="https://us.etrade.com/e/t/invest/socreateentry?ordertype=1&amp;symbol=BAC_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/invest/socreateentry?ordertype=1&amp;symbol=BAC" target="_top"><img src="../images/buyGreen.png"></a>&nbsp;<a onclick='s_objectID="https://us.etrade.com/e/t/invest/socreateentry?ordertype=2&amp;symbol=BAC_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/invest/socreateentry?ordertype=2&amp;symbol=BAC" target="_top"><img src="../images/sellGreen.png"></a></td>
-                    <td class="quoteRight"><img src="../images/quotebarbottomright.png"></td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="lasttrade t4 txt11 grey6 clearfix">
-            <div class="fLeft">NYSE Real Time Quote&nbsp;&nbsp;Last Trade as of&nbsp;<span id="57009_25">4:00 PM ET 2/10/12</span>&nbsp;&nbsp;</div>
-            <div class="fRight"><span class="black">Quote and Chart</span>
-            </div>
+        -->
+        <div id="snapshot"></div>
+ 
+    </div>
+
+</div>
+
+<!--====== Template ======-->
+<script id="snapshotTmpl" type="text/x-jquery-tmpl">
+       
+    <table class="qb" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+            <tr class="quoteBar">
+                <td class="quoteLeft"><img src="images/quotebarLeft.png"></td>
+                <td style="width: 120px;">Last Price</td>
+                <td style="width: 200px;">Today&#8217;s Change</td>
+                <td style="width: 200px;">Day&#8217;s Range</td>
+                <td style="width: 170px;">Volume</td>
+                <td style="width: 170px; border-right: 0px none;">Trade</td>
+                <td class="quoteRight"><img src="images/quotebarRight.png"></td>
+            </tr>
+            <tr class="quoteBarBottom">
+                <td class="quoteLeft negquoteLeft">&nbsp;</td>
+                <td class="negquote" id="57009_last"><span id="57009_0">{{=l}}</span></td>
+				
+				{{#if c > 0 }}
+					<td class="negquote">
+					<span class="neg">{{=c}}</span>&nbsp;
+					<span class="neg">({{=cp}}%)</span>
+					</td>
+				{{else}}
+					<td class="negquote">
+					<span class="neg">{{=c}}</span>&nbsp;
+					<span class="neg">({{=cp}}%)</span>
+					</td>
+				{{/if}}
+                <td><span id="">{{=lo}}&nbsp;- {{=hi}}</span></td>
+                <td><span id="57009_11">{{=vo}}</span></td>
+                <td style="border-right: 0px none;">
+                <a href="javascript:loadDefaultTrade(this);"><img src="images/buyGreen.png"></a>&nbsp;
+                <a href="javascript:loadDefaultTrade(this);"><img src="images/sellGreen.png"></a></td>
+                <td class="quoteRight"><img src="images/quotebarbottomright.png"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="lasttrade t4 txt11 grey6 clearfix">
+        <div class="fLeft">{{=e}} Real Time Quote&nbsp;&nbsp;Last Trade as of&nbsp;<span id="57009_25">{{=lt}}</span>&nbsp;&nbsp;</div>
+        <div class="fRight"><span class="black">Quote</span>
         </div>
-        <div class="t10">
-            <div class="quotedetail fLeft col_2 colRPad"><div class="fLeft colRPad">
-                    <table class="quoteB col_1 txt12" cellpadding="0" cellspacing="0">
-                        <tbody><tr class="top"><td>Open</td><td class="right bold">8.05</td></tr>
-                            <tr><td>Previous Close</td><td class="right bold">8.18</td></tr>
-                            <tr><td valign="top">52 - Week Range</td><td class="right bold">4.92 - 14.95<div class="normal txt9">12/19/11 - 2/14/11</div></td></tr>
-                            <tr><td colspan="2"><div class="fLeft">Avg Volume<span class="txt11"> (10 days)</span></div><div class="fRight bold">307,345,898</div></td></tr>
-                            <tr><td colspan="2"><div class="fLeft">P/E<span class="txt11"> (Trailing 12 mo.)</span></div><div class="fRight bold">4,811.77x</div></td></tr>
-                            <tr><td colspan="2"><div class="fLeft">EPS<span class="txt11"> (Trailing 12 mo.)</span> <a class="bold" onmouseover="showInfo(this,'earnings','GAAPEarnings','redesign');" onmouseout="closeInfo('earnings');"> <img src="../images/info.gif"></a></div><div class="fRight bold nowrap">-0.02778</div></td></tr>
-                            <tr><td colspan="2"><div class="fLeft">Next Earnings Date</div><div class="fRight bold nowrap">4/17/12</div></td></tr>
-                        </tbody></table>
-                </div>
-                <div class="fLeft">
-                    <table class="quoteB col_1 txt12" cellpadding="0" cellspacing="0">
-                        <tbody><tr class="top"><td>Market Cap</td><td class="right bold">81.8 B</td></tr>
-                            <tr><td>Shares Outstanding</td><td class="right bold">10.1 B</td></tr>
-                            <tr><td>Beta</td><td class="right bold">2.3</td></tr>
-                            <tr><td>Dividend Yield</td><td class="right bold">0.50%</td></tr>
-                            <tr><td>Quarterly Dividend <a class="bold" onmouseover="showInfo(this,'earnings','DeclaredDividend','redesign');" onmouseout="closeInfo('earnings');"><img src="../images/info.gif"></a></td><td class="right bold">0.01</td></tr>
-                            <tr><td>Ex-Dividend Date</td><td class="right bold">2/29/12</td></tr>
-                            <tr><td valign="top">Dividend Payable Date</td><td class="right bold">3/23/12<br><div class="normal txt9">&nbsp;</div></td></tr>
-                
-                        </tbody></table>
-                </div>
-            </div>
-            <div class="quotedetail fLeft" style="width:250px;height:270px;background:transparent url(../../images/stocks/snapchartBG.gif) top left no-repeat scroll;">
-       <div class="module xT16 fLeft" style="width:246px;">
-                <div class="moduleTLC"></div>
-                <div class="moduleTRC"></div>
-                <div class="moduleTitle">Quick Links</div>
-                <div class="clear"></div>
-                <div class="moduleBody">
-
-
-                    <ul class="quicklinks snapshot">
-
-                        <li><a href="javascript:void(0);" onclick='s_objectID="SClink_30";return this.s_oc?this.s_oc(e):true'><span class="s watchlist">Add to Watchlist</span></a></li>
-                        <li><a onclick='s_objectID="https://us.etrade.com/e/t/accounts/AcctBalanceDetails_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/accounts/AcctBalanceDetails"><span class="s balances">View My Balances</span></a></li>
-                        <li><a onclick='s_objectID="https://us.etrade.com/e/t/pfm/portfolioview_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/pfm/portfolioview"><span class="s positions">View My Portfolios</span></a></li>
-                        <li><a onclick='s_objectID="https://us.etrade.com/e/t/invest/vieworders?view_type=Advanced&amp;order_type=O&amp;order_status=O&amp;fp=xy_1";return this.s_oc?this.s_oc(e):true' href="https://us.etrade.com/e/t/invest/vieworders?view_type=Advanced&amp;order_type=O&amp;order_status=O&amp;fp=xy"><span class="s orders">View My Orders</span></a></li>
-                    </ul>
-
-
-              </div>
-                <div class="moduleFooter">
-                    <div class="moduleBLC"></div>
-                    <div class="moduleBRC"></div>
-                </div>
-            </div>
-            </div>
+    </div>
+    <div class="t10">
+        <div class="quotedetail fLeft col_2 colRPad"><div class="fLeft colRPad">
+            <table class="quoteB col_1 txt12" cellpadding="0" cellspacing="0">
+                <tbody>
+					<tr class="top"><td>Open</td><td class="right bold">{{=l}}</td></tr>
+                    <tr><td>Previous Close</td><td class="right bold">{{=l_cur}}</td></tr>
+                    <tr><td valign="top">52 - Week Range</td>
+						<td class="right bold">{{=lo52}} - {{=lo52}}</td>
+					</tr>
+                    <tr><td colspan="2">
+						<div class="fLeft">Avg Volume<span class="txt11"> (10 days)</span></div>
+						<div class="fRight bold">{{=avvo}}</div></td>
+					</tr>
+                    <tr><td colspan="2">
+						<div class="fLeft">P/E<span class="txt11"> (Trailing 12 mo.)</span></div>
+						<div class="fRight bold">{{=pe}}x</div></td>
+					</tr>
+                    <tr><td colspan="2">
+						<div class="fLeft">EPS<span class="txt11"> (Trailing 12 mo.)</span></div>
+						<div class="fRight bold nowrap">{{=eps}}</div></td>
+					</tr>
+                    <tr><td colspan="2">
+						<div class="fLeft">Next Earnings Date</div><div class="fRight bold nowrap">-</div></td>
+					</tr>
+                </tbody>
+                </table>
         </div>
-</div>
+        <div class="fLeft">
+            <table class="quoteB col_1 txt12" cellpadding="0" cellspacing="0">
+                <tbody>
+					<tr class="top"><td>Market Cap</td><td class="right bold">{{=mc}}</td></tr>
+                    <tr><td>Last Perc</td><td class="right bold">{{=cl}}</td></tr>
+                    <tr><td>Open Price</td><td class="right bold">{{=op}}</td></tr>
+                    <tr><td>Beta</td><td class="right bold">{{=beta}}</td></tr>
+                    <tr><td>Forward PE ratio</td><td class="right bold">{{=fwpe}}</td></tr>
+                    <tr><td> </td><td class="right bold"> </td></tr>
+                    <tr><td valign="top"> </td><td class="right bold"> </td></tr>
 
-</div>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-</div>
-</body>
-</html>
+    <div class="quotedetail fLeft" style="width:250px;height:270px;background:transparent url(images/snapchartBG.gif) top left no-repeat scroll;">
+        <div class="module xT16 fLeft" style="width:246px;">
+        <div class="moduleTLC"></div>
+        <div class="moduleTRC"></div>
+        <div class="moduleTitle">Quick Links</div>
+        <div class="clear"></div>
+        <div class="moduleBody">
+            <ul class="quicklinks snapshot">
+                <li><a href="javascript:void(0);" onclick=''><span class="s watchlist">Add to Watchlist</span></a></li>
+                <li><a onclick='' href=""><span class="s balances">View My Balances</span></a></li>
+                <li><a onclick='' href=""><span class="s positions">View My Portfolios</span></a></li>
+                <li><a onclick='' href=""><span class="s orders">View My Orders</span></a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </div>
+</script>

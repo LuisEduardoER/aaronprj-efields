@@ -103,6 +103,11 @@ public class ResourceServices {
 		return un;
 	}
 
+	public static <T> BaseEntity<T> generateResult() {
+		BaseEntity<T> un  = generateResult(true, "success", "", "");
+		return un;
+	}
+	
 	public static <T> BaseEntity<T> generateResult(T entity) {
 		BaseEntity<T> un  = generateResult(true, "success", "", "");
 		un.setEntity(entity);

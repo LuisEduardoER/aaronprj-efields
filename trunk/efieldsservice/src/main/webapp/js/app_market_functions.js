@@ -145,6 +145,25 @@ function loadMarkets(markettype) {
 	});	
 }
 
+function loadSnapshot(qutoes) {
+	
+	clearInterval(refreshId);
+	//$('#content').load('account/accountpref.html #content');
+	$('#content').load('market/snapshot.html', function() {
+		$.getJSON('resource/market/quotes/'+qutoes, function(data) {
+			
+			var ticker = data.entities[0];
+			
+			// An array renders once for each item (concatenated)
+			var html = $("#snapshotTmpl").render( ticker );
+			
+			// Insert as HTML
+			$("#snapshot").html( html );
+		});	
+	});
+
+}
+
 function loadDefaultTrade(amenu) {
 	
 	menuSwitch(amenu.parentElement);
@@ -152,6 +171,26 @@ function loadDefaultTrade(amenu) {
 	//$('#content').load('account/accountpref.html #content');
 	$('#content').load('market/trade.html', function() {
 	  //alert('Load account/accountpref.html was performed.');
+	});
+
+}
+
+function loadTrade(quote, isbuy) {
+	
+	menuSwitch(amenu.parentElement);
+	
+	$('#content').load('market/trade.html', function() {
+		$.getJSON('resource/market/quotes/'+quote, function(data) {
+			
+			var ticker = data.entities[0];
+			
+			// An array renders once for each item (concatenated)
+			var html = $("#snapshotTmpl").render( ticker );
+			
+			// Insert as HTML
+			$("#snapshot").html( html );
+		});	
+		
 	});
 
 }

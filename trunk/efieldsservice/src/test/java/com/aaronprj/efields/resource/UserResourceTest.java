@@ -43,12 +43,12 @@ public class UserResourceTest extends ResourceTestBase {
     	act.setUser(u);
     	act.setAccountCode("AC");
     	act.setCashValue(10000);
-    	act.setDrawableValue(10000);
     	act.setMarketValue(500);
     	act.setNetValue(10000);
     	act.setTotalGain(0);
     	List<String> wls = new ArrayList<String>();
     	wls.add("AAPL");
+    	wls.add("GOOG");
     	wls.add("C");
     	wls.add("BAC");
     	wls.add("HP");
@@ -70,7 +70,6 @@ public class UserResourceTest extends ResourceTestBase {
     	act.setUser(u);
     	act.setAccountCode("AC1");
     	act.setCashValue(10500);
-    	act.setDrawableValue(10500);
     	act.setMarketValue(500);
     	act.setNetValue(10500);
     	act.setTotalGain(0);
