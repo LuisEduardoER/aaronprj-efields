@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<meta name="keywords" content="aaron,stock,iPhone, androil, design,trade,vitrual">
+<meta name="description" content="Aaron Technology">
+<title>eFields – Virtual stock Exchange</title>
+<meta name="description" content="Aaron Projects are your source for the best [].">
+
+<link type="text/css" href="css/flick/jquery-ui-1.8.17.custom.css" rel="stylesheet" />	
+<link rel="stylesheet" href="css/system.css" type="text/css">
+<link rel="stylesheet" href="css/general.css" type="text/css">
+<link rel="stylesheet" href="css/template.css" type="text/css">
+<link rel="stylesheet" href="css/common.css" type="text/css">
+<link rel="stylesheet" href="css/redesign.css" type="text/css">
+<link rel="stylesheet" href="css/osi.css" type="text/css">
+
+<script type="text/javascript" src="js/mootools.js"></script>
+<script type="text/javascript" src="js/highslide-full.js"></script>
+<script type="text/javascript" src="js/jquery-1.6.1.js"></script>
+<script type="text/javascript" src="js/jquery-noconflict.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="js/jquery_prettyPhoto.js"></script>
+<script type="text/javascript" src="js/jquery.fpss.js"></script>
+
+<script type="text/javascript">
+
+	
+    /* Frontpage Slideshow v3.0.4 */
+    $FPSS(document).ready(function(){
+        $FPSS('#fpssContainer189').fpss( {
+            autoStart: 1,
+            transitionTime: 500,
+            interval: 2000,
+            timer: 0,
+            effect: 'crossfade',
+            event: 'click',
+            textEffect: 1,
+            lavalamp: 1,
+            playLabel: 'Play',
+            pauseLabel: 'Pause'
+        });
+    });
+	
+	
+
+</script>
+
+<script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/jsrender.js"></script>
+<script type="text/javascript" src="js/app_market_functions.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+//$.noConflict();
+
+var userAccount = null;
+var refreshId = null;
+
+var userSession = getCookie("cookie_aaron_prj_efields_session");
+// get cookie  
+//alert("cookie_aaron_prj_efields_session: "+userSession);  
+	
+$(document).ready(function(){
+	
+	$('#header-wrapper').load('header-menu-default.html');
+	$('#header-wrapper').show();
+	$('#secondary-highlight-wrapper').show();
+	$('#body-column').load('body-column.html');
+	$('#body-column').show();
+	
+	$('#footer-wrapper').delay(800).load('footer-content.html');
+	$('#footer-wrapper').show();
+
+		
+	$('.connection').children(':first').click(function(){
+		if ( $('#form-login').css('display') == 'block' ) {
+				$('#form-login').slideUp('slow');
+		}else{
+				$('#form-login').slideDown('slow');
+		}
+	}); 
+	
+	if("null" != userSession){
+	
+		checklogin(userSession);
+		
+	}
+		
+	
+	setTimeout(function(){
+		if(null != userAccount){
+			
+			$('#secondary-highlight-wrapper').hide();
+			$('#body-column').hide();
+			//header-wrappe
+			$('#header-wrapper').load('header-menu.html');
+			
+			
+			setTimeout(function(){
+				$('#userinforbar')[0].textContent = "Account: " + userAccount.accountCode;
+			
+				var amenu = $('.menuitem')[0];
+				loadWatchList(amenu) ;
+			},1000);
+		}else{
+			setCookie('cookie_aaron_prj_efields_session', null,null)
+		}
+    },1000);
+		   
+});
+	
+
+	
+</script>
+
+
+</head>
+<body class="com_content">
+
+<!-- END AJAX SPINNDER DIV -->
+<div id="header-wrapper">
+</div>
+
+
+<div id="secondary-highlight-wrapper">
+
+    <div id="secondary-highlight">
+        
+        
+        <!-- JoomlaWorks "Frontpage Slideshow" (v3.0.4) starts here -->
+        <!-- keep tp preserve auto-sliding function -->
+        <div id="fpssContainer189" class="fpss-container fpss-template-movies textEffectSlideDown">
+            <div class="slides-wrapper">
+                <div id="product-slider">
+                    <div class="slides">
+                        <!-- SLIDES -->
+                        <div style="position: absolute; opacity: 1; z-index: 90;" class="slide">
+                            <a href="#"><img src="images/efields_logo.png" width="400" alt="eFields"></a>
+                            <h1>eFields</h1>
+                            <h2>eFields – Virtual stock Exchange</h2>
+                            <img src="images/efields_logo_small.png" alt="New product" class="new_tag">																					
+                            <a class="button more" href="#" title="Read more about The eFields">Learn more</a>
+                        </div>
+                        <div style="position: absolute; opacity: 0; z-index: 89;" class="slide">
+                            <a href="#">
+                            <img src="images/5_ffee2447b152494b43d9816faaea83c8_s.jpg" alt="The Magic Charger"></a>
+                            <h1>The Magic Charger</h1>
+                            <h2>Your Magic Mouse becomes Rechargeable</h2>
+                            <a class="button demo" href="#" rel="prettyPhoto">See video demo</a>
+                            <a class="button more" href="#" title="Read more about The Magic Charger">Learn more</a>
+                        </div>
+                        <div style="position: absolute; opacity: 0; z-index: 89;" class="slide">
+                            <a href="#">
+                            <img src="images/10_e31ace2a15a7c70645ad83df9ecd43b0_s.jpg" alt="The Magic Feet"></a>
+                            <h1>The Magic Feet</h1>
+                            <h2>The Feet of your Mac becomes Magical</h2>
+                            <img src="images/mobee_new_vs.png" alt="New product" class="new_tag">																					
+                            <a class="button more" href="#" title="Read more about The Magic Feet">Learn more</a>
+                        </div>
+                    </div>
+                    <!-- PAGINATION -->		
+                    <ul class="pagination navigation">
+                        <li class="navigation-button active">
+                            <a class="navi" href="#" title="eFields">
+                                <img src="images/efields_logo_small.png" alt="Navigate to eFields">
+                            </a>
+                        </li>
+                        <li class="navigation-button">
+                            <a class="navi" href="#" title="The Magic Charger">
+                                <img src="images/5_ffee2447b152494b43d9816faaea83c8_t.jpg" alt="Navigate to The Magic Charger">
+                            </a>
+                        </li>
+                        <li class="navigation-button">
+                            <a class="navi" href="#" title="The Magic Feet">
+                                <img src="images/10_e31ace2a15a7c70645ad83df9ecd43b0_t.jpg" alt="Navigate to The Magic Feet">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- keep tp preserve auto-sliding function -->
+            </div>
+        </div><div style="display:none;">Frontpage Slideshow | Copyright © 2006-2011 JoomlaWorks Ltd.</div>
+        <!-- JoomlaWorks "Frontpage Slideshow" (v3.0.4) ends here -->
+            
+    </div>
+
+
+
+
+</div>
+
+
+
+<div id="body-wrapper">
+    <div id="body">
+        <div id="body-column" style="clear: both;"></div>
+        <div id="content" class="full"></div>
+    </div>
+</div>
+<!-- END: zone -->
+   
+<div id="footer-wrapper"></div>
+    
+ 
+</body>
+</html>
+    

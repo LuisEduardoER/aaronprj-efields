@@ -1,0 +1,67 @@
+
+<div class="post" style="width:500px; margin-right:10px;">
+    <h3 class="title">{$T.name}</h3>
+    <p class="byline">{$T.name}</p>
+    <div class="entry">
+
+    	<table width="95%" border="0" cellspacing="0" cellpadding="5">
+          <tr>
+            <td with="100%" align="top">
+                <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                  <tr>
+                    <td with="150px" valign="top"><img src="{$T.imgpath}" width="128" height="172" /></td>
+                    <td width="70%" valign="top">
+                        <p>Author: {$T.author}</p>
+                        <p>ISDN: {$T.isdn}</p>
+                        <p>Publisher: {$T.publisher}</p>
+                        <p>Stock: {$T.stock}</p>
+                        <p>Price: {$T.price.toFixed(2)}</p>
+                        <p>Member Price: {$T.actualPrice.toFixed(2)}</p>
+                        <p><a href="#" name="addbook-{$T.id}" value="{$T.id}" itemName="{$T.name}" price="{$T.price}">
+                        <img src="imagesold/add.to.cart.sm.png" /></a>
+                        </p>
+                    </td>
+                </table>
+            </td>
+          </tr>
+          <tr>
+            <td width="100%" valign="top">
+                <br/>
+                <p>Discription: {$T.discription}</p>
+                <br/>
+            </td>
+          </tr>
+          
+          <tr>
+            <td width="100%" valign="top" id="itemcommentList">
+            </td>
+          </tr>
+          <tr>
+            <td width="100%" valign="top">
+            <form id="formComment">
+              <table width="100%" border="0" style="border-top:dotted;">
+                <tr>
+                  <td align="right" valign="top" width="140">Your Name:</td>
+                  <td><input type="text" name="customerName" value="{$T.customerName}"/></td>
+                </tr>
+                <tr>
+                  <td align="right" valign="top">Comment:</td>
+                  <td><textarea name="content" cols="40" rows="3"></textarea></td>
+                </tr>
+                <tr>
+                  <td>
+                  <input type="hidden" name="itemId" id="itemidforcomment" value="{$T.id}"/>
+                  <input type="hidden" name="customerId" value="{$T.customerId}"/>
+                  </td>
+                  <td><input type="button" value="Submit" onclick="sumbmitComment();"/></td>
+                </tr>
+            </table>
+            </form>
+            </td>
+          </tr>
+        </table>
+       <iframe src="http://www.facebook.com/plugins/like.php?href=YOUR_URL"
+        scrolling="no" frameborder="0"
+        style="border:none; width:450px; height:80px"><iframe>
+    </div>
+</div>

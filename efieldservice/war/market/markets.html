@@ -1,0 +1,72 @@
+
+<div class="content-box-style">
+    <div id="companyname">
+        <div class="eq"><h1><span>Market View: </span> Stocks</h1></div>
+    </div>
+<table >
+  <tr>
+    <td class="box-style-1">
+        <div style="width:90%;height:36px;background-color:#fdfcfc;border-bottom:1px solid #eeeeee;padding-left:6px;padding-top:6px;">
+        <table>
+          <tr>
+            <td width="160p">
+                <select style="width:120px;" name="rankingUniverse" onchange="">
+                    <option value="DOW" selected="selected">DOW</option>
+                    <option value="USN">NYSE</option><option value="USQ">NASDAQ</option>
+                    <option value="USA">AMEX</option>
+                </select>
+            </td>
+            <td>
+            <div class="fLeft bold pL10 t4 link">
+                <a class="txt12 toggleLinks" onclick='loadMarkets("actives");'>Actives</a> &nbsp;|&nbsp; 
+                <a class="txt12 toggleLinks" onclick='loadMarkets("gainers");'>% Gainers</a> &nbsp;|&nbsp; 
+                <a class="txt12 toggleLinks" onclick='loadMarkets("losers");'>% Losers</a> &nbsp;|&nbsp; 
+                <a class="txt12 toggleLinks" onclick='loadMarkets("gainermoney");'>$ Gainers</a> &nbsp;|&nbsp; 
+                <a class="txt12 toggleLinks" onclick='loadMarkets("losermoney");'>$ Losers</a>
+            </div>
+            </td>
+          </tr>
+        </table>
+         </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <table border="1">
+        <tbody class="header">
+            <tr>	
+            <th width="60" style="text-align:left" class="bBotDblLgt pL10">Ticker</th>
+            <th width="340" style="text-align:left" class="bBotDblLgt pL10">Company</th>
+            <th width="150" style="text-align:right" class="bBotDblLgt pL10">Makret Cap</th>
+            <th width="100" style="text-align:right" class="bBotDblLgt pL10">Price</th>
+            <th width="170" style="text-align:right" class="bBotDblLgt pL10">Today's Change</th>
+            <th width="150" style="text-align:right" class="bBotDblLgt pL10">Volume</th>
+            </tr>
+        </tbody>
+        <tbody id="markettickers"></tbody>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+</div>
+<!--====== Template ======-->
+<script id="markettickerTmpl" type="text/x-jquery-tmpl">
+	<tr>
+		<td class="txt12 bBotLgt left pL10 link borderTopWhite"><a href="javascript:loadSnapshot('{{=ticker}}');">{{=ticker}}</a></td>
+		<td class="txt12 bBotLgt left pL10 link borderTopWhite">{{=company}}</td>
+		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">{{=makretCap}} M</td>
+		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">{{=price}}</td>
+		
+		{{#if valueChange > 0 }}
+			<td class="txt12 bBotLgt borderTopWhite" style="text-align:right; color: #090">+{{=valueChange}}(+{{=change}})</td>
+		{{else}}
+			<td class="txt12 bBotLgt borderTopWhite" style="text-align:right; color: #F00">{{=valueChange}}({{=change}})</td>
+		{{/if}}
+			
+		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">{{=volume}}</td>
+	</tr>
+</script>

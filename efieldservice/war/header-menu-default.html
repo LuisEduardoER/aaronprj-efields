@@ -1,0 +1,70 @@
+<div id="header">
+<a href="index.html" id="title"><img src="images/efields_logo_small.png"></a>	
+<div id="links">
+    <ul>
+        <li class="connection">
+            <h4>Login</h4>
+            <form name="login" id="form-login">
+                <fieldset class="input">
+                    <p id="form-login-username"><label for="modlgn_username">Username</label><br>
+                        <input id="modlgn_username" name="username" class="inputbox" alt="username" size="18" type="text">
+                    </p>
+                    <p id="form-login-password">
+                        <label for="modlgn_passwd">Password</label><br>
+                        <input id="modlgn_passwd" name="passwd" class="inputbox" size="18" alt="password" type="password">
+                    </p>
+                    <p id="form-login-remember">
+                        <label for="modlgn_remember">Remember Me</label>
+                        <input id="modlgn_remember" name="remember" class="inputbox" value="yes" alt="Remember Me" type="checkbox">
+                    </p>
+                    <input name="Submit" class="button" value="Login" type="button" onclick="loginsystem()">
+                </fieldset>
+                <ul>
+                    <li><a href="#">Forgot your password?</a></li>
+                    <li><a href="#">Forgot your username?</a></li>
+                    <li><a href="#">Create an account</a></li>
+                </ul>
+
+            </form>
+
+        </li>
+        <li class="cart">
+            <div class="vmCartModule">Login to access our Service.</div>	
+        </li>
+    </ul>
+</div>
+<div id="primary-navigation">
+    <ul class="menu">
+        <li id="current" class="active menuitem"><a href="index.html"><span>Home</span></a></li>
+        <li class="menuitem"><a href="#"><span>Learn</span></a></li>
+    </ul>	
+</div>
+<div id="secondary-navigation">
+    <ul class="menu-nav">
+        <li class="parent menuitem"><a href="#"><span>Support</span></a>
+            <ul>
+                <li><a href="#"><span>FAQ</span></a></li>
+                <li><a href="#"><span>Get Support</span></a></li>
+            </ul>
+        </li>
+    </ul>	
+</div>
+<div id="search">
+    <div id="pixsearch_ng_panel">
+        <div>
+        <input value="help..." class="ps_ng_search_box" tabindex="0" type="text" onblur="if(this.value=='') this.value='help...';" onfocus="if(this.value == 'help...') this.value = '';">
+        </div>
+    </div>	
+</div>
+</div>
+<script type="text/javascript" charset="utf-8">
+
+$('.connection').children(':first').click(function(){
+	if ( $('#form-login').css('display') == 'block' ) {
+			$('#form-login').slideUp('slow');
+	}else{
+			$('#form-login').slideDown('slow');
+	}
+}); 
+	
+</script>
