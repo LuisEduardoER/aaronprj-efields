@@ -1,6 +1,5 @@
 package com.aaronprj.efields.resource;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -14,6 +13,7 @@ import com.aaronprj.common.utils.CommonEntityManager;
 import com.aaronprj.common.utils.LogicalOperator;
 import com.aaronprj.common.utils.QueryObject;
 import com.aaronprj.common.utils.QueryParamter;
+import com.aaronprj.common.utils.SystemInitializeUtil;
 import com.aaronprj.common.web.resource.ResourceServices;
 import com.aaronprj.common.web.uivo.BaseEntity;
 import com.aaronprj.efields.dataservice.DataFactory;
@@ -36,9 +36,15 @@ public class UserResource extends ResourceServices{
     	List<User> users =  (List<User>) CommonEntityManager.getAllEntities(User.class);
 
     	if(null == users || users.isEmpty()){
+    		SystemInitializeUtil.initUsers();
+    		users =  (List<User>) CommonEntityManager.getAllEntities(User.class);
+    	}
+    	
+    	
+    	if(null == users || users.isEmpty()){
             return this.writeValueAsString(generateResult(null));
     	}
-    	List<Account> acts = new ArrayList<Account>();
+//    	List<Account> acts = new ArrayList<Account>();
 //    	for(User u:users){
 //
 //			Account account = new Account();
@@ -47,7 +53,7 @@ public class UserResource extends ResourceServices{
 //			acts.add(qaccount);
 //    	}
 
-    	return this.writeValueAsString(generateResult(acts));
+    	return this.writeValueAsString(generateResult(users));
     }
     
 	@Path("/login/{username}/{password}")

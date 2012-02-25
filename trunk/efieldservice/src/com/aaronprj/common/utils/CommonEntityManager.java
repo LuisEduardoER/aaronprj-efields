@@ -25,6 +25,7 @@ public class CommonEntityManager{
 	
 	private static ObjectContainer objdb;
 	//user.dir
+	//
 	final static String DB4OFILENAME = System.getProperty("user.home") + "/efieldsdb.db4o";
 	
 	public static void verifyEntityManager(){
@@ -110,6 +111,14 @@ public class CommonEntityManager{
 	public static void delete(Object obj){
 		verifyEntityManager();
 		objdb.delete(obj);
+	}
+
+	public static void deleteAll(Object obj){
+		verifyEntityManager();
+		ObjectSet<?> objs = objdb.queryByExample(obj);
+		while (objs.hasNext())
+			objdb.delete(objs.next());
+
 	}
 	
 	@SuppressWarnings("unchecked")
