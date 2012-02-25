@@ -6,24 +6,28 @@ import com.aaronprj.common.enums.OrderStatus;
 
 public class TradingOrder {
 
-	private Symbol symbol;
-	private TradEntity tradEntity;
+	private Ticker ticker;
+	private TradingEntity tradEntity;
 
 	private OrderStatus status;
 	
 	private double amount;
+	private double gainer;
+	private double gainerP;
+	private double totalGainer;
+	private double totalGainerP;
 	private Date tradingDate;
 	
-	public Symbol getSymbol() {
-		return symbol;
+	public Ticker getTicker() {
+		return ticker;
 	}
-	public void setSymbol(Symbol symbol) {
-		this.symbol = symbol;
+	public void setTicker(Ticker ticker) {
+		this.ticker = ticker;
 	}
-	public TradEntity getTradEntity() {
+	public TradingEntity getTradEntity() {
 		return tradEntity;
 	}
-	public void setTradEntity(TradEntity tradEntity) {
+	public void setTradEntity(TradingEntity tradEntity) {
 		this.tradEntity = tradEntity;
 	}
 	public OrderStatus getStatus() {
@@ -38,6 +42,30 @@ public class TradingOrder {
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
+	public double getGainer() {
+		return gainer;
+	}
+	public void setGainer(double gainer) {
+		this.gainer = gainer;
+	}
+	public double getGainerP() {
+		return gainerP;
+	}
+	public void setGainerP(double gainerP) {
+		this.gainerP = gainerP;
+	}
+	public double getTotalGainer() {
+		return totalGainer;
+	}
+	public void setTotalGainer(double totalGainer) {
+		this.totalGainer = totalGainer;
+	}
+	public double getTotalGainerP() {
+		return totalGainerP;
+	}
+	public void setTotalGainerP(double totalGainerP) {
+		this.totalGainerP = totalGainerP;
+	}
 	public Date getTradingDate() {
 		return tradingDate;
 	}
@@ -45,4 +73,7 @@ public class TradingOrder {
 		this.tradingDate = tradingDate;
 	}
 	
+
+	
+
 }
