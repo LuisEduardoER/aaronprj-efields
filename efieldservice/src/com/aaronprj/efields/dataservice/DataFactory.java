@@ -4,9 +4,13 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import com.aaronprj.common.enums.TickerClassType;
 import com.aaronprj.common.utils.CommonEntityManager;
+import com.aaronprj.common.utils.SystemInitializeUtil;
 import com.aaronprj.entities.efields.Account;
 import com.aaronprj.entities.efields.QuoteFeed;
 import com.aaronprj.entities.efields.Ticker;
@@ -14,6 +18,8 @@ import com.aaronprj.entities.efields.User;
 
 public class DataFactory {
 
+	private static ScheduledExecutorService scheduler;
+	
 	private static ConcurrentHashMap<String,String> onlineMemberKeys = new ConcurrentHashMap<String,String>();
 	private static ConcurrentHashMap<String,Account> onlineMembers = new ConcurrentHashMap<String,Account>();
 	
@@ -25,6 +31,30 @@ public class DataFactory {
 	
 	private static DecimalFormat decimalFormat = new DecimalFormat("#.0000");
 
+	public static void initDataFactory(){
+		
+		int vtiming = 20;
+		scheduler = Executors.newScheduledThreadPool(1);
+		scheduler.scheduleWithFixedDelay(new Runnable() {
+			public void run() {
+				try {
+					System.out.println("initDataFactory...");
+					//Date b = new Date();
+					SystemInitializeUtil.initTickers();
+					
+					maptickers.clear();
+					topMarkets.clear();
+					refreshingChanges();
+					
+					//LOG.info("--- refreshDataVersion() taked......" + ((new Date()).getTime() - b.getTime()));
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
+				}
+			}
+		}, vtiming, vtiming, TimeUnit.MINUTES);
+		
+		
+	}
 	
 	public static boolean addQuoteFeed(QuoteFeed qf){
 		
@@ -66,7 +96,7 @@ public class DataFactory {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static void initDataFactory(){
+	public static void refreshingChanges(){
 
     	List<Ticker> tickers =  (List<Ticker>) CommonEntityManager.getAllEntities(Ticker.class);
     	

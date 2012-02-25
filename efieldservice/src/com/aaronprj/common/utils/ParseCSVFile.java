@@ -50,7 +50,7 @@ public class ParseCSVFile {
 
 		try {
 			
-			//CommonEntityManager.d
+			CommonEntityManager.deleteAll(Ticker.class);
 			
 			// create BufferedReader to read csv file
 			BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
@@ -116,7 +116,7 @@ public class ParseCSVFile {
 			return tickers;
 
 		} catch (Exception e) {
-			System.out.println("Exception while reading csv file: " + e);
+			System.out.println("Exception while reading csv file: " + e.getMessage());
 		}
 		return null;
 	}
