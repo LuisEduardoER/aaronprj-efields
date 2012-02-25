@@ -6,7 +6,7 @@ import com.aaronprj.common.enums.OrderStatus;
 
 public class TradingOrder {
 
-	private Ticker ticker;
+	private QuoteFeed quote;
 	private TradingEntity tradEntity;
 
 	private OrderStatus status;
@@ -18,11 +18,11 @@ public class TradingOrder {
 	private double totalGainerP;
 	private Date tradingDate;
 	
-	public Ticker getTicker() {
-		return ticker;
+	public QuoteFeed getQuote() {
+		return quote;
 	}
-	public void setTicker(Ticker ticker) {
-		this.ticker = ticker;
+	public void setQuote(QuoteFeed quote) {
+		this.quote = quote;
 	}
 	public TradingEntity getTradEntity() {
 		return tradEntity;
