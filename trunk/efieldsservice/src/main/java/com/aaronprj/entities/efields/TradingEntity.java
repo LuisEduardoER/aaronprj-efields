@@ -2,17 +2,22 @@ package com.aaronprj.entities.efields;
 
 import com.aaronprj.common.enums.OrderType;
 import com.aaronprj.common.enums.PriceType;
-import com.aaronprj.common.enums.TermType;
 
-public class TradEntity {
+public class TradingEntity {
 
+	private String ticker;
 	private long quantity;
 	private double price;
 	
 	private OrderType orderType;
 	private PriceType priceType;
-	private TermType termType;
 	
+	public String getTicker() {
+		return ticker;
+	}
+	public void setTicker(String ticker) {
+		this.ticker = ticker;
+	}
 	public long getQuantity() {
 		return quantity;
 	}
@@ -37,13 +42,4 @@ public class TradEntity {
 	public void setPriceType(PriceType priceType) {
 		this.priceType = priceType;
 	}
-	public TermType getTermType() {
-		return termType;
-	}
-	public void setTermType(TermType termType) {
-		this.termType = termType;
-	}
-	
-	
-	
 }
