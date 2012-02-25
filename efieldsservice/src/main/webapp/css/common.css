@@ -75,9 +75,6 @@ a.news,a.news:link,a.news:visited,a.news:active,a.news:hover{font-weight:bold;}
 
 .colRPad{padding-right:20px;} /* padding between columns */
 
-table.dotsB td,tr.dotsB td,div.dotsB,td.dotsB{background:url(https://images.etrade.wallst.com/v1/images/dot.gif) repeat-x scroll bottom;}
-table.dotsT td,tr.dotsT td,div.dotsT,td.dotsT{background:url(https://images.etrade.wallst.com/v1/images/dot.gif) repeat-x scroll top;}
-table.dataBorder td,tr.dataBorder td,div.dataBorder{background:url(https://images.etrade.wallst.com/v1/images/dottedLine.gif) repeat-x scroll bottom;}
 table.solidDrk td,tr.solidDrk td,div.solidDrk{border-bottom:1px solid #9C9A9C;height:1px;}
 table.solidMed td,tr.solidMed td,td.solidMed{border-bottom:1px solid #ccc;height:1px;}
 table.bTopDrk td,tr.bTopDrk td{height:1px;line-height:1px;background:#9C9A9C;}
@@ -85,7 +82,6 @@ table.bTopMed td,tr.bTopMed td{height:1px;line-height:1px;background:#333;}
 table.bTopLgtT td,tr.bTopLgtT td{height:1px;line-height:1px;background:#ccc;}
 table.quote td,tr.quote td{padding:6px 0px 5px 0px;color:#000;}
 table.bNav td{padding:6px 0px 8px 0px;color:#333;}
-table.fade td,tr.fade td,div.fade{background:url(https://images.etrade.wallst.com/v1/images/tradingideas/revisionShim.gif);}
 
 table.rowSm1 td,tr.rowSm td{padding:2px 0px 2px 0px;}
 table.rowSm td,tr.rowSm td{padding:3px 0px 3px 0px;color:#666;}
@@ -94,12 +90,7 @@ table.rowRow td,tr.rowRow td{padding:6px 0px 6px 6px;color:#333;}
 /* Occasionally needed to override a dotted border */
 .noDots { background: none !important; }
 
-.dotsV{background:url(https://images.etrade.wallst.com/v1/images/dotV.gif) repeat-y scroll right;}
-.greenBG{background:#cfe0d0 url(https://images.etrade.wallst.com/v1/images/dot.gif) repeat-x scroll bottom}
 
-/* Classs used by table sorting features */
-.sortUp{background:url(https://images.etrade.wallst.com/v1/images/sortUp.gif); background-position:right;background-repeat: no-repeat;}
-.sortDown{background:url(https://images.etrade.wallst.com/v1/images/sortDown.gif); background-position:right;background-repeat: no-repeat;}
 
 /* Old Tabbed Layouts for Various Sections */
 .tab{float:left;font-size:12px;line-height:22px;background:#eee;border-top:1px solid #666;border-bottom:1px solid #666;padding:0px 5px 0px 5px;text-align:center;cursor:pointer;cursor:hand;}
@@ -114,8 +105,8 @@ table.rowRow td,tr.rowRow td{padding:6px 0px 6px 6px;color:#333;}
 #minitabs { float:left; width:100%; line-height:normal; }
 #minitabs ul { margin:0; padding:0 0 23px 8px; list-style-type:none; border-bottom: 1px solid #999999;}
 #minitabs li { float:left; margin:0 3px 0 0; padding:0; }
-#minitabs a { display:block; background:url(https://images.etrade.wallst.com/v1/images/minitab_left.gif) no-repeat left top;  padding:0 0 0 3px; text-decoration: none; font-weight:bold; }
-#minitabs a span { float:none; background:url(https://images.etrade.wallst.com/v1/images/minitab_right.gif) no-repeat right top; display:block; padding:6px 10px 4px 6px; }
+#minitabs a { display:block;  padding:0 0 0 3px; text-decoration: none; font-weight:bold; }
+#minitabs a span { float:none;  display:block; padding:6px 10px 4px 6px; }
 #minitabs #current a { background-position:0% -70px; border-bottom: 1px solid white; color: #000000; text-decoration: none; }
 #minitabs #current a span { background-position:100% -70px; }
 #minitabs a:link { color: #000000; }
@@ -123,14 +114,14 @@ table.rowRow td,tr.rowRow td{padding:6px 0px 6px 6px;color:#333;}
 #minitabs a:hover { color: #000000; background-position: 0% -140px; }
 #minitabs a:hover span { background-position: 100% -140px; }
 #minitabs #current a:hover { color: #000000; }
-#minitabs .new { float:left; background:url(https://images.etrade.wallst.com/v1/images/minitab_new.gif) no-repeat left top; width:25px; margin-top:-5px; margin-left:8px; position:absolute; }
-#minitabs .beta { float:left; background:url(https://images.etrade.wallst.com/v1/images/minitab_beta.gif) no-repeat left top; width:25px; margin-top:-5px; margin-left:8px; position:absolute; }
+#minitabs .new { float:left; width:25px; margin-top:-5px; margin-left:8px; position:absolute; }
+#minitabs .beta { float:left; width:25px; margin-top:-5px; margin-left:8px; position:absolute; }
 
 /* In Page Mini-Tab Navigation code */
 #minitabs.inPageTabs { float:left; width:99.75%; line-height:normal; }
 #minitabs.inPageTabs ul {padding-left:8px;}
-#minitabs.inPageTabs a { display:block; background:url(../../images/subminitab_left.gif) no-repeat left top;  padding:0 0 0 3px; text-decoration: none; font-weight:bold; }
-#minitabs.inPageTabs a span { float:none; background:url(../../images/subminitab_right.gif) no-repeat right top; display:block; padding:5px 10px 4px 6px; }
+#minitabs.inPageTabs a { display:block; background:url(../images/subminitab_left.gif) no-repeat left top;  padding:0 0 0 3px; text-decoration: none; font-weight:bold; }
+#minitabs.inPageTabs a span { float:none; background:url(../images/subminitab_right.gif) no-repeat right top; display:block; padding:5px 10px 4px 6px; }
 #minitabs.inPageTabs a:hover { color: #000000; background-position: 0% -140px; }
 #minitabs.inPageTabs a:hover span { background-position: 100% -140px; }
 #minitabs.inPageTabs #current a:hover { color: #000000; }
@@ -158,7 +149,7 @@ table.rowRow td,tr.rowRow td{padding:6px 0px 6px 6px;color:#333;}
 table.dBar td,tr.dBar td{height:2px;line-height:2px;background:#878787;}
 div.dBar{height:2px;line-height:2px;background:#878787;}
 
-/* ETrade Background Colors */
+/* Background Colors */
 .bgDrk{background:#9C9A9C;}
 .bgLgt{background:#EFEFEF!important;}
 .bgLgt2{background:#F7F7F7!important;} /* only used by snapshot alert */
@@ -324,14 +315,6 @@ ul.nobullets {list-style-type:none;margin:0px;}
 .pR20{padding-right:20px;}
 .pR30{padding-right:30px;}
 
-/* rollover area styles */
-.icon {position:absolute;font-size:9px;font-family:arial;}
-.bBottom {border-bottom:1px dotted #999;}
-.iWin{width:180px;z-index:10;margin:10px;padding:7px 10px 10px 10px;border:1px solid;border-color:#000; background:#fff;font-size:9px;}
-.dataHT{font-size:11px;font-weight:bold;padding-bottom:6px;background:url(https://images.etrade.wallst.com/v1/images/dottedLine.gif); background-position:bottom;background-repeat: repeat-x;}
-.dataBorder{background:url(https://images.etrade.wallst.com/v1/images/dottedLine.gif); background-position:bottom;background-repeat: repeat-x;}
-.dataH{color:#666;font-size:11px;}
-.data{color:#666;font-size:9px; margin:0;padding:6px 0px 0px 0px;}
 
 /* table header row styles */
 .h,a.h,a.h:link,a.h:visited,a.h:hover,a.h:active{color:#fff;text-decoration:none}
@@ -339,17 +322,10 @@ ul.nobullets {list-style-type:none;margin:0px;}
 /* stocks area styles below */
 tr.hRow td{color:#fff;font-weight:bold;background:#999;border-right:1px solid #666;border-bottom:1px solid #666;padding:3px 0px 3px 5px;}
 tr.qRow td{color:#000;font-weight:bold;font-size:17px;background:#EFEFEF;border-right:1px solid #ccc;padding:4px 0px 2px 0px;text-align:center;}
-.hQ{background:url(https://images.etrade.wallst.com/v1/images/stocks/qShim.gif) !important;}
 
-/* header rows with sortable columns */
-tr.tRow td{background:#999;border-bottom:1px solid #333;padding:0px 0px 0px 5px;}
-.tRowRt{border-right:1px solid #666;}
-.sortUpS{padding-right:15px;background:url(https://images.etrade.wallst.com/v1/images/stocks/arrowUp.gif);background-position:right bottom;background-repeat: no-repeat}
-.sortRt{padding-right:15px;background:url(https://images.etrade.wallst.com/v1/images/stocks/arrowRt.gif);background-position:right bottom;background-repeat: no-repeat}
-.sortDn{padding-right:15px;background:url(https://images.etrade.wallst.com/v1/images/stocks/arrowDn.gif);background-position:right bottom;background-repeat: no-repeat}
 
 /* Stocks Data Modules */
-.etMod {background:url(https://images.etrade.wallst.com/v1/images/dot.gif) repeat-x scroll bottom; margin-bottom: 16px; float: left; overflow: hidden; }
+.etMod {margin-bottom: 16px; float: left; overflow: hidden; }
 .etMod h4 {border-bottom: 1px solid #999; padding: 6px 0 5px;}
 .etMod table {border-collapse: collapse; margin-bottom: 8px;}
 .etMod td {vertical-align: top; padding: 7px 0 6px;}

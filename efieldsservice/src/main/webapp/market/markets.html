@@ -1,6 +1,8 @@
 
 <div class="content-box-style">
-<span class="pageTitle">Market View: </span><span class="pagetitlegrey">Stocks</span>
+    <div id="companyname">
+        <div class="eq"><h1><span>Market View: </span> Stocks</h1></div>
+    </div>
 <table >
   <tr>
     <td class="box-style-1">
@@ -54,7 +56,7 @@
 <!--====== Template ======-->
 <script id="markettickerTmpl" type="text/x-jquery-tmpl">
 	<tr>
-		<td class="txt12 bBotLgt left pL10 link borderTopWhite">{{=ticker}}</td>
+		<td class="txt12 bBotLgt left pL10 link borderTopWhite"><a href="javascript:loadSnapshot('{{=ticker}}');">{{=ticker}}</a></td>
 		<td class="txt12 bBotLgt left pL10 link borderTopWhite">{{=company}}</td>
 		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">{{=makretCap}} M</td>
 		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">{{=price}}</td>

@@ -81,15 +81,12 @@ $(document).ready(function(){
 		}
 	}); 
 	
-	setTimeout(function(){
-
-		if("null" != userSession){
+	if("null" != userSession){
+	
+		checklogin(userSession);
 		
-			checklogin(userSession);
-			
-		}
+	}
 		
-    },500);
 	
 	setTimeout(function(){
 		if(null != userAccount){
@@ -109,7 +106,7 @@ $(document).ready(function(){
 		}else{
 			setCookie('cookie_aaron_prj_efields_session', null,null)
 		}
-    },2000);
+    },1000);
 		   
 });
 	

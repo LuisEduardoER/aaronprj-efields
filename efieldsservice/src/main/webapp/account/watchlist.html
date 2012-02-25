@@ -1,6 +1,9 @@
 
 <div class="content-box-style">
-<span class="pageTitle">Account: </span><span class="pagetitlegrey">Watch List</span>
+    <div id="companyname">
+        <div class="eq"><h1><span>ACCOUNT: </span> WATCH LIST</h1></div>
+    </div>
+    <div>
 <table >
   <tr>
     <td class="box-style-1">
@@ -33,13 +36,14 @@
             <tr>	
             <th width="60" style="text-align:left" class="bBotDblLgt pL10">Ticker</th>
             <th width="100" style="text-align:right" class="bBotDblLgt pL10">Price$</th>
+            <th width="150" style="text-align:right" class="bBotDblLgt pL10">Trade</th>
             <th width="100" style="text-align:right" class="bBotDblLgt pL10">Change%</th>
             <th width="100" style="text-align:right" class="bBotDblLgt pL10">Change$</th>
             <th width="100" style="text-align:right" class="bBotDblLgt pL10">Hi 52w</th>
             <th width="100" style="text-align:right" class="bBotDblLgt pL10">Low 52w</th>
             <th width="100" style="text-align:right" class="bBotDblLgt pL10">Open$</th>
             <th width="150" style="text-align:right" class="bBotDblLgt pL10">Makret Cap</th>
-            <th width="150" style="text-align:right" class="bBotDblLgt pL10" abbr="TTTTTTTTTTTT">Volume</th>
+            <th width="150" style="text-align:right" class="bBotDblLgt pL10">Volume</th>
             </tr>
         </tbody>
         <tbody id="watchlist"></tbody>
@@ -55,8 +59,12 @@
 <!--====== Template ======-->
 <script id="watchlistTmpl" type="text/x-jquery-tmpl">
 	<tr>
-		<td class="txt12 bBotLgt left pL10 link borderTopWhite">{{=t}}</td>
+		<td class="txt12 bBotLgt left pL10 link borderTopWhite"><a href="javascript:loadSnapshot('{{=t}}');">{{=t}}</a></td>
 		<td class="txt12 bBotLgt borderTopWhite" style="text-align:right;">{{=l}}</td>
+		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">
+			<a href="javascript:loadDefaultTrade('{{=t}}',0);"><img src="images/buyGreen.png"></a>&nbsp;
+			<a href="javascript:loadDefaultTrade('{{=t}}',1);"><img src="images/sellGreen.png"></a></td>
+		</td>
 		
 		{{#if c > 0 }}
 			<td class="txt12 bBotLgt borderTopWhite" style="text-align:right; color: #090">{{=cp}}</td>

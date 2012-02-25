@@ -1,6 +1,9 @@
 package com.aaronprj.entities.efields;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.aaronprj.common.enums.OrderStatus;
 
 public class Account {
 
@@ -11,12 +14,31 @@ public class Account {
 	private List<Message> messages;
 	private List<TradingOrder> protfolios;
 	private List<TradingOrder> tradingOrders;
+	private List<TradingOrder> pendingOrders;
 	
 	private double netValue;
-	private double drawableValue;
 	private double marketValue;
 	private double totalGain;
 	private double cashValue;
+	
+	public void addTradingOrder(TradingOrder to){
+		if(null == tradingOrders){
+			tradingOrders = new ArrayList<TradingOrder>();
+		}
+		if(null == protfolios){
+			protfolios = new ArrayList<TradingOrder>();
+		}
+		if(null == pendingOrders){
+			pendingOrders = new ArrayList<TradingOrder>();
+		}
+		tradingOrders.add(to);
+		if(OrderStatus.EXECUTED.equals(to.getStatus())){
+			protfolios.add(to);
+			this.netValue -= to.getAmount();
+		}else if(OrderStatus.OPEN.equals(to.getStatus())){
+			pendingOrders.add(to);
+		}
+	}
 	
 	public User getUser() {
 		return user;
@@ -65,12 +87,6 @@ public class Account {
 	}
 	public void setNetValue(double netValue) {
 		this.netValue = netValue;
-	}
-	public double getDrawableValue() {
-		return drawableValue;
-	}
-	public void setDrawableValue(double drawableValue) {
-		this.drawableValue = drawableValue;
 	}
 	public double getMarketValue() {
 		return marketValue;

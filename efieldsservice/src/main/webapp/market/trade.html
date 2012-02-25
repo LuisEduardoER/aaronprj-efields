@@ -4,38 +4,27 @@
 
     <span class="pageTitle">Enter Order: </span><span class="pagetitlegrey">Stocks</span>
 
-    <div class="osi-infstn-menu">
+    <div id="account-simple-information" class="osi-infstn-menu">
         <table class="osi-infstn-menu-table" cellpadding="0" cellspacing="0" width="100%">
-            <tbody><tr>
-                    <td id="osi-infstn-account-cont" width="300">
-                    <div class="osi-infstn-accounts">
-                            <div class="osi-infstn-accounts-selected">Account: 
-                                <a onclick='s_objectID="SClink_2";return this.s_oc?this.s_oc(e):true' href="javascript:void(0);" id="" class="infstn-menu-link singular">
-                                    <span style="display:none">6783-3775</span> aaron.xiong</a>
-                            </div>
-                    </div>
-                    </td>
-                  <td class="no-border-right"> Net Account Value: <b>$171.01</b></td>
-                    <td align="right">&nbsp;</td>
+            <tbody>
+                <tr>
+                <td id="osi-infstn-account-cont" width="300">
+                <div class="osi-infstn-accounts">
+                        <div class="osi-infstn-accounts-selected">Account: 
+                            <a onclick='s_objectID="SClink_2";return this.s_oc?this.s_oc(e):true' href="javascript:void(0);" id="" class="infstn-menu-link singular">
+                                <span style="display:none">6783-3775</span> aaron.xiong</a>
+                        </div>
+                </div>
+                </td>
+                <td class="no-border-right"> Net Account Value: <b>$171.01</b></td>
+                <td align="right">&nbsp;</td>
                 </tr>
             </tbody>
          </table>
   </div>
-    <div>
-        <div style="display: none;" class="osi-balances-error">
-            <table cellpadding="0" cellspacing="0" width="100%">
-                <tbody><tr>
-                        <td align="right"><img src="images/osb-err-left-corner.gif"></td>
-                        <th><img src="images/warning_small.gif"></th>
-                        <th width="100%"><span>Account Balances are temporarily unavailable. Please <a onclick='s_objectID="#";return this.s_oc?this.s_oc(e):true' href="#">try again</a> later.</span>
-                        </th>
-                        <td><img src="images/osb-err-right-corner.gif"></td>
-                    </tr>
-                </tbody></table>
-        </div>
-    </div>
 </div>
 
+<form id="trade-order-form">
 <div class="stock-order" id="stock_order">
     <table cellpadding="0" cellspacing="0" width="100%">
         <tbody><tr valign="top">
@@ -45,8 +34,9 @@
                                 <td><b>Order Type</b>
                                     <br>
                                     <select style="width:122px" name="transaction" tabindex="1">
-                                        <option value="">- -</option><option selected="selected" value="1">Buy</option>
-                                        <option value="2">Sell</option><option value="3">Sell short</option><option value="4">Buy to cover</option>
+                                        <option value="">- -</option>
+                                        <option selected="selected" value="1">Buy</option>
+                                        <option value="2">Sell</option>
                                     </select>
                                 </td>
                                 <td>
@@ -69,12 +59,7 @@
                                     <select style="width:122px" name="priceType" tabindex="4">
                                         <option value="0">- -</option>
                                         <option selected="selected" value="1">Market</option>
-                                        <option value="13">Market On Close</option>
                                         <option value="2">Limit</option>
-                                        <option value="3">Stop</option>
-                                        <option value="4">Stop Limit</option>
-                                        <option value="6">Trailing Stop $</option>
-                                        <option value="7">Trailing Stop %</option>
                                     </select>
                                 </td>
                                 <td style="display: none;" class="osi-price-entry" valign="top"><b class="osi-price-label"></b>
@@ -89,27 +74,6 @@
                                     <div style="" class="so-term-cont1">
                                         <div class="so-term-group"></div>
                                     </div>
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    <br class="smbr">
-                    <table cellpadding="0" cellspacing="0">
-                        <tbody><tr>
-                                <td valign="top"><b>Term</b>
-                                    <br>
-                                    <select style="width: 128px;" class="osi-term" name="orderTerm" tabindex="7">
-                                        <option selected="selected" value="3">Good For The Day</option>
-                                    </select>
-                                </td>
-                                <td><b>&nbsp;</b>
-                                    <br>
-                                    <table style="display: none;" class="osi-aon so-aon-disabled" cellpadding="0" cellspacing="0">
-                                        <tbody><tr>
-                                                <td style="padding: 0pt;" width="0"><input disabled="disabled" id="AON" tabindex="8" value="1" name="execInst" type="checkbox"></td>
-                                                <td style="padding: 0pt;"><label for="#AON">All-or-none <span style="white-space:nowrap" class="font-10">(if 300+ shares)</span></label></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
                                 </td>
                             </tr>
                         </tbody></table>
@@ -168,35 +132,41 @@
                     </div>
                 </td>
             </tr>
-        </tbody></table>
+        </tbody>
+    </table>
 </div>
+
 <div style="height: 42px;" class="osi-summary-cont">
     <div class="osi-summary">Buy 100 share(s) <span class="summary-symbol">BCA</span> at  Market</div>
-    <img src="images/summary-arrow.gif" class="osi-summary-arrow"></div>
+    <img src="images/summary-arrow.gif" class="osi-summary-arrow">
+</div>
 <table border="0" cellpadding="4" cellspacing="0" width="100%">
     <tbody><tr>
-            <td align="left"></td><td align="right">
+            <td align="left"></td>
+            <td align="right">
                 <input title="" src="images/preview_order_entry_green.gif" tabindex="9" value="preview" alt="Preview Order" class="osi-preview-btn" name="preview" border="0" height="21" type="image" width="115">
             </td>
         </tr>
     </tbody>
  </table>
 
+</form>
+
 <div style="margin-top:20px; font-family:Verdana; text-align:left; border:1px solid #CCC;background-color:#EEE;" id="etNoticeBox">
     <div class="to-center-cust-only">
         <table>
             <tbody><tr>
                     <td><img src="images/icon_info_big.gif" align="absmiddle" border="0" height="25" width="25"></td><td style="padding-left: 5px;" valign="middle">
-                    <b>NEW! Sub-Penny Trading Enhancement </b>
+                    <b>NEW! Trading Enhancement </b>
                         <br>
-                        Customers can now place orders for NASDAQ and Listed stocks at 
-                        prices under $1.00/share with up to 4 decimal places ("sub-pennies"). 
+                        Customers can now place orders Listed stocks at 
+                        prices under $1.00/share with up to 4 decimal places. 
                         <a onclick='#' href="#">Learn More.</a></td>
                 </tr>
-            </tbody></table>
+            </tbody>
+        </table>
     </div>
 </div>
-</form>
 
 </div>
 <!--END MAIN CONTENT AREA-->
