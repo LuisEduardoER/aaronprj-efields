@@ -1,6 +1,6 @@
 package com.aaronprj.efields.resource;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -10,8 +10,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.aaronprj.common.enums.OrderStatus;
-import com.aaronprj.common.enums.PriceType;
 import com.aaronprj.common.enums.TickerClassType;
 import com.aaronprj.common.utils.CommonEntityManager;
 import com.aaronprj.common.web.resource.ResourceServices;
@@ -19,8 +17,6 @@ import com.aaronprj.efields.dataservice.DataFactory;
 import com.aaronprj.entities.efields.Account;
 import com.aaronprj.entities.efields.QuoteFeed;
 import com.aaronprj.entities.efields.Ticker;
-import com.aaronprj.entities.efields.TradingEntity;
-import com.aaronprj.entities.efields.TradingOrder;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 
@@ -92,12 +88,29 @@ public class MarketDataResource extends ResourceServices{
 	@Path("/addwatch/{quote}/{sessionid}")
 	@POST 
 	@Produces(MediaType.APPLICATION_JSON)
-    public String addwatch(@PathParam("quote") String quote,@PathParam("sessionid") String sessionid) {
+    public String addWatch(@PathParam("quote") String quote,@PathParam("sessionid") String sessionid) {
 
 		Account account = DataFactory.getAccount(sessionid);
+		if(null == account.getWatchList()){
+			account.setWatchList(new ArrayList<String>());
+		}
 		account.getWatchList().add(quote);
 
 		CommonEntityManager.save(account);
+        
+    	return this.writeValueAsString(generateResult());
+    }
+
+	@Path("/removewatch/{quote}/{sessionid}")
+	@POST 
+	@Produces(MediaType.APPLICATION_JSON)
+    public String removeWatch(@PathParam("quote") String quote,@PathParam("sessionid") String sessionid) {
+
+		Account account = DataFactory.getAccount(sessionid);
+		if(null != account.getWatchList()){
+			account.getWatchList().remove(quote);
+			CommonEntityManager.save(account);
+		}
         
     	return this.writeValueAsString(generateResult());
     }
