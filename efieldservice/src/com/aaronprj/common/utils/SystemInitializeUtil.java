@@ -1,5 +1,6 @@
 package com.aaronprj.common.utils;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -11,6 +12,12 @@ import java.util.List;
 
 import com.aaronprj.entities.efields.Account;
 import com.aaronprj.entities.efields.User;
+import com.google.appengine.api.urlfetch.HTTPRequest;
+import com.google.appengine.api.urlfetch.HTTPResponse;
+import com.google.appengine.api.urlfetch.URLFetchService;
+import com.google.appengine.api.urlfetch.URLFetchServiceFactory;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 
 public class SystemInitializeUtil {
 	
@@ -71,9 +78,25 @@ public class SystemInitializeUtil {
 
 		try {
 
+			//google app engine
+		    URLFetchService fetcher = URLFetchServiceFactory.getURLFetchService();
+
+		    URL dataURL = new URL("http://www.finviz.com/export.ashx?v=111");
+		    HTTPRequest fetchreq = new HTTPRequest(dataURL);
+		    HTTPResponse fetchresp = fetcher.fetch(fetchreq);
+		    System.out.println("Response Code: " + fetchresp.getResponseCode());
+		    //new String(fetchresp.getContent());
+		    InputStream is = new ByteArrayInputStream(fetchresp.getContent());
+		    
+		    
+
 			System.out.println("Started:"+(new Date()).toString());
-			URLConnection conn = new URL("http://www.finviz.com/export.ashx?v=111").openConnection();
-			InputStream is = conn.getInputStream();
+//			URLConnection conn = new URL("http://www.finviz.com/export.ashx?v=111").openConnection();
+//			InputStream is = conn.getInputStream();
+
+            //URL url = new URL("http://www.finviz.com/export.ashx?v=111");
+            //InputStream is = url.openStream();
+            
 			System.out.println("Online File Loaded:"+(new Date()).toString());
 			
 			ParseCSVFile.parseOnlineCSVTicker(is, true);
