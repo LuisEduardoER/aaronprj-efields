@@ -32,13 +32,15 @@ public class DataFactory {
 	private static DecimalFormat decimalFormat = new DecimalFormat("#.0000");
 
 	public static void initDataFactory(){
-		
-		int vtiming = 20;
+
+		System.out.println("initDataFactory...");
+		long vtiming = 1;
 		scheduler = Executors.newScheduledThreadPool(1);
 		scheduler.scheduleWithFixedDelay(new Runnable() {
 			public void run() {
 				try {
-					System.out.println("initDataFactory...");
+
+					System.out.println("DataFactory initTickers...");
 					//Date b = new Date();
 					SystemInitializeUtil.initTickers();
 					
