@@ -26,10 +26,14 @@ public class CommonEntityManager{
 	private static ObjectContainer objdb;
 	//user.dir
 	//
-	final static String DB4OFILENAME = System.getProperty("user.home") + "/efieldsdb.db4o";
+	//final static String DB4OFILENAME = System.getProperty("user.home") + "/efieldsdb.db4o";
 	
 	public static void verifyEntityManager(){
 		if(null == objdb || objdb.close()){
+			String DB4OFILENAME = CommonEntityManager.class.getResource("").getPath();
+			DB4OFILENAME = DB4OFILENAME.substring(0, DB4OFILENAME.indexOf("WEB-INF"));
+			DB4OFILENAME += "/efieldsdb.db4o";
+
 			EmbeddedConfiguration configuration = Db4oEmbedded.newConfiguration();
 			/**
 			 * db4o uses the concept of activation to avoid loading to much data into memory

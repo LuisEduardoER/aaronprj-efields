@@ -34,7 +34,7 @@ public class DataFactory {
 	public static void initDataFactory(){
 
 		System.out.println("initDataFactory...");
-		long vtiming = 1;
+		long vtiming = 100;
 		scheduler = Executors.newScheduledThreadPool(1);
 		scheduler.scheduleWithFixedDelay(new Runnable() {
 			public void run() {

@@ -29,7 +29,7 @@ public class SystemInitializeUtil {
     	u.setPassword("password");
     	u.setUserName("userName");
     	
-    	CommonEntityManager.save(u);
+    	//CommonEntityManager.save(u);
     	
     	Account act = new Account();
     	act.setUser(u);
@@ -56,7 +56,7 @@ public class SystemInitializeUtil {
     	u.setPassword("password");
     	u.setUserName("userName1");
 
-    	CommonEntityManager.save(u);
+    	//CommonEntityManager.save(u);
 
     	act.setUser(u);
     	act.setAccountCode("AC1");
