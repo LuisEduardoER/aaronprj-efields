@@ -10,26 +10,43 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.aaronprj.common.enums.ExchangeType;
 import com.aaronprj.common.enums.TickerClassType;
 import com.aaronprj.common.utils.CommonEntityManager;
-import com.aaronprj.common.web.resource.ResourceServices;
 import com.aaronprj.efields.dataservice.DataFactory;
+import com.aaronprj.efields.dataservice.DataService;
 import com.aaronprj.entities.efields.Account;
 import com.aaronprj.entities.efields.QuoteFeed;
 import com.aaronprj.entities.efields.Ticker;
+import com.db4o.ObjectContainer;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 
 
 @Path("/market")
 public class MarketDataResource extends ResourceServices{
+
 	
-	@Path("/tickers/{classtype}")
+	@Path("/tickers/{exchangeType}/{classtype}")
     @GET 
 	@Produces(MediaType.APPLICATION_JSON)
-    public String getMarketTickers(@PathParam("classtype") String classtype) {
+    public String getMarketTickers(@PathParam("exchangeType") String exchangeType, @PathParam("classtype") String classtype) {
     	
-		List<Ticker> tickers = DataFactory.getTopTickers(TickerClassType.valueOf(classtype.trim().toUpperCase()));
+		List<Ticker> tickers = DataFactory.getTopTickers(ExchangeType.valueOf(exchangeType), TickerClassType.valueOf(classtype.trim().toUpperCase()));
+
+    	if(null == tickers || tickers.isEmpty()){
+            return this.writeValueAsString(generateResult(null));
+    	}
+
+    	return this.writeValueAsString(generateResult(tickers));
+    }
+
+	@Path("/tickers/{quote}")
+    @GET 
+	@Produces(MediaType.APPLICATION_JSON)
+    public String getSearchedQuotes(@PathParam("quote") String quote) {
+
+		List<Ticker> tickers = DataFactory.getTickers(quote);
 
     	if(null == tickers || tickers.isEmpty()){
             return this.writeValueAsString(generateResult(null));
@@ -44,9 +61,11 @@ public class MarketDataResource extends ResourceServices{
 	@Produces(MediaType.APPLICATION_JSON)
     public String getWatchList(@PathParam("sessionid") String sessionid) {
 
-    	Account account = DataFactory.getAccount(sessionid);
     	String responseMsg = "";
-    	if(null != account){
+		ObjectContainer objdb = CommonEntityManager.getObjectContainer();
+		Account account = DataService.checkSession(sessionid,objdb);
+
+		if(null != account){
 	    	String qstr = "";
 	    	for(String q:account.getWatchList()){
 	    		if("".equals(qstr)){
@@ -67,6 +86,7 @@ public class MarketDataResource extends ResourceServices{
     	}
         return this.writeValueAsString(generateResult(null));
     }
+
 
 	@SuppressWarnings("unchecked")
 	@Path("/quotes/{quote}")
@@ -90,13 +110,18 @@ public class MarketDataResource extends ResourceServices{
 	@Produces(MediaType.APPLICATION_JSON)
     public String addWatch(@PathParam("quote") String quote,@PathParam("sessionid") String sessionid) {
 
-		Account account = DataFactory.getAccount(sessionid);
-		if(null == account.getWatchList()){
-			account.setWatchList(new ArrayList<String>());
-		}
-		account.getWatchList().add(quote);
+		ObjectContainer objdb = CommonEntityManager.getObjectContainer();
+		Account account = DataService.checkSession(sessionid,objdb);
 
-		CommonEntityManager.save(account);
+		if(null != account){
+			if(null == account.getWatchList()){
+				account.setWatchList(new ArrayList<String>());
+			}
+			account.getWatchList().add(quote);
+	
+			objdb.store(account);
+			objdb.commit();
+		}
         
     	return this.writeValueAsString(generateResult());
     }
@@ -106,12 +131,18 @@ public class MarketDataResource extends ResourceServices{
 	@Produces(MediaType.APPLICATION_JSON)
     public String removeWatch(@PathParam("quote") String quote,@PathParam("sessionid") String sessionid) {
 
-		Account account = DataFactory.getAccount(sessionid);
-		if(null != account.getWatchList()){
-			account.getWatchList().remove(quote);
-			CommonEntityManager.save(account);
+		ObjectContainer objdb = CommonEntityManager.getObjectContainer();
+		Account account = DataService.checkSession(sessionid,objdb);
+
+		if(null != account){
+
+			if(null != account.getWatchList()){
+				account.getWatchList().remove(quote);
+				objdb.store(account);
+				objdb.commit();
+			}
 		}
-        
+		
     	return this.writeValueAsString(generateResult());
     }
 	
