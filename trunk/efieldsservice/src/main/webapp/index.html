@@ -83,7 +83,7 @@ $(document).ready(function(){
 	
 	if("null" != userSession){
 	
-		checklogin(userSession);
+		checklogin();
 		
 	}
 		
@@ -98,15 +98,17 @@ $(document).ready(function(){
 			
 			
 			setTimeout(function(){
-				$('#userinforbar')[0].textContent = "Account: " + userAccount.accountCode;
+					userAccount.netValue = new Number(userAccount.netValue);
+					$('#userinforbar')[0].textContent = "Account: " + userAccount.accountCode + " Net Value: " + userAccount.netValue.toFixed(2);
 			
 				var amenu = $('.menuitem')[0];
 				loadWatchList(amenu) ;
-			},1000);
+			},600);
 		}else{
 			setCookie('cookie_aaron_prj_efields_session', null,null)
 		}
     },1000);
+	
 		   
 });
 	
@@ -136,7 +138,7 @@ $(document).ready(function(){
                     <div class="slides">
                         <!-- SLIDES -->
                         <div style="position: absolute; opacity: 1; z-index: 90;" class="slide">
-                            <a href="#"><img src="images/efields_logo.png" width="400" alt="eFields"></a>
+                            <a href="#"><img src="pix/watchlist.png" alt="eFields"></a>
                             <h1>eFields</h1>
                             <h2>eFields – Virtual stock Exchange</h2>
                             <img src="images/efields_logo_small.png" alt="New product" class="new_tag">																					

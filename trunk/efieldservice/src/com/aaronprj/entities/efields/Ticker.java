@@ -1,6 +1,8 @@
 package com.aaronprj.entities.efields;
 
-public class Ticker {
+import com.aaronprj.common.enums.ExchangeType;
+
+public class Ticker  implements Comparable<Ticker>{
 
 	private String ticker;
 	private String company;
@@ -14,6 +16,7 @@ public class Ticker {
 	private String change;
 	private Double percentageChange;
 	private Double volume;
+	private ExchangeType exchangeType;
 	
 	public String getTicker() {
 		return ticker;
@@ -86,6 +89,17 @@ public class Ticker {
 	}
 	public void setVolume(Double volume) {
 		this.volume = volume;
+	}
+	public ExchangeType getExchangeType() {
+		return exchangeType;
+	}
+	public void setExchangeType(ExchangeType exchangeType) {
+		this.exchangeType = exchangeType;
+	}
+
+	@Override
+	public int compareTo(Ticker o) {
+		return o.getTicker().compareTo(this.getTicker());
 	}
 	
 }

@@ -4,36 +4,11 @@
         <div class="eq"><h1><span>ACCOUNT: </span> WATCH LIST</h1></div>
     </div>
     <div>
-<table >
-  <tr>
-    <td class="box-style-1">
-        <div style="width:90%;height:36px;background-color:#fdfcfc;border-bottom:1px solid #eeeeee;padding-left:6px;padding-top:6px;">
-        <table>
-          <tr>
-            <td width="160p"><input type="text" value="quote..."  onfocus="if(this.value == 'quote...') this.value = '';" onblur="if(this.value=='') this.value='quote...';"/>
-            </td>
-            <td>
-            <input type="button"  name="addquote" class="button subbutton" value="Add Quote"/>
-            </td>
-            <td>
-            <div class="fLeft bold pL10 t4 link">
-                <span class="bold txt12">Actives</span> &nbsp;|&nbsp; 
-                <a onclick='#' class="txt12 toggleLinks" href="#">% Gainers</a> &nbsp;|&nbsp; 
-                <a onclick='#' class="txt12 toggleLinks" href="#">% Losers</a> &nbsp;|&nbsp; 
-                <a onclick='#' class="txt12 toggleLinks" href="#">$ Gainers</a> &nbsp;|&nbsp; 
-                <a onclick='#' class="txt12 toggleLinks" href="#">$ Losers</a>
-            </div>
-            </td>
-          </tr>
-        </table>
-         </div>
-    </td>
-  </tr>
   <tr>
     <td>
     <table border="1">
         <tbody class="header">
-            <tr>	
+            <tr>
             <th width="60" style="text-align:left" class="bBotDblLgt pL10">Ticker</th>
             <th width="100" style="text-align:right" class="bBotDblLgt pL10">Price$</th>
             <th width="150" style="text-align:right" class="bBotDblLgt pL10">Trade</th>
@@ -44,6 +19,7 @@
             <th width="100" style="text-align:right" class="bBotDblLgt pL10">Open$</th>
             <th width="150" style="text-align:right" class="bBotDblLgt pL10">Makret Cap</th>
             <th width="150" style="text-align:right" class="bBotDblLgt pL10">Volume</th>
+            <th width="30" style="text-align:left" class="bBotDblLgt pL10"></th>
             </tr>
         </tbody>
         <tbody id="watchlist"></tbody>
@@ -62,8 +38,8 @@
 		<td class="txt12 bBotLgt left pL10 link borderTopWhite"><a href="javascript:loadSnapshot('{{=t}}');">{{=t}}</a></td>
 		<td class="txt12 bBotLgt borderTopWhite" style="text-align:right;">{{=l}}</td>
 		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">
-			<a href="javascript:loadDefaultTrade('{{=t}}',0);"><img src="images/buyGreen.png"></a>&nbsp;
-			<a href="javascript:loadDefaultTrade('{{=t}}',1);"><img src="images/sellGreen.png"></a></td>
+			<a href="javascript:loadTrade('{{=t}}','BUY');"><img src="images/buyGreen.png"></a>&nbsp;
+			<a href="javascript:loadTrade('{{=t}}','SELL');"><img src="images/sellGreen.png"></a></td>
 		</td>
 		
 		{{#if c > 0 }}
@@ -78,6 +54,7 @@
 		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">{{=op}}</td>
 		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">{{=mc}}</td>
 		<td class="txt12 right bBotLgt borderTopWhite" style="text-align:right">{{=vo}}</td>
+		<td class="txt12 bBotLgt left pL10 link borderTopWhite"><a href="javascript:removeWatch('{{=t}}');"><img src="images/remove_from_cart.png"></a></td>
 	</tr>
 </script>
 <script type="text/javascript" charset="utf-8">
@@ -95,7 +72,7 @@
 				$("#watchlist").html( html );
 			});	
 			
-		}, 8000);
+		}, 10000);
 		
 	},10000);
 

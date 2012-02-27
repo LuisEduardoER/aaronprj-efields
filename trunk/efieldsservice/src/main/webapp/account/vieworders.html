@@ -1,80 +1,18 @@
+<div class="content-box-style">
+    <div id="companyname">
+        <div class="eq"><h1><span>ACCOUNT: </span> Orders</h1></div>
+    </div>
+<!--MAIN CONTENT AREA-->
+<div id="etContent">
+<!--      
+<form name="viewForm" method="get">
 
-      <!--MAIN CONTENT AREA-->
-      <div id="etContent">
-        
-<div style="display:none;" id="collapsed_search">
-<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
-<tbody><tr>
-<th align="right" nowrap="true" width="100">Account:</th><td align="left" nowrap="true" width="270">6783-3775&nbsp; aaron.xiong</td><th align="right" nowrap="true" width="150">Symbols:</th><td colspan="2" align="left" nowrap="true"><input size="20" name="order_symbols" type="text"></td>
-</tr>
-<tr>
-<td align="right" nowrap="true" width="100"><b>Date range:</b></td><td align="left" nowrap="true" width="300">From <input size="10" name="from_date" maxlength="10" type="text">
-			To: <input size="10" name="to_date" maxlength="10" type="text"> (mm/dd/yyyy)
-		</td><th align="right">Results per page:</th><td align="left"><select name="results_perpage"><option selected="selected" value="20">20</option><option value="50">50</option></select></td><td><input src="vieworders_files/b_submit_eng.gif" value="GO" alt="SUBMIT" name="submit" border="0" type="Image"></td>
-</tr>
-<tr>
-<th colspan="5" align="right">
-<div style="text-align:right;" id="expandlink">
-<a onclick='s_objectID="SClink_2";return this.s_oc?this.s_oc(e):true' href="javascript:expandCollapse(0,'6783-3775');"><img src="images/i_expand_eng.gif" alt="Expand" align="absmiddle" border="0" height="13" width="13"> Expand Search Criteria</a>&nbsp;&nbsp;</div>
-</th>
-</tr>
-</tbody></table>
-</div><div style="display:none;" id="expanded_search">
-<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
-<tbody><tr>
-<th align="right">Account:</th><td align="left">6783-3775&nbsp; aaron.xiong</td><th align="right">Symbols:</th><td colspan="2" align="left"><input size="20" name="order_symbols" type="text"></td>
-</tr>
-<tr>
-<th align="right">Date range:</th>
-<td align="left">From 
-<input size="10" name="from_date" maxlength="10" type="text">
-			To: <input size="10" name="to_date" maxlength="10" type="text"> (mm/dd/yyyy)
-		</td>
-        <th align="right">Order type:</th>
-        <td colspan="2" align="left">
-        <select onchange="javascript:changeEGQual(this.value);" name="order_type"><option selected="selected" value="">All</option><option value="B">Buy</option><option value="S">Sell</option><option value="T">Sell Short</option><option value="C">Buy to Cover</option><option value="M">MF Exchange</option><option value="Q">Execution Guarantee</option><option value="E">Extended Hours</option></select></td>
-</tr>
-<tr>
-<th align="right">Order number:</th><td align="left"><input size="10" name="order_number" type="text"></td><th align="right">Order status:</th><td colspan="2"><select onchange="javascript:setreqType(this.value);" name="order_status"><option selected="selected" value="">All</option><option value="O">Open</option><option value="X">Executed</option><option value="C R S">Cancelled</option><option value="I">Individual Fills</option><option value="P">Expired</option><option value="Z">Rejected</option></select></td>
-</tr>
-<tr>
-<th align="right">Or Security type:</th><td align="left"><select name="security_type"><option selected="selected" value="">All</option><option value="S">Stocks</option><option value="O">Options</option><option value="F">Mutual Funds</option><option value="B">Bonds</option></select></td><th align="right">Results per page:</th><td align="left"><select name="results_perpage"><option selected="selected" value="20">20</option><option value="50">50</option></select></td><td><input src="vieworders_files/b_submit_eng.gif" value="GO" alt="SUBMIT" name="submit" border="0" type="Image"></td>
-</tr>
-<tr>
-<th colspan="5" align="right">
-<div style="text-align:right;" id="expandlink">
-<a onclick='s_objectID="SClink_3";return this.s_oc?this.s_oc(e):true' href="javascript:expandCollapse(1,'6783-3775');"><img src="images/i_collapse_eng.gif" alt="Collapse" align="absmiddle" border="0" height="13" width="13"> Collapse Search Criteria</a>&nbsp;&nbsp;</div>
-</th>
-</tr>
-</tbody>
-</table>
-
-</div>
-<form name="viewForm" method="get" action="/e/t/invest/vieworders">
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
-  <tbody>
-    <tr valign="bottom">
-      <td class="pageTitle">View Orders</td>
-      <td align="right" width="57">
-      <img src="images/i_inboxoff_2_img.gif" alt="Alerts" border="0" height="14" width="10" />
-      <a onclick='#' class="img-link" href="#">Alerts</a>
-      </td>
-      <td align="right" width="185">
-      <input src="images/i_refresh.gif" alt="Refresh" align="absmiddle" border="0" height="18" type="image" width="64" />
-        <a onclick='#' href="#">
-        <img src="images/i_portfolio.gif" alt="Portfolio" align="absmiddle" border="0" height="18" width="77" /></a>
-        <a onclick='#' href="#">
-        <img src="images/i_help.gif" alt="Help" align="absmiddle" border="0" height="18" width="42" /></a>
-        </td>
-    </tr>
-  </tbody>
-</table>
-<table align="center" bgcolor="#eeeeee" border="0" cellpadding="3" cellspacing="0" width="98%">
+<table align="center" bgcolor="#eeeeee" border="0" cellpadding="3" cellspacing="0" width="890">
   <tbody>
     <tr valign="middle">
       <td>
       <a onclick='#'>Open</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <b>Executed</b>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <a onclick='#'><b>Executed</b></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <a onclick='#'>Cancelled</a>&nbsp;|&nbsp;&nbsp;&nbsp;
       <a onclick='#'>Expired</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <a onclick='#'>Rejected</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -82,32 +20,13 @@
     </tr>
   </tbody>
 </table>
-<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+<table align="center" border="0" cellpadding="2" cellspacing="5" width="100%">
   <tbody>
     <tr>
       <th align="right">Symbols:</th>
       <td align="left"><input size="20" name="order_symbols2" type="text" /></td>
-      <th align="right">Order type:</th>
-      <td align="left"><select onchange="javascript:changeEGQual(this.value);" name="order_type2">
-        <option value="">All</option>
-        <option selected="selected" value="B">Buy</option>
-        <option value="S">Sell</option>
-        <option value="T">Sell Short</option>
-        <option value="C">Buy to Cover</option>
-        <option value="M">MF Exchange</option>
-        <option value="Q">Execution Guarantee</option>
-        <option value="E">Extended Hours</option>
-      </select></td>
-    </tr>
-    <tr>
-      <th align="right">Date range:</th>
-      <td align="left">From
-        <input size="10" name="from_date2" maxlength="10" type="text" />
-        To:
-        <input size="10" name="to_date2" maxlength="10" type="text" />
-        (mm/dd/yyyy) </td>
       <th align="right">Order status:</th>
-      <td colspan="2" align="left"><select onchange="javascript:setreqType(this.value);" name="order_status2">
+      <td align="left"><select onchange="javascript:setreqType(this.value);" name="order_status2">
         <option value="">All</option>
         <option value="O">Open</option>
         <option selected="selected" value="X">Executed</option>
@@ -117,20 +36,27 @@
       </select></td>
     </tr>
     <tr>
-      <th align="right">Order number:</th>
-      <td align="left"><input size="10" name="order_number2" type="text" /></td>
+      <th align="right">Order type:</th>
+      <td align="left"><select onchange="javascript:changeEGQual(this.value);" name="order_type2">
+        <option selected="selected" value="">All</option>
+        <option value="B">Buy</option>
+        <option value="S">Sell</option>
+      </select></td>
       <th align="right">Results per page:</th>
-      <td ><select name="results_perpage2">
+      <td align="left">
+      <select name="results_perpage2">
         <option selected="selected" value="20">20</option>
         <option value="50">50</option>
       </select>
-        <input src="vieworders_files/b_submit_eng.gif" value="GO" alt="SUBMIT" name="submit2" border="0" type="image" /></td>
+      </td>
+      <td align="right"><input src="images/b_submit_eng.gif" value="GO" alt="SUBMIT" name="submit2" border="0" type="image" /></td>
     </tr>
   </tbody>
 </table>
+-->
 
 <div id="showsearch">
-<table bgcolor="#ffffff" border="0" cellpadding="2" cellspacing="0" width="100%">
+<table bgcolor="#ffffff" border="0" cellpadding="2" cellspacing="0" width="890">
 <tbody>
 <tr>
 <td colspan="2" class="rev">
@@ -144,46 +70,44 @@
 <table bgcolor="#ffffff" border="0" cellpadding="3" cellspacing="1" width="100%">
   <tbody>
     <tr align="center" bgcolor="#cccccc" valign="bottom">
-      <td rowspan="2"><b>Date</b></td>
-      <th rowspan="2">Order #</th>
-      <th rowspan="2">Type</th>
-      <th class="rev" colspan="6" align="center" bgcolor="#999999">Order Summary</th>
-      <th rowspan="2">Price<br />
+      <td width="14%" rowspan="2"><b>Date</b></td>
+      <th class="rev" colspan="4" align="center" bgcolor="#999999">Order Summary</th>
+      <th width="11%" rowspan="2">Price<br />
         Executed</th>
-      <th rowspan="2">Status</th>
-      <th rowspan="2">Related Links</th>
+      <th width="9%" rowspan="2">Status</th>
     </tr>
     <tr align="center" bgcolor="#cccccc" valign="bottom">
-      <th>Order Type</th>
-      <th>Quantity</th>
-      <th>Symbol</th>
-      <th>Price Type</th>
-      <th>Term</th>
-      <th>Price</th>
-    </tr>
-    <tr align="center" bgcolor="#ffffff" valign="top">
-      <td> 03/02/11</td>
-      <td><a onclick='#' href="#">111</a></td>
-      <td>Stock<br /></td>
-      <td> Buy <br /></td>
-      <td> 300 <br /></td>
-      <td nowrap="nowrap">BQI</td>
-      <td nowrap="nowrap">Limit</td>
-      <td nowrap="nowrap">Day</td>
-      <td> 0.57</td>
-      <td>0.57<br /></td>
-      <td> Executed</td>
-      <td><a onclick='#' href="#">Portfolios</a></td>
+      <th width="9%">Order Type</th>
+      <th width="12%">Quantity</th>
+      <th width="10%">Symbol</th>
+      <th width="16%">Price Type</th>
     </tr>
     <tr>
       <td colspan="99" bgcolor="#999999">&nbsp;</td>
     </tr>
   </tbody>
+  <tbody id="orderitems">
+  </tbody>
 </table>
 
 </form>
+   
+        
+</div>
+<!--END MAIN CONTENT AREA--> 
+</div>
 
-        
-        
-      </div>
-      <!--END MAIN CONTENT AREA-->
+<!--====== Template ======-->
+<script id="orderitemsTmpl" type="text/x-jquery-tmpl">
+
+    <tr align="center" bgcolor="#ffffff" valign="top">
+      <td>{{=tradingDate}}</td>
+      <td>{{=tradEntity.orderType}}</td>
+      <td>{{=tradEntity.quantity}}</td>
+      <td nowrap="nowrap">{{=tradEntity.ticker}}</td>
+      <td nowrap="nowrap">{{=tradEntity.priceType}}</td>
+      <td>{{=tradEntity.price}}<br /></td>
+      <td>{{=status}}</td>
+    </tr>
+	
+</script>

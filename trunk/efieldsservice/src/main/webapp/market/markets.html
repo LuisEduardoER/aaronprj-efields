@@ -10,10 +10,10 @@
         <table>
           <tr>
             <td width="160p">
-                <select style="width:120px;" name="rankingUniverse" onchange="">
-                    <option value="DOW" selected="selected">DOW</option>
-                    <option value="USN">NYSE</option><option value="USQ">NASDAQ</option>
-                    <option value="USA">AMEX</option>
+                <select style="width:120px;" id="exchangeType" name="exchangeType" onchange='loadMarkets("actives");'>
+                    <option value="NYSE" selected="selected">NYSE</option>
+                    <option value="NASDAQ">NASDAQ</option>
+                    <option value="AMEX">AMEX</option>
                 </select>
             </td>
             <td>

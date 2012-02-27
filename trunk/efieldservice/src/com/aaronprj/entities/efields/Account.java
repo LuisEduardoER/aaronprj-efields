@@ -4,10 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aaronprj.common.enums.OrderStatus;
+import com.aaronprj.common.enums.OrderType;
+import com.aaronprj.common.utils.NumberUtil;
 
-public class Account {
+public class Account implements Cloneable{
 
-	private User user;
+
+	private String sessionId;
+	private String userName;
+	private String password;
+	private String firstName;
+	private String email;
+	private String address;
+	private String postCode;
+	private String phoneNumber;
+	
 	private String accountCode;
 	private AccountPreferences accountPreferences;
 	private List<String> watchList;
@@ -34,18 +45,107 @@ public class Account {
 		tradingOrders.add(to);
 		if(OrderStatus.EXECUTED.equals(to.getStatus())){
 			protfolios.add(to);
-			this.netValue -= to.getAmount();
+			if(OrderType.BUY.equals(to.getTradEntity().getOrderType())){
+				this.netValue -= to.getPaidAmount();
+				
+			}else{
+				this.netValue += to.getPaidAmount();
+			}
+			this.netValue = NumberUtil.format2Decimal(this.netValue);
 		}else if(OrderStatus.OPEN.equals(to.getStatus())){
 			pendingOrders.add(to);
 		}
 	}
 	
-	public User getUser() {
-		return user;
+
+	public List<TradingOrder> getPendingOrders() {
+		return pendingOrders;
 	}
-	public void setUser(User user) {
-		this.user = user;
+
+	public void setPendingOrders(List<TradingOrder> pendingOrders) {
+		this.pendingOrders = pendingOrders;
 	}
+
+	public String getSessionId() {
+		return sessionId;
+	}
+
+
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
+	}
+
+
+	public String getUserName() {
+		return userName;
+	}
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+
+	public String getPostCode() {
+		return postCode;
+	}
+
+
+	public void setPostCode(String postCode) {
+		this.postCode = postCode;
+	}
+
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+
 	public String getAccountCode() {
 		return accountCode;
 	}

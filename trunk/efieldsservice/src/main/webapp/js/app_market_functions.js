@@ -3,6 +3,7 @@
 function menuSwitch(amenu){
 	
 	clearInterval(refreshId);
+	
 	$(".menuitem").removeClass("active");
 	$(amenu).addClass("active");
 }
@@ -15,7 +16,7 @@ function loginsystem(){
 
 	$.ajax({
 		type: 'POST',
-		url:"resource/user/login/"+userid+"/"+password,
+		url:"resource/account/login/"+userid+"/"+password,
 		dataType: 'json',
 		success: function(result) {
 			if(result.success == true){
@@ -29,11 +30,12 @@ function loginsystem(){
 				$('#body-column').hide();
 			
 				setTimeout(function(){
-					$('#userinforbar')[0].textContent = "Account: " + userAccount.accountCode;
+					userAccount.netValue = new Number(userAccount.netValue);
+					$('#userinforbar')[0].textContent = "Account: " + userAccount.accountCode + " Net Value: " + userAccount.netValue.toFixed(2);
 				
 					var amenu = $('.menuitem')[0];
 					loadWatchList(amenu) ;
-				},1000);
+				},600);
 			
 			}else{
 				alert(result.msgCode+"\n"+result.msgDiscription);
@@ -52,9 +54,9 @@ function logoutsystem(){
 	document.location = "index.html";
 }
 
-function checklogin(userSession){
-	
-	$.post("resource/user/logincheck/"+userSession, function(result) {
+function checklogin(){
+	userSession = getCookie("cookie_aaron_prj_efields_session");
+	$.post("resource/account/logincheck/"+userSession, function(result) {
 		if(result.success == true){
 			userAccount = result.entity;
 		}else{
@@ -83,6 +85,29 @@ function showMyMessage(){
 	$('#orderdetail').show();
 }
 
+function addWatch(quote){
+	
+	userSession = getCookie("cookie_aaron_prj_efields_session");
+	$.post('resource/market/addwatch/'+quote+'/'+userSession, function(result) {
+		if(result.success == true){
+			
+		}else{
+			alert(result.msgCode+"\n"+result.msgDiscription);
+		}
+	});	
+}
+
+function removeWatch(quote){
+	
+	userSession = getCookie("cookie_aaron_prj_efields_session");
+	$.post('resource/market/removewatch/'+quote+'/'+userSession, function(result) {
+		if(result.success == true){
+			
+		}else{
+			alert(result.msgCode+"\n"+result.msgDiscription);
+		}
+	});	
+}
 
 function loadWatchList(amenu) {
 	
@@ -94,15 +119,33 @@ function loadWatchList(amenu) {
 		$.getJSON('resource/market/watchlist/'+userSession, function(data) {
 			
 			var tickers = data.entities;
-			
-		//alert("watchlist 2");
-			// An array renders once for each item (concatenated)
 			var html = $("#watchlistTmpl").render( tickers );
 			
 			// Insert as HTML
 			$("#watchlist").html( html );
 		});	
 				
+	});
+}
+
+function loadSearchedSymbols(quote) {
+	
+	//$('#content').load('account/accountpref.html #content');
+	$('#content').load('market/symbols.html', function() {
+		
+		//retrieve setting data
+		$.getJSON('resource/market/tickers/'+quote.toUpperCase(), function(data) {
+			//alert("isadminstate:"+isadminstate);
+			//entities
+			var tickers = data.entities;
+			
+			// An array renders once for each item (concatenated)
+			var html = $( "#markettickerTmpl" ).render( tickers );
+			
+			// Insert as HTML
+			$( "#markettickers" ).html( html );
+		});	
+		
 	});
 }
 
@@ -114,7 +157,7 @@ function loadDefaultMarkets(amenu) {
 	$('#content').load('market/markets.html', function() {
 		
 		//retrieve setting data
-		$.getJSON('resource/market/tickers/actives', function(data) {
+		$.getJSON('resource/market/tickers/NYSE/actives', function(data) {
 			//alert("isadminstate:"+isadminstate);
 			//entities
 			var tickers = data.entities;
@@ -131,8 +174,9 @@ function loadDefaultMarkets(amenu) {
 
 function loadMarkets(markettype) {
 	
+	var et = $("#exchangeType")[0].value;
 	//retrieve setting data
-	$.getJSON('resource/market/tickers/'+markettype, function(data) {
+	$.getJSON('resource/market/tickers/'+et+'/'+markettype, function(data) {
 		//alert("isadminstate:"+isadminstate);
 		//entities
 		var tickers = data.entities;
@@ -170,28 +214,38 @@ function loadDefaultTrade(amenu) {
 	
 	//$('#content').load('account/accountpref.html #content');
 	$('#content').load('market/trade.html', function() {
-	  //alert('Load account/accountpref.html was performed.');
+		
+			// An array renders once for each item (concatenated)
+			var html = $("#tradorderinforTmpl").render(null);
+			
+			// Insert as HTML
+			$("#tradorderinfor").html( html );
 	});
 
 }
 
-function loadTrade(quote, isbuy) {
-	
-	menuSwitch(amenu.parentElement);
+function loadTrade(quote, orderType) {
 	
 	$('#content').load('market/trade.html', function() {
-		$.getJSON('resource/market/quotes/'+quote, function(data) {
-			
-			var ticker = data.entities[0];
-			
-			// An array renders once for each item (concatenated)
-			var html = $("#snapshotTmpl").render( ticker );
-			
-			// Insert as HTML
-			$("#snapshot").html( html );
-		});	
+		
+		loadTradeInfor(quote, orderType) ;
 		
 	});
+
+}
+
+function loadTradeInfor(quote, orderType) {
+	
+	$.getJSON('resource/market/quotes/'+quote, function(data) {
+		
+		var ticker = data.entities[0];
+		
+		ticker.orderType = orderType;
+		// An array renders once for each item (concatenated)
+		var html = $("#tradorderinforTmpl").render( ticker );
+		// Insert as HTML
+		$("#tradorderinfor").html( html );
+	});	
 
 }
 
@@ -202,7 +256,19 @@ function loadPortfolio(amenu) {
 	
 	//$('#content').load('account/accountpref.html #content');
 	$('#content').load('account/portfolioview.html', function() {
-	  //alert('Load account/accountpref.html was performed.');
+	
+	
+		userSession = getCookie("cookie_aaron_prj_efields_session");
+		$.getJSON('resource/trading/portfolio/'+userSession, function(data) {
+			
+			var tickers = data.entities;
+			
+			// An array renders once for each item (concatenated)
+			var html = $("#portfolioitemsTmpl").render( tickers );
+			// Insert as HTML
+			$("#portfolioitems").html( html );
+			
+		});	
 	});
 
 }
@@ -213,7 +279,7 @@ function loadAccountInfor(amenu) {
 	menuSwitch(amenu.parentElement.parentElement.parentElement);
 	
 	$('#content').load('account/accountpref.html', function() {
-	  //alert('Load account/accountpref.html was performed.');
+		
 	});
 
 }
@@ -224,7 +290,10 @@ function loadOrdersView(amenu) {
 	menuSwitch(amenu.parentElement.parentElement.parentElement);
 	
 	$('#content').load('account/vieworders.html', function() {
-	  //alert('Load account/accountpref.html was performed.');
+	  
+		// An array renders once for each item (concatenated)
+		var html = $("#orderitemsTmpl").render( userAccount.tradingOrders );
+		$("#orderitems").html( html );
 	});
 
 }
@@ -239,256 +308,83 @@ function loadSupportView(amenu) {
 
 }
 
-
-
-
-function searchItems() {
-	if(keywords.value.length == 0){
-		alert("You didn's input any words to search. \nPlease input any keywords to search.");
-		return false;
-	}
+function previewOrder(){
 	
-	var courses = "";
-	$('input[name^="coursechecks"]').each(function() {
-		if($(this).attr('checked')){
-			courses +=$(this).attr('value')+",";
-		}
-	});
+	var formdata = $('#trade-order-form').serialize();
 	
-	var authornames = authorname.value;
+	var formo = serializeObject($('#trade-order-form'));
 	
-	var querystring = "";
-	if(courses.length > 0){
-		querystring = "?course=" + courses;
-	}
-	if(authornames.length > 0){
-		if(querystring.length == 0){
-			querystring ="?author="+authornames;
-		}else{
-			querystring +="&author="+authornames;
-		}
-	}
+	var theamount = new Number(formo.quantity * formo.price); 
+	formo.theamount = theamount.toFixed(2);;
 	
+	//transaction=1&quantity=100&symbol=AAPL&priceType=2&tempPrice=50
 	
-	//alert("test tmplate querystring:"+querystring);
+	$('#content').load('market/tradeconfirm.html', function() {
+		$('#presubmitformdata')[0].value = formdata;
 		
-	//retrieve setting data
-	$.getJSON('resource/item/items/fulltext/'+keywords.value+querystring, function(data) {
-		if(isadminstate){
-			mgItemList(data);
-		}else{
-			loadItemList(data);
-		}
+		// An array renders once for each item (concatenated)
+		var html = $("#tradorderinforTmpl").render( formo );
+		$("#theorderinformation").html( html );
+	
+		$.getJSON('resource/market/quotes/'+formo.symbol, function(data) {
+			
+			var ticker = data.entities[0];
+			
+			// An array renders once for each item (concatenated)
+			var html = $("#symbolinformationTmpl").render( ticker );
+			// Insert as HTML
+			$("#symbolinformation").html( html );
+		});	
+	
+		
+	});
+
+}
+
+function refrechQuoteInfor(quote){
+	
+	$.getJSON('resource/market/quotes/'+quote.toUpperCase(), function(data) {
+		return data.entities;
 	});	
-	
-	searchcategory.value = 0;
-	
-	$('#searchoption').hide();
-	
+	return null;
 }
 
-function searchoption(){
-	$("#searchoption").toggle(1000);
-}
-
-
-function loadItems(course) {
-	
-	//retrieve setting data
-	$.getJSON('resource/item/items/course/'+course, function(data) {
-		if(isadminstate){
-			mgItemList(data);
-		}else{
-			loadItemList(data);
-		}
-	});	
-}
-
-function loadItemList(data){
-	
-	
-	$('#itemdetail').hide();
-	$('#orderdetail').hide();
-	$('#itemlist').show();
-		
-	var item = $('#itemlist');					
-	item.empty();	
-	item.setTemplateURL('items.html');
-	for(var i=0; i<data.uiMenuItems.length; i++){
-		if(data.uiMenuItems[i].key =="TextBook"){
-			vlistedbooks = data.uiMenuItems[i].value;
-			item.processTemplate(data.uiMenuItems[i]);	
-		}
-	}
-	
-	$('a[name^="book"]').click(function() {
-		var itemId=$(this).attr('value');
-		loadItemDetail(itemId);
-		return false;
-	});
-	
-	$('a[name^="addbook"]').click(function() {
-		var itemId=$(this).attr('value');
-		var itemName=$(this).attr('itemName');
-		var price=$(this).attr('price');
-		
-		bookorder.additem(itemId,itemName,1,price);
-		loadOrderInfor();
-		
-		return false;
-	});
-}
-
-
-function loadItemDetail(itemid) {
-	
-	$('#orderdetail').hide();
-	$('#itemlist').hide();
-	$('#itemdetail').show();
-	
-	var item = $('#itemdetail');					
-	item.empty();	
-	item.setTemplateURL('itemdetail.html');
-	for(var i=0; i<vlistedbooks.length; i++){
-		if(vlistedbooks[i].id == itemid){
-			var detailsdata = vlistedbooks[i];
-			if(userobj){
-				detailsdata.customerId = userobj.id;
-				detailsdata.customerName = userobj.userName;
-			}else{
-				detailsdata.customerId = 0;
-				detailsdata.customerName = "Guest";
-			}
-			item.processTemplate(detailsdata);
-			loadCommentList(detailsdata.id);
-		}
-	}
-	
-	$('a[name^="addbook"]').click(function() {
-		var itemId=$(this).attr('value');
-		var itemName=$(this).attr('itemName');
-		var price=$(this).attr('price');
-		
-		bookorder.additem(itemId,itemName,1,price);
-		loadOrderInfor();
-		
-		return false;
-	});
-}
-
-
-function loadOrderInfor() {
-	
-	var item = $('#orderinfo');					
-	item.empty();	
-	item.setTemplateURL('parts/orderinfo.html');	
-	item.processTemplate(bookorder);	
-	 
-	$('#orderinfo').show();
-	
-}
-
-
-function loadOrderDetail() {
-	
-	shiftState(false);
-	
-	$('#itemlist').hide();
-	$('#itemdetail').hide();
-	$('#orderinfo').hide();
-	
-	if(userobj){
-		bookorder.customerId = userobj.id;
-		bookorder.customerName = userobj.userName;
-		bookorder.phone = userobj.phoneNamber;
-		bookorder.email = userobj.email;
-		bookorder.shippingAdd = userobj.address;
-		bookorder.postCode = userobj.postCode;
-		
-	}
-	
-	var item = $('#orderdetail');					
-	item.empty();	
-	item.setTemplateURL('parts/orderdetail.html');	
-	item.processTemplate(bookorder);
-	 
-	$('#orderdetail').show();
-	
-}
 
 function placeOrder(){
 	
-	$('#fieldsessionId')[0].value = bookorder.sessionId;
-	$('#fieldcustomerId')[0].value = bookorder.customerId;
+	var formdata = $('#presubmitformdata')[0].value
+	//transaction=1&quantity=100&symbol=AAPL&priceType=2&tempPrice=50
 	
-	var isvalid = true;
-	$("form :text").each(function(i){
-		if (this.value == '' && this.parentNode.tagName == 'TD') {
-			//tagName parentNode
-			$(this).css("background-color","#F66");
-			isvalid = false;
-		}else{
-			$(this).css("background-color","");
-		}
-	});
-	
-	if(isvalid){
-		var sobj = $('#orderfrom').serialize();
-		var urlstring = 'resource/order/placeorder';
-		urlstring = urlstring + "?"+sobj;
-		
-		//alert(urlstring);
-		
-		$.ajax({
-			type: 'POST',
-			url:urlstring,
-			//url: 'resource/order/placeorder?id=0$sessionid=1',
-			//data: sobj,
-			//data: {sessionid:"1",customerName:"customerName",phone:"phone",email:"email"},
-			dataType: 'json',
-			success: function(result) {
-				
-				for(var i=0; i<bookorder.items.length; i++){
-					var itm = bookorder.items[i];
-					addedOrderItem(result.orderNo,itm.itemId, itm.units,itm.unitAmount);
-					
-				}
-				
-				
-				alert(result.msgCode +"\n"+ result.msgDiscription);
-				
-				//initial new order
-				initialOrderInfor();
-			},
-			error: function (request, status, error) {
-				alert('Your order is unsuccessful.');
-			}
-		});	
-	}
-}
-
-function addedOrderItem(orderNo,itemId, units,unitAmount){
-	//"/orderitem/{orderno}/{itemid}/{units}/{price}"
-	var sobj = $('#orderdetail').serialize();
-	var urlstring = 'resource/order/orderitem/'+orderNo+'/'+itemId+'/'+units+'/'+unitAmount;
-	urlstring = urlstring + "?"+sobj;
-	
-	//alert(urlstring);
-	
+	userSession = getCookie("cookie_aaron_prj_efields_session");
 	$.ajax({
 		type: 'POST',
-		url:urlstring,
+		url:"resource/trading/trade/"+userSession+"?"+formdata,
 		dataType: 'json',
 		success: function(result) {
+			if(result.success == true){
+				
+			
+			}else{
+				alert(result.msgCode+"\n"+result.msgDiscription);
+			}
 
-			//alert('Added order item is successful.');
 		},
 		error: function (request, status, error) {
-			alert('Added order item is unsuccessful.');
+			alert('Login system unsuccessful.');
 		}
 	});	
 	
+	checklogin();
+	
+	$('#content').load('account/vieworders.html', function() {
+	
+		// An array renders once for each item (concatenated)
+		var html = $("#orderitemsTmpl").render( userAccount.tradingOrders );
+		$("#orderitems").html( html );
+	});
 }
+
+
 
 function refreshTotal(uobj){
 	for(var i=0; i<bookorder.items.length; i++){
@@ -595,3 +491,20 @@ function checkCookie()
 		}
 	  }
 }
+
+function serializeObject(theform)
+{
+    var o = {};
+    var a = theform.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
