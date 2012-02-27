@@ -1,46 +1,14 @@
 
 <!--MAIN CONTENT AREA-->
-
+<!--MAIN CONTENT AREA-->
 <div class="content-box-style">
-<span class="pageTitle">Account: </span><span class="pagetitlegrey">Portfolios</span>
 <div id="etContent">
-  <table border="0" cellpadding="3" cellspacing="0" width="100%">
+    <div id="companyname">
+        <div class="eq"><h1><span>Portfolios: </span> Stocks</h1></div>
+    </div>
+  <table border="0" cellpadding="3" cellspacing="1" width="100%">
+    <!-- Performance view table header -->
     <tbody>
-    <tr>
-      <td><b> Market Value:
-        
-        $171.01 &nbsp;
-        
-        (<font color="#669900">$43.73</font> / <font color="#669900">36.97%</font>) </b></td>
-      <td align="right"><!--PFM 01-->
-        <table border="0" cellpadding="2" cellspacing="3">
-          <tbody>
-            <tr>
-              <td><b>DJIA</b></td>
-              <td> 12,862.23 </td>
-              <td><img src="images/i_plus5_eng.gif" /> <span class="pos"> +156.82 </span></td>
-              <td><span class="pos"> &nbsp;(+1.23%) </span></td>
-              <td nowrap="nowrap" width="1"><img src="images/spacer.gif" height="1" width="1" /></td>
-              <td><b>Nasdaq</b></td>
-              <td> 2,905.66 </td>
-              <td><img src="images/i_plus5_eng.gif" /> <span class="pos"> +45.98 </span></td>
-              <td><span class="pos"> &nbsp;(+1.61%) </span></td>
-              <td nowrap="nowrap" width="160" align="right">
-                <div class="miniNav" style="padding-top:3px">
-                <a href="javascript:etWin('/e/t/alerts/AlertInbox','SApopup',604,300,'yes','no','yes','no','yes',0,0,ETRADE)" class="img-link">Alerts</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <img src="images/i_help_img.gif" align="absmiddle" border="0" height="16" width="16">&nbsp;
-                <a href="javascript:openHelp('/e/t/estation/contexthelp?id=1308000000&amp;traxui=P_MGR');">Help</a>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table></td>
-    </tr>
-  </tbody>
-</table>
-<table border="0" cellpadding="3" cellspacing="1" width="100%">
-  <!-- Performance view table header -->
-  <tbody>
     <tr bgcolor="#E3E3E3">
       <td colspan="2" align="left">&nbsp;<b>Symbol</b></td>
       <td align="center"><b>Last<br />
@@ -73,68 +41,11 @@
         </tbody>
       </table></td>
       <td align="center"><b>Market Val</b></td>
-      <td align="center"><b>Edit</b></td>
     </tr>
-    <tr align="right" bgcolor="#ffffff">
-      <td align="left" height="25" nowrap="nowrap">
-      <b><a href="#" onmouseover="showAltMsg('BAC Apr 21 \'12 $8 Call')" ;="" onmouseout="hideAltMsg()">BAC Apr 21 '12  $8 Call</a></b></td>
-      <td height="25" nowrap="nowrap"><a href="#">Trade</a></td>
-      <td height="25" nowrap="nowrap"><b>0.54</b></td>
-      <td height="25" nowrap="nowrap"><font color="#669900">0.14</font></td>
-      <td height="25" nowrap="nowrap"><font color="#669900">35.00%</font></td>
-      <td height="25" nowrap="nowrap"><font color="#669900">$42.00</font></td>
-      <td height="25" nowrap="nowrap">3</td>
-      <td height="25" nowrap="nowrap">$0.31</td>
-      <td height="25" nowrap="nowrap"><font color="#669900">$43.73</font></td>
-      <td height="25" nowrap="nowrap"><font color="#669900">36.97%</font></td>
-      <td height="25" nowrap="nowrap">$162.00</td>
-      <td height="25" nowrap="nowrap" align="center"><a href="#">Edit</a></td>
-    </tr>
-    <tr align="right" bgcolor="#eaeaea">
-      <td>01/19/2012</td>
-      <!-- here is the grey box in the table -->
-      <td>&nbsp;</td>
-      <!-- here is the grey box in the table -->
-      <td><b>0.54</b></td>
-      <!-- here is the grey box in the table -->
-      <td>0.14</td>
-      <!-- here is the grey box in the table -->
-      <td>35.00%</td>
-      <!-- here is the grey box in the table -->
-      <td>$42.00</td>
-      <!-- here is the grey box in the table -->
-      <td>3</td>
-      <!-- here is the grey box in the table -->
-      <td>$0.31</td>
-      <!-- here is the grey box in the table -->
-      <td>$43.73</td>
-      <!-- here is the grey box in the table -->
-      <td>36.97%</td>
-      <!-- here is the grey box in the table -->
-      <td>$162.00</td>
-      <!-- here is the grey box in the table -->
-      <td align="center"><a href="#">Edit</a></td>
-      <!-- here is the grey box in the table -->
-    </tr>
-    <tr align="right" bgcolor="#eaeaea">
-      <td colspan="2" align="right"><b>Cash</b></td>
-      <td colspan="3" align="left">&nbsp;</td>
-      <td colspan="2" align="right" height="25"><font color="#669900">9.01</font>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td colspan="2" align="left">&nbsp;</td>
-      <td align="right"><font color="#669900">$9.01</font>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr align="right" bgcolor="#CCCCCC">
-      <td colspan="5"><b>Totals</b>&nbsp;</td>
-      <td align="center" bgcolor="#ffffff"><font color="#669900">$42.00</font>&nbsp;</td>
-      <td colspan="2" bgcolor="#ffffff">$118.27&nbsp;</td>
-      <td bgcolor="#ffffff"><font color="#669900">$43.73</font>&nbsp;</td>
-      <td bgcolor="#ffffff"><font color="#669900">36.97%</font>&nbsp;</td>
-      <td bgcolor="#ffffff">$171.01&nbsp;</td>
-      <td bgcolor="#CCCCCC">&nbsp;</td>
-    </tr>
+    
   </tbody>
+  <tbody id="portfolioitems"></tbody>
+  <tbody id="portfoliototal"></tbody>
 </table>
 <table border="0" cellpadding="5" cellspacing="0" width="100%">
   <tbody>
@@ -166,3 +77,84 @@
 </div>
 </div>
 <!--END MAIN CONTENT AREA-->
+
+<!--====== Template ======-->
+<script id="portfolioitemsTmpl" type="text/x-jquery-tmpl">
+
+    <tr align="right" bgcolor="#ffffff">
+      <td align="left" height="25" nowrap="nowrap">
+      <b><a href="javascript:loadSnapshot('{{=tradEntity.ticker}}');" >{{=tradEntity.ticker}}</a></b></td>
+      <td height="25" nowrap="nowrap"><a href="javascript:loadTrade('{{=tradEntity.ticker}}','BUY');">Trade</a></td>
+      <td height="25" nowrap="nowrap" style="text-align:center;"><b>${{=quote.l}}</b></td>
+	{{#if quote.c > 0 }}
+		<td height="25" nowrap="nowrap" style="text-align:center; color: #090">{{=quote.c}}&nbsp;</td>
+		<td height="25" nowrap="nowrap"style="text-align:center; color: #090">{{=quote.cp}}%&nbsp;</td>
+	{{else}}
+		<td height="25" nowrap="nowrap" style="text-align:center; color: #F00">{{=quote.c}}&nbsp;</td>
+		<td height="25" nowrap="nowrap" style="text-align:center; color: #F00">{{=quote.cp}}%&nbsp;</td>
+	{{/if}}
+	
+	{{#if gainer > 0 }}
+		<td height="25" nowrap="nowrap" style="text-align:center; color: #090">{{=gainer}}&nbsp;</td>
+	{{else}}
+		<td height="25" nowrap="nowrap" style="text-align:center; color: #F00">{{=gainer}}&nbsp;</td>
+	{{/if}}
+		
+      <td height="25" nowrap="nowrap" style="text-align:center;">{{=tradEntity.quantity}}</td>
+      <td height="25" nowrap="nowrap" style="text-align:center;">${{=tradEntity.price}}</td>
+	  
+	{{#if totalGainer > 0 }}
+		<td height="25" nowrap="nowrap" style="text-align:center; width:60px; color: #090">{{=totalGainer}}&nbsp;</td>
+		<td height="25" nowrap="nowrap" style="color: #090">{{=totalGainerP}}%&nbsp;</td>
+	{{else}}
+		<td height="25" nowrap="nowrap" style="text-align:center; width:60px; color: #F00">{{=totalGainer}}&nbsp;</td>
+		<td height="25" nowrap="nowrap" style="color: #F00">{{=totalGainerP}}%&nbsp;</td>
+	{{/if}}
+      <td height="25" nowrap="nowrap">${{=paidAmount}}</td>
+    </tr>
+</script>
+
+<!--====== Template ======-->
+<script id="portfoliototalTmpl" type="text/x-jquery-tmpl">
+    <tr align="right" bgcolor="#eaeaea">
+      <td>01/19/2012</td>
+      <!-- here is the grey box in the table -->
+      <td>&nbsp;</td>
+      <!-- here is the grey box in the table -->
+      <td><b>0.54</b></td>
+      <!-- here is the grey box in the table -->
+      <td>0.14</td>
+      <!-- here is the grey box in the table -->
+      <td>35.00%</td>
+      <!-- here is the grey box in the table -->
+      <td>$42.00</td>
+      <!-- here is the grey box in the table -->
+      <td>3</td>
+      <!-- here is the grey box in the table -->
+      <td>$0.31</td>
+      <!-- here is the grey box in the table -->
+      <td>$43.73</td>
+      <!-- here is the grey box in the table -->
+      <td>36.97%</td>
+      <!-- here is the grey box in the table -->
+      <td>$162.00</td>
+      <!-- here is the grey box in the table -->
+    </tr>
+    <tr align="right" bgcolor="#eaeaea">
+      <td colspan="2" align="right"><b>Cash</b></td>
+      <td colspan="3" align="left">&nbsp;</td>
+      <td colspan="2" align="right" height="25"><font color="#669900">9.01</font>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td colspan="2" align="left">&nbsp;</td>
+      <td align="right"><font color="#669900">$9.01</font>&nbsp;</td>
+    </tr>
+    <tr align="right" bgcolor="#CCCCCC">
+      <td colspan="5"><b>Totals</b>&nbsp;</td>
+      <td align="center" bgcolor="#ffffff"><font color="#669900">$42.00</font>&nbsp;</td>
+      <td colspan="2" bgcolor="#ffffff">$118.27&nbsp;</td>
+      <td bgcolor="#ffffff"><font color="#669900">$43.73</font>&nbsp;</td>
+      <td bgcolor="#ffffff"><font color="#669900">36.97%</font>&nbsp;</td>
+      <td bgcolor="#ffffff">$171.01&nbsp;</td>
+    </tr>
+	
+</script>

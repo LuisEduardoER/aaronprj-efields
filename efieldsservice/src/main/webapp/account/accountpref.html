@@ -1,46 +1,73 @@
-
-<!--MAIN CONTENT AREA-->
-
 <div class="content-box-style">
-<span class="pageTitle">Account: </span><span class="pagetitlegrey">Information</span>
-<div id="etContent">
+	<div id="etContent">
+    <div id="companyname">
+        <div class="eq"><h1><span>Account: </span> Information</h1></div>
+  	</div>
+<form id="submitaccountform" method="post" name="submitaccountform">
 
-<form id="submitForm" action="/get-support/submit-ticket.html" method="post" name="submitForm" enctype="multipart/form-data">
-
-<table class="contentpaneopen">
+<table width="880" class="contentpaneopen">
     <tbody><tr>
-            <td><label for="submit_email"><span class="hasTip">Your email</span></label></td>
-            <td><input name="email" id="submit_email" size="40" class="inputbox" type="text"></td>
+            <td width="200"><label for="submit_email"><span class="hasTip">Your email</span></label></td>
+            <td width="240"><input name="email" size="30" class="inputbox" type="text"></td>
+            <td>*Required ---For keep connect with us.</td>
         </tr>
         <tr>
-            <td><label for="submit_name"><span class="hasTip">Your name</span></label></td>
-            <td><input name="name" id="submit_name" size="40" class="inputbox" type="text"></td>
+            <td><label for="userName"><span class="hasTip">Login Name</span></label></td>
+            <td><input name="userName" size="30" class="inputbox" type="text"></td>
+            <td>*Required ---Your login name</td>
         </tr>
         <tr>
-            <td><label for="submit_department"><span class="hasTip">Department</span></label></td>
-            <td><select name="department_id" id="department_id" onchange="rst_show_custom_fields(this.value); rst_show_priority(this.value); rst_show_upload(this.value);"><option value="">Please select the department.</option><option value="3" selected="selected">Tech Support</option></select></td>
+            <td>Password</td>
+            <td><input name="password" size="20" class="inputbox" type="text"></td>
+            <td>*Required</td>
         </tr>
         <tr>
-            <td>Current Employer:</td>
-            <td><input name="employer" id="submit_employer" size="40" class="inputbox" type="text"></td>
+            <td>First Name</td>
+            <td><input name="firstName" size="20" class="inputbox" type="text"></td>
+            <td>*Required</td>
         </tr>
         <tr>
-            <td>Specify Occupation:</td>
-            <td><input name="submit_occupation" id="submit_occupation" size="40" class="inputbox" type="text" /></td>
+            <td>Address</td>
+            <td><input name="address" size="40" class="inputbox" type="text" /></td>
+            <td>&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2" width="100">
-                <button type="submit" name="Submit" class="button">Submit</button>
+            <td>PostCode</td>
+            <td><input name="postCode" size="10" class="inputbox" type="text" /></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>phoneNumber</td>
+            <td><input name="phoneNumber" size="10" class="inputbox" type="text" /></td>
+            <td>&nbsp;</td>
+        </tr>
+    <tr>
+            <td colspan="3">
+                <button type="button" name="Submit" class="button" onclick="registerAccount();">Submit</button>
             </td>
         </tr>
-    </tbody></table>
-    <p>&nbsp;</p>
-    <p>
-    <input name="option" value="com_rsticketspro" type="hidden">
-    <input name="view" value="submit" type="hidden">
+    </tbody>
+    </table>
     <input name="task" value="submit" type="hidden">
     </p>
 </form>
 
+<div style="margin-top:20px; font-family:Verdana; text-align:left; border:1px solid #CCC;background-color:#EEE;" id="etNoticeBox">
+    <div class="to-center-cust-only">
+        <table>
+            <tbody><tr>
+                    <td><img src="images/icon_info_big.gif" align="absmiddle" border="0" height="25" width="25"></td>
+                    <td style="padding-left: 5px;" valign="middle">
+                    <b>For your registration </b>
+                        <br>
+                        Customers after registor success, our system will initial $1,000,000 in your account, for your play have fun.
+                     </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div>
 </div>
 <!-- END: zone -->

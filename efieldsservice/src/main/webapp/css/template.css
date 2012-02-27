@@ -290,7 +290,7 @@ hr.spacer {
 	-khtml-border-radius: 10px / 10px;
 	border-radius: 10px / 10px;
 	
-	background: -moz-linear-gradient(center top , #FFFFFF 0%, #DADADA 100%) repeat scroll 0 0 transparent;
+	/*background: -moz-linear-gradient(center top , #FFFFFF 0%, #DADADA 100%) repeat scroll 0 0 transparent;*/
     border: 1px solid #C1C2C2;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
     color: #000000;

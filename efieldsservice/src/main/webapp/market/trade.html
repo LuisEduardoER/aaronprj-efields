@@ -8,31 +8,25 @@
         <table class="osi-infstn-menu-table" cellpadding="0" cellspacing="0" width="100%">
             <tbody>
                 <tr>
-                <td id="osi-infstn-account-cont" width="300">
-                <div class="osi-infstn-accounts">
-                        <div class="osi-infstn-accounts-selected">Account: 
-                            <a onclick='s_objectID="SClink_2";return this.s_oc?this.s_oc(e):true' href="javascript:void(0);" id="" class="infstn-menu-link singular">
-                                <span style="display:none">6783-3775</span> aaron.xiong</a>
-                        </div>
-                </div>
-                </td>
-                <td class="no-border-right"> Net Account Value: <b>$171.01</b></td>
+                <td id="osi-infstn-account-cont" width="300"><div class="osi-infstn-accounts"><b>Verify your Standard Market Session order</b></div></td>
+                <td class="no-border-right">You are placing a firm order.</td>
                 <td align="right">&nbsp;</td>
                 </tr>
             </tbody>
          </table>
-  </div>
-</div>
+      </div>
+    </div>
 
 <form id="trade-order-form">
 <div id="tradorderinfor"></div>
 <table border="0" cellpadding="4" cellspacing="0" width="100%">
-    <tbody><tr>
-            <td align="left"></td>
-            <td align="right">
-                <input title="" src="images/preview_order_entry_green.gif" tabindex="9" value="preview" alt="Preview Order" class="osi-preview-btn" name="preview" border="0" height="21" type="image" width="115">
-            </td>
-        </tr>
+    <tbody>
+    <tr>
+        <td align="left"></td>
+        <td align="right">
+            <input src="images/preview_order_entry_green.gif" value="preview" alt="Preview Order" class="osi-preview-btn" name="preview" border="0" height="21" type="image" width="115" onclick="previewOrder(this); return false;">
+        </td>
+    </tr>
     </tbody>
  </table>
 
@@ -46,8 +40,7 @@
                     <b>NEW! Trading Enhancement </b>
                         <br>
                         Customers can now place orders Listed stocks at 
-                        prices under $1.00/share with up to 4 decimal places. 
-                        <a onclick='#' href="#">Learn More.</a></td>
+                        prices under $1.00/share with up to 4 decimal places. </td>
                 </tr>
             </tbody>
         </table>
@@ -56,6 +49,17 @@
 
 </div>
 <!--END MAIN CONTENT AREA-->
+<script language="javascript">
+
+	$('#symbolinforload').bind('keypress', function(e) {
+        if(e.keyCode==13){
+			// Enter pressed... do anything here...
+			loadTradeInfor(e.target.value, 'BUY') 
+        }
+	});
+
+
+</script>
 
 <!--====== Template ======-->
 <script id="tradorderinforTmpl" type="text/x-jquery-tmpl">
@@ -65,53 +69,61 @@
         <tbody><tr valign="top">
                 <td class="so-form" valign="top" width="100%">
                     <table cellpadding="0" cellspacing="0">
-                        <tbody><tr align="left" valign="top">
+                        <tbody>
+						<tr align="left" valign="top">
                                 <td><b>Order Type</b>
                                     <br>
-                                    <select style="width:122px" name="transaction" tabindex="1">
+                                    <select style="width:122px" name="orderType" tabindex="1">
                                         <option value="">- -</option>
-                                        <option selected="selected" value="1">Buy</option>
-                                        <option value="2">Sell</option>
+											
+										{{#if orderType == 'BUY' }}
+											<option selected="selected" value="BUY">Buy</option>
+											<option value="SELL">Sell</option>
+										{{else}}
+											<option value="BUY">Buy</option>
+											<option selected="selected" value="SELL">Sell</option>
+										{{/if}}
                                     </select>
                                 </td>
                                 <td>
                                     <b>Quantity</b>
                                     <br>
-                                    <input tabindex="2" value="100" class="osi-text-input" name="quantity" type="text"></td>
+                                    <input tabindex="2" class="osi-text-input" name="quantity" type="text" value="100"></td>
                                 <td><b>Symbol</b>&nbsp;
-                                    <a onclick='s_objectID="SClink_8";return this.s_oc?this.s_oc(e):true' title="Find Symbol" href="javascript:openFindSymbol();" class="fs-link">
+                                    <a title="Find Symbol" href="javascript:openFindSymbol();" class="fs-link">
                                         <img src="images/find_symbol.gif"></a>
                                     <br>
-                                    <input tabindex="3" value="BCA" class="osi-text-input" name="symbol" type="text">
+                                    <input id="symbolinforload" tabindex="3" value="{{=t}}" class="osi-text-input" name="symbol" type="text">
+                                    <input value="{{=name}} ({{=t}})" name="symbolinfor" type="hidden">
                                 </td>
                             </tr>
-                        </tbody></table>
+                        </tbody>
+					</table>
                     <br class="smbr">
                     <table cellpadding="0" cellspacing="0">
-                        <tbody><tr>
+                        <tbody>
+						<tr>
                                 <td valign="top"><b>Price Type</b>
                                     <br>
                                     <select style="width:122px" name="priceType" tabindex="4">
                                         <option value="0">- -</option>
-                                        <option selected="selected" value="1">Market</option>
-                                        <option value="2">Limit</option>
+                                        <option selected="selected" value="MARKET">Market</option>
+                                        <option value="LIMIT">Limit</option>
                                     </select>
                                 </td>
-                                <td style="display: none;" class="osi-price-entry" valign="top"><b class="osi-price-label"></b>
+                                <td class="osi-price-entry" valign="top"><b>Limit Price</b><br>
                                     <div>
-                                        <input tabindex="5" class="osi-text-input" name="tempPrice" type="text">
+                                        <input tabindex="5" class="osi-text-input" name="price" type="text" value="{{=l}}">
                                     </div>
-                                </td><td style="display: none;" class="osi-price2-entry" valign="top"><b class="osi-price2-label"></b>
-                                    <div>
-                                        <input tabindex="6" class="osi-text-input" name="" type="text">
-                                    </div>
-                                </td><td valign="top">
+                                </td>
+								<td valign="top">
                                     <div style="" class="so-term-cont1">
                                         <div class="so-term-group"></div>
                                     </div>
                                 </td>
                             </tr>
-                        </tbody></table>
+                        </tbody>
+						</table>
                     <br class="smbr">
                 </td>
                 <td valign="top">
@@ -123,34 +135,51 @@
                                         <tbody><tr>
                                                 <td width="100%">
                                                     <div class="qw-title-cont">
-                                                        <div style="display: block;" title="CORPBANCA SPONSORED ADR" class="qw-title">CORPBANCA SPONSORED ADR</div>
+                                                        <div style="display: block;" title="{{=name}}" class="qw-title">{{=name}}</div>
                                                     </div>
-                                                </td><td><a style="visibility: visible;" onclick='s_objectID="https://us.etrade.com/e/t/invest/socreateentry#_13";return this.s_oc?this.s_oc(e):true' href="#" class="qw-refresh">
-                                                        <img src="images/qw-refresh.gif"></a></td>
+                                                </td>
+												<td><a style="visibility: visible;" onclick='' href="#" class="qw-refresh">
+                                                        <img src="images/qw-refresh.gif">
+													</a>
+												</td>
                                             </tr>
                                         </tbody></table>
                                 </div>
                                 <div style="display: block;" class="qw-inner-cont">
                                     <div class="qw-price-cont change-up">
-                                        <div class="qw-price">23.08&nbsp;&nbsp;<span class="qw-change-up">+0.37&nbsp;&nbsp;(+1.63%)</span></div>
+                                        <div class="qw-price">{{=l}}&nbsp;&nbsp;
+										{{#if c > 0 }}
+											<span class="qw-change-up">{{=c}}&nbsp;&nbsp;({{=cp}}%)</span>
+										{{else}}
+											<span class="qw-change-down">{{=c}}&nbsp;&nbsp;({{=cp}}%)</span>
+										{{/if}}
+										
+										</div>
                                     </div>
                                     <div style="display: none;" class="qw-error">
                                         <table cellpadding="0" cellspacing="0" width="100%">
-                                            <tbody><tr>
-                                                    <td><img src="images/i_alert2_big.gif"></td><td class="qw-error-copy">You have entered an invalid symbol. Would you like to do a <a href="javascript:openFindSymbol(0);">symbol search</a>?</td>
+                                            <tbody>
+											<tr>
+												<td><img src="images/i_alert2_big.gif"></td>
+												<td class="qw-error-copy">You have entered an invalid symbol. Would you like to do a <a href="javascript:openFindSymbol(0);">symbol search</a>?</td>
                                                 </tr>
-                                            </tbody></table>
+                                            </tbody>
+										</table>
                                     </div>
                                     <table style="display: table;" class="qw-table" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                        <tbody><tr>
-                                                <th class="qw-bid-th"><b>Bid (Size)</b>
-                                        <div class="qw-bid">21.61 (0)</div>
-                                        </th><td><b>Ask (Size)</b>
-                                            <div class="qw-ask">24.00 (0)</div>
-                                        </td><th><b>Volume</b>
-                                        <div class="qw-vol">88,759</div>
-                                        </th><td><b>Prev. Close</b>
-                                            <div class="qw-prv">22.71</div>
+                                        <tbody>
+										<tr>
+										<th class="qw-bid-th"><b>Low</b>
+                                        <div class="qw-bid">{{=lo}}</div>
+                                        </th>
+										<td><b>High</b>
+                                            <div class="qw-ask">{{=hi}}</div>
+                                        </td>
+										<th><b>Volume</b>
+                                        <div class="qw-vol">{{=vo}}</div>
+                                        </th>
+										<td><b>Prev. Close</b>
+                                            <div class="qw-prv">{{=l_cur}}</div>
                                         </td>
                                         </tr>
                                         </tbody></table>
@@ -158,7 +187,7 @@
                                 <div class="qw-footer">
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                         <tbody><tr>
-                                                <td class="qw-freq">Closing Price</td><td class="qw-time" align="right">2/3/12 4:00:00 PM ET</td>
+                                                <td class="qw-freq">Price on</td><td class="qw-time" align="right">{{=lt}}</td>
                                             </tr>
                                         </tbody></table>
                                 </div>
@@ -172,26 +201,9 @@
 </div>
 
 <div style="height: 42px;" class="osi-summary-cont">
-    <div class="osi-summary">Buy 100 share(s) <span class="summary-symbol">BCA</span> at  Market</div>
+    <div class="osi-summary">Buy the share(s) <span class="summary-symbol">{{=t}}</span> at  Market</div>
     <img src="images/summary-arrow.gif" class="osi-summary-arrow">
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
