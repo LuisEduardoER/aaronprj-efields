@@ -1,142 +1,190 @@
 package com.aaronprj.efields.dataservice;
 
-import java.text.DecimalFormat;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import com.aaronprj.common.enums.ExchangeType;
 import com.aaronprj.common.enums.TickerClassType;
-import com.aaronprj.common.utils.CommonEntityManager;
-import com.aaronprj.common.utils.SystemInitializeUtil;
-import com.aaronprj.entities.efields.Account;
-import com.aaronprj.entities.efields.QuoteFeed;
+import com.aaronprj.common.utils.NumberUtil;
+import com.aaronprj.common.utils.ParseCSVFile;
 import com.aaronprj.entities.efields.Ticker;
-import com.aaronprj.entities.efields.User;
 
 public class DataFactory {
 
 	private static ScheduledExecutorService scheduler;
-	
-	private static ConcurrentHashMap<String,String> onlineMemberKeys = new ConcurrentHashMap<String,String>();
-	private static ConcurrentHashMap<String,Account> onlineMembers = new ConcurrentHashMap<String,Account>();
-	
-	private static ConcurrentHashMap<String,Ticker> maptickers = new ConcurrentHashMap<String,Ticker>();
-	
-	private static ConcurrentHashMap<TickerClassType,List<Ticker>> topMarkets = new ConcurrentHashMap<TickerClassType,List<Ticker>>();
 
-	private static ConcurrentHashMap<String,QuoteFeed> quoteFeeds = new ConcurrentHashMap<String,QuoteFeed>();
-	
-	private static DecimalFormat decimalFormat = new DecimalFormat("#.0000");
+	private static ConcurrentHashMap<String,Ticker> maptickers = new ConcurrentHashMap<String,Ticker>();
+
+	private static ConcurrentHashMap<TickerClassType,List<Ticker>> amexTopMarkets = new ConcurrentHashMap<TickerClassType,List<Ticker>>();
+	private static ConcurrentHashMap<TickerClassType,List<Ticker>> nasdaqTopMarkets = new ConcurrentHashMap<TickerClassType,List<Ticker>>();
+	private static ConcurrentHashMap<TickerClassType,List<Ticker>> nyseTopMarkets = new ConcurrentHashMap<TickerClassType,List<Ticker>>();
+
 
 	public static void initDataFactory(){
 
 		System.out.println("initDataFactory...");
-		long vtiming = 100;
+		long vInitialDelayTiming = 1;
+		long vDelayTiming = 60;
 		scheduler = Executors.newScheduledThreadPool(1);
 		scheduler.scheduleWithFixedDelay(new Runnable() {
+
 			public void run() {
-				try {
-
-					System.out.println("DataFactory initTickers...");
-					//Date b = new Date();
-					SystemInitializeUtil.initTickers();
-					
-					maptickers.clear();
-					topMarkets.clear();
-					refreshingChanges();
-					
-					//LOG.info("--- refreshDataVersion() taked......" + ((new Date()).getTime() - b.getTime()));
-				} catch (Exception ex) {
-					System.out.println(ex.getMessage());
-				}
+				retreiveExchangeData();
+				
 			}
-		}, vtiming, vtiming, TimeUnit.MINUTES);
+		}, vInitialDelayTiming, vDelayTiming, TimeUnit.MINUTES);
 		
 		
 	}
 	
-	public static boolean addQuoteFeed(QuoteFeed qf){
-		
-		quoteFeeds.put(qf.getT(), qf);
-		
-		return false;
+	public static void retreiveExchangeData(){
+			try {
+				
+
+				maptickers.clear();
+
+				System.out.println("DataFactory retreiveExchangeData...");
+
+
+				//http://www.finviz.com/export.ashx?v=111&f=exch_amex
+				//http://www.finviz.com/export.ashx?v=111&f=exch_nasd
+				//http://www.finviz.com/export.ashx?v=111&f=exch_nyse
+		        URL url = new URL("http://www.finviz.com/export.ashx?v=111&f=exch_amex");
+		        InputStream is = url.openStream();
+				System.out.println(ExchangeType.AMEX.toString() + " Online File Loaded:"+(new Date()).toString());
+				List<Ticker> tickers = ParseCSVFile.parseOnlineCSVTicker(is, ExchangeType.AMEX);
+				System.out.println("Online File Readed:"+(new Date()).toString());
+
+				refreshingChanges(tickers, ExchangeType.AMEX);
+				url = null;
+				is = null;
+				
+				
+				url = new URL("http://www.finviz.com/export.ashx?v=111&f=exch_nasd");
+		        is = url.openStream();
+				System.out.println(ExchangeType.NASDAQ.toString() + " Online File Loaded:"+(new Date()).toString());
+				tickers = ParseCSVFile.parseOnlineCSVTicker(is, ExchangeType.NASDAQ);
+				System.out.println("Online File Readed:"+(new Date()).toString());
+
+				refreshingChanges(tickers, ExchangeType.NASDAQ);
+				url = null;
+				is = null;
+				
+				url = new URL("http://www.finviz.com/export.ashx?v=111&f=exch_nyse");
+		        is = url.openStream();
+				System.out.println(ExchangeType.NYSE.toString() + " Online File Loaded:"+(new Date()).toString());
+				tickers = ParseCSVFile.parseOnlineCSVTicker(is, ExchangeType.NYSE);
+				System.out.println("Online File Readed:"+(new Date()).toString());
+
+				refreshingChanges(tickers, ExchangeType.NYSE);
+				url = null;
+				is = null;
+				
+				//topMarkets.clear();
+				
+				//LOG.info("--- refreshDataVersion() taked......" + ((new Date()).getTime() - b.getTime()));
+			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
+			}
 	}
 	
-	public static void addOnlineMember(String sessionId,Account account){
+	public static void refreshingChanges(List<Ticker> tickers, ExchangeType exchangeType){
 
-		String osessionId = onlineMemberKeys.get(account.getAccountCode());
-		if(null != osessionId){
-			onlineMemberKeys.remove(account.getAccountCode());
-			onlineMembers.remove(osessionId);
-		}
-		//update sessionid and account
-		onlineMemberKeys.put(account.getAccountCode(),sessionId);
-		onlineMembers.put(sessionId, account);
-	}
-	public static Account getAccount(String sessionId){
-		Account account = onlineMembers.get(sessionId);
-		if(null == account){
-			User u = new User();
-			u.setSessionId(sessionId);
-			u = (User)CommonEntityManager.getEntityByExample(u);
-			if(null == u){
-				return null;
-			}
-			account = new Account();
-			account.setUser(u);
-			final Account qaccount = (Account) CommonEntityManager.getEntityByExample(account);
-			if(null == qaccount){
-				return null;
-			}
-			onlineMembers.put(sessionId, qaccount);
-
-		}
-		return account;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public static void refreshingChanges(){
-
-    	List<Ticker> tickers =  (List<Ticker>) CommonEntityManager.getAllEntities(Ticker.class);
-    	
 		List<Ticker> topactives = new ArrayList<Ticker>();
 		List<Ticker> topgainers = new ArrayList<Ticker>();
 		List<Ticker> toplosers = new ArrayList<Ticker>();
 		List<Ticker> topgainermoneys = new ArrayList<Ticker>();
 		List<Ticker> toplosermoneys = new ArrayList<Ticker>();
-	
-		for(Ticker ticker:tickers){
+		
+		try {
+			for(Ticker ticker:tickers){
 
-			if(null != ticker.getChange() && null != ticker.getPrice()){
-				Double changePercentage = Double.parseDouble(ticker.getChange().trim().replaceAll("%", ""))/100; 
-				Double changeValue = ticker.getPrice() /(1- changePercentage) - ticker.getPrice(); 
+				if(null != ticker.getChange() && !"".equals(ticker.getChange()) && null != ticker.getPrice()){
+					try {
+						Double changePercentage = Double.parseDouble(ticker.getChange().trim().replaceAll("%", ""))/100; 
+						Double changeValue = ticker.getPrice() /(1- changePercentage) - ticker.getPrice(); 
 
-				ticker.setValueChange(decimalFormat(changeValue));
-				ticker.setPercentageChange(decimalFormat(changePercentage));
+						ticker.setValueChange(NumberUtil.format4Decimal(changeValue));
+						ticker.setPercentageChange(NumberUtil.format4Decimal(changePercentage));
+						
+					} catch (Exception e) {
+						System.out.println("Exception on:"+ticker.getTicker() + "["+ticker.getChange() + ","+ ticker.getPrice()+"]");
+						e.printStackTrace();
+					}
+				}else{
+					ticker.setValueChange((double) 0);
+					ticker.setPercentageChange((double) 0);
+				}
+				
+				try {
+					insertObj(ticker, topactives, TickerClassType.ACTIVES);
+					insertObj(ticker, topgainers, TickerClassType.GAINERS);
+					insertObj(ticker, toplosers, TickerClassType.LOSERS);
+					insertObj(ticker, topgainermoneys, TickerClassType.GAINERMONEY);
+					insertObj(ticker, toplosermoneys, TickerClassType.LOSERMONEY);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+
+				maptickers.put(ticker.getTicker(), ticker);
+				
 			}
-			
-			insertObj(ticker, topactives, TickerClassType.ACTIVES);
-			insertObj(ticker, topgainers, TickerClassType.GAINERS);
-			insertObj(ticker, toplosers, TickerClassType.LOSERS);
-			insertObj(ticker, topgainermoneys, TickerClassType.GAINERMONEY);
-			insertObj(ticker, toplosermoneys, TickerClassType.LOSERMONEY);
-			
 
-			maptickers.put(ticker.getTicker(), ticker);
+			switch (exchangeType) {
+				case AMEX :
+					amexTopMarkets.clear();
+					
+					amexTopMarkets.put(TickerClassType.ACTIVES, topactives);
+					amexTopMarkets.put(TickerClassType.GAINERS, topgainers);
+					amexTopMarkets.put(TickerClassType.LOSERS, toplosers);
+					amexTopMarkets.put(TickerClassType.GAINERMONEY, topgainermoneys);
+					amexTopMarkets.put(TickerClassType.LOSERMONEY, toplosermoneys);
+					break;
+				case NASDAQ:
+					nasdaqTopMarkets.clear();
+					
+					nasdaqTopMarkets.put(TickerClassType.ACTIVES, topactives);
+					nasdaqTopMarkets.put(TickerClassType.GAINERS, topgainers);
+					nasdaqTopMarkets.put(TickerClassType.LOSERS, toplosers);
+					nasdaqTopMarkets.put(TickerClassType.GAINERMONEY, topgainermoneys);
+					nasdaqTopMarkets.put(TickerClassType.LOSERMONEY, toplosermoneys);
+					
+					break;
+				case NYSE:
+					nyseTopMarkets.clear();
+					
+					nyseTopMarkets.put(TickerClassType.ACTIVES, topactives);
+					nyseTopMarkets.put(TickerClassType.GAINERS, topgainers);
+					nyseTopMarkets.put(TickerClassType.LOSERS, toplosers);
+					nyseTopMarkets.put(TickerClassType.GAINERMONEY, topgainermoneys);
+					nyseTopMarkets.put(TickerClassType.LOSERMONEY, toplosermoneys);
+
+					break;
+				default:
+					break;
 			
+			}
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
-		topMarkets.put(TickerClassType.ACTIVES, topactives);
-		topMarkets.put(TickerClassType.GAINERS, topgainers);
-		topMarkets.put(TickerClassType.LOSERS, toplosers);
-		topMarkets.put(TickerClassType.GAINERMONEY, topgainermoneys);
-		topMarkets.put(TickerClassType.LOSERMONEY, toplosermoneys);
+		
 	}
 	
 	private static void insertObj(Ticker ticker, List<Ticker> topTickers, TickerClassType classType){
 
+		
+		
 		if(topTickers.size() == 0){
 			topTickers.add(ticker);
 		}else{
@@ -167,13 +215,16 @@ public class DataFactory {
 		
 		if(TickerClassType.ACTIVES.equals(classType) && null != ticker.getVolume()){
 			isInsert = ticker.getVolume().compareTo(topticker.getVolume()) > 0;
-		}else if(null != ticker.getChange()){ 
+		}else if(null != ticker.getPercentageChange() && null != topticker.getPercentageChange()){ 
 			
 			if(TickerClassType.GAINERS.equals(classType)){
 				isInsert = ticker.getPercentageChange().compareTo(topticker.getPercentageChange()) > 0;
 			}else if(TickerClassType.LOSERS.equals(classType)){
 				isInsert = ticker.getPercentageChange().compareTo(topticker.getPercentageChange()) < 0;
-			}else if(TickerClassType.GAINERMONEY.equals(classType)){
+			}
+		}else if(null != ticker.getValueChange() && null != topticker.getValueChange()){ 
+			
+			if(TickerClassType.GAINERMONEY.equals(classType)){
 				isInsert = ticker.getValueChange().compareTo(topticker.getValueChange()) > 0;
 			}else if(TickerClassType.LOSERMONEY.equals(classType)){
 				isInsert = ticker.getValueChange().compareTo(topticker.getValueChange()) < 0;
@@ -181,15 +232,45 @@ public class DataFactory {
 		}
 		return isInsert;
 	}
-	private static double decimalFormat(double doubleValue){
-		return Double.parseDouble(decimalFormat.format(doubleValue));
-	}
-	
-	public static List<Ticker> getTopTickers(TickerClassType classType){
-		if(topMarkets.isEmpty()){
-			initDataFactory();
+	public static List<Ticker> getTopTickers(ExchangeType exchangeType, TickerClassType classType){
+		switch (exchangeType) {
+			case AMEX :
+				if(amexTopMarkets.isEmpty()){
+					retreiveExchangeData();
+				}
+				return amexTopMarkets.get(classType);
+			case NASDAQ:
+				if(nasdaqTopMarkets.isEmpty()){
+					retreiveExchangeData();
+				}
+				return nasdaqTopMarkets.get(classType);
+			case NYSE:
+				if(nyseTopMarkets.isEmpty()){
+					retreiveExchangeData();
+				}
+				return nyseTopMarkets.get(classType);
+			default:
+				break;
+		
 		}
-		return topMarkets.get(classType);
+		return null;
+	}
+
+	public static List<Ticker> getTickers(String quote){
+		if(maptickers.isEmpty()){
+			retreiveExchangeData();
+		}
+
+		List<Ticker> selectedTickers = new ArrayList<Ticker>();
+		for(Ticker t : maptickers.values()){
+			if(t.getTicker().startsWith(quote)){
+				selectedTickers.add(t);
+			}
+		}
+		
+		Collections.sort(selectedTickers);
+		
+		return selectedTickers;
 	}
 	
 	
