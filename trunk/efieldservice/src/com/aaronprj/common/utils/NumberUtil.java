@@ -1,10 +1,23 @@
 package com.aaronprj.common.utils;
 
+import java.text.DecimalFormat;
+
 /**
  * @author RedSector PTE LTD
  */
 public class NumberUtil {
 
+	
+	public static double format2Decimal(double doubleValue){
+		DecimalFormat format2Decimal = new DecimalFormat("#.00");
+		return Double.parseDouble(format2Decimal.format(doubleValue));
+	}
+
+	public static double format4Decimal(double doubleValue){
+		DecimalFormat format4Decimal = new DecimalFormat("#.0000");
+		return Double.parseDouble(format4Decimal.format(doubleValue));
+	}
+	
 	/**
 	 * Formats floating number to string. Converts 0.25 to "¼", 0.5 fraction to
 	 * "½", 0.75 to "¾", otherwise as per normal.

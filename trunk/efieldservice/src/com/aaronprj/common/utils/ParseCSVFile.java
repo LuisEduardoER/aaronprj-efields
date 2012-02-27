@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import com.aaronprj.common.enums.ExchangeType;
 import com.aaronprj.entities.efields.Ticker;
 
 public class ParseCSVFile {
@@ -46,7 +47,7 @@ public class ParseCSVFile {
 		}
 	}
 
-	public static List<Ticker> parseOnlineCSVTicker(InputStream is, boolean isStoreToDatabase) {
+	public static List<Ticker> parseOnlineCSVTicker(InputStream is, ExchangeType etype) {
 
 		try {
 			
@@ -88,12 +89,17 @@ public class ParseCSVFile {
 
 						if(fields.size() > tokenNumber){
 							// display csv values
-							System.out.println("Token # " + lineNumber +"."+ tokenNumber+", # " + fields.get(tokenNumber) + ", Token : " + fieldtext);
+							//System.out.println("Token # " + lineNumber +"."+ tokenNumber+", # " + fields.get(tokenNumber) + ", Token : " + fieldtext);
 							if(!"-".equals(fieldtext)){
-								ObjectHelper.setStateField(ticker, fields.get(tokenNumber), fieldtext);
+								try {
+									ObjectHelper.setStateField(ticker, fields.get(tokenNumber), fieldtext);
+								} catch (Exception e) {
+									System.out.println("Token # " + lineNumber +"."+ tokenNumber+", # " + fields.get(tokenNumber) + ", Token : " + fieldtext);
+									e.printStackTrace();
+								}
 							}
 						}else{
-							System.out.println("Line # " + lineNumber + ", Token # " + tokenNumber + ", Token : " + fieldtext);
+							System.out.println("Droped Line # " + lineNumber + ", Token # " + tokenNumber + ", Token : " + fieldtext);
 						}
 						
 					}
@@ -101,9 +107,7 @@ public class ParseCSVFile {
 				}
 				
 				if(lineNumber > 0){
-					if(isStoreToDatabase){
-				    	CommonEntityManager.save(ticker);
-					}
+					ticker.setExchangeType(etype);
 					tickers.add(ticker);
 				}
 				
@@ -112,7 +116,10 @@ public class ParseCSVFile {
 				//if(lineNumber > 1800){ return;}
 				lineNumber++;
 			}
-			
+
+	    	//CommonEntityManager.save(tickers);
+
+			System.out.println("Updated tickers# " + tickers.size());
 			return tickers;
 
 		} catch (Exception e) {
