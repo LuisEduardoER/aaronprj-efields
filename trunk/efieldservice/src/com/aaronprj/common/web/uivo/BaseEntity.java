@@ -4,7 +4,7 @@
 package com.aaronprj.common.web.uivo;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 
 
 /**
@@ -21,7 +21,7 @@ public class BaseEntity<T> implements Serializable {
 	private boolean success = true;
 	private String sessionId;
 	private T entity;
-	private List<T> entities;
+	private Collection<T> entities;
 	
 	public int getId() {
 		return id;
@@ -59,10 +59,10 @@ public class BaseEntity<T> implements Serializable {
 	public void setEntity(T entity) {
 		this.entity = entity;
 	}
-	public List<T> getEntities() {
+	public Collection<T> getEntities() {
 		return entities;
 	}
-	public void setEntities(List<T> entities) {
+	public void setEntities(Collection<T> entities) {
 		this.entities = entities;
 	}
 
