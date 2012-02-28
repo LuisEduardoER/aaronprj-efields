@@ -66,6 +66,102 @@ function checklogin(){
 	
 }
 
+
+function loadregisterPage(pageUrl){
+	
+	$('#form-login').slideUp('slow');
+	
+	$('#secondary-highlight-wrapper').hide();
+	$('#body-column').hide();
+	
+	$('#content').load('account/accountpref.html');
+}
+
+function registerAccount(){
+	
+	//$("#submitaccountform").validate();
+	
+	var formdata = $('#submitaccountform').serialize();
+	
+	var formo = serializeObject($('#submitaccountform'));
+	var iserror = false;
+	var errorMsg = "below required fields invalid!<br>";
+	if("" == formo.userName){
+		errorMsg += "  [ Login Name ] "
+		iserror = true;
+	}
+	if("" == formo.password){
+		errorMsg += " [ Password ] "
+		iserror = true;
+	}
+	if("" == formo.email){
+		errorMsg += " [ Email ] "
+		iserror = true;
+	}
+	if(iserror){
+		alert(errorMsg);
+	}else{
+		
+		$.post('resource/account/registor?'+formdata, function(result) {
+			if(result.success == true){
+							
+				$.ajax({
+					type: 'POST',
+					url:"resource/account/login/"+formo.userName+"/"+formo.password,
+					dataType: 'json',
+					success: function(result) {
+						
+						if(result.success == true){
+							userAccount = result.entity;
+							
+							$('#form-login').slideUp('slow');
+							setCookie('cookie_aaron_prj_efields_session', result.sessionId,100);
+							
+							$('#header-wrapper').load('header-menu.html');
+							$('#secondary-highlight-wrapper').hide();
+							$('#body-column').hide();
+						
+							setTimeout(function(){
+								userAccount.netValue = new Number(userAccount.netValue);
+								$('#userinforbar')[0].textContent = "AC:" + userAccount.accountCode + " NV:$" + userAccount.netValue.toFixed(2);
+							
+								var amenu = $('.menuitem')[0];
+								loadWatchList(amenu) ;
+							},600);
+						
+						}else{
+							alert(result.msgCode+"\n"+result.msgDiscription);
+						}
+			
+					},
+					error: function (request, status, error) {
+						alert('Login system unsuccessful.');
+					}
+				});	
+			}else{
+				alert(result.msgCode+"\n"+result.msgDiscription);
+			}
+		});	
+	}
+	
+	
+}
+
+
+function loadAccountInfor(amenu) {
+	
+	menuSwitch(amenu.parentElement.parentElement.parentElement);
+	
+	$('#content').load('account/account.html', function() {
+		
+		var html = $("#accountinforTmpl").render( userAccount );
+		// Insert as HTML
+		$("#accountinfor").html( html );
+	});
+
+}
+
+
 function showMyMessage(){
 		
 	var item = $('#orderdetail');					
@@ -274,16 +370,6 @@ function loadPortfolio(amenu) {
 }
 
 
-function loadAccountInfor(amenu) {
-	
-	menuSwitch(amenu.parentElement.parentElement.parentElement);
-	
-	$('#content').load('account/accountpref.html', function() {
-		
-	});
-
-}
-
 
 function loadOrdersView(amenu) {
 	
@@ -301,6 +387,9 @@ function loadOrdersView(amenu) {
 function loadSupportView(amenu) {
 	
 	menuSwitch(amenu.parentElement.parentElement.parentElement);
+	
+	$('#secondary-highlight-wrapper').hide();
+	$('#body-column').hide();
 	
 	$('#content').load('support/get-support.html', function() {
 	  //alert('Load account/accountpref.html was performed.');

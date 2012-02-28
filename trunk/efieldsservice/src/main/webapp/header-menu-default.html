@@ -15,14 +15,14 @@
                     </p>
                     <p id="form-login-remember">
                         <label for="modlgn_remember">Remember Me</label>
-                        <input id="modlgn_remember" name="remember" class="inputbox" value="yes" alt="Remember Me" type="checkbox">
+                        <input id="modlgn_remember" name="remember" class="inputbox" checked="checked" alt="Remember Me" type="checkbox">
                     </p>
                     <input name="Submit" class="button" value="Login" type="button" onclick="loginsystem()">
                 </fieldset>
                 <ul>
                     <li><a href="#">Forgot your password?</a></li>
                     <li><a href="#">Forgot your username?</a></li>
-                    <li><a onclick="loadAccountInfor(this);">Create an account</a></li>
+                    <li><a onclick="javascript:loadregisterPage(this);">Create an account</a></li>
                 </ul>
 
             </form>
@@ -41,6 +41,7 @@
 </div>
 <div id="secondary-navigation">
     <ul class="menu-nav">
+        <li class="menuitem"><a onclick="javascript:loadregisterPage(this);">Create an account</a></li>
         <li class="parent menuitem"><a href="#"><span>Support</span></a>
             <ul>
                 <li><a onclick="loadLinkedPage('support/faq.html');"><span>FAQ</span></a></li>
