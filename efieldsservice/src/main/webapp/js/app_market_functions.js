@@ -31,7 +31,7 @@ function loginsystem(){
 			
 				setTimeout(function(){
 					userAccount.netValue = new Number(userAccount.netValue);
-					$('#userinforbar')[0].textContent = "Account: " + userAccount.accountCode + " Net Value: " + userAccount.netValue.toFixed(2);
+					$('#userinforbar')[0].textContent = "AC:" + userAccount.accountCode + " NV:$" + userAccount.netValue.toFixed(2);
 				
 					var amenu = $('.menuitem')[0];
 					loadWatchList(amenu) ;
@@ -317,27 +317,35 @@ function previewOrder(){
 	var theamount = new Number(formo.quantity * formo.price); 
 	formo.theamount = theamount.toFixed(2);;
 	
-	//transaction=1&quantity=100&symbol=AAPL&priceType=2&tempPrice=50
-	
-	$('#content').load('market/tradeconfirm.html', function() {
-		$('#presubmitformdata')[0].value = formdata;
+	if(formo.theamount > userAccount.netValue){
+		alert("You don't have efficient money to purchase this order!");
+	}else{
 		
-		// An array renders once for each item (concatenated)
-		var html = $("#tradorderinforTmpl").render( formo );
-		$("#theorderinformation").html( html );
-	
-		$.getJSON('resource/market/quotes/'+formo.symbol, function(data) {
 			
-			var ticker = data.entities[0];
+		//transaction=1&quantity=100&symbol=AAPL&priceType=2&tempPrice=50
+		
+		$('#content').load('market/tradeconfirm.html', function() {
+			$('#presubmitformdata')[0].value = formdata;
 			
 			// An array renders once for each item (concatenated)
-			var html = $("#symbolinformationTmpl").render( ticker );
-			// Insert as HTML
-			$("#symbolinformation").html( html );
-		});	
-	
+			var html = $("#tradorderinforTmpl").render( formo );
+			$("#theorderinformation").html( html );
 		
-	});
+			$.getJSON('resource/market/quotes/'+formo.symbol, function(data) {
+				
+				var ticker = data.entities[0];
+				
+				// An array renders once for each item (concatenated)
+				var html = $("#symbolinformationTmpl").render( ticker );
+				// Insert as HTML
+				$("#symbolinformation").html( html );
+			});	
+		
+			
+		});
+		
+	}
+	
 
 }
 
@@ -364,9 +372,24 @@ function placeOrder(){
 			if(result.success == true){
 				
 			
+				setTimeout(function(){
+		
+					checklogin();
+					
+					setTimeout(function(){
+			
+						$('#content').load('account/vieworders.html', function() {
+						
+							// An array renders once for each item (concatenated)
+							var html = $("#orderitemsTmpl").render( userAccount.tradingOrders );
+							$("#orderitems").html( html );
+						});
+					},600);
+				},600);
 			}else{
 				alert(result.msgCode+"\n"+result.msgDiscription);
 			}
+			
 
 		},
 		error: function (request, status, error) {
@@ -374,40 +397,23 @@ function placeOrder(){
 		}
 	});	
 	
-	checklogin();
-	
-	$('#content').load('account/vieworders.html', function() {
-	
-		// An array renders once for each item (concatenated)
-		var html = $("#orderitemsTmpl").render( userAccount.tradingOrders );
-		$("#orderitems").html( html );
-	});
 }
 
 
-
-function refreshTotal(uobj){
-	for(var i=0; i<bookorder.items.length; i++){
-		var itm = bookorder.items[i];
-		if(uobj.id == itm.itemId){
-			bookorder.subtotal -= itm.unitAmount;
-			itm.units = new Number(uobj.value);
-			itm.unitAmount = new Number(itm.price * itm.units); 
-			bookorder.subtotal += itm.unitAmount;
-			bookorder.totalAmount = bookorder.subtotal + bookorder.serviceCharge;
-			
-			//t_subtotal
-			$('#t_subtotal')[0].textContent = bookorder.subtotal.toFixed(2);
-			$('#t_totalAmount')[0].textContent = bookorder.totalAmount.toFixed(2);
-			
-			$('#p_subtotal')[0].value = bookorder.subtotal.toFixed(2);
-			$('#p_totalAmount')[0].value = bookorder.totalAmount.toFixed(2);
-			
-		}
-		
-	}
+function loadLearnPage(amenu){
+	
+	menuSwitch(amenu.parentElement);
+	
+	loadLinkedPage('support/learnhome.html');
 }
 
+function loadLinkedPage(pageUrl){
+	
+	$('#secondary-highlight-wrapper').hide();
+	$('#body-column').hide();
+	
+	$('#content').load(pageUrl);
+}
 
 function loadCommentList(itmId){
 	

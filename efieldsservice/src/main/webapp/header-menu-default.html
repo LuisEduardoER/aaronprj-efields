@@ -36,14 +36,14 @@
 <div id="primary-navigation">
     <ul class="menu">
         <li id="current" class="active menuitem"><a href="index.html"><span>Home</span></a></li>
-        <li class="menuitem"><a href="#"><span>Learn</span></a></li>
+        <li class="menuitem"><a onclick="loadLearnPage(this);"><span>Learn</span></a></li>
     </ul>	
 </div>
 <div id="secondary-navigation">
     <ul class="menu-nav">
         <li class="parent menuitem"><a href="#"><span>Support</span></a>
             <ul>
-                <li><a href="#"><span>FAQ</span></a></li>
+                <li><a onclick="loadLinkedPage('support/faq.html');"><span>FAQ</span></a></li>
                 <li><a onclick="loadSupportView(this);"><span>Get Support</span></a></li>
             </ul>
         </li>
