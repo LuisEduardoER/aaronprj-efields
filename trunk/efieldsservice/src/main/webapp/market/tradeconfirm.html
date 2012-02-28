@@ -1,0 +1,184 @@
+<!--MAIN CONTENT AREA-->
+<div class="content-box-style">
+    <div id="etContent">
+        <div id="companyname">
+            <div class="eq"><h1><span>Enter Order: </span> Preview Order</h1></div>
+        </div>
+        <div id="account-simple-information" class="osi-infstn-menu">
+        </div>
+    </div>
+
+    <!--MAIN CONTENT AREA-->
+    <div id="etContent">
+        <div style="clear:both;"></div>
+        <!--These styles get included in every single page-->
+        <style type="text/css">
+            .borderall{border:1px solid #666666;}
+            .bordertop{border-top:1px dotted #666666;}
+            .borderbot{border-bottom:1px dotted #666666;}
+            .BorderBoth {border-top:1px dotted #666666;border-bottom:1px dotted #666666;padding:8px;font-weight:bold;}
+        </style>
+        <div id="etErrorBox">
+            <table cellpadding="0" width="100%">
+                <tbody><tr>
+                        <td align="left" valign="middle"><img src="images/bi_warningtri_eng.gif" valign="top" align="absmiddle" height="26" width="26"></td>
+                        <td align="left" valign="middle" width="100%">
+                            <!--Error code:9013-->&nbsp;Market orders placed outside of regular 
+                            market hours are subject to greater risk because of price uncertainty at the open.  
+                            To continue, please click on <b>Place Order</b>, otherwise you may click on <b>Cancel</b> or <b>change</b> your order. If you have questions, please get help from our support.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="clear:both"></div>
+        <div style="clear:both;"></div>
+        <div>
+            <div class="voice-bubble-static">
+                <div class="vbs-inner">
+                    <div class="vbs-text">
+                        <b>Verify your Standard Market Session order</b>&nbsp;&nbsp;You are placing a firm order. Click only once to avoid placing multiple orders.
+                    </div>
+                    <img src="images/yellow_down_arrow.gif" class="vbs-down-arrow"></div>
+                <img src="images/vb_corner_l.gif" class="vbs-corner-l">
+                <img src="images/vb_corner_r.gif" class="vbs-corner-r">
+            </div>
+            <div class="osi-order-details">
+                <div class="detail-section-title">
+                    <b>Order Details</b>
+                </div>
+                <br class="smbr">
+          		<table cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                        <tr valign="top">
+                            <td width="70%">
+                                <table style="margin-left: 51px;" class="osi-preview-details" border="0" cellpadding="1" cellspacing="4">
+                                    <tbody id="theorderinformation" title="=====================template the ordered information====================="></tbody>
+                                </table>
+                            </td>
+                            <td width="30%">
+                                <div id="symbolinformation" title="=====================template the ordered symbol information=====================">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pt-section-rule"></div>
+                <br class="smbr">
+                <div style="clear:both;"></div>
+            </div>
+            <br class="smbr">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tbody>
+                	<tr valign="middle">
+                        <td style="font-weight: bold;">
+                            <a onclick='' href=""><img src="images/glob_b_cancelorder_en.gif"></a>
+                        </td>
+                        <td align="right" valign="top">
+                        <input type="hidden" id="presubmitformdata" name="presubmitformdata" value=""  />
+                        <input src="images/b_placeorder_eng.gif" id="trade" value="Trade" name="trade" border="0" height="21" type="image" width="104" onClick="placeOrder(); return false;">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br class="smbr">
+        </div>
+    </div>
+
+</div>
+<!--END MAIN CONTENT AREA-->
+
+<!--FOOTER AREA--><!--END FOOTER AREA-->
+
+<!--====== Template ======-->
+<script id="tradorderinforTmpl" type="text/x-jquery-tmpl">
+
+<tr valign="top">
+    <td align="right">Description:</td><th style="white-space: normal;" align="left">{{=symbolinfor}}</th>
+</tr>
+<tr valign="top">
+    <td align="right">Order Type:</td><th align="left">{{=orderType}}</th>
+</tr>
+<tr valign="top">
+    <td align="right">Price:</td><th align="left">{{=price}}</th>
+</tr>
+<tr valign="top">
+    <td align="right">Shares:</td><th align="left">{{=quantity}}</th>
+</tr>
+<tr valign="top">
+    <td align="right">Price Type</td><th style="white-space: normal;" align="left">{{=priceType}}</th>
+</tr>
+<tr valign="top">
+    <td align="right">Total Cost: </td><th style="white-space: normal;" align="left">${{=theamount}}</th>
+</tr>
+
+</script>
+
+<!--====== Template ======-->
+<script id="symbolinformationTmpl" type="text/x-jquery-tmpl">
+
+<div class="quote-widget">
+	<div class="qw-cont">
+		<div class="qw-header">
+			<table cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+						<td width="100%">
+							<div class="qw-title-cont">
+								<div style="display: block;" title="{{=name}}" class="qw-title">{{=name}}</div>
+							</div>
+						</td>
+						<td><a style="visibility: visible;" onclick='' href="#" class="qw-refresh">
+								<img src="images/qw-refresh.gif">
+							</a>
+						</td>
+					</tr>
+				</tbody></table>
+		</div>
+		<div style="display: block;" class="qw-inner-cont">
+			<div class="qw-price-cont change-up">
+				<div class="qw-price">{{=l}}&nbsp;&nbsp;
+				{{#if c > 0 }}
+					<span class="qw-change-up">{{=c}}&nbsp;&nbsp;({{=cp}}%)</span>
+				{{else}}
+					<span class="qw-change-down">{{=c}}&nbsp;&nbsp;({{=cp}}%)</span>
+				{{/if}}
+				
+				</div>
+			</div>
+			<div style="display: none;" class="qw-error">
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tbody>
+					<tr>
+						<td><img src="images/i_alert2_big.gif"></td>
+						<td class="qw-error-copy">You have entered an invalid symbol. Would you like to do a <a href="javascript:openFindSymbol(0);">symbol search</a>?</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<table style="display: table;" class="qw-table" border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody>
+				<tr>
+				<th class="qw-bid-th"><b>Low</b>
+				<div class="qw-bid">{{=lo}}</div>
+				</th>
+				<td><b>High</b>
+					<div class="qw-ask">{{=hi}}</div>
+				</td>
+				<th><b>Volume</b>
+				<div class="qw-vol">{{=vo}}</div>
+				</th>
+				<td><b>Prev. Close</b>
+					<div class="qw-prv">{{=l_cur}}</div>
+				</td>
+				</tr>
+				</tbody></table>
+		</div>
+		<div class="qw-footer">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+						<td class="qw-freq">Price on</td><td class="qw-time" align="right">{{=lt}}</td>
+					</tr>
+				</tbody></table>
+		</div>
+	</div>
+</div>
+</script>
