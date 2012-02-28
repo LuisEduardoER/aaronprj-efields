@@ -99,7 +99,7 @@ $(document).ready(function(){
 			
 			setTimeout(function(){
 					userAccount.netValue = new Number(userAccount.netValue);
-					$('#userinforbar')[0].textContent = "Account: " + userAccount.accountCode + " Net Value: " + userAccount.netValue.toFixed(2);
+					$('#userinforbar')[0].textContent = "AC:" + userAccount.accountCode + " NV:$" + userAccount.netValue.toFixed(2);
 			
 				var amenu = $('.menuitem')[0];
 				loadWatchList(amenu) ;
