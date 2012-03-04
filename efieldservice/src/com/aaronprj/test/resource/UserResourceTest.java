@@ -8,7 +8,7 @@ import org.junit.Test;
 import com.aaronprj.common.utils.CommonEntityManager;
 import com.aaronprj.common.utils.ObjectHelper;
 import com.aaronprj.common.web.uivo.BaseEntity;
-import com.aaronprj.entities.efields.User;
+import com.aaronprj.entities.efields.Account;
 
 
 public class UserResourceTest extends ResourceTestBase {
@@ -27,14 +27,14 @@ public class UserResourceTest extends ResourceTestBase {
 	@Test
     public void testGetUserAccounts() throws Exception {
 
-    	CommonEntityManager.deleteAll(User.class);
+    	CommonEntityManager.deleteAll(Account.class);
 
-        String responseMsg = webResource.path("user/acts").get(String.class);
+        String responseMsg = webResource.path("account/acts").get(String.class);
 
         System.out.println("1 user ===============================================================================================================");
         System.out.println(""+responseMsg);
         
-        BaseEntity<User> be = toObject(responseMsg, BaseEntity.class);
+        BaseEntity<Account> be = toObject(responseMsg, BaseEntity.class);
         ObjectHelper.toString(be.getEntities());
         
         Assert.assertNotNull("The return object can't be null.", be);
@@ -46,12 +46,12 @@ public class UserResourceTest extends ResourceTestBase {
 	@Test
     public void testLogin() throws Exception {
 
-        String responseMsg = webResource.path("user/login/userName/password").post(String.class);
+        String responseMsg = webResource.path("account/login/userName/password").post(String.class);
 
         System.out.println("1 user ===============================================================================================================");
         System.out.println(""+responseMsg);
 
-        BaseEntity<User> be = toObject(responseMsg, BaseEntity.class);
+        BaseEntity<Account> be = toObject(responseMsg, BaseEntity.class);
         
         ObjectHelper.toString(be);
         

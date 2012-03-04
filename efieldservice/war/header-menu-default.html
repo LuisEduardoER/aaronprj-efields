@@ -15,14 +15,14 @@
                     </p>
                     <p id="form-login-remember">
                         <label for="modlgn_remember">Remember Me</label>
-                        <input id="modlgn_remember" name="remember" class="inputbox" value="yes" alt="Remember Me" type="checkbox">
+                        <input id="modlgn_remember" name="remember" class="inputbox" checked="checked" alt="Remember Me" type="checkbox">
                     </p>
                     <input name="Submit" class="button" value="Login" type="button" onclick="loginsystem()">
                 </fieldset>
                 <ul>
                     <li><a href="#">Forgot your password?</a></li>
                     <li><a href="#">Forgot your username?</a></li>
-                    <li><a href="#">Create an account</a></li>
+                    <li><a onclick="javascript:loadregisterPage(this);">Create an account</a></li>
                 </ul>
 
             </form>
@@ -36,15 +36,16 @@
 <div id="primary-navigation">
     <ul class="menu">
         <li id="current" class="active menuitem"><a href="index.html"><span>Home</span></a></li>
-        <li class="menuitem"><a href="#"><span>Learn</span></a></li>
+        <li class="menuitem"><a onclick="loadLearnPage(this);"><span>Learn</span></a></li>
     </ul>	
 </div>
 <div id="secondary-navigation">
     <ul class="menu-nav">
+        <li class="menuitem"><a onclick="javascript:loadregisterPage(this);">Create an account</a></li>
         <li class="parent menuitem"><a href="#"><span>Support</span></a>
             <ul>
-                <li><a href="#"><span>FAQ</span></a></li>
-                <li><a href="#"><span>Get Support</span></a></li>
+                <li><a onclick="loadLinkedPage('support/faq.html');"><span>FAQ</span></a></li>
+                <li><a onclick="loadSupportView(this);"><span>Get Support</span></a></li>
             </ul>
         </li>
     </ul>	
@@ -66,5 +67,15 @@ $('.connection').children(':first').click(function(){
 			$('#form-login').slideDown('slow');
 	}
 }); 
+
+
+$('#pixsearch_ng_panel input').bind('keypress', function(e) {
+	if(e.keyCode==13){
+		// Enter pressed... do anything here...
+		loadSearchedSymbols(e.target.value);
+	}
+});
+	
+		
 	
 </script>
